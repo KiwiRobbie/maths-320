@@ -1,0 +1,232 @@
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023/Arch Linux)  (format=lualatex 2023.7.17)  1 AUG 2023 08:31
+ restricted system commands enabled.
+ file:line:error style messages enabled.
+**/home/kiwi/Documents/Uni/math-340/a1/m340a1.tex
+(/home/kiwi/Documents/Uni/math-340/a1/m340a1.tex
+LaTeX2e <2022-11-01> patch level 1
+Lua module: luaotfload 2022-10-03 3.23 Lua based OpenType font support
+Lua module: lualibs 2022-10-04 2.75 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2022-10-04 2.75 ConTeXt Lua libraries -- extended collection.
+luaotfload | conf : Root cache directory is "/home/kiwi/.texlive/texmf-var/luatex-cache/generic/names".
+luaotfload | init : Loading fontloader "fontloader-2022-10-03.lua" from kpse-resolved path "/usr/share/texmf-dist/tex/luatex/luaotfload/fontloader-2022-10-03.lua".
+Lua-only attribute luaotfload@noligature = 1
+luaotfload | init : Context OpenType loader version 3.120
+Inserting `luaotfload.node_processor' in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' in `hpack_filter'.
+Inserting `luaotfload.glyph_stream' in `glyph_stream_provider'.
+Inserting `luaotfload.define_font' in `define_font'.
+Lua-only attribute luaotfload_color_attribute = 2
+luaotfload | conf : Root cache directory is "/home/kiwi/.texlive/texmf-var/luatex-cache/generic/names".
+Inserting `luaotfload.harf.strip_prefix' in `find_opentype_file'.
+Inserting `luaotfload.harf.strip_prefix' in `find_truetype_file'.
+Removing  `luaotfload.glyph_stream' from `glyph_stream_provider'.
+Inserting `luaotfload.harf.glyphstream' in `glyph_stream_provider'.
+Inserting `luaotfload.harf.finalize_vlist' in `post_linebreak_filter'.
+Inserting `luaotfload.harf.finalize_hlist' in `hpack_filter'.
+Inserting `luaotfload.cleanup_files' in `wrapup_run'.
+Inserting `luaotfload.harf.finalize_unicode' in `finish_pdffile'.
+Inserting `luaotfload.glyphinfo' in `glyph_info'.
+Lua-only attribute luaotfload.letterspace_done = 3
+Inserting `luaotfload.aux.set_sscale_dimens' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_font_index' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.patch_cambria_domh' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.fixup_fontdata' in `luaotfload.patch_font_unsafe'.
+Inserting `luaotfload.aux.set_capheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_xheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'. L3 programming layer <2023-02-22>
+Inserting `tracingstacklevels' in `input_level_string'. (/usr/share/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
+(/usr/share/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
+luaotfload | db : Font names database loaded from /home/kiwi/.texlive/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz)
+\c@part=\count183
+\c@section=\count184
+\c@subsection=\count185
+\c@subsubsection=\count186
+\c@paragraph=\count187
+\c@subparagraph=\count188
+\c@figure=\count189
+\c@table=\count190
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen139
+) (/usr/share/texmf-dist/tex/latex/opensans/opensans.sty
+Package: opensans 2019/06/20 Style file for Open Sans.
+ (/usr/share/texmf-dist/tex/latex/fontaxes/fontaxes.sty
+Package: fontaxes 2020/07/21 v1.0e Font selection axes
+LaTeX Info: Redefining \upshape on input line 29.
+LaTeX Info: Redefining \itshape on input line 31.
+LaTeX Info: Redefining \slshape on input line 33.
+LaTeX Info: Redefining \swshape on input line 35.
+LaTeX Info: Redefining \scshape on input line 37.
+LaTeX Info: Redefining \sscshape on input line 39.
+LaTeX Info: Redefining \ulcshape on input line 41.
+LaTeX Info: Redefining \textsw on input line 47.
+LaTeX Info: Redefining \textssc on input line 48.
+LaTeX Info: Redefining \textulc on input line 49.
+) (/usr/share/texmf-dist/tex/generic/iftex/ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+ (/usr/share/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+)) (/usr/share/texmf-dist/tex/generic/iftex/ifxetex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+) (/usr/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+ (/usr/share/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/share/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks16
+\XKV@tempa@toks=\toks17
+ (/usr/share/texmf-dist/tex/generic/xkeyval/keyval.tex))
+\XKV@depth=\count191
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)) (/usr/share/texmf-dist/tex/latex/fontspec/fontspec.sty (/usr/share/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (/usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2023-02-22 L3 programming layer (loader) 
+ (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
+File: l3backend-luatex.def 2023-01-16 L3 backend support: PDF output (LuaTeX)
+\l__color_backend_stack_int=\count192
+\l__pdf_internal_box=\box51
+))
+Package: xparse 2023-02-02 L3 Experimental document command parser
+)
+Package: fontspec 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
+Lua module: fontspec 2022/01/15 2.8a Font selection for XeLaTeX and LuaLaTeX (/usr/share/texmf-dist/tex/latex/fontspec/fontspec-luatex.sty
+Package: fontspec-luatex 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
+\l__fontspec_script_int=\count193
+\l__fontspec_language_int=\count194
+\l__fontspec_strnum_int=\count195
+\l__fontspec_tmp_int=\count196
+\l__fontspec_tmpa_int=\count197
+\l__fontspec_tmpb_int=\count198
+\l__fontspec_tmpc_int=\count199
+\l__fontspec_em_int=\count266
+\l__fontspec_emdef_int=\count267
+\l__fontspec_strong_int=\count268
+\l__fontspec_strongdef_int=\count269
+\l__fontspec_tmpa_dim=\dimen140
+\l__fontspec_tmpb_dim=\dimen141
+\l__fontspec_tmpc_dim=\dimen142
+ (/usr/share/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (/usr/share/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+luaotfload | aux : font no 19 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 20 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 21 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 22 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 23 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 24 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 25 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 26 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 27 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 28 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 29 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 30 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 31 (nil) does not define feature smcp for script latn with language dflt
+
+Package fontspec Info: Font family 'opensans-TLF' created for font 'OpenSans'
+(fontspec)             with options
+(fontspec)             [Extension=.ttf,Ligatures={TeX,Common},Scale=1,FontFace={l}{n}{*-Light},FontFace={l}{it}{*-LightItalic},FontFace={lc}{n}{*Condensed-Light},FontFace={lc}{it}{*Condensed-LightItalic},UprightFont={*-Regular},ItalicFont={*-Italic},FontFace={sb}{n}{*-SemiBold},FontFace={sb}{it}{*-SemiBoldItalic},FontFace={b}{n}{*-Bold},FontFace={b}{it}{*-BoldItalic},BoldFont={*-Bold},BoldItalicFont={*-BoldItalic},FontFace={bc}{n}{*Condensed-Bold},FontFace={eb}{n}{*-ExtraBold},FontFace={eb}{it}{*-ExtraBoldItalic},Numbers={Monospaced,Lining},NFSSFamily=opensans-TLF].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - (l/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSans-Light.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+tnum;+lnum;"
+(fontspec)             -  (l/sc) with NFSS spec.: 
+(fontspec)             - (l/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSans-LightItalic.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+tnum;+lnum;"
+(fontspec)             -  (l/scit) with NFSS spec.: 
+(fontspec)             - (lc/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSansCondensed-Light.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+tnum;+lnum;"
+(fontspec)             -  (lc/sc) with NFSS spec.: 
+(fontspec)             - (lc/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSansCondensed-LightItalic.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+tnum;+lnum;"
+(fontspec)             -  (lc/scit) with NFSS spec.: 
+(fontspec)             - (sb/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSans-SemiBold.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+tnum;+lnum;"
+(fontspec)             -  (sb/sc) with NFSS spec.: 
+(fontspec)             - (sb/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSans-SemiBoldItalic.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+tnum;+lnum;"
+(fontspec)             -  (sb/scit) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSans-Bold.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+tnum;+lnum;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSans-BoldItalic.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+tnum;+lnum;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+(fontspec)             - (bc/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSansCondensed-Bold.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+tnum;+lnum;"
+(fontspec)             -  (bc/sc) with NFSS spec.: 
+(fontspec)             - (eb/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSans-ExtraBold.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+tnum;+lnum;"
+(fontspec)             -  (eb/sc) with NFSS spec.: 
+(fontspec)             - (eb/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSans-ExtraBoldItalic.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+tnum;+lnum;"
+(fontspec)             -  (eb/scit) with NFSS spec.: 
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSans-Regular.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+tnum;+lnum;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSans-Italic.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+tnum;+lnum;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 19 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 20 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 21 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 22 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 23 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 24 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 25 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 26 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 27 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 28 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 29 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 30 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 31 (nil) does not define feature smcp for script latn with language dflt
+
+Package fontspec Info: Font family 'opensans-LF' created for font 'OpenSans'
+(fontspec)             with options
+(fontspec)             [Extension=.ttf,Ligatures={TeX,Common},Scale=1,FontFace={l}{n}{*-Light},FontFace={l}{it}{*-LightItalic},FontFace={lc}{n}{*Condensed-Light},FontFace={lc}{it}{*Condensed-LightItalic},UprightFont={*-Regular},ItalicFont={*-Italic},FontFace={sb}{n}{*-SemiBold},FontFace={sb}{it}{*-SemiBoldItalic},FontFace={b}{n}{*-Bold},FontFace={b}{it}{*-BoldItalic},BoldFont={*-Bold},BoldItalicFont={*-BoldItalic},FontFace={bc}{n}{*Condensed-Bold},FontFace={eb}{n}{*-ExtraBold},FontFace={eb}{it}{*-ExtraBoldItalic},Numbers={Proportional,Lining},NFSSFamily=opensans-LF].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - (l/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSans-Light.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+pnum;+lnum;"
+(fontspec)             -  (l/sc) with NFSS spec.: 
+(fontspec)             - (l/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSans-LightItalic.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+pnum;+lnum;"
+(fontspec)             -  (l/scit) with NFSS spec.: 
+(fontspec)             - (lc/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSansCondensed-Light.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+pnum;+lnum;"
+(fontspec)             -  (lc/sc) with NFSS spec.: 
+(fontspec)             - (lc/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSansCondensed-LightItalic.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+pnum;+lnum;"
+(fontspec)             -  (lc/scit) with NFSS spec.: 
+(fontspec)             - (sb/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSans-SemiBold.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+pnum;+lnum;"
+(fontspec)             -  (sb/sc) with NFSS spec.: 
+(fontspec)             - (sb/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSans-SemiBoldItalic.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+pnum;+lnum;"
+(fontspec)             -  (sb/scit) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSans-Bold.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+pnum;+lnum;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSans-BoldItalic.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+pnum;+lnum;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+(fontspec)             - (bc/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSansCondensed-Bold.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+pnum;+lnum;"
+(fontspec)             -  (bc/sc) with NFSS spec.: 
+(fontspec)             - (eb/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSans-ExtraBold.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+pnum;+lnum;"
+(fontspec)             -  (eb/sc) with NFSS spec.: 
+(fontspec)             - (eb/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSans-ExtraBoldItalic.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+pnum;+lnum;"
+(fontspec)             -  (eb/scit) with NFSS spec.: 
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSans-Regular.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+pnum;+lnum;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[OpenSans-Italic.ttf]:mode=node;script=latn;language=dflt;+tlig;+liga;+pnum;+lnum;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+luaotfload
