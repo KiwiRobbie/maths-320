@@ -162,6 +162,212 @@
 
 \end{enumerate}
 
+\def\pp#1#2{\dfrac{\partial#1}{\partial#2}}
+\def\dd#1#2{\dfrac{d#1}{d#2}}
+
+
+\section*{Q2}
+\begin{enumerate}[label=(\alph*)]
+  \item Consider the function $\zeta: \begin{bmatrix}
+            u \\ v
+          \end{bmatrix} \mapsto \begin{bmatrix}
+            x \\ y
+          \end{bmatrix}$. From the definitions given we know:
+        $$
+          \zeta: \begin{bmatrix}
+            u \\v
+          \end{bmatrix} \mapsto \begin{bmatrix}
+            ve^u \\
+            ve^{-u}
+          \end{bmatrix}
+        $$
+        Thus we find that:
+        $$
+          D\zeta = \left[ \begin{array}{c|c}\pp\zeta u& \pp\zeta v\end{array} \right] = \begin{bmatrix}
+            ve^u     & e^u    \\
+            -ve^{-u} & e^{-u} \\
+          \end{bmatrix}
+        $$
+        \textcolor{red}{
+          The columns of $D\zeta$ give us a moving frame of basis vectors, which we normalise to give unit vectors:
+        }
+
+        \begin{minipage}[t]{0.5\textwidth}
+          \begin{align*}
+            e_u & = \frac{     \begin{bmatrix}
+                                 ve^u \\
+                                 -ve^{-u}
+                               \end{bmatrix}}{
+            \sqrt{v^2e^{2u} + v^2e^{-2u}}
+            }                                           \\
+                & = \frac{     \begin{bmatrix}
+                                   e^u \\
+                                   -e^{-u}
+                                 \end{bmatrix}}{
+              \sqrt{e^{2u} + e^{-2u}}
+            }                                           \\
+                & =    \begin{bmatrix}
+                         \sqrt{\frac{e^{2u}}{e^{2u} + e^{-2u}}} \\
+                         -\sqrt{\frac{e^{-2u}}{e^{2u} + e^{-2u}}}
+                       \end{bmatrix}     \\
+                & =    \begin{bmatrix}
+                         \sqrt{\frac{1}{\frac{e^{2u} + e^{-2u}}{e^{2u}}}} \\
+                         -\sqrt{\frac{1}{\frac{e^{2u} + e^{-2u}}{e^{-2u}}}}
+                       \end{bmatrix}    \\
+                & =    \begin{bmatrix}
+                         \frac{1}{\sqrt{1 + e^{-4u}}} \\
+                         \frac{-1}{\sqrt{1 + e^{4u}}}
+                       \end{bmatrix}
+          \end{align*}
+        \end{minipage}\begin{minipage}[t]{0.5\textwidth}
+          \begin{align*}
+            e_v & = \frac{     \begin{bmatrix}
+                                 e^u \\
+                                 e^{-u}
+                               \end{bmatrix}}{
+            \sqrt{e^{2u}+e^{-2u}}
+            }                                           \\
+                & =    \begin{bmatrix}
+                         \sqrt{\frac{e^{2u}}{e^{2u} + e^{-2u}}} \\
+                         \sqrt{\frac{e^{-2u}}{e^{2u} + e^{-2u}}}
+                       \end{bmatrix}    \\
+                & =    \begin{bmatrix}
+                         \sqrt{\frac{1}{\frac{e^{2u} + e^{-2u}}{e^{2u}}}} \\
+                         \sqrt{\frac{1}{\frac{e^{2u} + e^{-2u}}{e^{-2u}}}}
+                       \end{bmatrix}    \\
+                & =    \begin{bmatrix}
+                         \frac{1}{\sqrt{1 + e^{-4u}}} \\
+                         \frac{1}{\sqrt{1 + e^{4u}}}
+                       \end{bmatrix}
+          \end{align*}
+        \end{minipage}
+
+  \item See that:
+        \begin{align*}
+          e_u +e_v & =
+          \begin{bmatrix}
+            \frac{1}{\sqrt{1 + e^{-4u}}} \\
+            \frac{-1}{\sqrt{1 + e^{4u}}}
+          \end{bmatrix}
+          +\begin{bmatrix}
+             \frac{1}{\sqrt{1 + e^{-4u}}} \\
+             \frac{1}{\sqrt{1 + e^{4u}}}
+           \end{bmatrix}                           \\
+                   & =\begin{bmatrix}
+                        \frac{2}{\sqrt{1 + e^{-4u}}} \\
+                        \frac{1-1}{\sqrt{1 + e^{4u}}}
+                      \end{bmatrix}               \\
+                   & =\begin{bmatrix}
+                        \frac{2}{\sqrt{1 + e^{-4u}}} \\
+                        0
+                      \end{bmatrix} = \frac{2}{\sqrt{1 + e^{-4u}}}e_x
+        \end{align*}
+        Now for $e_u-e_v$ we see that:
+        \begin{align*}
+          e_u -e_v & =
+          \begin{bmatrix}
+            \frac{1}{\sqrt{1 + e^{-4u}}} \\
+            \frac{-1}{\sqrt{1 + e^{4u}}}
+          \end{bmatrix}
+          -\begin{bmatrix}
+             \frac{1}{\sqrt{1 + e^{-4u}}} \\
+             \frac{1}{\sqrt{1 + e^{4u}}}
+           \end{bmatrix}                           \\
+                   & =\begin{bmatrix}
+                        \frac{0}{\sqrt{1 + e^{-4u}}} \\
+                        \frac{-1-1}{\sqrt{1 + e^{4u}}}
+                      \end{bmatrix}              \\
+                   & =\begin{bmatrix}
+                        0 \\\frac{-2}{\sqrt{1 + e^{4u}}}
+                      \end{bmatrix} = \frac{-2}{\sqrt{1 + e^{4u}}}e_y
+        \end{align*}
+  \item We find the partial derivatives of the unit vectors:
+        % \begin{align*}
+        %   \pp{e_u}u & = 
+        % \end{align*}
+
+
+        \begin{mdframed}
+          \begin{minipage}[t]{0.5\textwidth}
+            \begin{align*}
+              \pp{e_u}u & = \pp{}u\begin{bmatrix}
+                                    \frac{1}{\sqrt{1 + e^{-4u}}} \\
+                                    \frac{-1}{\sqrt{1 + e^{4u}}}
+                                  \end{bmatrix}                       \\
+                        & = \begin{bmatrix}
+                              \pp{}u\left( 1 + e^{-4u} \right)^{-\frac 12} \\
+                              -\pp{}u\left(1 + e^{4u} \right)^{-\frac 12}
+                            \end{bmatrix}                 \\
+                        & =  \begin{bmatrix}
+                               \frac{-1}2\left( 1+e^{-4u} \right)^{\frac{-3}2}(0-4e^{-4u}) \\
+                               -\frac{-1}2\left( 1+e^{4u} \right)^{\frac{-3}2}(0+4e^{4u})
+                             \end{bmatrix} \\
+                        & =  2\begin{bmatrix}
+                                e^{-4u}\left( 1+e^{-4u} \right)^{\frac{-3}2} \\
+                                e^{4u}\left( 1+e^{4u} \right)^{\frac{-3}2}
+                              \end{bmatrix}
+            \end{align*}
+          \end{minipage}\begin{minipage}[t]{0.5\textwidth}
+            \begin{align*}
+              \pp{e_u}v & = \pp{}v\begin{bmatrix}
+                                    \frac{1}{\sqrt{1 + e^{-4u}}} \\
+                                    \frac{-1}{\sqrt{1 + e^{4u}}}
+                                  \end{bmatrix} \\
+                        & = 0
+            \end{align*}
+          \end{minipage}
+
+          \begin{minipage}[t]{0.5\textwidth}
+            \begin{align*}
+              \pp{e_v}u & = \pp{}u\begin{bmatrix}
+                                    \frac{1}{\sqrt{1 + e^{-4u}}} \\
+                                    \frac{1}{\sqrt{1 + e^{4u}}}
+                                  \end{bmatrix}         \\
+                        & =  2\begin{bmatrix}
+                                e^{-4u}\left( 1+e^{-4u} \right)^{\frac{-3}2} \\
+                                -e^{4u}\left( 1+e^{4u} \right)^{\frac{-3}2}
+                              \end{bmatrix}
+            \end{align*}
+          \end{minipage}\begin{minipage}[t]{0.5\textwidth}
+            \begin{align*}
+              \pp{e_v}v & = \pp{}v\begin{bmatrix}
+                                    \frac{1}{\sqrt{1 + e^{-4u}}} \\
+                                    \frac{1}{\sqrt{1 + e^{4u}}}
+                                  \end{bmatrix} \\
+                        & = 0\end{align*}
+          \end{minipage}
+
+
+
+
+
+
+
+
+
+        \end{mdframed}
+        \begin{align*}
+          R'(t) & = \dd{R(t)}t                                                                                                                                                                                    \\
+                & = \dd{}t\Big[u(t)\cdot e_u(u(t),v(t))  \Big] + \dd{}t\Big[ v(t)\cdot e_v(u(t),v(t)) \Big]                                                                                                       \\
+                & = \left[ u'(t)e_u  +u(t)\cdot\dd{}t\Big[e_u(u(t),v(t))\Big] \right] + \left[   v'(t)e_v +v(t)\cdot\dd{}t\Big[e_v(u(t),v(t))\Big]\right]                                                         \\
+                & = \left[ u'(t)e_u  +u(t)\cdot\Big[u'(t)\cdot \pp {e_u}{u} + v'(t)\cdot \pp{e_u}{v}\Big] \right] + \left[   v'(t)e_v +v(t)\cdot\Big[u'(t)\cdot \pp {e_v}{u} + v'(t)\cdot \pp{e_v}{v}\Big]\right] \\
+        \end{align*}
+
+        e
+
+
+        % \[
+        %   \begin{array}{cc}
+        %     \begin{align*}
+        %       \pp{e_u}u
+        %     \end{align*} & \pp{e_v}u   \\
+        %     \pp{e_u}v      & \pp{e_v}v
+        %   \end{array}
+        % \]
+
+
+\end{enumerate}
+
 
 
 \section*{Q3}
