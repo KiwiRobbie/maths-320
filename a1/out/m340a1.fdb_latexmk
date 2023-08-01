@@ -1,5 +1,5 @@
 # Fdb version 4
-["lualatex"] 1690871060 "/home/kiwi/Documents/Uni/math-340/a1/m340a1.tex" "out/m340a1.pdf" "m340a1" 1690871062 0
+["lualatex"] 1690876329 "/home/kiwi/Documents/Uni/math-340/a1/m340a1.tex" "out/m340a1.pdf" "m340a1" 1690876331 0
   "/home/kiwi/.texlive/texmf-var/luatex-cache/generic/fonts/otl/firamath-regular.luc" 1690755083 240920 9f8676f725b3e74810a09bee88d2e156 ""
   "/home/kiwi/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc" 1689546999 128397 718e42f2234092e1dbc6b3c2c42bc3b1 ""
   "/home/kiwi/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc" 1689546998 127314 a56cd155c3ac2e6519ca99d72b9f0c00 ""
@@ -22,7 +22,7 @@
   "/home/kiwi/.texlive/texmf-var/luatex-cache/generic/fonts/otl/opensanscondensed-lightitalic.luc" 1690755082 99766 13a73946795333c51f41efa4c31de76b ""
   "/home/kiwi/.texlive/texmf-var/luatex-cache/generic/names/luaotfload-lookup-cache.luc" 1690755098 11935 f5bca8e518a5277957a1641eb87350c6 ""
   "/home/kiwi/.texlive/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz" 1677623273 346668 8f87b685c3e7d42619e5c14c56f96ed0 ""
-  "/home/kiwi/Documents/Uni/math-340/a1/m340a1.tex" 1690871060 17493 477d3c5e3a9002563e745b4e70fbe33d ""
+  "/home/kiwi/Documents/Uni/math-340/a1/m340a1.tex" 1690876328 21413 7bbbd2b10662d30bebd5385559c6276d ""
   "/usr/share/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf" 1687799903 179840 bc0416de599a48532457e00d64f6695b ""
   "/usr/share/texmf-dist/fonts/opentype/public/montserrat/Montserrat-Bold.otf" 1687799903 234388 373b1bb1af0fd36999b5027121559d3e ""
   "/usr/share/texmf-dist/fonts/opentype/public/montserrat/Montserrat-Light.otf" 1687799903 227300 2a95153bdf90d95d123692a2512a8b0b ""
@@ -255,9 +255,9 @@
   "/usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload.lua" 1687799903 13565 83bac25a8cf8630acccd6a7f8bb9f791 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1689546923 4483110 adb1e1d04498b9576f1f17c4219c5e03 ""
   "/var/lib/texmf/web2c/luahbtex/lualatex.fmt" 1689546907 11875622 b319ddf2b6512d6755144807807313b8 ""
-  "m340a1.tex" 1690871060 17493 477d3c5e3a9002563e745b4e70fbe33d ""
-  "out/m340a1.aux" 1690871062 625 8740023594a0a9b641b3e62a063d756a "lualatex"
-  "out/m340a1.out" 1690871062 0 d41d8cd98f00b204e9800998ecf8427e "lualatex"
+  "m340a1.tex" 1690876328 21413 7bbbd2b10662d30bebd5385559c6276d ""
+  "out/m340a1.aux" 1690876331 625 8740023594a0a9b641b3e62a063d756a "lualatex"
+  "out/m340a1.out" 1690876331 0 d41d8cd98f00b204e9800998ecf8427e "lualatex"
   (generated)
   "out/m340a1.aux"
   "out/m340a1.log"

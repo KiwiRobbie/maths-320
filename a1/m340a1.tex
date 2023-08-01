@@ -312,11 +312,7 @@
               1+e^{-4u}
               }(e_u+e_v)
               -\frac{e^{4u}}{1+e^{4u}}(e_u-e_v)                                          \\
-                        & =
-              \frac{e_u+e_v}{
-              1+e^{4u}
-              }
-              -\frac{e_u-e_v}{1+e^{-4u}}
+                        & = \frac{e_u+e_v}{1+e^{4u}}-\frac{e_u-e_v}{1+e^{-4u}}
             \end{align*}
           \end{minipage}\begin{minipage}[t]{0.5\textwidth}
             \begin{align*}
@@ -333,17 +329,15 @@
               \pp{e_v}u & = \pp{}u\begin{bmatrix}
                                     \frac{1}{\sqrt{1 + e^{-4u}}} \\
                                     \frac{1}{\sqrt{1 + e^{4u}}}
-                                  \end{bmatrix}         \\
+                                  \end{bmatrix}               \\
                         & =  2\begin{bmatrix}
                                 e^{-4u}\left( 1+e^{-4u} \right)^{\frac{-3}2} \\
                                 -e^{4u}\left( 1+e^{4u} \right)^{\frac{-3}2}
-                              \end{bmatrix} \\
+                              \end{bmatrix}       \\
                         & =
               \frac{e^{-4u}}{1+e^{-4u}}(e_u+e_v)
-              +\frac{e^{4u}}{1+e^{4u}}(e_u-e_v)                            \\
-                        & =
-              \frac{e_u+e_v}{1+e^{4u}}
-              +\frac{e_u-e_v}{1+e^{-4u}}
+              +\frac{e^{4u}}{1+e^{4u}}(e_u-e_v)                                  \\
+                        & = \frac{e_u+e_v}{1+e^{4u}} + \frac{e_u-e_v}{1+e^{-4u}}
             \end{align*}
           \end{minipage}\begin{minipage}[t]{0.5\textwidth}
             \begin{align*}
@@ -380,47 +374,65 @@
           \right)
           % & = fe_u + ge_u
         \end{align*}
-        Where:
-        \begin{align*}
-          f & = u'
-          + uu'\left( \frac{e^{-4u}}{1+e^{-4u}} - \frac{e^{4u}}{1+e^{4u}} \right)
-          + vu'\left(  \frac{e^{-4u}}{1+e^{-4u}} + \frac{e^{4u}}{1+e^{4u}} \right)
-          \\
-            & = u'
-          + \left[ uu' + vu' \right]\frac{e^{-4u}}{1+e^{-4u}}
-          + \left[ vu' - uu' \right]\frac{e^{4u}}{1+e^{4u}}
-          \\
-          g & = v'
-          +  uu'\left( \frac{e^{-4u}}{1+e^{-4u}} + \frac{e^{4u}}{1+e^{4u}} \right)
-          + vu'\left(  \frac{e^{-4u}}{1+e^{-4u}} - \frac{e^{4u}}{1+e^{4u}} \right) \\
-            & = v'
-          + \left[ uu' + vu' \right]\frac{e^{-4u}}{1+e^{-4u}}
-          + \left[ uu'-vu' \right]\frac{e^{4u}}{1+e^{4u}}
-          \\
-        \end{align*}
 
-        \begin{mdframed}
+        % \begin{mdframed}
+        %   \begin{align*}
+        %      & \hphantom{=} \dd{}t\left(\frac{e_u+e_v}{1+e^{4u}} \right)                                                                \\
+        %      & =  \frac{\left(u'\pp{e_u}u + v' \pp{e_u}v+u'\pp{e_v}u + v'\pp{e_v}v\right)(1+e^{4u}) - (e_u+e_v)(4e^{4u})}{(1+e^{4u})^2} \\
+        %      & =  \frac{
+        %     \left(
+        %     u'\left[ \frac{e_u+e_v}{1+e^{4u}}-\frac{e_u-e_v}{1+e^{-4u}} \right]
+        %     + 0+u'\left[\frac{e_u+e_v}{1+e^{4u}} + \frac{e_u-e_v}{1+e^{-4u}}\right]+0
+        %     \right)(1+e^{4u}) - (e_u+e_v)(4e^{4u})
+        %     }{(1+e^{4u})^2}                                                                                                             \\
+        %      & =  \frac{
+        %     2u'
+        %     (e_u+e_v)
+        %     - (e_u+e_v)(4e^{4u})
+        %     }{(1+e^{4u})^2}                                                                                                             \\
+        %      & =  2\frac{(e_u+e_v)\left(u'- 2e^{4u}\right)}{(1+e^{4u})^2}                                                               \\
+        %   \end{align*}
+        %   \begin{align*}
+        %      & \hphantom{=} \dd{}t\left( \frac{e_u-e_v}{1+e^{-4u}} \right)                                                                                                                                                               \\
+        %      & =  \frac{\left(u'\pp{e_u}u  + v'\pp{e_v}v - u'\pp{e_v}u - v'\pp{e_v}v\right)(1+e^{-4u}) -(e_u-e_v)(-4e^{-4u})}{(1+e^{-4u})^2}                                                                                             \\
+        %      & =  \frac{\left( u'\left[ \frac{e_u+e_v}{1+e^{4u}}-\frac{e_u-e_v}{1+e^{-4u}} \right]  +0 - u'\left[\frac{e_u+e_v}{1+e^{4u}} + \frac{e_u-e_v}{1+e^{-4u}}\right] - 0\right)(1+e^{-4u}) -(e_u-e_v)(-4e^{-4u})}{(1+e^{-4u})^2} \\
+        %      & =  \frac{-2u'(e_u-e_v) -(e_u-e_v)(-4e^{-4u})}{(1+e^{-4u})^2}                                                                                                                                                              \\
+        %      & =  \frac{(e_u-e_v) \left( -2u' + 4e^{-4u} \right)}{(1+e^{-4u})^2}                                                                                                                                                         \\
+        %   \end{align*}
+        % \end{mdframed}
 
-          Finding $f'$ and $g'$:
-          \begin{align*}
-            f' & = \dd{}t \left(
-            u'
-            + \left[ uu' + vu' \right]\frac{e^{-4u}}{1+e^{-4u}}
-            + \left[ vu' - uu' \right]\frac{e^{4u}}{1+e^{4u}}
-            \right)                                                                              \\
-               & =   u''                                                                         \\
-               & + \left[ u'u' +uu'' + v'u'+vu'' \right]\frac{e^{-4u}}{1+e^{-4u}}
-            + \left[ uu' + vu' \right]\frac{-4e^{-4u}(1+e^{-4u})+4e^{-4u}e^{-4u}}{(1+e^{-4u})^2} \\
-               & + \left[ v'u' + vu'' - u'u' -uu'' \right]\frac{e^{4u}}{1+e^{4u}}
-            + \left[ vu' - uu' \right]\frac{4e^{4u}(1+e^{4u})-4e^{4u}e^{4u}}{(1+e^{4u})^2}       \\
-               & =   u''                                                                         \\
-               & + \left[ u'u' +uu'' + v'u'+vu'' \right]\frac{e^{-4u}}{1+e^{-4u}}
-            + \left[ uu' + vu' \right]\frac{-4e^{-4u}}{(1+e^{-4u})^2}                            \\
-               & + \left[ v'u' + vu'' - u'u' -uu'' \right]\frac{e^{4u}}{1+e^{4u}}
-            + \left[ vu' - uu' \right]\frac{4e^{4u}}{(1+e^{4u})^2}                               \\
-          \end{align*}
+        % Where:
+        % \begin{align*}
+        %   f & = u'
+        %   + uu'\left( \frac{1}{1+e^{4u}} - \frac{1}{1+e^{-4u}} \right)
+        %   + vu'\left(  \frac{1}{1+e^{4u}} + \frac{1}{1+e^{-4u}} \right)
+        %   \\
+        %     & = u' + \frac{uu' + vu'}{1+e^{4u}} + \frac{vu' - uu'}{1+e^{-4u}}
+        %   \\
+        %   g & = v'
+        %   +  uu'\left( \frac{1}{1+e^{4u}} + \frac{1}{1+e^{-4u}} \right)
+        %   + vu'\left(  \frac{1}{1+e^{4u}} - \frac{1}{1+e^{-4u}} \right)       \\
+        %     & = v'+ \frac{uu' + vu'}{1+e^{4u}}+ \frac{ uu'-vu'}{1+e^{-4u}}
+        %   \\
+        % \end{align*}
 
-        \end{mdframed}
+        % \begin{mdframed}
+
+        %   Finding $f'$ and $g'$:
+        %   \begin{align*}
+        %     f' & = \dd{}t \left(
+        %     u' + \frac{uu' + vu'}{1+e^{4u}} + \frac{vu' - uu'}{1+e^{-4u}}
+        %     \right)                                                                                                                                                                      \\
+        %        & =  u'' + \frac{(u'u' + u'' + v'u' + vu'')(1+e^{4u})-4(uu' + vu')(e^{4u})}{(1+e^{4u})^2} + \frac{(v'u' + vu'' - u'u' - u'')(1+e^{-4u})+4(vu' - uu')(e^{-4u})}{1+e^{-4u}}
+        %   \end{align*}
+
+        %   \begin{align*}
+        %     g' & = \dd{}t \left(
+        %     v'+ \frac{uu' + vu'}{1+e^{4u}}+ \frac{ uu'-vu'}{1+e^{-4u}}
+        %     \right)
+        %   \end{align*}
+
+        % \end{mdframed}
 
 
 
@@ -440,11 +452,54 @@
 
 \section*{Q3}
 \begin{enumerate}[label=(\alph*)]
-  \item A
-  \item The mass of the wire will be given by:
+  \item First we choose $\alpha,\beta$ such for $t\in[0,\frac\pi2]$:
         \begin{align*}
-          m & = \int_0^{\frac{\pi}2}\rho(r(t))dt
+          4 & = (\alpha\cos t)^2 + 2(\beta\sin t)^2  \\
+            & = \alpha^2\cos^2 t  + 2\beta^2\sin^2 t \\
         \end{align*}
+        See that by choosing $\alpha=2$ and $\beta=\sqrt 2$, the equation is satisfied for all $t\in[0,\frac\pi 2]$:
+        \begin{align*}
+          4 & = 2^2 \cos^2t + 2(\sqrt 2)^2\sin^2 t \\
+            & = 4(\cos^2 t+\sin^2 t)               \\
+            & = 4
+        \end{align*}
+        Thus $\set{r(t): t\in [0,\frac \pi2] }\subseteq \set{(x,y)\in\RR^2 : x^2 + 2y^2 = 4 \land x,y\geq0}$.
+
+        % Now for any $(x,y)$ satisfying $x^2+2y^2=4$, 
+
+
+
+        % $\set{x^2+2y^2=4 : \begin{bmatrix}
+        %             x \\y
+        %           \end{bmatrix}=\begin{bmatrix}
+        %             \alpha\cos t \\
+        %             \beta \sin t
+        %           \end{bmatrix}}$
+  \item The mass of the wire will be given by:
+        $$m = \int_0^{\frac{\pi}2}\rho(r(t))\|r'(t)\|dt$$
+        \begin{align*}
+          r'(t)     & = \begin{bmatrix}
+                          -\alpha\sin t \\
+                          \beta \cos t
+                        \end{bmatrix}                           \\
+          \|r'(t)\| & = \sqrt{\alpha^2\sin^2t + \beta^2\cos^2 t} \\
+                    & =\sqrt{4\sin^2t + 2\cos^2 t}
+        \end{align*}
+        Thus:
+
+        \begin{align*}
+          m & = \int_0^{\frac{\pi}2} \left[ 2\sqrt 2\sin t \cos t  \right]\sqrt{4\sin^2t + 2\cos^2 t}\;dt \\
+            & =4 \int_0^{\frac{\pi}2} \left[ \sin t \cos t  \right]\sqrt{\sin^2t + 1 t}\;dt
+        \end{align*}
+        Now let $u(t)=\sin^2t + 1 t$, hence $\frac{du}{dt} = 2\sin t \cos t$, therefore $dt= \frac{du}{2\sin t \cos t}$. Thus:
+        \begin{align*}
+          m & = 4 \int_{u(0)}^{u(\frac{\pi}2)} \left[ \sin t \cos t  \right]\sqrt{u}\frac{du}{2\sin t\cos t } \\
+            & = 2\int_{u(0)}^{u(\frac{\pi}2)}\sqrt{u}\;du                                                     \\
+            & = 2\int_1^2 \sqrt u \; du                                                                       \\
+            & = 2\left[  \frac 23 2^{\frac 32} - \frac 23 1^{\frac 32}             \right]                    \\
+            & = \frac 43 \left( \sqrt{8} - 1 \right)                                                          \\
+        \end{align*}
+
 \end{enumerate}
 
 % When $(a,b,c)$ is on the surface $S$, then the tangent plane at $(a,b,c)$ is:
