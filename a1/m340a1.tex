@@ -155,7 +155,10 @@
 
         % We see that $f(1,2,1)=0$, thus the point is indeed on the surface. We can use the formula given in lectures for the tangent plane to an implicit surface $S$ defined by $f(x,y,z)=0$
   \item \textcolor{red}{MATLAB}
-  \item We are considering a surface defined by a function $f(x,y,z)=0$,
+  \item
+        We are considering a surface defined by a function $f(x,y,z)=0$, evaluating $f(0,0,1)=-9\neq 0$, thus the point does not lie on the surface, and it does not make sense to ask for the tangent plane at this point.
+
+        We could still use $f$ to find a plane at this point from the partial derivatives of $f$, however, this plane is not determined by the surface, it is determined by the choice of implicit function $f$, any plane passing through this point could match this definition by choosing a different $f$ that gives the same surface.
 
 
 
@@ -188,9 +191,7 @@
             -ve^{-u} & e^{-u} \\
           \end{bmatrix}
         $$
-        \textcolor{red}{
-          The columns of $D\zeta$ give us a moving frame of basis vectors, which we normalise to give unit vectors:
-        }
+        The columns of $D\zeta$ give us a moving frame of basis vectors, which we normalise to give unit vectors:
 
         \begin{minipage}[t]{0.5\textwidth}
           \begin{align*}
@@ -305,7 +306,17 @@
                         & =  2\begin{bmatrix}
                                 e^{-4u}\left( 1+e^{-4u} \right)^{\frac{-3}2} \\
                                 e^{4u}\left( 1+e^{4u} \right)^{\frac{-3}2}
-                              \end{bmatrix}
+                              \end{bmatrix}               \\
+                        & =
+              \frac{e^{-4u}}{
+              1+e^{-4u}
+              }(e_u+e_v)
+              -\frac{e^{4u}}{1+e^{4u}}(e_u-e_v)                                          \\
+                        & =
+              \frac{e_u+e_v}{
+              1+e^{4u}
+              }
+              -\frac{e_u-e_v}{1+e^{-4u}}
             \end{align*}
           \end{minipage}\begin{minipage}[t]{0.5\textwidth}
             \begin{align*}
@@ -326,7 +337,13 @@
                         & =  2\begin{bmatrix}
                                 e^{-4u}\left( 1+e^{-4u} \right)^{\frac{-3}2} \\
                                 -e^{4u}\left( 1+e^{4u} \right)^{\frac{-3}2}
-                              \end{bmatrix}
+                              \end{bmatrix} \\
+                        & =
+              \frac{e^{-4u}}{1+e^{-4u}}(e_u+e_v)
+              +\frac{e^{4u}}{1+e^{4u}}(e_u-e_v)                            \\
+                        & =
+              \frac{e_u+e_v}{1+e^{4u}}
+              +\frac{e_u-e_v}{1+e^{-4u}}
             \end{align*}
           \end{minipage}\begin{minipage}[t]{0.5\textwidth}
             \begin{align*}
@@ -336,24 +353,75 @@
                                   \end{bmatrix} \\
                         & = 0\end{align*}
           \end{minipage}
-
-
-
-
-
-
-
-
-
         \end{mdframed}
+
+
+        Finding the velocity in terms of $e_u,e_v$:
         \begin{align*}
           R'(t) & = \dd{R(t)}t                                                                                                                                                                                    \\
                 & = \dd{}t\Big[u(t)\cdot e_u(u(t),v(t))  \Big] + \dd{}t\Big[ v(t)\cdot e_v(u(t),v(t)) \Big]                                                                                                       \\
                 & = \left[ u'(t)e_u  +u(t)\cdot\dd{}t\Big[e_u(u(t),v(t))\Big] \right] + \left[   v'(t)e_v +v(t)\cdot\dd{}t\Big[e_v(u(t),v(t))\Big]\right]                                                         \\
                 & = \left[ u'(t)e_u  +u(t)\cdot\Big[u'(t)\cdot \pp {e_u}{u} + v'(t)\cdot \pp{e_u}{v}\Big] \right] + \left[   v'(t)e_v +v(t)\cdot\Big[u'(t)\cdot \pp {e_v}{u} + v'(t)\cdot \pp{e_v}{v}\Big]\right] \\
+          %       & = \left[ u'e_u  +uu'\left(
+          %   \frac{e_u+e_v}{1+e^{4u}}
+          %   -\frac{e_u-e_v}{1+e^{-4u}}
+          %   \right)\right]
+          % + \left[   v'e_v +vu'\left(
+          %   \frac{e_u+e_v}{1+e^{4u}}
+          %   +\frac{e_u-e_v}{1+e^{-4u}}
+          % \right)\right]                                                                                                                                                                                          \\
+                & =  u'e_u  +uu'\left(
+          \frac{e_u+e_v}{1+e^{4u}}
+          -\frac{e_u-e_v}{1+e^{-4u}}
+          \right)
+          +    v'e_v +vu'\left(
+          \frac{e_u+e_v}{1+e^{4u}}
+          +\frac{e_u-e_v}{1+e^{-4u}}
+          \right)
+          % & = fe_u + ge_u
+        \end{align*}
+        Where:
+        \begin{align*}
+          f & = u'
+          + uu'\left( \frac{e^{-4u}}{1+e^{-4u}} - \frac{e^{4u}}{1+e^{4u}} \right)
+          + vu'\left(  \frac{e^{-4u}}{1+e^{-4u}} + \frac{e^{4u}}{1+e^{4u}} \right)
+          \\
+            & = u'
+          + \left[ uu' + vu' \right]\frac{e^{-4u}}{1+e^{-4u}}
+          + \left[ vu' - uu' \right]\frac{e^{4u}}{1+e^{4u}}
+          \\
+          g & = v'
+          +  uu'\left( \frac{e^{-4u}}{1+e^{-4u}} + \frac{e^{4u}}{1+e^{4u}} \right)
+          + vu'\left(  \frac{e^{-4u}}{1+e^{-4u}} - \frac{e^{4u}}{1+e^{4u}} \right) \\
+            & = v'
+          + \left[ uu' + vu' \right]\frac{e^{-4u}}{1+e^{-4u}}
+          + \left[ uu'-vu' \right]\frac{e^{4u}}{1+e^{4u}}
+          \\
         \end{align*}
 
-        e
+        \begin{mdframed}
+
+          Finding $f'$ and $g'$:
+          \begin{align*}
+            f' & = \dd{}t \left(
+            u'
+            + \left[ uu' + vu' \right]\frac{e^{-4u}}{1+e^{-4u}}
+            + \left[ vu' - uu' \right]\frac{e^{4u}}{1+e^{4u}}
+            \right)                                                                              \\
+               & =   u''                                                                         \\
+               & + \left[ u'u' +uu'' + v'u'+vu'' \right]\frac{e^{-4u}}{1+e^{-4u}}
+            + \left[ uu' + vu' \right]\frac{-4e^{-4u}(1+e^{-4u})+4e^{-4u}e^{-4u}}{(1+e^{-4u})^2} \\
+               & + \left[ v'u' + vu'' - u'u' -uu'' \right]\frac{e^{4u}}{1+e^{4u}}
+            + \left[ vu' - uu' \right]\frac{4e^{4u}(1+e^{4u})-4e^{4u}e^{4u}}{(1+e^{4u})^2}       \\
+               & =   u''                                                                         \\
+               & + \left[ u'u' +uu'' + v'u'+vu'' \right]\frac{e^{-4u}}{1+e^{-4u}}
+            + \left[ uu' + vu' \right]\frac{-4e^{-4u}}{(1+e^{-4u})^2}                            \\
+               & + \left[ v'u' + vu'' - u'u' -uu'' \right]\frac{e^{4u}}{1+e^{4u}}
+            + \left[ vu' - uu' \right]\frac{4e^{4u}}{(1+e^{4u})^2}                               \\
+          \end{align*}
+
+        \end{mdframed}
+
 
 
         % \[
