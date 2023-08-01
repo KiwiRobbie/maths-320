@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023/Arch Linux)  (format=lualatex 2023.7.17)  1 AUG 2023 19:52
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023/Arch Linux)  (format=lualatex 2023.7.17)  1 AUG 2023 21:45
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/home/kiwi/Documents/Uni/math-340/a1/m340a1.tex
@@ -1078,17 +1078,38 @@ Package: titlesec 2021/07/05 v2.14 Sectioning titles
 \titlewidth=\dimen182
 \titlewidthlast=\dimen183
 \titlewidthfirst=\dimen184
-) (/usr/share/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/share/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/share/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks32
-\pgfutil@tempdima=\dimen185
-\pgfutil@tempdimb=\dimen186
-) (/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box60
-) (/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/usr/share/texmf-dist/tex/generic/pgf/pgf.revision.tex)
-Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/share/texmf-dist/tex/latex/matlab-prettifier/matlab-prettifier.sty
+Package: matlab-prettifier 2014/06/19 v0.3 A package for prettyprinting Matlab source code
+ (/usr/share/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count309
+\lst@gtempboxa=\box60
+\lst@token=\toks32
+\lst@length=\count310
+\lst@currlwidth=\dimen185
+\lst@column=\count311
+\lst@pos=\count312
+\lst@lostspace=\dimen186
+\lst@width=\dimen187
+\lst@newlines=\count313
+\lst@lineno=\count314
+\lst@maxwidth=\dimen188
+ (/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count315
+\lst@skipnumbers=\count316
+\lst@framebox=\box61
+) (/usr/share/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
 ))
-Package: pgf 2023-01-15 v3.1.10 (3.1.10)
- (/usr/share/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
+\netBracketCount@mlpr=\count317
+\blkLvl@mlpr=\count318
+\blkLvlAtClassdef@mlpr=\count319
+\emHeight@mlpr=\skip60
+\jayDepth@mlpr=\skip61
+\sectionRuleOffset@mlpr=\skip62
+\toks@mlpr=\toks33
+) (/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
  (/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
@@ -1099,187 +1120,9 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: luatex.def on input line 107.
 )
-\Gin@req@height=\dimen187
-\Gin@req@width=\dimen188
-) (/usr/share/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
-Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
- (/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks33
-\pgfkeys@temptoks=\toks34
- (/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
-\pgfkeys@tmptoks=\toks35
-))
-\pgf@x=\dimen189
-\pgf@y=\dimen190
-\pgf@xa=\dimen191
-\pgf@ya=\dimen192
-\pgf@xb=\dimen193
-\pgf@yb=\dimen194
-\pgf@xc=\dimen195
-\pgf@yc=\dimen196
-\pgf@xd=\dimen197
-\pgf@yd=\dimen198
-\w@pgf@writea=\write3
-\r@pgf@reada=\read2
-\c@pgf@counta=\count309
-\c@pgf@countb=\count310
-\c@pgf@countc=\count311
-\c@pgf@countd=\count312
-\t@pgf@toka=\toks36
-\t@pgf@tokb=\toks37
-\t@pgf@tokc=\toks38
-\pgf@sys@id@count=\count313
- (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
-File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
-)
-Driver file for pgf: pgfsys-luatex.def
- (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-luatex.def
-File: pgfsys-luatex.def 2023-01-15 v3.1.10 (3.1.10)
- (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
-File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
-))) (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
-File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count314
-\pgfsyssoftpath@bigbuffer@items=\count315
-) (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
-File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
-Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
- (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen199
-\pgfmath@count=\count316
-\pgfmath@box=\box61
-\pgfmath@toks=\toks39
-\pgfmath@stack@operand=\toks40
-\pgfmath@stack@operation=\toks41
-) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count317
-)) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
-File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@picminx=\dimen256
-\pgf@picmaxx=\dimen257
-\pgf@picminy=\dimen258
-\pgf@picmaxy=\dimen259
-\pgf@pathminx=\dimen260
-\pgf@pathmaxx=\dimen261
-\pgf@pathminy=\dimen262
-\pgf@pathmaxy=\dimen263
-\pgf@xx=\dimen264
-\pgf@xy=\dimen265
-\pgf@yx=\dimen266
-\pgf@yy=\dimen267
-\pgf@zx=\dimen268
-\pgf@zy=\dimen269
-) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
-File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@path@lastx=\dimen270
-\pgf@path@lasty=\dimen271
-) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
-File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@shorten@end@additional=\dimen272
-\pgf@shorten@start@additional=\dimen273
-) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
-File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfpic=\box62
-\pgf@hbox=\box63
-\pgf@layerbox@main=\box64
-\pgf@picture@serial@count=\count318
-) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
-File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgflinewidth=\dimen274
-) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
-File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@pt@x=\dimen275
-\pgf@pt@y=\dimen276
-\pgf@pt@temp=\dimen277
-) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
-File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
-File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
-File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
-File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowsep=\dimen278
-) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
-File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@max=\dimen279
-\pgf@sys@shading@range@num=\count319
-\pgf@shadingcount=\count320
-) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
-File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
-File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfexternal@startupbox=\box65
-) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
-File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
-File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
-File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
-File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
-File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodeparttextbox=\box66
-) (/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
-File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/share/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
-Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
-\pgf@nodesepstart=\dimen280
-\pgf@nodesepend=\dimen281
-) (/usr/share/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
-Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
-)) (/usr/share/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/usr/share/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/usr/share/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/usr/share/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
-Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
-\pgffor@iter=\dimen282
-\pgffor@skip=\dimen283
-\pgffor@stack=\toks42
-\pgffor@toks=\toks43
-)) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
-Package: tikz 2023-01-15 v3.1.10 (3.1.10)
- (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
-File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count321
-\pgfplotmarksize=\dimen284
-)
-\tikz@lastx=\dimen285
-\tikz@lasty=\dimen286
-\tikz@lastxsaved=\dimen287
-\tikz@lastysaved=\dimen288
-\tikz@lastmovetox=\dimen289
-\tikz@lastmovetoy=\dimen290
-\tikzleveldistance=\dimen291
-\tikzsiblingdistance=\dimen292
-\tikz@figbox=\box67
-\tikz@figbox@bg=\box68
-\tikz@tempbox=\box69
-\tikz@tempbox@bg=\box70
-\tikztreelevel=\count322
-\tikznumberofchildren=\count323
-\tikznumberofcurrentchild=\count324
-\tikz@fig@count=\count325
- (/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
-File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count326
-\pgfmatrixcurrentcolumn=\count327
-\pgf@matrix@numberofcolumns=\count328
-)
-\tikz@expandcount=\count329
- (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
-File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
-File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowinset=\dimen293
-\pgfarrowlength=\dimen294
-\pgfarrowwidth=\dimen295
-\pgfarrowlinewidth=\dimen296
-) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
-File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
- (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
-File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\arrowsize=\dimen297
-)) (/usr/share/texmf-dist/tex/latex/mdframed/mdframed.sty
+\Gin@req@height=\dimen189
+\Gin@req@width=\dimen190
+) (/usr/share/texmf-dist/tex/latex/mdframed/mdframed.sty
 Package: mdframed 2013/07/01 1.9b: mdframed
  (/usr/share/texmf-dist/tex/latex/zref/zref-abspage.sty
 Package: zref-abspage 2022-04-07 v2.34 Module abspage for zref (HO)
@@ -1289,615 +1132,208 @@ Package zref Info: New property list: main on input line 767.
 Package zref Info: New property: default on input line 768.
 Package zref Info: New property: page on input line 769.
 )
-\c@abspage=\count330
+\c@abspage=\count320
 Package zref Info: New property: abspage on input line 65.
 ) (/usr/share/texmf-dist/tex/latex/needspace/needspace.sty
 Package: needspace 2010/09/12 v1.3d reserve vertical space
 )
-\mdf@templength=\skip60
-\c@mdf@globalstyle@cnt=\count331
-\mdf@skipabove@length=\skip61
-\mdf@skipbelow@length=\skip62
-\mdf@leftmargin@length=\skip63
-\mdf@rightmargin@length=\skip64
-\mdf@innerleftmargin@length=\skip65
-\mdf@innerrightmargin@length=\skip66
-\mdf@innertopmargin@length=\skip67
-\mdf@innerbottommargin@length=\skip68
-\mdf@splittopskip@length=\skip69
-\mdf@splitbottomskip@length=\skip70
-\mdf@outermargin@length=\skip71
-\mdf@innermargin@length=\skip72
-\mdf@linewidth@length=\skip73
-\mdf@innerlinewidth@length=\skip74
-\mdf@middlelinewidth@length=\skip75
-\mdf@outerlinewidth@length=\skip76
-\mdf@roundcorner@length=\skip77
-\mdf@footenotedistance@length=\skip78
-\mdf@userdefinedwidth@length=\skip79
-\mdf@needspace@length=\skip80
-\mdf@frametitleaboveskip@length=\skip81
-\mdf@frametitlebelowskip@length=\skip82
-\mdf@frametitlerulewidth@length=\skip83
-\mdf@frametitleleftmargin@length=\skip84
-\mdf@frametitlerightmargin@length=\skip85
-\mdf@shadowsize@length=\skip86
-\mdf@extratopheight@length=\skip87
-\mdf@subtitleabovelinewidth@length=\skip88
-\mdf@subtitlebelowlinewidth@length=\skip89
-\mdf@subtitleaboveskip@length=\skip90
-\mdf@subtitlebelowskip@length=\skip91
-\mdf@subtitleinneraboveskip@length=\skip92
-\mdf@subtitleinnerbelowskip@length=\skip93
-\mdf@subsubtitleabovelinewidth@length=\skip94
-\mdf@subsubtitlebelowlinewidth@length=\skip95
-\mdf@subsubtitleaboveskip@length=\skip96
-\mdf@subsubtitlebelowskip@length=\skip97
-\mdf@subsubtitleinneraboveskip@length=\skip98
-\mdf@subsubtitleinnerbelowskip@length=\skip99
+\mdf@templength=\skip63
+\c@mdf@globalstyle@cnt=\count321
+\mdf@skipabove@length=\skip64
+\mdf@skipbelow@length=\skip65
+\mdf@leftmargin@length=\skip66
+\mdf@rightmargin@length=\skip67
+\mdf@innerleftmargin@length=\skip68
+\mdf@innerrightmargin@length=\skip69
+\mdf@innertopmargin@length=\skip70
+\mdf@innerbottommargin@length=\skip71
+\mdf@splittopskip@length=\skip72
+\mdf@splitbottomskip@length=\skip73
+\mdf@outermargin@length=\skip74
+\mdf@innermargin@length=\skip75
+\mdf@linewidth@length=\skip76
+\mdf@innerlinewidth@length=\skip77
+\mdf@middlelinewidth@length=\skip78
+\mdf@outerlinewidth@length=\skip79
+\mdf@roundcorner@length=\skip80
+\mdf@footenotedistance@length=\skip81
+\mdf@userdefinedwidth@length=\skip82
+\mdf@needspace@length=\skip83
+\mdf@frametitleaboveskip@length=\skip84
+\mdf@frametitlebelowskip@length=\skip85
+\mdf@frametitlerulewidth@length=\skip86
+\mdf@frametitleleftmargin@length=\skip87
+\mdf@frametitlerightmargin@length=\skip88
+\mdf@shadowsize@length=\skip89
+\mdf@extratopheight@length=\skip90
+\mdf@subtitleabovelinewidth@length=\skip91
+\mdf@subtitlebelowlinewidth@length=\skip92
+\mdf@subtitleaboveskip@length=\skip93
+\mdf@subtitlebelowskip@length=\skip94
+\mdf@subtitleinneraboveskip@length=\skip95
+\mdf@subtitleinnerbelowskip@length=\skip96
+\mdf@subsubtitleabovelinewidth@length=\skip97
+\mdf@subsubtitlebelowlinewidth@length=\skip98
+\mdf@subsubtitleaboveskip@length=\skip99
+\mdf@subsubtitlebelowskip@length=\skip100
+\mdf@subsubtitleinneraboveskip@length=\skip101
+\mdf@subsubtitleinnerbelowskip@length=\skip102
  (/usr/share/texmf-dist/tex/latex/mdframed/md-frame-0.mdf
 File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 )
-\mdf@frametitlebox=\box71
-\mdf@footnotebox=\box72
-\mdf@splitbox@one=\box73
-\mdf@splitbox@two=\box74
-\mdf@splitbox@save=\box75
-\mdfsplitboxwidth=\skip100
-\mdfsplitboxtotalwidth=\skip101
-\mdfsplitboxheight=\skip102
-\mdfsplitboxdepth=\skip103
-\mdfsplitboxtotalheight=\skip104
-\mdfframetitleboxwidth=\skip105
-\mdfframetitleboxtotalwidth=\skip106
-\mdfframetitleboxheight=\skip107
-\mdfframetitleboxdepth=\skip108
-\mdfframetitleboxtotalheight=\skip109
-\mdffootnoteboxwidth=\skip110
-\mdffootnoteboxtotalwidth=\skip111
-\mdffootnoteboxheight=\skip112
-\mdffootnoteboxdepth=\skip113
-\mdffootnoteboxtotalheight=\skip114
-\mdftotallinewidth=\skip115
-\mdfboundingboxwidth=\skip116
-\mdfboundingboxtotalwidth=\skip117
-\mdfboundingboxheight=\skip118
-\mdfboundingboxdepth=\skip119
-\mdfboundingboxtotalheight=\skip120
-\mdf@freevspace@length=\skip121
-\mdf@horizontalwidthofbox@length=\skip122
-\mdf@verticalmarginwhole@length=\skip123
-\mdf@horizontalspaceofbox=\skip124
-\mdfsubtitleheight=\skip125
-\mdfsubsubtitleheight=\skip126
-\c@mdfcountframes=\count332
+\mdf@frametitlebox=\box62
+\mdf@footnotebox=\box63
+\mdf@splitbox@one=\box64
+\mdf@splitbox@two=\box65
+\mdf@splitbox@save=\box66
+\mdfsplitboxwidth=\skip103
+\mdfsplitboxtotalwidth=\skip104
+\mdfsplitboxheight=\skip105
+\mdfsplitboxdepth=\skip106
+\mdfsplitboxtotalheight=\skip107
+\mdfframetitleboxwidth=\skip108
+\mdfframetitleboxtotalwidth=\skip109
+\mdfframetitleboxheight=\skip110
+\mdfframetitleboxdepth=\skip111
+\mdfframetitleboxtotalheight=\skip112
+\mdffootnoteboxwidth=\skip113
+\mdffootnoteboxtotalwidth=\skip114
+\mdffootnoteboxheight=\skip115
+\mdffootnoteboxdepth=\skip116
+\mdffootnoteboxtotalheight=\skip117
+\mdftotallinewidth=\skip118
+\mdfboundingboxwidth=\skip119
+\mdfboundingboxtotalwidth=\skip120
+\mdfboundingboxheight=\skip121
+\mdfboundingboxdepth=\skip122
+\mdfboundingboxtotalheight=\skip123
+\mdf@freevspace@length=\skip124
+\mdf@horizontalwidthofbox@length=\skip125
+\mdf@verticalmarginwhole@length=\skip126
+\mdf@horizontalspaceofbox=\skip127
+\mdfsubtitleheight=\skip128
+\mdfsubsubtitleheight=\skip129
+\c@mdfcountframes=\count322
 
 ****** mdframed patching \endmdf@trivlist
 
 ****** -- success******
 
-\mdf@envdepth=\count333
-\c@mdf@env@i=\count334
-\c@mdf@env@ii=\count335
-\c@mdf@zref@counter=\count336
+\mdf@envdepth=\count323
+\c@mdf@env@i=\count324
+\c@mdf@env@ii=\count325
+\c@mdf@zref@counter=\count326
 Package zref Info: New property: mdf@pagevalue on input line 895.
 ) (./out/m340a1.aux)
 \openout1 = m340a1.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 139.
-LaTeX Font Info:    Trying to load font information for LY1+ptm on input line 139.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 106.
+LaTeX Font Info:    Trying to load font information for LY1+ptm on input line 106.
  (/usr/share/texmf-dist/tex/latex/ly1/ly1ptm.fd
 File: ly1ptm.fd 2001/02/01 font definitions for LY1/ptm using Berry names.
 )
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-\c@mv@tabular=\count337
-\c@mv@boldtabular=\count338
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+\c@mv@tabular=\count327
+\c@mv@boldtabular=\count328
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/Montserrat-LF/m/n on input line 139.
+(Font)                  OT1/cmss/m/n --> TU/Montserrat-LF/m/n on input line 106.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/Montserrat-LF/b/n on input line 139.
+(Font)                  OT1/cmss/bx/n --> TU/Montserrat-LF/b/n on input line 106.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 139.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 106.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 139.
-Package hyperref Info: Link coloring OFF on input line 139.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 106.
+Package hyperref Info: Link coloring OFF on input line 106.
  (./out/m340a1.out) (./out/m340a1.out)
-\@outlinefile=\write4
+\@outlinefile=\write3
 
-\openout4 = m340a1.out
+\openout3 = m340a1.out
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
 Package caption Info: scrextend package is loaded.
-\caption@addmargin@hsize=\dimen298
-\caption@addmargin@linewidth=\dimen299
+\caption@addmargin@hsize=\dimen191
+\caption@addmargin@linewidth=\dimen192
 Package caption Info: End \AtBeginDocument code.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count339
-\scratchdimen=\dimen300
-\scratchbox=\box76
-\nofMPsegments=\count340
-\nofMParguments=\count341
-\everyMPshowfont=\toks44
-\MPscratchCnt=\count342
-\MPscratchDim=\dimen301
-\MPnumerator=\count343
-\makeMPintoPDFobject=\count344
-\everyMPtoPDFconversion=\toks45
+\scratchcounter=\count329
+\scratchdimen=\dimen193
+\scratchbox=\box67
+\nofMPsegments=\count330
+\nofMParguments=\count331
+\everyMPshowfont=\toks34
+\MPscratchCnt=\count332
+\MPscratchDim=\dimen194
+\MPnumerator=\count333
+\makeMPintoPDFobject=\count334
+\everyMPtoPDFconversion=\toks35
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Underfull \hbox (badness 10000) detected at line 140
+\c@lstlisting=\count335
+
+Underfull \hbox (badness 10000) detected at line 107
  [] 
  []
 
-
-Overfull \hbox (27.37498pt too wide) in paragraph at lines 196--245
-[][][] 
- []
-
+Package epstopdf Info: Source file: <images/graph.eps>
+(epstopdf)                    date: 2023-08-01 21:18:20
+(epstopdf)                    size: 234505 bytes
+(epstopdf)             Output file: <images/graph-eps-converted-to.pdf>
+(epstopdf)                    date: 2023-08-01 21:18:52
+(epstopdf)                    size: 653258 bytes
+(epstopdf)             Command: <repstopdf --outfile=images/graph-eps-converted-to.pdf images/graph.eps>
+(epstopdf)             \includegraphics on input line 152.
+Package epstopdf Info: Output file is already uptodate.
+<images/graph-eps-converted-to.pdf, id=5, 721.69624pt x 750.805pt>
+File: images/graph-eps-converted-to.pdf Graphic file (type pdf)
+<use images/graph-eps-converted-to.pdf>
+Package luatex.def Info: images/graph-eps-converted-to.pdf  used on input line 152.
+(luatex.def)             Requested size: 318.43315pt x 331.27173pt.
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \vbox (54.66496pt too high) detected at line 350
- []
-
-Package mdframed Info: Box was splittet wrong
- starting loop to iterate the splitting point
-(mdframed)              on input line 350.
-
-Overfull \vbox (55.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (56.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (57.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (58.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (59.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (60.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (61.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (62.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (63.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (64.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (65.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (66.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (67.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (68.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (69.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (70.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (71.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (72.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (73.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (74.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (75.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (76.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (77.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (78.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (79.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (80.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (81.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (82.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (83.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (84.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (85.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (86.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (87.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (88.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (89.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (90.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (91.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (92.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (93.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (94.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (95.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (96.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (97.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (98.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (99.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (100.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (101.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (102.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (103.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (104.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (105.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (106.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (107.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (108.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (109.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (110.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (111.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (112.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (113.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (114.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (115.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (116.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (117.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (118.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (119.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (120.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (121.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (122.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (123.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (124.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (125.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (126.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (127.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (128.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (129.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (130.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (131.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (132.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (133.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (134.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (135.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (136.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (137.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (138.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (139.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (140.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (141.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (142.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (143.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (144.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (145.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (146.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (147.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (148.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (149.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (150.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (151.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (152.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (153.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (154.66496pt too high) detected at line 350
- []
-
-
-Overfull \vbox (155.66496pt too high) detected at line 350
- []
-
-
-Package mdframed Warning: correct box splittet fails
- It seems you are using a non splittable contents
-(mdframed)                 on input line 350.
-
-Package mdframed Info: You first box width is to small
- mdframed fixed it
-(mdframed)              on input line 350.
-[2] [3] [4] (./out/m340a1.aux)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2<./images/graph-eps-converted-to.pdf>] [3] [4] (./out/m340a1.aux)
 Package rerunfilecheck Info: File `m340a1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 )
 
 Here is how much of LuaTeX's memory you used:
- 33184 strings out of 478285
- 100000,1977958 words of node,token memory allocated
- 842 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 35 attribute, 98 glue_spec, 35 attribute_list, 2 write nodes
-   avail lists: 2:1575,3:228,4:81,5:764,6:51,7:5876,8:88,9:3384,10:3,11:174
- 52206 multiletter control sequences out of 65536+600000
- 92 fonts using 17108691 bytes
- 110i,22n,115p,484b,653s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf></usr/share/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf></usr/share/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf></usr/share/texmf-dist/fonts/truetype/ascender/opensans/OpenSans-Regular.ttf></usr/share/texmf-dist/fonts/opentype/public/montserrat/Montserrat-SemiBold.otf></usr/share/texmf-dist/fonts/opentype/public/montserrat/Montserrat-Bold.otf></usr/share/texmf-dist/fonts/opentype/public/montserrat/Montserrat-Light.otf>
-Output written on m340a1.pdf (4 pages, 40084 bytes).
+ 23799 strings out of 478285
+ 381542,1977958 words of node,token memory allocated
+ 835 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 34 attribute, 98 glue_spec, 34 attribute_list, 1 write nodes
+   avail lists: 2:3211,3:433,4:2445,5:8204,6:104,7:13822,8:88,9:16648,10:44,11:1002
+ 43169 multiletter control sequences out of 65536+600000
+ 93 fonts using 17234911 bytes
+ 108i,21n,126p,484b,1128s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></usr/share/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf></usr/share/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf></usr/share/texmf-dist/fonts/truetype/ascender/opensans/OpenSans-Regular.ttf></usr/share/texmf-dist/fonts/opentype/public/montserrat/Montserrat-SemiBold.otf></usr/share/texmf-dist/fonts/opentype/public/montserrat/Montserrat-Bold.otf></usr/share/texmf-dist/fonts/opentype/public/montserrat/Montserrat-Light.otf>
+Output written on m340a1.pdf (4 pages, 700821 bytes).
 
-PDF statistics: 85 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 131072)
- 16 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 121 PDF objects out of 1000 (max. 8388607)
+ 83 compressed objects within 1 object stream
+ 33 named destinations out of 1000 (max. 131072)
+ 1 words of extra memory for PDF output out of 10000 (max. 100000000)
 

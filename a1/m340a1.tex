@@ -67,41 +67,8 @@
 
 
 
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta,arrows}
-\newcommand*{\TickSize}{0}%
-
-\newcommand*{\AxisMin}{0}%
-\newcommand*{\AxisMax}{0}%
-
-
-
-
-\newcommand*{\DrawVerticalPhaseLine}[7][]{%
-    \gdef\AxisMin{#5}%
-    \gdef\AxisMax{#6}%
-    \gdef\TickSize{#7}
-
-
-    \edef\MyList{#2}% Allows for #1 to be both a macro or not
-    \foreach \X in \MyList {
-      \draw  (-\TickSize,\X) -- (\TickSize,\X) node [right] {$#1\;=\X$};
-      % \node [circle, fill:radius 5pt] at (0,\X) {$y=\X$};
-    }
-
-    \edef\MyList{#3}% Allows for #2 to be both a macro or not
-    \foreach \X in \MyList {% Up arrows
-      \draw [-{Latex[length=2mm, width=2mm]}] (0,\X-0.2) -- (0,\X);
-    }
-
-    \edef\MyList{#4}% Allows for #3 to be both a macro or not
-    \foreach \X in \MyList {% Down arrows
-      \draw [-{Latex[length=2mm, width=2mm]}] (0,\X+0.2) -- (0,\X);
-    }
-
-    \draw  (0,\AxisMin) -- (0,\AxisMax) node [above] {#1};
-}%
-
+\usepackage{matlab-prettifier}
+\usepackage{graphicx}
 \usepackage{mdframed}
 
 % Creates coloured title box
@@ -149,12 +116,47 @@
           \frac{\partial f}{ \partial z}(a,b,c)(z-c)         \\
             & = 2a(x-a) + 4b(y-b) - 10c(z-c)                 \\
             & = 2(x-1) + 8(y-2) -10(z-1)                     \\
-            & = 2x - 2 + 8y -16 -10z + 10                    \\
-            & = 2x  + 8y  -10z -8                            \\
+          % & = 2x - 2 + 8y -16 -10z + 10                    \\
+            & = 2x  + 8y  -10z -8
         \end{align*}
 
         % We see that $f(1,2,1)=0$, thus the point is indeed on the surface. We can use the formula given in lectures for the tangent plane to an implicit surface $S$ defined by $f(x,y,z)=0$
-  \item \textcolor{red}{MATLAB}
+  \item MATLAB code for producing plot:
+        \begin{mdframed}[backgroundcolor=black!10]
+          \begin{lstlisting}[style=Matlab-editor]
+syms x y z
+f = x.^2 + 2*y.^2 - 5*z.^2 - 4; % Implicit eq for surface
+x0 = [1;2;1];                   % Point for tangent plane
+
+% Implicit function for tangent plane
+t = subs(jacobian(f, [x, y, z]), [x, y, z], x0.')*([x;y;z]-x0);
+
+% Shadding and colouring
+colormap(bone); lighting gouraud; shading interp;
+fimplicit3(f);  % Plot implicit surface
+hold on         % Overlay both surfaces
+fimplicit3(t);  % Plot the x0 tangent plane (Twice for colouring trick)
+fimplicit3(t, "FaceColor", [0.9, 0.1, 0.1], "FaceAlpha", 0.5); 
+
+% Label the plot
+xlabel('x'); ylabel('y'); zlabel('z');
+title("Surface x^2 + 2y^2 - 5z^2 = 4 with [1 2 1]^T tangent plane")
+view([-238.75 6.89])
+  \end{lstlisting}
+        \end{mdframed}
+        Resulting plot shown in \autoref{fig:plot}.
+
+        \begin{figure}
+          \centering
+          \begin{minipage}[t]{0.6\textwidth}
+            \includegraphics[width=\textwidth]{images/graph.eps}
+            \caption{ Plot of the tangent plane for the point $[1,2,1]^T$ for the surface implicitly defined by $x^2+2y^2-5z^2=4$}
+            \label{fig:plot}
+
+          \end{minipage}
+        \end{figure}
+
+
   \item
         We are considering a surface defined by a function $f(x,y,z)=0$, evaluating $f(0,0,1)=-9\neq 0$, thus the point does not lie on the surface, and it does not make sense to ask for the tangent plane at this point.
 
@@ -193,56 +195,55 @@
         $$
         The columns of $D\zeta$ give us a moving frame of basis vectors, which we normalise to give unit vectors:
 
-        \begin{minipage}[t]{0.5\textwidth}
-          \begin{align*}
-            e_u & = \frac{     \begin{bmatrix}
-                                 ve^u \\
-                                 -ve^{-u}
-                               \end{bmatrix}}{
-            \sqrt{v^2e^{2u} + v^2e^{-2u}}
-            }                                           \\
-                & = \frac{     \begin{bmatrix}
-                                   e^u \\
-                                   -e^{-u}
-                                 \end{bmatrix}}{
-              \sqrt{e^{2u} + e^{-2u}}
-            }                                           \\
-                & =    \begin{bmatrix}
-                         \sqrt{\frac{e^{2u}}{e^{2u} + e^{-2u}}} \\
-                         -\sqrt{\frac{e^{-2u}}{e^{2u} + e^{-2u}}}
-                       \end{bmatrix}     \\
-                & =    \begin{bmatrix}
-                         \sqrt{\frac{1}{\frac{e^{2u} + e^{-2u}}{e^{2u}}}} \\
-                         -\sqrt{\frac{1}{\frac{e^{2u} + e^{-2u}}{e^{-2u}}}}
-                       \end{bmatrix}    \\
-                & =    \begin{bmatrix}
-                         \frac{1}{\sqrt{1 + e^{-4u}}} \\
-                         \frac{-1}{\sqrt{1 + e^{4u}}}
-                       \end{bmatrix}
-          \end{align*}
-        \end{minipage}\begin{minipage}[t]{0.5\textwidth}
-          \begin{align*}
-            e_v & = \frac{     \begin{bmatrix}
-                                 e^u \\
-                                 e^{-u}
-                               \end{bmatrix}}{
-            \sqrt{e^{2u}+e^{-2u}}
-            }                                           \\
-                & =    \begin{bmatrix}
-                         \sqrt{\frac{e^{2u}}{e^{2u} + e^{-2u}}} \\
-                         \sqrt{\frac{e^{-2u}}{e^{2u} + e^{-2u}}}
-                       \end{bmatrix}    \\
-                & =    \begin{bmatrix}
-                         \sqrt{\frac{1}{\frac{e^{2u} + e^{-2u}}{e^{2u}}}} \\
-                         \sqrt{\frac{1}{\frac{e^{2u} + e^{-2u}}{e^{-2u}}}}
-                       \end{bmatrix}    \\
-                & =    \begin{bmatrix}
-                         \frac{1}{\sqrt{1 + e^{-4u}}} \\
-                         \frac{1}{\sqrt{1 + e^{4u}}}
-                       \end{bmatrix}
-          \end{align*}
-        \end{minipage}
-
+        \begin{align*}
+          e_u & = \frac{
+          \begin{bmatrix}
+            ve^u \\
+            -ve^{-u}
+          \end{bmatrix}
+          }{
+          \sqrt{v^2e^{2u} + v^2e^{-2u}}
+          }
+          = \frac{
+            \begin{bmatrix}
+              e^u \\
+              -e^{-u}
+            \end{bmatrix}}{
+            \sqrt{e^{2u} + e^{-2u}}
+          }
+          = \begin{bmatrix}
+              \sqrt{\frac{e^{2u}}{e^{2u} + e^{-2u}}} \\
+              -\sqrt{\frac{e^{-2u}}{e^{2u} + e^{-2u}}}
+            \end{bmatrix}
+          = \begin{bmatrix}
+              \sqrt{\frac{1}{\frac{e^{2u} + e^{-2u}}{e^{2u}}}} \\
+              -\sqrt{\frac{1}{\frac{e^{2u} + e^{-2u}}{e^{-2u}}}}
+            \end{bmatrix}
+          = \begin{bmatrix}
+              \frac{1}{\sqrt{1 + e^{-4u}}} \\
+              \frac{-1}{\sqrt{1 + e^{4u}}}
+            \end{bmatrix} \\
+          e_v & = \frac{
+          \begin{bmatrix}
+            e^u \\
+            e^{-u}
+          \end{bmatrix}}{
+          \sqrt{e^{2u}+e^{-2u}}
+          }
+          = \begin{bmatrix}
+              \sqrt{\frac{e^{2u}}{e^{2u} + e^{-2u}}} \\
+              \sqrt{\frac{e^{-2u}}{e^{2u} + e^{-2u}}}
+            \end{bmatrix}
+          = \begin{bmatrix}
+              \sqrt{\frac{1}{\frac{e^{2u} + e^{-2u}}{e^{2u}}}} \\
+              \sqrt{\frac{1}{\frac{e^{2u} + e^{-2u}}{e^{-2u}}}}
+            \end{bmatrix}
+          = \begin{bmatrix}
+              \frac{1}{\sqrt{1 + e^{-4u}}} \\
+              \frac{1}{\sqrt{1 + e^{4u}}}
+            \end{bmatrix}
+        \end{align*}
+        \pagebreak
   \item See that:
         \begin{align*}
           e_u +e_v & =
@@ -253,19 +254,19 @@
           +\begin{bmatrix}
              \frac{1}{\sqrt{1 + e^{-4u}}} \\
              \frac{1}{\sqrt{1 + e^{4u}}}
-           \end{bmatrix}                           \\
-                   & =\begin{bmatrix}
-                        \frac{2}{\sqrt{1 + e^{-4u}}} \\
-                        \frac{1-1}{\sqrt{1 + e^{4u}}}
-                      \end{bmatrix}               \\
-                   & =\begin{bmatrix}
-                        \frac{2}{\sqrt{1 + e^{-4u}}} \\
-                        0
-                      \end{bmatrix} = \frac{2}{\sqrt{1 + e^{-4u}}}e_x
-        \end{align*}
-        Now for $e_u-e_v$ we see that:
-        \begin{align*}
-          e_u -e_v & =
+           \end{bmatrix}
+          =\begin{bmatrix}
+             \frac{2}{\sqrt{1 + e^{-4u}}} \\
+             \frac{1-1}{\sqrt{1 + e^{4u}}}
+           \end{bmatrix}
+          =\begin{bmatrix}
+             \frac{2}{\sqrt{1 + e^{-4u}}} \\
+             0
+           \end{bmatrix} = \frac{2}{\sqrt{1 + e^{-4u}}}e_x
+          \intertext{
+            Now for $e_u-e_v$ we see that:
+          }
+          e_u-e_v  & =
           \begin{bmatrix}
             \frac{1}{\sqrt{1 + e^{-4u}}} \\
             \frac{-1}{\sqrt{1 + e^{4u}}}
@@ -273,14 +274,14 @@
           -\begin{bmatrix}
              \frac{1}{\sqrt{1 + e^{-4u}}} \\
              \frac{1}{\sqrt{1 + e^{4u}}}
-           \end{bmatrix}                           \\
-                   & =\begin{bmatrix}
-                        \frac{0}{\sqrt{1 + e^{-4u}}} \\
-                        \frac{-1-1}{\sqrt{1 + e^{4u}}}
-                      \end{bmatrix}              \\
-                   & =\begin{bmatrix}
-                        0 \\\frac{-2}{\sqrt{1 + e^{4u}}}
-                      \end{bmatrix} = \frac{-2}{\sqrt{1 + e^{4u}}}e_y
+           \end{bmatrix}
+          =\begin{bmatrix}
+             \frac{0}{\sqrt{1 + e^{-4u}}} \\
+             \frac{-1-1}{\sqrt{1 + e^{4u}}}
+           \end{bmatrix}
+          =\begin{bmatrix}
+             0 \\\frac{-2}{\sqrt{1 + e^{4u}}}
+           \end{bmatrix} = \frac{-2}{\sqrt{1 + e^{4u}}}e_y
         \end{align*}
   \item We find the partial derivatives of the unit vectors:
         % \begin{align*}
@@ -316,16 +317,6 @@
             \end{align*}
           \end{minipage}\begin{minipage}[t]{0.5\textwidth}
             \begin{align*}
-              \pp{e_u}v & = \pp{}v\begin{bmatrix}
-                                    \frac{1}{\sqrt{1 + e^{-4u}}} \\
-                                    \frac{-1}{\sqrt{1 + e^{4u}}}
-                                  \end{bmatrix} \\
-                        & = 0
-            \end{align*}
-          \end{minipage}
-
-          \begin{minipage}[t]{0.5\textwidth}
-            \begin{align*}
               \pp{e_v}u & = \pp{}u\begin{bmatrix}
                                     \frac{1}{\sqrt{1 + e^{-4u}}} \\
                                     \frac{1}{\sqrt{1 + e^{4u}}}
@@ -339,13 +330,23 @@
               +\frac{e^{4u}}{1+e^{4u}}(e_u-e_v)                                  \\
                         & = \frac{e_u+e_v}{1+e^{4u}} + \frac{e_u-e_v}{1+e^{-4u}}
             \end{align*}
+          \end{minipage}
+
+          \begin{minipage}[t]{0.5\textwidth}
+            \begin{align*}
+              \pp{e_u}v & = \pp{}v\begin{bmatrix}
+                                    \frac{1}{\sqrt{1 + e^{-4u}}} \\
+                                    \frac{-1}{\sqrt{1 + e^{4u}}}
+                                  \end{bmatrix}
+              = 0
+            \end{align*}
           \end{minipage}\begin{minipage}[t]{0.5\textwidth}
             \begin{align*}
               \pp{e_v}v & = \pp{}v\begin{bmatrix}
                                     \frac{1}{\sqrt{1 + e^{-4u}}} \\
                                     \frac{1}{\sqrt{1 + e^{4u}}}
-                                  \end{bmatrix} \\
-                        & = 0\end{align*}
+                                  \end{bmatrix}
+              = 0\end{align*}
           \end{minipage}
         \end{mdframed}
 
@@ -449,13 +450,13 @@
 \end{enumerate}
 
 
-
+\pagebreak
 \section*{Q3}
 \begin{enumerate}[label=(\alph*)]
   \item First we choose $\alpha,\beta$ such for $t\in[0,\frac\pi2]$:
         \begin{align*}
           4 & = (\alpha\cos t)^2 + 2(\beta\sin t)^2  \\
-            & = \alpha^2\cos^2 t  + 2\beta^2\sin^2 t \\
+            & = \alpha^2\cos^2 t  + 2\beta^2\sin^2 t
         \end{align*}
         See that by choosing $\alpha=2$ and $\beta=\sqrt 2$, the equation is satisfied for all $t\in[0,\frac\pi 2]$:
         \begin{align*}
@@ -477,27 +478,28 @@
         %           \end{bmatrix}}$
   \item The mass of the wire will be given by:
         $$m = \int_0^{\frac{\pi}2}\rho(r(t))\|r'(t)\|dt$$
+        Where:
         \begin{align*}
+          \rho(t)   & =\left( \alpha\cos t \right)\left( \beta\sin t  \right) \\
           r'(t)     & = \begin{bmatrix}
                           -\alpha\sin t \\
                           \beta \cos t
-                        \end{bmatrix}                           \\
-          \|r'(t)\| & = \sqrt{\alpha^2\sin^2t + \beta^2\cos^2 t} \\
+                        \end{bmatrix}                                        \\
+          \|r'(t)\| & = \sqrt{\alpha^2\sin^2t + \beta^2\cos^2 t}              \\
                     & =\sqrt{4\sin^2t + 2\cos^2 t}
         \end{align*}
-        Thus:
-
+        By subtitling values, then applying the identity $\sin^2\theta+\cos^2\theta=1$ and pulling the constants out of the integral:
         \begin{align*}
           m & = \int_0^{\frac{\pi}2} \left[ 2\sqrt 2\sin t \cos t  \right]\sqrt{4\sin^2t + 2\cos^2 t}\;dt \\
             & =4 \int_0^{\frac{\pi}2} \left[ \sin t \cos t  \right]\sqrt{\sin^2t + 1 t}\;dt
         \end{align*}
-        Now let $u(t)=\sin^2t + 1 t$, hence $\frac{du}{dt} = 2\sin t \cos t$, therefore $dt= \frac{du}{2\sin t \cos t}$. Thus:
+        Now we use u-substitution with $u(t)=\sin^2t + 1 t$, hence $\frac{du}{dt} = 2\sin t \cos t$, therefore $dt= \frac{du}{2\sin t \cos t}$. Thus:
         \begin{align*}
           m & = 4 \int_{u(0)}^{u(\frac{\pi}2)} \left[ \sin t \cos t  \right]\sqrt{u}\frac{du}{2\sin t\cos t } \\
             & = 2\int_{u(0)}^{u(\frac{\pi}2)}\sqrt{u}\;du                                                     \\
             & = 2\int_1^2 \sqrt u \; du                                                                       \\
             & = 2\left[  \frac 23 2^{\frac 32} - \frac 23 1^{\frac 32}             \right]                    \\
-            & = \frac 43 \left( \sqrt{8} - 1 \right)                                                          \\
+            & = \frac  { 8\sqrt{2} - 4 }3                                                                     \\
         \end{align*}
 
 \end{enumerate}
