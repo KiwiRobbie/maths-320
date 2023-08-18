@@ -104,7 +104,7 @@
 \def\set#1{\left\{ #1 \right\}}
 \def\eval#1#2{\left\ #1\right|_{#2}}
 \begin{document}
-\thetop{Robert Christie}{MATHS 340}{S2 2023}{Assignment 1\\Due: 1-08-2023}{accentcolor}
+\thetop{Robert Christie}{MATHS 340}{S1 2023}{Assignment 1\\Due: 1-08-2023}{accentcolor}
 
 \section*{Q1}
 \begin{enumerate}[label=(\alph*)]
@@ -122,6 +122,8 @@
 
         % We see that $f(1,2,1)=0$, thus the point is indeed on the surface. We can use the formula given in lectures for the tangent plane to an implicit surface $S$ defined by $f(x,y,z)=0$
   \item MATLAB code for producing plot:
+        \lstset{columns=flexible}
+        \lstset{keepspaces=true}
         \begin{mdframed}[backgroundcolor=black!10]
           \begin{lstlisting}[style=Matlab-editor]
 syms x y z
@@ -158,9 +160,9 @@ view([-238.75 6.89])
 
 
   \item
-        We are considering a surface defined by a function $f(x,y,z)=0$, evaluating $f(0,0,1)=-9\neq 0$, thus the point does not lie on the surface, and it does not make sense to ask for the tangent plane at this point.
+        We are considering a surface defined by a function $f(x,y,z)=0$, evaluating $f(0,0,1)=-9\neq 0$, thus the point does not lie on the surface. Since there is no surface at this point to be tangent to, it does not make sense to ask for the tangent plane at this point.
 
-        We could still use $f$ to find a plane at this point from the partial derivatives of $f$, however, this plane is not determined by the surface, it is determined by the choice of implicit function $f$, any plane passing through this point could match this definition by choosing a different $f$ that gives the same surface.
+        % We could still use $f$ to find a plane at this point from the partial derivatives of $f$, however, this plane is not determined by the surface, it is determined by the choice of implicit function $f$, any plane passing through this point could match this definition by choosing a different $f$ that gives the same surface.
 
 
 
@@ -243,8 +245,14 @@ view([-238.75 6.89])
               \frac{1}{\sqrt{1 + e^{4u}}}
             \end{bmatrix}
         \end{align*}
+        Note that care was taken to preserve signs, the signs are not affected by division of $v$ as $v=\sqrt{xy}>0$, or by changing $e^{\pm u}$ to $\sqrt{e^{\pm2u}}$ since $e^u>0$. Writing the results explicitly in terms of the standard Cartesian basis vectors:
+        \[e_u = e_x\frac{e_x}{\sqrt{1 + e^{-4u}}}
+          -\frac{e_y}{\sqrt{1 + e^{4u}}}\qquad e_v= e_x\frac{e_x}{\sqrt{1 + e^{-4u}}}
+          +\frac{e_y}{\sqrt{1 + e^{4u}}}
+        \]
+
         \pagebreak
-  \item See that:
+  \item We can show this by substituting and simplifying:
         \begin{align*}
           e_u +e_v & =
           \begin{bmatrix}
@@ -264,7 +272,7 @@ view([-238.75 6.89])
              0
            \end{bmatrix} = \frac{2}{\sqrt{1 + e^{-4u}}}e_x
           \intertext{
-            Now for $e_u-e_v$ we see that:
+            Similarly for $e_u-e_v$:
           }
           e_u-e_v  & =
           \begin{bmatrix}
@@ -283,12 +291,7 @@ view([-238.75 6.89])
              0 \\\frac{-2}{\sqrt{1 + e^{4u}}}
            \end{bmatrix} = \frac{-2}{\sqrt{1 + e^{4u}}}e_y
         \end{align*}
-  \item We find the partial derivatives of the unit vectors:
-        % \begin{align*}
-        %   \pp{e_u}u & = 
-        % \end{align*}
-
-
+  \item First we find the partial derivatives of the unit bases vectors:
         \begin{mdframed}
           \begin{minipage}[t]{0.5\textwidth}
             \begin{align*}
@@ -351,12 +354,12 @@ view([-238.75 6.89])
         \end{mdframed}
 
 
-        Finding the velocity in terms of $e_u,e_v$:
-        \begin{align*}
-          R'(t) & = \dd{R(t)}t                                                                                                                                                                                    \\
-                & = \dd{}t\Big[u(t)\cdot e_u(u(t),v(t))  \Big] + \dd{}t\Big[ v(t)\cdot e_v(u(t),v(t)) \Big]                                                                                                       \\
-                & = \left[ u'(t)e_u  +u(t)\cdot\dd{}t\Big[e_u(u(t),v(t))\Big] \right] + \left[   v'(t)e_v +v(t)\cdot\dd{}t\Big[e_v(u(t),v(t))\Big]\right]                                                         \\
-                & = \left[ u'(t)e_u  +u(t)\cdot\Big[u'(t)\cdot \pp {e_u}{u} + v'(t)\cdot \pp{e_u}{v}\Big] \right] + \left[   v'(t)e_v +v(t)\cdot\Big[u'(t)\cdot \pp {e_v}{u} + v'(t)\cdot \pp{e_v}{v}\Big]\right] \\
+        Finding the velocity in terms of $e_u,e_v$ by deriving $R(t)$:
+        \begin{alignat*}{2}
+          R'(t)   & = \dd{R(t)}t                                                                                                                                                                                                 \\
+                  & = \dd{}t\Big[u(t)\cdot e_u(u(t),v(t))  \Big] + \dd{}t\Big[ v(t)\cdot e_v(u(t),v(t)) \Big]                                                                                                                    \\
+                  & = \left[ u'e_u  +u\cdot\dd{}t\Big[e_u(u(t),v(t))\Big] \right] + \left[   v'e_v +v\cdot\dd{}t\Big[e_v(u(t),v(t))\Big]\right]                     &                                      & \text{Product Rule} \\
+                  & = \left[ u'e_u  +u\cdot\Big[u'\pp {e_u}{u} + v'\pp{e_u}{v}\Big] \right] + \left[   v'e_v +v\cdot\Big[u'\pp {e_v}{u} + v'\pp{e_v}{v}\Big]\right] &                                      & \text{Chain Rule}   \\
           %       & = \left[ u'e_u  +uu'\left(
           %   \frac{e_u+e_v}{1+e^{4u}}
           %   -\frac{e_u-e_v}{1+e^{-4u}}
@@ -365,16 +368,16 @@ view([-238.75 6.89])
           %   \frac{e_u+e_v}{1+e^{4u}}
           %   +\frac{e_u-e_v}{1+e^{-4u}}
           % \right)\right]                                                                                                                                                                                          \\
-                & =  u'e_u  +uu'\left(
+                  & =  u'e_u  +uu'\left(
           \frac{e_u+e_v}{1+e^{4u}}
           -\frac{e_u-e_v}{1+e^{-4u}}
           \right)
           +    v'e_v +vu'\left(
           \frac{e_u+e_v}{1+e^{4u}}
           +\frac{e_u-e_v}{1+e^{-4u}}
-          \right)
+          \right) & \qquad                                                                                                                                          & \text{Substituting previous results}
           % & = fe_u + ge_u
-        \end{align*}
+        \end{alignat*}
 
         % \begin{mdframed}
         %   \begin{align*}
@@ -459,12 +462,32 @@ view([-238.75 6.89])
             & = \alpha^2\cos^2 t  + 2\beta^2\sin^2 t
         \end{align*}
         See that by choosing $\alpha=2$ and $\beta=\sqrt 2$, the equation is satisfied for all $t\in[0,\frac\pi 2]$:
-        \begin{align*}
-          4 & = 2^2 \cos^2t + 2(\sqrt 2)^2\sin^2 t \\
-            & = 4(\cos^2 t+\sin^2 t)               \\
-            & = 4
-        \end{align*}
-        Thus $\set{r(t): t\in [0,\frac \pi2] }\subseteq \set{(x,y)\in\RR^2 : x^2 + 2y^2 = 4 \land x,y\geq0}$.
+        $$x^2+2y^2= 2^2\cos^2t+2(\sqrt 2)^2\sin^2 t=4(\cos^2 t+\sin^2 t)=4
+        $$
+        To show that the curves are the same, we use the fact that $0\leq \sin t,\cos t\leq 1$ since $t\in[0,\frac\pi2]$. Hence, the identity $\sin^2 t + \cos^2 t = 1 \implies \sin t = \sqrt{1-\cos^2 t}$. Using this to rewrite $r(t)$:
+        $$r(t)=\begin{bmatrix}
+            2\cos t \\
+            \sqrt 2\sin t
+          \end{bmatrix}=\begin{bmatrix}
+            2\cos t \\
+            \sqrt 2\sqrt{1-\cos^2t}
+          \end{bmatrix}=\begin{bmatrix}
+            2\cos t \\
+            \sqrt{2-2\cos^2t}
+          \end{bmatrix}=\begin{bmatrix}
+            2\cos t \\
+            \sqrt{\frac{4-(2\cos t)^2}{4}}
+          \end{bmatrix}=\begin{bmatrix}
+            x \\
+            \sqrt{\frac{4-x^2}2}
+          \end{bmatrix}$$
+        Where $x\in[0,2]$. Now we rearrange the implicit equation for the wire, note that $x,y\geq 0$:
+        $$x^2+2y^2=4 \implies y^2=\frac{4-x^2}{2}\implies y=\sqrt{\frac{4-x^2}2}$$
+        Note that we have $y,x\geq 0$, and $x^2+2y^2=4\implies x^2\leq 4\implies x\leq 2$. Thus, the solution to the implicit equation is exactly $\set{[x,\frac{4-x^2}{2}]^T:x\in[0,2]}$ which is the same as we found from $r(t)$. Hence, the two curves are the same.
+
+
+
+        % Thus $\set{r(t): t\in [0,\frac \pi2] }\subseteq \set{(x,y)\in\RR^2 : x^2 + 2y^2 = 4 \land x,y\geq0}$.
 
         % Now for any $(x,y)$ satisfying $x^2+2y^2=4$, 
 
@@ -476,7 +499,7 @@ view([-238.75 6.89])
         %             \alpha\cos t \\
         %             \beta \sin t
         %           \end{bmatrix}}$
-  \item The mass of the wire will be given by:
+  \item We find the mass of the wire by integrating its linear density along its length:
         $$m = \int_0^{\frac{\pi}2}\rho(r(t))\|r'(t)\|dt$$
         Where:
         \begin{align*}
@@ -488,26 +511,19 @@ view([-238.75 6.89])
           \|r'(t)\| & = \sqrt{\alpha^2\sin^2t + \beta^2\cos^2 t}              \\
                     & =\sqrt{4\sin^2t + 2\cos^2 t}
         \end{align*}
-        By subtitling values, then applying the identity $\sin^2\theta+\cos^2\theta=1$ and pulling the constants out of the integral:
+        By substituting values, then applying the identity $\sin^2\theta+\cos^2\theta=1$ and pulling the constants out of the integral:
         \begin{align*}
-          m & = \int_0^{\frac{\pi}2} \left[ 2\sqrt 2\sin t \cos t  \right]\sqrt{4\sin^2t + 2\cos^2 t}\;dt \\
-            & =4 \int_0^{\frac{\pi}2} \left[ \sin t \cos t  \right]\sqrt{\sin^2t + 1 t}\;dt
+          m & = \int_0^{\frac{\pi}2} \left[ 2\sqrt 2\sin t \cos t  \right]\sqrt{4\sin^2t + 2\cos^2 t}\;dt
+          =4 \int_0^{\frac{\pi}2} \left[ \sin t \cos t  \right]\sqrt{\sin^2t + 1 t}\;dt
         \end{align*}
-        Now we use u-substitution with $u(t)=\sin^2t + 1 t$, hence $\frac{du}{dt} = 2\sin t \cos t$, therefore $dt= \frac{du}{2\sin t \cos t}$. Thus:
-        \begin{align*}
-          m & = 4 \int_{u(0)}^{u(\frac{\pi}2)} \left[ \sin t \cos t  \right]\sqrt{u}\frac{du}{2\sin t\cos t } \\
-            & = 2\int_{u(0)}^{u(\frac{\pi}2)}\sqrt{u}\;du                                                     \\
-            & = 2\int_1^2 \sqrt u \; du                                                                       \\
-            & = 2\left[  \frac 23 2^{\frac 32} - \frac 23 1^{\frac 32}             \right]                    \\
-            & = \frac  { 8\sqrt{2} - 4 }3                                                                     \\
-        \end{align*}
-
+        Applying u-substitution with $u(t)=\sin^2t + 1 t$, hence $\frac{du}{dt} = 2\sin t \cos t$, therefore $dt= \frac{1}{2\sin t \cos t}du$. Thus:
+        \begin{alignat*}{2}
+          m & = 4 \int_{u(0)}^{u(\frac{\pi}2)}  \sin t \cos t  \sqrt{u}\frac{1}{2\sin t\cos t }du                                                \\
+            & = 2\int_{u(0)}^{u(\frac{\pi}2)}\sqrt{u}\;du                                         &  & \text{Cancelling and extracting constant} \\
+            & = 2\int_1^2 \sqrt u \; du                                                           &  & \text{Evaluating bounds}                  \\
+            & = 2\left[  \frac 23 2^{\frac 32} - \frac 23 1^{\frac 32}             \right]        &  & \text{Solving and substituting bounds}    \\
+            & = \frac  { 8\sqrt{2} - 4 }3                                                         &  & \text{Simplifying}                        \\
+        \end{alignat*}
 \end{enumerate}
 
-% When $(a,b,c)$ is on the surface $S$, then the tangent plane at $(a,b,c)$ is:
-% $$
-%   \frac{\partial f}{ \partial x}(a,b,c)(x-a) +
-%   \frac{\partial f}{ \partial y}(a,b,c)(y-b) +
-%   \frac{\partial f}{ \partial z}(a,b,c)(z-c)
-% $$
 \end{document}

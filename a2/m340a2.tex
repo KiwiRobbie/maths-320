@@ -1,0 +1,263 @@
+
+\documentclass[a4paper, 11pt]{article}
+
+% Fonts 
+\usepackage{opensans}
+\usepackage{amsfonts}
+\usepackage{montserrat}
+\usepackage{amsmath}
+
+\usepackage[mathrm=sym]{unicode-math}
+
+\setmainfont{opensans}
+\setmathfont{Fira Math}
+
+\newfontfamily{\montserrateb}{Montserrat SemiBold}
+\newfontfamily{\montserratb}{Montserrat Bold}
+\newfontfamily{\montserrat}{Montserrat Regular}
+\newfontfamily{\montserratl}{Montserrat Light}
+\DeclareMathAlphabet{\mathcal}{OMS}{cmbrs}{m}{n}
+
+% \autoref
+\usepackage{hyperref}
+
+% Use for [H] option for figures to force in text placement
+\usepackage{float}
+
+% Captioning figures
+\usepackage{caption}
+
+% Subfigures
+\usepackage{subcaption}
+
+% For extending contents beyond margins
+\usepackage{scrextend}
+
+% For tables \midrule ect
+\usepackage{booktabs}
+
+% Colours
+\usepackage[table,xcdraw]{xcolor}
+\definecolor{accentcolor}{HTML}{6332a8}
+
+% Change label in enumerate 
+\usepackage{enumitem}
+
+% Section settings
+\usepackage{titlesec}
+\titleformat{\section}
+{\LARGE\montserrateb}
+{\thesection.}{0.5em}{}
+
+\titleformat{\subsection}
+{\large\montserratb}
+{\thesubsection.}{0.5em}{}
+
+% Adjust document dimensions
+\ExecuteOptions{a4paper}
+\addtolength{\oddsidemargin}{-3cm}
+\addtolength{\evensidemargin}{-3cm}
+\addtolength{\topmargin}{-3cm}
+\addtolength{\textwidth}{6cm}
+\addtolength{\textheight}{4.5cm}
+\addtolength{\textheight}{1.5cm}
+\addtolength{\headsep}{-0.5cm}
+% \addtolength{\footskip}{-1cm}
+\parindent0pt
+\parskip=4pt
+
+
+
+\usepackage{matlab-prettifier}
+\usepackage{graphicx}
+\usepackage{mdframed}
+
+% Creates coloured title box
+\newcommand{\thetop}[5]{
+	\begin{addmargin}[\oddsidemargin]{\oddsidemargin}
+		\colorbox{#5}{\color{white}
+			\hbox to \paperwidth{
+				\vbox {
+					\begin{center}
+						{\large\montserratl #1}\\
+						\vspace{4pt}
+						{\huge\montserratb #2}\\
+						{\montserratb #3}\\
+						\vspace{-0.5em}
+						\rule{20em}{1pt}
+
+						{\large\montserratl
+							#4
+						}
+					\end{center}
+				}
+			}
+		}
+	\end{addmargin}
+}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\dydt}{\frac{dy}{dt}}
+\newcommand{\dxdt}{\frac{dx}{dt}}
+\def\set#1{\left\{ #1 \right\}}
+\def\eval#1#2{\left\ #1\right|_{#2}}
+
+\def\pp#1#2{\frac{\partial #1}{\partial #2}}
+\def\dd#1#2{\frac{\text d#1}{\text d#2}}
+
+\begin{document}
+\thetop{Robert Christie}{MATHS 340}{S1 2023}{Assignment 2\\Due: ??-??-2023}{accentcolor}
+
+\section*{Q1}
+
+\begin{enumerate}[label=(\alph*)]
+	\item .
+	\item .
+	\item
+	      \begin{align*}
+		       & 0 \leq x\leq 1                                              \\
+		       & 0 \leq y\leq 1                                              \\
+		       & x^2 \leq z\leq x\iff \sqrt{x^2} \leq \sqrt z \land z \leq x \\
+		      \intertext{Thus we can write the bounds as:}
+		       & 0 \leq z\leq 1                                              \\
+		       & 0 \leq y\leq 1                                              \\
+		       & z \leq x\leq \sqrt z                                        \\
+	      \end{align*}
+	      As our triple integral is \textcolor{red}{``nice''}, we can rewrite it with these new bounds:
+	      \[
+		      \int_0^1\int_0^1\int_z^{\sqrt z} f(x,y,z) \text dx\text dy\text dz
+	      \]
+
+\end{enumerate}
+\section*{Q2}
+
+\begin{enumerate}[label=(\alph*)]
+	\item First we find integrals for the surface area of each component body:
+	      \begin{itemize}
+		      \item The box has 6 sides, each with area:
+		            \[
+			            \int_0^4\int_0^4 1\text{d$u$}\text{d$v$}
+		            \]
+
+		      \item We parametrise the surface as:
+		            $$r(u,v)=\begin{bmatrix}
+				            e^u \cos v \\
+				            e^u \sin v \\
+				            u
+			            \end{bmatrix} $$
+		            Where $u\in[0,1]$ and $v\in[0,2\pi]$. Giving a surface integral:
+		            \begin{align*}
+			              & \int_0^{2\pi}\int_0^1 \left\|\pp {r(u,v)}{u} \times \pp{r(u,v)}{v} \right\| \text d u \text d v \\
+			            = & \int_0^{2\pi}\int_0^1 \left\|
+			            \begin{bmatrix}
+				            e^u\cos v \\ e^u\sin v \\ 1
+			            \end{bmatrix}\times
+			            \begin{bmatrix}
+				            -e^u\sin v \\
+				            e^u\cos v  \\
+				            0
+			            \end{bmatrix}
+			            \right\| \text d u \text d v                                                                        \\
+			            = & \int_0^{2\pi}\int_0^1 \left\| \begin{bmatrix}
+				                                              -e^u\cos v \\ -e^u\sin v\\  e^{2u}\cos^2v +  e^{2u}\sin^2v
+			                                              \end{bmatrix} \right\| \text d u \text d v         \\
+			            = & \int_0^{2\pi}\int_0^1 \sqrt{e^{2u}+e^{4u}} \;\text d u \text d v                                \\
+			            = & \int_0^{2\pi}\int_0^1 e^{u}\sqrt{1+e^{2u}} \;\text d u \text d v                                \\
+		            \end{align*}
+
+
+		            %   \item Using cylindrical coordinates, where the area element is
+		            %         $\text{dA}=r\text{d$r$}\text{d$z$}\text{d$\theta$}$ The tube wall has a surface area of:
+		            %         \[
+		            %             \int_0^{2\pi} \int_0^1 e^z \text{d$z$}\text{d$\theta$}
+		            %         \]
+		            %         \textcolor{red}{Do we need to account for $dr$ in the area
+		            %             element, making the integrand $e^{2z}$}
+		      \item The top of the box must have a hole for the tube,
+		            therefore we must remove an area correspond to the bottom of
+		            the tube, a disk with radius $e^{0}=1$:
+		            \[
+			            - \int_0^1\int_0^{2\pi} r\text dr
+		            \]
+		      \item The bottom of the half sphere connects the top of the tube
+		            to the sphere, thus it is a ring with inner radius $e^1$ and
+		            outer radius $4$. Again using polar coordinates:
+		            \[
+			            \int_e^4\int_0^{2\pi} r\text dr
+		            \]
+		      \item We parametrise the surface of the sphere in spherical
+		            coordiates, $[\rho,\theta,\phi]^T$ for $\rho=4$, $\theta\in[0,2\pi]$,
+		            $\phi\in[0,\frac{\pi}2]$, the area element of the sphere is given by
+		            $\rho^2\sin\phi\text d\theta\text d\phi$. Hence we have an integral
+		            for the surface area of:
+		            \[
+			            \int_0^{\frac{\pi}2} \int_0^{2\pi}4^2\sin\phi \text d \theta \text d \phi
+		            \]
+	      \end{itemize}
+	      Thus the surface area of $R$ is given by:
+	      \[
+		      A =
+		      6\int_0^4\int_0^4 1\text{d$u$}\text{d$v$}
+		      +\int_0^{2\pi}\int_0^1 e^{u}\sqrt{1+e^{2u}} \;\text d u \text d v
+		      - \int_0^1\int_0^{2\pi} r\text dr
+		      +\int_e^4\int_0^{2\pi} r\text dr
+		      +\int_0^{\frac{\pi}2} \int_0^{2\pi}4^2\sin\phi \text d \theta \text d \phi
+	      \]
+	\item We find three separate integrals for the mass of each region of
+	      $R$:
+	      \begin{itemize}
+		      \item For the box we simply integrate $\rho$ over its bound in Cartesian
+		            coordinates:
+		            \[
+			            \int_{-4}^0\int_{-2}^2\int_{-2}^2\rho(x,y,z)\text d x \text d y \text d z
+		            \]
+		      \item For the tube, we integrate in cylindrical coordinates where
+		            the volume element is given by $\text dV = r\text d r\text d
+			            \theta \text d z$, giving an integral of:
+		            \[
+			            \int_0^1\int_0^{2\pi}\int_0^{e^z} \rho(r\cos\theta,r\sin\theta,z) r\text d r\text d
+			            \theta \text d z
+		            \]
+		      \item Lastly for the sphere, we integrate in Cartesian
+		            coordinates:
+		            \[
+			            \int_{-4}^4\int_{-\sqrt{4^2-x^2}}^{\sqrt{4^2-x^2}}\int_1^{1+\sqrt{4^2-x^2-y^2}}\rho(x,y,z) \text d z\text d y\text d x
+		            \]
+	      \end{itemize}
+	      Thus we have a total mass of:
+	      \begin{align*}
+		      m & =\int_{-4}^0\int_{-2}^2\int_{-2}^2\rho(x,y,z)\text d x \text d y \text
+		      d z                                                                                                                         \\
+		        & +\int_0^1\int_0^{2\pi}\int_0^{e^z} \rho(r\cos\theta,r\sin\theta,z) r\text d r\text d
+		      \theta \text d z                                                                                                            \\
+		        & +\int_{-4}^4\int_{-\sqrt{4^2-x^2}}^{\sqrt{4^2-x^2}}\int_1^{1+\sqrt{4^2-x^2-y^2}}\rho(x,y,z) \text d z\text d y\text d x
+	      \end{align*}
+\end{enumerate}
+
+
+\section*{Q3}
+\begin{enumerate}[label=(\alph*)]
+
+	\item Looking at the gradient field,  we see that a factor of $2x$ and $2y$ indicating the inside was differentiated using the chain rule, and a reciprocal indicating that the outer function could have been $\ln z$, with derivative $z^{-1}$. Thus, as a guess we consider $\phi(x,y)=\log(x^2+y^2)$ defined on $\RR^2\backslash\set{0}$, which is continuous and differentiable over its domain. Checking its gradient:
+	      \[
+		      \nabla\phi(x,y)
+		      =\begin{bmatrix}
+			      \frac{\partial \phi(x,y)}{\partial x} \\
+			      \frac{\partial \phi(x,y)}{\partial y}
+		      \end{bmatrix}
+		      =\frac 2{x^2+y^2}
+		      \begin{bmatrix}
+			      x \\y
+		      \end{bmatrix}
+	      \]
+	      As $\RR^2\backslash\set0\subset\set{(x,y)|y=\alpha x\;\alpha\in\RR}$, $\phi$ is defined here and one has $\nabla\phi=F$. Hence, $\phi$ is a potential which satisfies the question.
+
+	\item In (a), we have already found a potential that satisfies the question, thus it exists.
+
+\end{enumerate}
+
+
+\end{document}
