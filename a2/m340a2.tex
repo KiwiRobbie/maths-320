@@ -106,7 +106,7 @@
 \def\eval#1#2{\left\ #1\right|_{#2}}
 
 \def\pp#1#2{\frac{\partial #1}{\partial #2}}
-\def\dd#1#2{\frac{\text d#1}{\text d#2}}
+\def\dd#1#2{\frac{\,d#1}{\,d#2}}
 
 \begin{document}
 \thetop{Robert Christie}{MATHS 340}{S1 2023}{Assignment 2\\Due: ??-??-2023}{accentcolor}
@@ -128,7 +128,7 @@
 	      \end{align*}
 	      As our triple integral is \textcolor{red}{``nice''}, we can rewrite it with these new bounds:
 	      \[
-		      \int_0^1\int_0^1\int_z^{\sqrt z} f(x,y,z) \text dx\text dy\text dz
+		      \int_0^1\int_0^1\int_z^{\sqrt z} f(x,y,z) \,dx\,dy\,dz
 	      \]
 
 \end{enumerate}
@@ -139,10 +139,10 @@
 	      \begin{itemize}
 		      \item The box has 6 sides, each with area:
 		            \[
-			            \int_0^4\int_0^4 1\text{d$u$}\text{d$v$}
+			            \int_0^4\int_0^4 1\,du\,dv
 		            \]
 
-		      \item We parametrise the surface as:
+		      \item For the tube, we parametrize the surface as:
 		            $$r(u,v)=\begin{bmatrix}
 				            e^u \cos v \\
 				            e^u \sin v \\
@@ -150,7 +150,7 @@
 			            \end{bmatrix} $$
 		            Where $u\in[0,1]$ and $v\in[0,2\pi]$. Giving a surface integral:
 		            \begin{align*}
-			              & \int_0^{2\pi}\int_0^1 \left\|\pp {r(u,v)}{u} \times \pp{r(u,v)}{v} \right\| \text d u \text d v \\
+			              & \int_0^{2\pi}\int_0^1 \left\|\pp {r(u,v)}{u} \times \pp{r(u,v)}{v} \right\| \,du\,dv    \\
 			            = & \int_0^{2\pi}\int_0^1 \left\|
 			            \begin{bmatrix}
 				            e^u\cos v \\ e^u\sin v \\ 1
@@ -160,14 +160,13 @@
 				            e^u\cos v  \\
 				            0
 			            \end{bmatrix}
-			            \right\| \text d u \text d v                                                                        \\
+			            \right\| \,du\,dv                                                                           \\
 			            = & \int_0^{2\pi}\int_0^1 \left\| \begin{bmatrix}
 				                                              -e^u\cos v \\ -e^u\sin v\\  e^{2u}\cos^2v +  e^{2u}\sin^2v
-			                                              \end{bmatrix} \right\| \text d u \text d v         \\
-			            = & \int_0^{2\pi}\int_0^1 \sqrt{e^{2u}+e^{4u}} \;\text d u \text d v                                \\
-			            = & \int_0^{2\pi}\int_0^1 e^{u}\sqrt{1+e^{2u}} \;\text d u \text d v                                \\
+			                                              \end{bmatrix} \right\| \,du \,dv \\
+			            = & \int_0^{2\pi}\int_0^1 \sqrt{e^{2u}+e^{4u}} \,du \, dv                                   \\
+			            = & \int_0^{2\pi}\int_0^1 e^{u}\sqrt{1+e^{2u}} \,du \, dv                                   \\
 		            \end{align*}
-
 
 		            %   \item Using cylindrical coordinates, where the area element is
 		            %         $\text{dA}=r\text{d$r$}\text{d$z$}\text{d$\theta$}$ The tube wall has a surface area of:
@@ -180,31 +179,31 @@
 		            therefore we must remove an area correspond to the bottom of
 		            the tube, a disk with radius $e^{0}=1$:
 		            \[
-			            - \int_0^1\int_0^{2\pi} r\text dr
+			            - \int_0^1\int_0^{2\pi} r\,d\theta\,dr
 		            \]
 		      \item The bottom of the half sphere connects the top of the tube
 		            to the sphere, thus it is a ring with inner radius $e^1$ and
 		            outer radius $4$. Again using polar coordinates:
 		            \[
-			            \int_e^4\int_0^{2\pi} r\text dr
+			            \int_e^4\int_0^{2\pi} r\,d\theta\,dr
 		            \]
-		      \item We parametrise the surface of the sphere in spherical
-		            coordiates, $[\rho,\theta,\phi]^T$ for $\rho=4$, $\theta\in[0,2\pi]$,
+		      \item We parametrize the surface of the sphere in spherical
+		            coordinates, $[\rho,\theta,\phi]^T$ for $\rho=4$, $\theta\in[0,2\pi]$,
 		            $\phi\in[0,\frac{\pi}2]$, the area element of the sphere is given by
-		            $\rho^2\sin\phi\text d\theta\text d\phi$. Hence we have an integral
+		            $\rho^2\sin\phi\,d\theta\,d\phi$. Hence we have an integral
 		            for the surface area of:
 		            \[
-			            \int_0^{\frac{\pi}2} \int_0^{2\pi}4^2\sin\phi \text d \theta \text d \phi
+			            \int_0^{\frac{\pi}2} \int_0^{2\pi}4^2\sin\phi \,d \theta \,d \phi
 		            \]
 	      \end{itemize}
 	      Thus the surface area of $R$ is given by:
 	      \[
 		      A =
-		      6\int_0^4\int_0^4 1\text{d$u$}\text{d$v$}
-		      +\int_0^{2\pi}\int_0^1 e^{u}\sqrt{1+e^{2u}} \;\text d u \text d v
-		      - \int_0^1\int_0^{2\pi} r\text dr
-		      +\int_e^4\int_0^{2\pi} r\text dr
-		      +\int_0^{\frac{\pi}2} \int_0^{2\pi}4^2\sin\phi \text d \theta \text d \phi
+		      6\int_0^4\int_0^{4} 1 \,du\,dv
+		      +\int_0^{2\pi}\int_0^1 e^{u}\sqrt{1+e^{2u}} \,du \,dv
+		      -\int_0^1\int_0^{2\pi} r \,d\theta\,dr
+		      +\int_e^4\int_0^{2\pi} r\,d\theta\,dr
+		      +\int_0^{\frac{\pi}2} \int_0^{2\pi}4^2\sin\phi \,d\theta\, d\phi
 	      \]
 	\item We find three separate integrals for the mass of each region of
 	      $R$:
@@ -212,28 +211,28 @@
 		      \item For the box we simply integrate $\rho$ over its bound in Cartesian
 		            coordinates:
 		            \[
-			            \int_{-4}^0\int_{-2}^2\int_{-2}^2\rho(x,y,z)\text d x \text d y \text d z
+			            \int_{-4}^0\int_{-2}^2\int_{-2}^2\rho(x,y,z)\,d x \,d y \,d z
 		            \]
 		      \item For the tube, we integrate in cylindrical coordinates where
-		            the volume element is given by $\text dV = r\text d r\text d
-			            \theta \text d z$, giving an integral of:
+		            the volume element is given by $\,dV = r\,d r\,d
+			            \theta \,d z$, giving an integral of:
 		            \[
-			            \int_0^1\int_0^{2\pi}\int_0^{e^z} \rho(r\cos\theta,r\sin\theta,z) r\text d r\text d
-			            \theta \text d z
+			            \int_0^1\int_0^{2\pi}\int_0^{e^z} \rho(r\cos\theta,r\sin\theta,z) r\,d r\,d
+			            \theta \,d z
 		            \]
 		      \item Lastly for the sphere, we integrate in Cartesian
 		            coordinates:
 		            \[
-			            \int_{-4}^4\int_{-\sqrt{4^2-x^2}}^{\sqrt{4^2-x^2}}\int_1^{1+\sqrt{4^2-x^2-y^2}}\rho(x,y,z) \text d z\text d y\text d x
+			            \int_{-4}^4\int_{-\sqrt{4^2-x^2}}^{\sqrt{4^2-x^2}}\int_1^{1+\sqrt{4^2-x^2-y^2}}\rho(x,y,z) \,d z\,d y\,d x
 		            \]
 	      \end{itemize}
 	      Thus we have a total mass of:
 	      \begin{align*}
-		      m & =\int_{-4}^0\int_{-2}^2\int_{-2}^2\rho(x,y,z)\text d x \text d y \text
-		      d z                                                                                                                         \\
-		        & +\int_0^1\int_0^{2\pi}\int_0^{e^z} \rho(r\cos\theta,r\sin\theta,z) r\text d r\text d
-		      \theta \text d z                                                                                                            \\
-		        & +\int_{-4}^4\int_{-\sqrt{4^2-x^2}}^{\sqrt{4^2-x^2}}\int_1^{1+\sqrt{4^2-x^2-y^2}}\rho(x,y,z) \text d z\text d y\text d x
+		      m & =\int_{-4}^0\int_{-2}^2\int_{-2}^2\rho(x,y,z)\,d x \,d y \text
+		      d z                                                                                                             \\
+		        & +\int_0^1\int_0^{2\pi}\int_0^{e^z} \rho(r\cos\theta,r\sin\theta,z) r\,d r\,d
+		      \theta \,d z                                                                                                    \\
+		        & +\int_{-4}^4\int_{-\sqrt{4^2-x^2}}^{\sqrt{4^2-x^2}}\int_1^{1+\sqrt{4^2-x^2-y^2}}\rho(x,y,z) \,d z\,d y\,d x
 	      \end{align*}
 \end{enumerate}
 
