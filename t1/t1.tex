@@ -1,5 +1,5 @@
-
-\documentclass[a4paper, 11pt]{article}
+\documentclass[a4paper]{article}
+\usepackage[fontsize=9pt]{fontsize}
 
 % Fonts 
 \usepackage{opensans}
@@ -47,13 +47,13 @@
 
 % Section settings
 \usepackage{titlesec}
-\titleformat{\section}
-{\LARGE\montserrateb}
-{\thesection.}{0.5em}{}
+% \titleformat{\section}
+% {\LARGE\montserrateb}
+% {\thesection.}{0.5em}{}
 
-\titleformat{\subsection}
-{\large\montserratb}
-{\thesubsection.}{0.5em}{}
+% \titleformat{\subsection}
+% {\large\montserratb}
+% {\thesubsection.}{0.0em}{}
 
 % Adjust document dimensions
 \ExecuteOptions{a4paper}
@@ -66,7 +66,7 @@
 \addtolength{\headsep}{-0.5cm}
 % \addtolength{\footskip}{-1cm}
 \parindent0pt
-\parskip=4pt
+\parskip=2pt
 
 
 
@@ -171,13 +171,13 @@
 \usepackage{titlesec}
 \titleformat{\section}
 {\centering\montserrateb\MakeUppercase}
-{\thesection.}{0.5em}{}
-\titlespacing{\section}{0.5em}{0.5em plus 0.5em}{0.5em plus 0.5em}
+{\thesection.}{0em}{}
+\titlespacing{\section}{0em}{0em}{0em}
 
 \titleformat{\subsection}
 {\centering\montserratb}
-{\thesection.}{0.5em}{}
-\titlespacing{\subsection}{0.5em}{0.5em plus 0.5em}{0.125em plus 0.125em}
+{\thesection.}{0em}{}
+\titlespacing{\subsection}{0em}{0em}{0em}
 
 \usepackage{centernot}
 \usepackage{mathtools}
@@ -188,6 +188,8 @@
 % \def\Mapstofill@{\arrowfill@{\Mapstochar\Relbar}\Relbar\Rightarrow}
 % \makeatother
 
+
+\def\curl{\operatorname{curl}}
 
 \usepackage{multicol}
 
@@ -273,8 +275,7 @@
 		\end{align*}
 	\end{example}
 
-	For $f:\RR^n\to\RR$, the total derivative matrix is a row vector and the gradient of $f$ is:
-	$$\operatorname{grad} f= \nabla f= (Df)^T$$
+
 
 
 	\section*{Curvilinear Coordinates}
@@ -308,6 +309,7 @@
 		\dd{e_r}{\theta}=e_\theta,\quad
 		\dd{e_\theta}{\theta}=-e_r
 	\]
+	$$dA=r\,dr\,d\theta$$
 
 	\subsection*{Cylindrical}
 	\[
@@ -327,6 +329,7 @@
 			\pp{e_z}{r} =0      & \pp{e_z}{\theta} =0         & \pp{e_z}{z} =0      \\
 		\end{array}
 	\]
+	$$dA=r\,dr\,d\theta\,dz$$
 
 	\subsection*{Spherical}
 	\[
@@ -349,11 +352,138 @@
 			\pp{e_z}{r}      =0 & \pp{e_z}{\theta} =\cos\phi e_\theta                   & \pp{e_z}{z} =-e_r   \\
 		\end{array}
 	\]
-	\section*{Curves}
-	\section*{Surfaces}
-	\section*{Volumes}
+	\[
+		dV = r^2|\sin\phi|dr\,d\theta\,d\phi
+	\]
 
 
+	\section*{Parametrised Curves}
+	Continuous map $c:I\to\RR^n$, $I\subseteq\RR$.
+	\begin{itemize}
+		\item \textbf{Closed curve/loop}, $I=[t_0,t_1]$ and $c(t_0)=c(t_1)$.
+		\item \textbf{Simple}, $c$ is injective for non-endpoint $t\in I$.
+		\item \textbf{Regular}, differentiable and $\forall_{t\in I}c'(t)\neq 0$.
+		\item \textbf{Incremental Arc length}: $ds=\sqrt{c'\cdot c'}dt$
+		\item \textbf{Arc length}: $s(t_0,t_1)=\int_{t_0}^{t_1}ds$
+		\item \textbf{Path Integral}: $\int_s f \circ c(t)ds $
+
+	\end{itemize}
+	\section*{Manifolds}
+	Multidimensional integrals are linear wrt integrands, and additive wrt. Regions of integration.
+	\begin{theorem*}[Generalised Fubini] Generalises to higher dimensions.
+		\begin{align*}
+			\iint_Rf(x,y)dA & =\int_{y_1}^{y_2}\left[ \int_{x_1(y)}^{x_2(y)}f(x,y)dx \right]dy \\
+			\iint_Rf(x,y)dA & =\int_{x_1}^{x_2}\left[ \int_{y_1(x)}^{y_2(x)}f(x,y)dy \right]dx
+		\end{align*}
+		Type 1: $y$ from $a$  to $b$, $x$ from $g_1(y)$ to $g_2(y)$.
+
+		Type 2: $x$ from $a$  to $b$, $y$ from $h_1(x)$ to $h_2(x)$.
+	\end{theorem*}
+
+
+	\begin{definition}A \textbf{parametrised $n$-manifold} in $\RR^m$ is a continuous map:
+		$$\mathbf{R}:S\subseteq\RR^n\to\RR^m$$
+		\begin{itemize}
+			\item  If $n=1$ curve, $n=2$ surface, $n=m-1$ hyper-surface.
+			\item Input $u_1,\dots,u_n$ are curvilinear  coordinates on the manifold.
+			\item Sometimes the image is referred to as the manifold.
+			\item Tangent vectors are columns of $$D\mathbf{R}=\left[ \pp{\mathbf{R}}{u_1},\dots,\pp{\mathbf{R}}{u_n} \right]$$
+			      If linearly independent gives us moving frame.
+			\item If lin-indpt for all $\mathbf{u}$, $\mathbf{R}$ is \textbf{regular} or \textbf{immersed}.
+			\item Regularity can be checked using $\operatorname{Null}(D\mathbf{R})=0$ or $n$-volume of paralleletope spanned by tangents.
+			\item Calculated with \textbf{Gram determinant}:
+			      $$\sqrt{\det ((D\mathbf{R})^T(D\mathbf{R}))}$$
+			\item Or $|\det{D\mathbf{R}}|$ when $n=m$.
+			\item Multiply this by $du_1,\dots,du_n$ to get $dM$ infinitesimal $n$-volume element of the manifold.
+		\end{itemize}
+
+	\end{definition}
+	For a surface $R(u,v)$ in $\RR^3$, $dA=\left\|\pp{\mathbf{R}}{u}\times \pp{\mathbf{R}}{v}\right\|$\,du\,dv.
+	Otherwise, for a surface in higher dimensions we can use $dA=\left\|\pp{\mathbf{R}}{u}\right\|\left\|\pp{\mathbf{R}}{v}\right\|\sin\theta\,du\,dv$.
+
+
+	\section*{Vector Fields}
+
+	\subsection*{Simply Connected Regions}
+	A region $U\subseteq \RR^n$ is \textbf{simply connected} if:
+	\begin{itemize}
+		\item $U$ is path connected, any two points can be joined by a continuous path in $U$.
+		\item Any loop in $U$ can be continuously contracted to a point while remaining in $U$.
+	\end{itemize}
+
+
+
+	\subsection*{Gradient}
+
+	For $f:\RR^n\to\RR$, the total derivative matrix is a row vector and the gradient of $f$ is:
+	$$\operatorname{grad} f= \nabla f= (Df)^T$$
+	For $\mathbf{F}:U\subseteq\RR^n\to\RR^n$ a scalar potential  $f:U\to\RR$ has $\nabla f=\mathbf{F}$. Only \textbf{conservative} vector fields have potential functions.
+
+	Necessary condition for conservative $(\forall_{i\neq j})$	$\pp{F_i}{x_j}=\pp{F_j}{x_i}$
+
+	To find a potential, $f=\int F_1dx$, this has an arbitrary function $G(y)$ instead of a constant of integration. Try to solve $F_2=\pp{f}y$ for $G'(y)$, if possible find $\int G'(y)dy$.
+
+	The \textbf{path integral} of a vector field $\mathbf{F}$ along and \textbf{oriented} curve $C$ parametrised by $\mathbf{r}:[t_0,t_1]\to\RR^n$ is:
+	\[
+		\int_C F_1dx_1+\dots+F_ndx_n=\int_CF\cdot d\mathbf{r}=\int_{t_0}^{t_1}\mathbf{F}(\mathbf{r}(t))\cdot \mathbf{r}'(t)dt
+	\]
+	This can be turned into a path integral of a scalar function with respect to arc length. (Note that curve orientation matters unlike with path integrals of scalar fields).
+
+	The \textbf{FTC for line integrals}: Let $C$ be a (piecewise) smooth curve in $\RR^n$ with parametrisation $\mathbf{r}:[t_0,t_1]\to\RR^n$, and $f$ a continuously differentiable function.
+	$$\int_C\nabla f \cdot d\mathbf{r}=f(\mathbf{r}(t_1))-f(\mathbf{r}(t_0))$$
+
+	If $\textbf{F}$ is a vector field with continuous partial derivatives defined on an open simply conected region $U\subseteq\RR^n$. Then $\mathbf{F}$ is conservative if and only if:
+	$$(\forall_{i\neq j})\pp{F_i}{x_j}=\pp{F_j}{x_i}$$
+
+
+	\subsection*{Curl}
+	For $\mathbf{F}(x,yz)$ a vector field on $\RR^3$. The \textbf{curl} of $\mathbf{F}$ is:
+	$$
+		\curl \mathbf{F}=\nabla\times \mathbf{F}=\begin{bmatrix}
+			\pp{\mathbf{F}_3}{y}-\pp{\mathbf{F}_2}{z} \\
+			\pp{\mathbf{F}_1}{z}-\pp{\mathbf{F}_3}{x} \\
+			\pp{\mathbf{F}_2}{x}-\pp{\mathbf{F}_1}{y} \\
+		\end{bmatrix}
+	$$
+	If $\curl\mathbf{F}=0$, then $\mathbf{F}$ is \textbf{curl-free} or \textbf{irrotational}. The curl of a gradient is zero $0=\curl(\nabla f)$ where $f$ is a scalar function.
+
+	Give a vector field $\mathbf{v}(x,y,z)$ defined on a region $U\subseteq\RR^3$, a \textbf{vector potential} for $\mathbf{v}$ is a vector field $\mathbf{F}$ such that $\mathbf{v}=\curl \mathbf{F}$.
+
+	A vector potential is determined up to an arbitrary conservative vector field since $\curl(\mathbf{F}+\nabla f)=\curl \mathbf{F} +0$
+
+	\subsection*{Divergence}
+
+	\subsection*{Green's Theorem}
+	For $R$, a closed bounded region in $\RR^2$ with boundary $\partial R$ consisting of piecewise smooth curves.
+	\begin{itemize}
+		\item 	The \textbf{induced positive orientation} is given by orienting all boundary curves such that $R$ lies to the left of the curve direction.
+		\item Green's theorem (Like FC for double integrals): Let $\mathbf{F}$ be a smooth vector field, then:
+		      $$\iint_R\left( \pp{F_2}x - \pp{F_1}{y}dxdy \right)=\oint_{\partial R}F_1dx +F_2dy$$
+	\end{itemize}
+	We can use an $\mathbf{F}$ with $\pp{F_2}x - \pp{F_1}{y}=1$ to compute areas.
+
+	\subsection*{Stokes' Theorem}
+
+	A surface $S$ in $\RR^3$ is \textbf{orientable} if we can find a continuous unit normal vector. If we have a parametrisation $r(u,v)$, then normalising $\partial{r}u\times\partial{r}v$ gives us an orientation.
+
+	If the surface has boundaries $\partial S$ consisting of piecewise smooth curves, then choosing a normal vector induces an orientation on the boundary. Walking along the boundary oriented head in the direction of $n$, the surface should be on your left.
+
+	A surface is closed if it is compact (closed and bounded), and $\partial S=\emptyset$. Orientation is canonically given by orienting $n$ to point outwards.
+
+	The surface integral of a vector field $\mathbf{F}$ on an oriented surface $S$ parametrised by $\mathbf{r}:U\to\RR^3$, with a unit normal vector field $\mathbf{n}=\frac{T_u\times T_v}{\|T_u\times T_v\|}$ is given by:
+	\[
+		\iint_S \mathbf{F}\cdot d\mathbf{S}=
+		\iint_S \mathbf{F}\cdot \mathbf{n}dA=
+		\iint_U \mathbf{F}(\mathbf{r})\cdot T_u\times T_v \,du\,dv
+	\]
+	The integrand $\mathbf{F}\cdot d\mathbf{S}$ is the \textbf{flux density}, the integral is the
+	\textbf{total flux} of $\mathbf{F}$ across $\mathbf{S}$.
+
+	\textbf{Stokes' theorem} for $S$ a compact oriented surface in $\RR^3$, where $\partial S$ consists of piecewise smooth curves with induced positive orientations. Then for any smooth vector field $\mathbf{F}$:
+	\[
+		\iint_S \curl \mathbf{F}\cdot d\mathbf{S}=\oint_{\partial S}F_1dx+F_2dy+F_3dz
+	\]
+	The theorem still applies when $\partial S=\emptyset$. Integral is $0$.
 
 \end{multicols}
 \end{document}
