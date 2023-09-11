@@ -1,0 +1,359 @@
+
+\documentclass[a4paper, 11pt]{article}
+
+% Fonts 
+\usepackage{opensans}
+\usepackage{amsfonts}
+\usepackage{montserrat}
+\usepackage{amsmath}
+
+\usepackage[mathrm=sym]{unicode-math}
+
+\setmainfont{opensans}
+\setmathfont{Fira Math}
+\setmathfont{TeX Gyre DejaVu Math}[range={\vdots,\ddots}]
+\setmathfont{Fira Math}[range=]
+
+\newfontfamily{\montserrateb}{Montserrat SemiBold}
+\newfontfamily{\montserratb}{Montserrat Bold}
+\newfontfamily{\montserrat}{Montserrat Regular}
+\newfontfamily{\montserratl}{Montserrat Light}
+\DeclareMathAlphabet{\mathcal}{OMS}{cmbrs}{m}{n}
+
+% \autoref
+\usepackage{hyperref}
+
+% Use for [H] option for figures to force in text placement
+\usepackage{float}
+
+% Captioning figures
+\usepackage{caption}
+
+% Subfigures
+\usepackage{subcaption}
+
+% For extending contents beyond margins
+\usepackage{scrextend}
+
+% For tables \midrule ect
+\usepackage{booktabs}
+
+% Colours
+\usepackage[table,xcdraw]{xcolor}
+\definecolor{accentcolor}{HTML}{6332a8}
+
+% Change label in enumerate 
+\usepackage{enumitem}
+
+% Section settings
+\usepackage{titlesec}
+\titleformat{\section}
+{\LARGE\montserrateb}
+{\thesection.}{0.5em}{}
+
+\titleformat{\subsection}
+{\large\montserratb}
+{\thesubsection.}{0.5em}{}
+
+% Adjust document dimensions
+\ExecuteOptions{a4paper}
+\addtolength{\oddsidemargin}{-3cm}
+\addtolength{\evensidemargin}{-3cm}
+\addtolength{\topmargin}{-3cm}
+\addtolength{\textwidth}{6cm}
+\addtolength{\textheight}{4.5cm}
+\addtolength{\textheight}{1.5cm}
+\addtolength{\headsep}{-0.5cm}
+% \addtolength{\footskip}{-1cm}
+\parindent0pt
+\parskip=4pt
+
+
+
+\usepackage{matlab-prettifier}
+\usepackage{graphicx}
+\usepackage{mdframed}
+
+% Creates coloured title box
+\newcommand{\thetop}[5]{
+	\begin{addmargin}[\oddsidemargin]{\oddsidemargin}
+		\colorbox{#5}{\color{white}
+			\hbox to \paperwidth{
+				\vbox {
+					\begin{center}
+						{\large\montserratl #1}\\
+						\vspace{4pt}
+						{\huge\montserratb #2}\\
+						{\montserratb #3}\\
+						\vspace{-0.5em}
+						\rule{20em}{1pt}
+
+						{\large\montserratl
+							#4
+						}
+					\end{center}
+				}
+			}
+		}
+	\end{addmargin}
+}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\dydt}{\frac{dy}{dt}}
+\newcommand{\dxdt}{\frac{dx}{dt}}
+\def\set#1{\left\{ #1 \right\}}
+\def\eval#1#2{\left\ #1\right|_{#2}}
+
+\def\pp#1#2{\frac{\partial #1}{\partial #2}}
+\def\dd#1#2{\frac{\,d#1}{\,d#2}}
+
+\def\norm#1{\left\|#1\right\|}
+
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{obs}[theorem]{Observation}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{claim}[theorem]{Claim}
+
+\newtheorem*{exercise}{Exercise}
+
+\newtheorem*{claim*}{Claim}
+\newtheorem*{proof*}{Proof}
+\newtheorem*{example*}{Example}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{proposition*}{Proposition}
+
+
+\newenvironment{conj}[1][Conjecture.]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{solution}[1][Solution.]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{construct}[1][Construction.]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{definition}[1][Definition.]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{defn}[1][Definition.]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{thm}[1][Theorem.]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{exmps}[1][Examples.]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{example}[1][Example.]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{exmp}[1][Examples.]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{remark}[1][Remark.]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{problem}[1][Problem.]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{prop}[1][Proposition.]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{quest}[1][Question.]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{answer}[1][Answer.]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{algorithm}[1][Algorithm.]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{weakness}[1][Weaknesses.]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{puzzle}[1][Puzzle.]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\usepackage{titlesec}
+\titleformat{\section}
+{\centering\montserrateb\MakeUppercase}
+{\thesection.}{0.5em}{}
+\titlespacing{\section}{0.5em}{0.5em plus 0.5em}{0.5em plus 0.5em}
+
+\titleformat{\subsection}
+{\centering\montserratb}
+{\thesection.}{0.5em}{}
+\titlespacing{\subsection}{0.5em}{0.5em plus 0.5em}{0.125em plus 0.125em}
+
+\usepackage{centernot}
+\usepackage{mathtools}
+\usepackage{stmaryrd}
+
+% \makeatletter
+% \newcommand{\xMapsto}[2][]{\ext@arrow 0599{\Mapstofill@}{#1}{#2}}
+% \def\Mapstofill@{\arrowfill@{\Mapstochar\Relbar}\Relbar\Rightarrow}
+% \makeatother
+
+
+\usepackage{multicol}
+
+\begin{document}
+
+\begin{multicols}{2}
+	\section*{Taylor Polynomials}
+	\begin{definition}
+		For a sufficiently smooth function $f:\RR\to\RR$, the $K$-th degree Taylor Polynomial of $f(x)$ centred about $a$ is given by:
+		$$P_k(x)=\sum_{j=0}^{k}\frac{f^{(j)}(a)}{j!}(x-a)$$
+	\end{definition}
+
+	\begin{example}
+		Calculate the linear approximation to $f(x)=\sin(x)$ centred at $a=0$.
+		\begin{align*}
+			P_0(x) & =f(0)=0            \\
+			P_1(x) & =f(0)+f'(0)(x-0)=x
+		\end{align*}
+	\end{example}
+
+	\begin{definition}
+		Let $S$ be a surface given by $f(x,y,z)=0$ where $f:\RR^3\to\RR$ is continuously differentiable. Then the degree one Taylor Polynomial at $(a,b,c)$ is:
+		$$
+			f(a,b,c)+\begin{bmatrix}
+				\frac{\partial f}{ \partial x}(a,b,c) &
+				\frac{\partial f}{ \partial y}(a,b,c) &
+				\frac{\partial f}{ \partial z}(a,b,c)
+			\end{bmatrix} \cdot \begin{bmatrix}
+				x-a \\ y-b \\ z-c
+			\end{bmatrix}
+		$$
+
+		When $(a,b,c)$ is on the surface $S$, then the tangent plane at $(a,b,c)$ is:
+		$$
+			\frac{\partial f}{ \partial x}(a,b,c)(x-a) +
+			\frac{\partial f}{ \partial y}(a,b,c)(y-b) +
+			\frac{\partial f}{ \partial z}(a,b,c)(z-c)
+		$$
+
+		Where $Df(\mathbf{a})$ is the \textbf{total derivative} (or jacobian) of $f$ at $\textbf{a}$.
+		\[
+			Df(a)=\begin{bmatrix}
+				\pp f{x_1}(\textbf{a}),\dots,\pp f{x_m}(\textbf{a})
+			\end{bmatrix}
+		\]
+		And $Hf(\textbf{a})$ is the \textbf{Hessian} of $f$ at \textbf{a}, a matrix with:
+		\[
+			[Hf(a)]_{i,j} = \frac{\partial^2f}{\partial x_i \partial x_j}(\textbf{a})
+		\]
+
+
+	\end{definition}
+
+	\begin{definition}
+		For $f:\RR^n\to\RR$, the degree $1,2$ Taylor polynomials centred at $a$ are:
+		\begin{align*}
+			P_1(\mathbf r) & = f(\mathbf a) Df(\mathbf a)(\mathbf r-\mathbf a)                                                                      \\
+			P_2(\mathbf r) & = f(\mathbf a) Df(\mathbf a)(\mathbf r-\mathbf a) + \frac 12(\mathbf r-\mathbf a)^T Hf(\mathbf a)(\mathbf r-\mathbf a) \\
+		\end{align*}
+	\end{definition}
+
+
+	\section*{Vector Derivatives}
+	\begin{definition}
+		The derivative of $r(t)$ where $r:\RR\to\RR^n$ with respect to $t$ is done component wise:
+		$$r'(t)=\begin{bmatrix}
+				r_1'(t) \\
+				\vdots  \\
+				r_n'(t)
+			\end{bmatrix}$$
+	\end{definition}
+
+
+	% Exercise
+	\begin{example}
+		For functions $u,v,w: \RR\to\RR^n$ and $f:\RR\to\RR$ with $\alpha,\beta\in\RR$:
+		\begin{align*}
+			\alpha u + \beta v & \qquad \alpha u' + \beta v'                                       \\
+			u\cdot v           & \qquad u'\cdot v + u\cdot v'                                      \\
+			u\times v          & \qquad u'\times v + u\times v'                                    \\
+			u\cdot(v\times w)  & \qquad u'\cdot v\times w   +u\cdot v'\times w + u\cdot v\times w' \\
+			u(f(t))            & \qquad f'(t)\dd uf = f'(t)u'(f(t))
+		\end{align*}
+	\end{example}
+
+	For $f:\RR^n\to\RR$, the total derivative matrix is a row vector and the gradient of $f$ is:
+	$$\operatorname{grad} f= \nabla f= (Df)^T$$
+
+
+	\section*{Curvilinear Coordinates}
+	A coordinate parametrisation for a new system $\textbf{u}=[u_1,\dots,u_n]$ from the standard coordinates on $\RR^n$:
+	\begin{align*}
+		\xi : & \;\;\RR^n\longrightarrow \RR^n         \\
+		      & \begin{bmatrix}
+			        u_1    \\
+			        \vdots \\
+			        u_n
+		        \end{bmatrix}\mapsto \begin{bmatrix}
+			                             \xi_1(\textbf{u}) \\
+			                             \vdots            \\
+			                             \xi_n(\textbf{u})
+		                             \end{bmatrix}
+	\end{align*}
+	We can find a basis for $\textbf{u}$ from the columns of $D\xi$,
+	$$\pp\xi{u_1},\dots,\pp{\xi}{u_n}\qquad e_{u_j}= \pp{\xi}{u_j}\norm{\pp{\xi}{u_j}}^{-1}$$
+	Note that when the basis are not linearly independent, our coordinates are not well-behaved. (Cylindrical/polar when $r=0$, Spherical when $x,y=0$.) These points are \textbf{coordinate singularities}.
+
+	\subsection*{Polar}
+	\[
+		\xi: \begin{bmatrix}
+			r \\
+			\theta
+		\end{bmatrix} \mapsto \begin{bmatrix}
+			r\cos\theta \\
+			r\sin\theta
+		\end{bmatrix}
+		\qquad
+		\dd{e_r}{\theta}=e_\theta,\quad
+		\dd{e_\theta}{\theta}=-e_r
+	\]
+
+	\subsection*{Cylindrical}
+	\[
+		\xi: \begin{bmatrix}
+			r      \\
+			\theta \\
+			z
+		\end{bmatrix} \mapsto \begin{bmatrix}
+			r\cos\theta \\
+			r\sin\theta \\
+			z
+		\end{bmatrix}
+		\qquad
+		\begin{array}{lll}
+			\pp{e_r}{r} =0      & \pp{e_r}{\theta} =e_\theta  & \pp{e_r}{z} =0      \\
+			\pp{e_\theta}{r} =0 & \pp{e_\theta}{\theta} =-e_r & \pp{e_\theta}{z} =0 \\
+			\pp{e_z}{r} =0      & \pp{e_z}{\theta} =0         & \pp{e_z}{z} =0      \\
+		\end{array}
+	\]
+
+	\subsection*{Spherical}
+	\[
+		\xi: \begin{bmatrix}
+			r      \\
+			\theta \\
+			\phi
+		\end{bmatrix}
+		\mapsto
+		\begin{bmatrix}
+			r\cos\theta\sin\phi \\
+			r\sin\theta\sin\phi \\
+			r\cos\phi
+		\end{bmatrix}
+	\]
+	\[
+		\begin{array}{lll}
+			\pp{e_r}{r}      =0 & \pp{e_r}{\theta} =\sin\phi e_\theta                   & \pp{e_r}{z} =e_\phi \\
+			\pp{e_\theta}{r} =0 & \pp{e_\theta}{\theta} =-\sin\phi e_r -\cos\phi e_\phi & \pp{e_\theta}{z} =0 \\
+			\pp{e_z}{r}      =0 & \pp{e_z}{\theta} =\cos\phi e_\theta                   & \pp{e_z}{z} =-e_r   \\
+		\end{array}
+	\]
+	\section*{Curves}
+	\section*{Surfaces}
+	\section*{Volumes}
+
+
+
+\end{multicols}
+\end{document}
