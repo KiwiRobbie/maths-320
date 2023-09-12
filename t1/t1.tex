@@ -1,5 +1,5 @@
 \documentclass[a4paper]{article}
-\usepackage[fontsize=9pt]{fontsize}
+\usepackage[fontsize=8pt]{fontsize}
 
 % Fonts 
 \usepackage{opensans}
@@ -11,7 +11,7 @@
 
 \setmainfont{opensans}
 \setmathfont{Fira Math}
-\setmathfont{TeX Gyre DejaVu Math}[range={\vdots,\ddots}]
+\setmathfont{TeX Gyre DejaVu Math}[range={\vdots,\ddots,frak}]
 \setmathfont{Fira Math}[range=]
 
 \newfontfamily{\montserrateb}{Montserrat SemiBold}
@@ -189,6 +189,8 @@
 % \makeatother
 
 
+\def\grad{\operatorname{grad}}
+\def\divergence{\operatorname{div}}
 \def\curl{\operatorname{curl}}
 
 \usepackage{multicol}
@@ -451,7 +453,6 @@
 
 	A vector potential is determined up to an arbitrary conservative vector field since $\curl(\mathbf{F}+\nabla f)=\curl \mathbf{F} +0$
 
-	\subsection*{Divergence}
 
 	\subsection*{Green's Theorem}
 	For $R$, a closed bounded region in $\RR^2$ with boundary $\partial R$ consisting of piecewise smooth curves.
@@ -484,6 +485,51 @@
 		\iint_S \curl \mathbf{F}\cdot d\mathbf{S}=\oint_{\partial S}F_1dx+F_2dy+F_3dz
 	\]
 	The theorem still applies when $\partial S=\emptyset$. Integral is $0$.
+
+	\subsection*{Divergence}
+	The \textbf{divergence} of $\mathbf{v}(x_1,\dots,x_n)=[v_1,\dots,v_n]^T$, a vector field on $\RR^n$ is:
+	$$\nabla\cdot \mathbf{v} =\div\mathbf{v}=\sum_{i=1}^n\pp{v_i}{x_i}$$
+	\begin{itemize}
+		\item If $\divergence \mathbf{v}(x)>0$, then $x$ is a source.
+		\item If $\divergence \mathbf{v}(x)<0$, then $x$ is a sink.
+	\end{itemize}
+
+	\begin{align*}
+		\nabla(fg)               & = f\nabla g + (\nabla f)g                          \\
+		\curl(f\mathbf{F})       & = f\curl\mathbf{F}+\nabla f \times \mathbf{F}      \\
+		\divergence(f\mathbf{v}) & =f\divergence\mathbf{v} + \nabla f\cdot \mathbf{v}
+	\end{align*}
+	Where $C^\infty(U)$ is the smooth scalar functions and $\mathfrak{X}(U)$ the smooth vector function of a region $U\subseteq \RR^3$. We have a co-chain complex:
+	\[
+		C^\infty(U)
+		\xrightarrow{\grad}\mathfrak{X}(U)
+		\xrightarrow{\curl}\mathfrak{X}(U)
+		\xrightarrow{\divergence}C^\infty(U)
+	\]
+	Where composing two adjacent operators gives zero.
+
+	\subsection*{Vector Potential}
+	A vector potential $\mathbf{F}$ for a vector field $\mathbf{v}$ on region $U\subseteq\RR^3$:
+	$$\mathbf{v}=\curl\mathbf{F}$$
+	A vector potential is determined up to an arbitrary scalar potential since:
+	$$\curl(\mathbf{F}+\nabla f)=\curl\mathbf{F} +0$$
+	Since $\divergence\circ\curl=0$, we must have $\divergence\mathbf{v}=0$, this is sufficient for a potential to exist if $U$ has no \textbf{cavities} (sphere can be contracted to a point).
+
+	\subsection*{Divergence Theorem}
+	For $V$ a compact (bounded, closed) volume region in $\RR^3$, with boundary $\partial V$ of piecewise smooth surfaces with the positive orientation.  Then for a smooth vector field $\mathbf{v}$:
+	$$
+		\iiint_V\divergence \mathbf{v} dV = \oiint_{\partial V}v\cdot d\mathbf{V}
+	$$
+
+	\section*{Useful Stuff}
+	If  $S$ is a upwards-oriented surface given by a graph $z=f(x,y)$, where $f:U\to\RR^3$ is a function on region $U\subseteq \RR^2$:
+	$$dS=\left[ -\pp fx, -\pp fy, 1 \right]^T$$
+
+
+
+
+
+
 
 \end{multicols}
 \end{document}
