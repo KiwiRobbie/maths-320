@@ -38,7 +38,7 @@
 
 % Colours
 \usepackage[table,xcdraw]{xcolor}
-\definecolor{accentcolor}{HTML}{6332a8}
+\definecolor{accentcolor}{HTML}{a13640}
 
 % Change label in enumerate 
 \usepackage{enumitem}
@@ -111,168 +111,191 @@
 \def\conj#1{\overline{#1}}
 
 \usepackage{multicol}
+\usepackage{tikz}
 \usepackage{pgfplots}
+\usetikzlibrary {graphs,graphdrawing} \usegdlibrary {force} 
+\usetikzlibrary{graphs.standard}
+\usegdlibrary {circular}
 
 \begin{document}
-\thetop{Robert Christie}{MATHS 340}{S2 2023}{Assignment 4\\Due: 17-10-2023}{accentcolor}
+\thetop{Robert Christie}{MATHS 326}{S2 2023}{Assignment 4\\Due: 20-03-2024}{accentcolor}
 
-\begin{multicols}{2}
+\begin{multicols*}{2}
 	\section*{Q1}
-	The function $f$ is differentiable at $z$ the following limit:
-	$$ \lim_{\Delta z\to 0}\frac{f(z+\Delta z)-f(z)}{\Delta z} $$
-	Exists, consider $\Delta z$ approaching along a straight line with angle $\theta$.
-	\begin{align*}
-		  & \lim_{r\to 0}\frac{f(z+re^{i\theta})-f(z)}{re^{i\theta}}                                                                                                                                                                                          \\
-		= & \lim_{r\to 0}\frac{\frac 1{\overline z+re^{-i\theta}}-\frac1{\overline z}}{re^{i\theta}}                                                                                                                                                          \\
-		= & \lim_{r\to 0}\frac{\frac {\overline z}{\left( \overline z+re^{-i\theta} \right)\overline z}-\frac{\left( \overline z+re^{-i\theta} \right)}{\left( \overline z+re^{-i\theta} \right)\overline z}}{re^{i\theta}}\quad\text{as $\overline z\neq 0$} \\
-		= & \lim_{r\to 0}\frac {\overline z-\left( \overline z+re^{-i\theta} \right)}{re^{i\theta}\left( \overline z+re^{-i\theta} \right)\overline z}                                                                                                        \\
-		= & \lim_{r\to 0}\frac {-re^{-i\theta}}{re^{i\theta}\overline z^2+r^2\overline z}                                                                                                                                                                     \\
-		= & \lim_{r\to 0}\frac {-e^{-2i\theta}}{\overline z^2+re^{-i\theta}\overline z}
-	\end{align*}
-	Notice that this limit will depend on $\theta$ as the denominator:
-	$$\overline{z^2}+re^{-i\theta}\overline z\to \overline z ^2$$
-	While the numerator depends on $\theta$. Hence, the limit does not exist for any $z\in \CC \backslash \set 0$ meaning the function is differentiable nowhere on $\CC$.
-
-
-	To verify this, we can write
-
-	\begin{align*}
-		f(x+iy) = & \frac{1}{x-iy}
-		=\frac{x+iy}{x^2+y^2}                           \\
-		=         & \frac x{x^2+y^2}+\frac{iy}{x^2+y^2} \\
-		=         & u(x,y)+iv(x,y)
-	\end{align*}
-	Using the product rule:
-
-	\begin{alignat*}{6}
-		\pp{u}{x}  & = \frac{1-2x}{(x^2+y^2)^2}      & \;\;\neq\;\;           &  &
-		\pp{v}{y}  & = \frac{1-2y}{(x^2+y^2)^2}\quad & \text{When $x\neq y$}       \\
-		\pp{u}{y}  & = \frac{-2y}{(x^2+y^2)^2}       & \;\;\neq\;\;           &  &
-		-\pp{v}{x} & = -\frac{-2x}{(x^2+y^2)^2}\quad & \text{When $x\neq -y$}
-	\end{alignat*}
-	So $f(z)$ does not satisfy the Cauchy-Riemann equations for any $z\in\CC\backslash\set 0$ and is therefore not differentiable anywhere on $z\in\CC\backslash\set 0$.
-
-
-
-
-	\section*{Q2}
-	Note that $f$ is analytic except when $z=0$ or $z^3=1$. Of the three solutions to $z^3$ only $z=1$ lies within $C$.
-
-	Since $C$ is a piecewise smooth closed curve oriented anticlockwise, and $f(z)$ is analytic on and inside $C$ except at $2$ isolated points $z=0$ and $z=1$, we can apply the residue theorem:
-	$$\int_C f(z)dz=2\pi i (\text{Res}_0f + \text{Res}_1 f)$$
-
-	As $z=0$ is a pole of order $m=3$:
-	\begin{align*}
-		\text{Res}_0 f & = \frac 1{(m-1)!}\lim_{z\to 0} \left( \dd{^{m-1}}{z^{m-1}} \left[ (z-0)^m f(z) \right] \right)      \\
-		               & = \frac 1{2}\lim_{z\to 0} \left( \dd{^2}{z^2} \left[ z^3 \frac{1}{z^3(1-z^3)} \right] \right)       \\
-		               & = \frac 1{2}\lim_{z\to 0} \left( \dd{}{z} \left[ 3x^2(1-x^3) \right]\right)                         \\
-		               & = \frac 1{2}\lim_{z\to 0} \left( \frac{6z}{(1-z^3)^2} + \frac{18z^4}{\left( 1-z^3 \right)^3}\right) \\
-		               & = 0
-	\end{align*}
-
-	We have a first order pole at $z=1$ as we can write $(1-z^3)=(1-z)(z^2+z+1)$. Thus, the residue at $z=1$ is:
-	\begin{align*}
-		\text{Res}_1 f & = \frac 1{(m-1)!}\lim_{z\to 1} \left( \dd{^{m-1}}{z^{m-1}} \left[ (z-1)^m f(z) \right] \right) \\
-		               & \lim_{z\to1} \left( (z-1) \frac{1}{z^3(1-z^3)} \right)                                         \\
-		               & \lim_{z\to1} \left( (z-1) \frac{1}{z^3(1-z)(z^2+z+1)} \right)                                  \\
-		               & \lim_{z\to1} \left(  \frac{-1}{z^3(z^2+z+1)} \right)                                           \\
-		               & = \frac{-1}{1(1+1+1)}                                                                          \\
-		               & = -\frac 13
-	\end{align*}
-	Thus:
-	$$\int_C f(z)dz =-\frac{2\pi i}3$$
-
-	\section*{Q3}
 	\begin{enumerate}[label=(\alph*)]
-		\item We know the Taylor series of $e^z$ about $z=0$ which converges to $e^z$ is:
-		      $$\sum_{n=0}^\infty \frac {z^n}{n!}=1+z+\frac{z^2}2+\frac{z^3}6+\dots$$
-		      From lectures we also know that the Laurent series for $\frac{1}{\sin z}$ in the region $0<|z|<\pi$ is:
-		      $$z^{-1}+z\left( \frac 1{3!} \right) + z^3 \left(  - \frac 1{5!} + \left(\frac 1{3!}\right)^2 \right)+\dots$$
-		      Multiplying these series to the third term gives:
+		\item Call the graph $G$, and apply deletion contraction theorem to the edge $e$ in red:
+
+		      \begin{center}
+			      \tikz \graph [empty nodes, nodes={circle, draw}, spring layout] { a --[red] b -- c -- a -- d -- c -- e -- f -- d };
+		      \end{center}
+
+		      Thus, $P_G(x) = P_{G-e}(x) - P_{G_e}(x)$  This produces two graphs, $G-e$ and $_e$:
+		      \begin{center}
+			      \begin{tabular}{cc}
+				      \tikz \graph [empty nodes, nodes={circle, draw}, spring layout] {  b -- c -- a -- d -- c -- e -- f -- d };
+				              & \tikz \graph [empty nodes, nodes={circle, draw}, spring layout] {  b -- c -- b -- d -- c -- e -- f -- d };
+				      \\
+				      $G - e$ & $G_e$
+			      \end{tabular}
+		      \end{center}
+
+		      Notice that $G-e$ can be constructed by adding a vertex to $H=G_e$. Applying deletion contraction to $H$:
+		      \begin{center}
+			      \begin{tabular}{cc}
+				      \tikz \graph [empty nodes, nodes={circle, draw}, spring layout] {  a -- b -- c -- d -- a -- e};
+				            & \tikz \graph [empty nodes, nodes={circle, draw}, spring layout] {  a -- b -- c -- d -- a};
+				      \\
+				      $H-e$ & $H_e$
+			      \end{tabular}
+		      \end{center}
+		      We see that $H_e = C_4$, and $H-e$ is $C_4$ with an additional vertex $v$ added, which can take any color except that of its neighbor. Thus:
 		      \begin{align*}
-			        & z^{-1}\cdot 1 \;\;+\;\; z^{-1}\cdot z  \;\;+\;\; z^{-1}\cdot \frac{z^2}2  \;\;+\;\;  \frac z{3!} \cdot \frac{z^0}1 \\
-			      = & \frac 1z + 1 + \frac{2z}3
+			      P_{H-e}(x) & = (x-1)C_4(x) \\
+			      P_{H_e}(x) & = C_4(x)
+		      \end{align*}
+		      Using this with the deletion contraction gives the chromatic polynomial of $H$:
+		      \begin{align*}
+			      P_H(x) & = P_{H-e}(x) - P_{H_e}(x) \\
+			             & = (x-2)C_4(x)             \\
+			             & = (x-2)((x-1)^4+x-1)
 		      \end{align*}
 
-
-
-		\item We use the series
-		      $$(1-a)^{-1}=1+a+a^2+a^3+\dots \quad\text{For $|a| < 1$}$$
-		      Let $\omega = z-1$ so $z=\omega+1$, where $|\omega| >1\implies |\omega^{-1}|<1$. Thus:
-
-
+		      Since $G-e$, is just $H$ with an additional vertex $v$ with a single neighbor, we find:
 		      \begin{align*}
-			      g(z) & = \frac{z-2}{z(z-1)}                                                                                                                     \\
-			           & = \frac{\omega-1}{(\omega + 1)\omega}                                                                                                    \\
-			           & = \frac{\omega-1}{(1 + \frac{1}\omega)\omega^2}                                                                                          \\
-			           & = \frac{\omega-1}{\omega^2} \left(1 - \left(-\frac1\omega\right) \right)^{-1}                                                            \\
-			           & = \left[ \frac1\omega - \frac 1{\omega^2}  \right] \left[ 1-\frac1\omega+\frac1{\omega^2}-\frac1{\omega^3}+\dots \right]                 \\
-			           & = \left[ \omega^{-1}-1 \right] + \left[ -1 +\omega  \right] +\left[ \omega - \omega^2 \right] + \left[ -\omega^2 +\omega^3 \right]+\dots \\
-			           & = \frac 1\omega -2 +2\omega  -2 \omega^2 +2\omega^3 +\dots                                                                               \\
+			      P_{G-e}(x)=(x-1)H
 		      \end{align*}
-		      Thus, the first three terms in the Laurent series of $g(z)$ about $z=1$ in the region $|z-1>1$ are:
 
-		      $$1 (z-1)^{-1}  - 2(z-1)^{-2} + 2(z-1)^{-3} $$
+		      From deletion contraction we can use our results to determine :
+		      \begin{align*}
+			      P_G(x) & = P_{G-e}(x) - P_{G_e}(x) \\
+			             & = (x-1)H - H              \\
+			             & = (x-2)H                  \\
+			             & = (x-2)^2((x-1)^4+x-1)
+		      \end{align*}
+		\item We apply deletion contraction theorem to $G$ on the edge in red:
+		      \begin{center}
+			      \tikz \graph [empty nodes, nodes={circle, draw}, spring layout] { a -- z -- b -- c -- a -- d -- c -- e --[red] f -- d };
+		      \end{center}
+		      This produces graphs:
+		      \begin{center}
+			      \begin{tabular}{cc}
+				      \tikz \graph [empty nodes, nodes={circle, draw}, spring layout] { z -- b -- c -- a -- d -- c -- e -- f -- d };
+				              & \tikz \graph [empty nodes, nodes={circle, draw}, spring layout] { a -- b -- c -- a -- d -- c -- e -- f -- d };
+				      \\
+				      $G - e$ & $G_e$
+			      \end{tabular}
+		      \end{center}
+		      Notice that $G_e$ is the graph from part a, while $G-e$ can be constructed by adding two vertices to the graph $H$ from part a. Notice that the added vertices have only one neighbor each meaning they can take on $(x-1)$ colors for each existing coloring of $H$. Thus, the chromatic polynomials are:
+		      \begin{align*}
+			      P_{G-e}    & = (x-1)^2 P_H(x)            \\
+			                 & = (x-1)^2(x-2)((x-1)^4+x-1) \\
+			      P_{G_e}(x) & = P_{G_a}(x)                \\
+			                 & = (x-2)^2((x-1)^4+x-1)
+		      \end{align*}
+		      Finally we use these results in the deletion contraction theorem applied to $G$:
+		      \begin{align*}
+			      P_G(x) & = (x-1)^2(x-2)((x-1)^4+x-1)
+			      \\
+			             & - (x-2)^2 ( (x-1)^4 + (x-1))                            \\
+			             & = \left((x-1)^2-x+2\right)(x-2)\left((x-1)^4+x-1\right)
+		      \end{align*}
+	\end{enumerate}
 
+	\subsection*{Q2}
+
+	\begin{enumerate}[label=(\alph*)]
+		\item
+
+		      First we show that $G$ is connected implies $P_G(x)$ contains a non-zero $x$ term. Apply induction on the number of vertices $n$ of a connected graph $G$.
+		      \begin{itemize}
+			      \item Base case: $n=1$, so $P_G(x)=x$.
+			      \item Induction step: Apply induction on the number of edges $m$:
+			            \begin{itemize}
+				            \item
+				                  Base case: Spanning tree of $G$, so $P_G(x)=x(x-1)^{n-1}$.
+
+				            \item
+				                  Induction step: Consider some $G$ with $n+1$ vertices and $m+1$ edges, apply deletion contraction to some edge $e$. As $G-e$ has $m$ vertices it contains a non-zero $x$ term by the induction hypothesis for the edge induction. The graph $G_e$ will have $n$ vertices and has a non-zero $x$ term by the induction hypothesis for induction on the vertices.
+
+				                  Since $P_{G-e}(x), P_{G_e}(x)$ have degree $n+1,n$ and signs alternate as they are chromatic polynomials, the $x$ terms must have different signs. Therefore:
+				                  $$P_G(x)=P_{G-e}(x) - P_{G_e}(x)$$
+				                  Will also have a non-zero $x$ term as the $x$ term in $P_{G-e}(x)$ and  $-P_{G_e}(x)$ now have the same sign.
+			            \end{itemize}
+		      \end{itemize}
+
+
+		      Now we prove the other direction, that is, if $P_G(x)$ contains a non-zero $x$ term, then $G$ is connected:
+
+		      A disconnected $G$ consists of multiple connected subgraphs $C_1,\dots,C_k$, each subgraph can be colored independently, thus:
+		      $$P_G(x)=\prod_{i=1}^{k}P_{C_i}(x)$$
+		      Since each $C_i$ is connected, by the first implication, $P_{C_i}(x)$ has a non-zero $x$. As $P_{C_i}(x)$ is a chromatic polynomial, the constant term must be zero. Thus, when we take the product of $P_{C_i}(x)$ the lowest degree term is $x^k$ and so $P_G(x)$ has a coefficient of zero for the $x$ term.
+
+		\item
+	\end{enumerate}
+
+	\subsection*{Q3}
+	\begin{enumerate}[label=(\alph*)]
+		\item Expanding $(x-1)^4$ would result in a polynomial with constant term of $(-1)^4=1$, thus the polynomial is not the chromatic polynomial for any graph as it has a non-zero constant term.
+
+		\item Notice that the $x^3$ term is positive but the $x$ term is negative, thus the signs do not alternate otherwise the terms would have the same sign.
+
+		\item Assume the polynomial is a chromatic polynomial $P_G(x)$. We can deduce the following:
+		      \begin{itemize}
+			      \item Since it has degree $4$, it corresponds to a graph of $4$ vertices.
+			      \item The $x^{n-1}=x^3$ term has a coefficient of $-3$, so $G$ must have $3$ edges.
+			      \item The $x$ term has a non coefficient, thus $G$ is connected.
+		      \end{itemize}
+		      The only connected graph with $3$ edges and $4$ vertices is $P_4$, which has chromatic polynomial:
+		      \[
+			      P_{P_4}(x)=x(x-1)^3= x^4 - 3x^3 + 3x^2 - x \neq P_G(x)
+		      \]
+		      Thus $P_G(x)$ is not a chromatic polynomial of any graph.
 
 
 	\end{enumerate}
 
-	\section*{Q4}
-	\begin{align*}
-		  & \int_{0}^{\pi}\frac{1}{6+\cos\left(t\right)}dt                                \\
-		= & - \int_{2\pi}^{\pi}\frac{1}{6+\cos\left(u \right)}du\quad u=2\pi-t, dt = - du \\
-		= & \int_{\pi}^{2\pi}\frac{1}{6+\cos\left(t\right)}dt                             \\
-	\end{align*}
-	Therefore:
-	\begin{align*}
-		  & \int_{0}^{\pi}\frac{1}{6+\cos\left(t\right)}dt           \\
-		= & \frac 12 \int_{0}^{2\pi}\frac{1}{6+\cos\left(t\right)}dt
-	\end{align*}
-	Now let be $C$ an anticlockwise unit circle in the complex plane. So $z=e^{it}$ is on the circle. Hence:
-	$$\cos t = \frac{z+\frac 1z}2$$
-	And:
-	$$dz= ie^{it}dt=izdt \implies dt = \frac {dz}{iz}$$
-	Thus, the integral can be written as:
-	\begin{align*}
-		  & \int_{0}^{\pi}\frac{1}{6+\cos\left(t\right)}dt                 \\
-		= & \frac 12 \int_{0}^{2\pi}\frac{1}{6+\cos\left(t\right)}dt       \\
-		= & \frac 12 \int_C\frac{1}{iz\left( 6+\frac{z+z^{-1}}2 \right)}dz \\
-		= & \int_C\frac{1}{i\left( 12+z^2+1 \right)}dz                     \\
-		= & -i\int_C\frac{1}{ z^2+12z+1 }dz                                \\
-	\end{align*}
-	The integrand is not analytic at the roots of $z^2+12z+1$, using the quadratic formula:
-	\begin{align*}
-		  & \frac{-12\pm \sqrt{12^2-4}}{2} \\
-		= & \frac{-12\pm 2\sqrt{35}}{2}    \\
-		= & -6\pm \sqrt{35}
-	\end{align*}
-	Thus $f$ is not analytic at the single isolated point in $C$, $z=\sqrt{35}-6=a$. Which will be a simple pole as we can factorise the denominator into linear factors:
-	$$(z+6-\sqrt{35})(z+6+\sqrt{35})$$
+	\subsection*{Q5}
+	\begin{enumerate}
+		\item We can create a $3$-coloring of the Petersen graph:
+		      \begin{center}
+			      \begin{tikzpicture}[every node/.style={draw,circle}]
+				      \begin{scope}[shift={(0,-1cm)}]
+					      \graph[empty nodes, simple necklace layout, clockwise, radius=1cm] {
+						      A[green], B[red], C[red], D[blue], E[green];
+						      A -- C -- E -- B -- D -- A;
+					      };
+				      \end{scope}
+				      \graph[empty nodes, simple necklace layout, clockwise, radius=2cm] {
+					      1[red] -- 2[blue] -- 3[green] -- 4[red] -- 5[blue] -- 1;
+				      };
+				      \draw (1) -- (A);
+				      \draw (2) -- (B);
+				      \draw (3) -- (C);
+				      \draw (4) -- (D);
+				      \draw (5) -- (E);
+			      \end{tikzpicture}
+		      \end{center}
+		      Therefore, $\chi(P)\leq 3$, however, since $P$ contains an odd cycle of length $5$, we also have $\chi(P)\geq3$, hence $\chi(P)=3$.
 
-	Thus, the residue at the pole in $C$ is:
-	\begin{align*}
-		\text{Res}_a f & = \frac 1{(m-1)!}\lim_{z\to a} \left( \dd{^{m-1}}{z^{m-1}} \left[ (z-a)^m f(z) \right] \right) \\
-		               & =\lim_{z\to a} \left( (z-a)f(z) \right)                                                        \\
-		               & =\lim_{z\to a} \left(  \frac{z+6-\sqrt{35}}{(z+6-\sqrt{35})(z+6+\sqrt{35})}\right)             \\
-		               & =\lim_{z\to a} \left(  \frac{1}{(z+6+\sqrt{35})}\right)                                        \\
-		               & =  \frac{1}{\sqrt{35}-6+6+\sqrt{35}}                                                           \\
-		               & =  \frac{1}{2\sqrt{35}}                                                                        \\
-	\end{align*}
-
-
-
-
-	Since $C$ is a piecewise smooth closed curve oriented anticlockwise, and $f(z)$ is analytic on and inside $C$ except at $1$ isolated points $z=a$, we can apply the residue theorem:
-
-	\[
-		-i \left[ \int_C\frac{1}{ z^2+12z+1 }dz  \right]  = -i \left[ 2\pi i \frac{1}{2\sqrt {35}} \right] = \frac{\pi}{\sqrt 35}
-	\]
-	Thus we have found:
-	\[
-		\int_0^{\pi} \frac 1{1+6\cos t}dt = \frac{\pi}{\sqrt 35}
-	\]
-
-
-\end{multicols}
+		\item A $4$-edge-coloring of the Petersen graph,
+		      \begin{center}
+			      \begin{tikzpicture}[every node/.style={draw,circle}]
+				      \begin{scope}[shift={(0,-1cm)}]
+					      \graph[empty nodes, simple necklace layout, clockwise, radius=1cm] {
+					      A, B, C, D, E;
+					      A --[red] C --[green] E --[red] B --[green] D --[blue] A;
+					      };
+				      \end{scope}
+				      \graph[empty nodes, simple necklace layout, clockwise, radius=2cm] {
+				      1--[red]2--[green]3--[red]4--[green]5--[yellow]1;
+				      };
+				      \draw[green] (1) -- (A);
+				      \draw[blue]  (2) -- (B);
+				      \draw[blue]  (3) -- (C);
+				      \draw[blue]  (4) -- (D);
+				      \draw[blue]  (5) -- (E);
+			      \end{tikzpicture}
+		      \end{center}
+	\end{enumerate}
+\end{multicols*}
 \end{document}
