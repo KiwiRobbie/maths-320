@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023/Arch Linux)  (format=lualatex 2024.2.24)  13 MAR 2024 17:41
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023/Arch Linux)  (format=lualatex 2024.2.24)  15 MAR 2024 23:24
  restricted system commands enabled.
  file:line:error style messages enabled.
 **m326a1.tex
@@ -849,6 +849,33 @@ Package fontspec Info: Font family 'MontserratLight(0)' created for font
 (fontspec)             <->"MontserratLight:mode=node;script=latn;language=dflt;+smcp;"
 
 LaTeX Font Info:    Redeclaring math alphabet \mathcal on input line 19.
+
+Package fontspec Info: Could not resolve font "LatinModernMath/B" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: Font family 'LatinModernMath(0)' created for font
+(fontspec)             'Latin Modern Math' with options
+(fontspec)             [Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=9.417-},{Size=7.1175-9.417,Font=Latin
+(fontspec)             Modern Math,Style=MathScript},{Size=-7.1175,Font=Latin
+(fontspec)             Modern
+(fontspec)             Math,Style=MathScriptScript}},FontAdjustment={\__um_luatex_copy_fontdimens:
+(fontspec)             }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <9.417->"LatinModernMath:mode=base;script=math;language=dflt;"<7.1175-9.417>"LatinModernMath:mode=base;script=math;language=dflt;+ssty=0;"<-7.1175>"LatinModernMath:mode=base;script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \__um_luatex_copy_fontdimens: 
+
+\sym__um_fam1=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `__um_fam1' in version `normal'
+(Font)                  TU/LatinModernMath(0)/m/n --> TU/LatinModernMath(0)/m/n on input line 20.
+LaTeX Font Info:    Overwriting symbol font `__um_fam1' in version `bold'
+(Font)                  TU/LatinModernMath(0)/m/n --> TU/LatinModernMath(0)/b/n on input line 20.
  (/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2023-02-07 v7.00v Hypertext links for LaTeX
  (/usr/share/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
@@ -1542,43 +1569,43 @@ File: tikzlibrarygraphs.standard.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (./out/m326a1.aux)
 \openout1 = m326a1.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 120.
-LaTeX Font Info:    Trying to load font information for LY1+ptm on input line 120.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 121.
+LaTeX Font Info:    Trying to load font information for LY1+ptm on input line 121.
  (/usr/share/texmf-dist/tex/latex/ly1/ly1ptm.fd
 File: ly1ptm.fd 2001/02/01 font definitions for LY1/ptm using Berry names.
 )
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
 \c@mv@tabular=\count368
 \c@mv@boldtabular=\count369
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/Montserrat-LF/m/n on input line 120.
+(Font)                  OT1/cmss/m/n --> TU/Montserrat-LF/m/n on input line 121.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/Montserrat-LF/b/n on input line 120.
+(Font)                  OT1/cmss/bx/n --> TU/Montserrat-LF/b/n on input line 121.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 120.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 121.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 120.
-Package hyperref Info: Link coloring OFF on input line 120.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 121.
+Package hyperref Info: Link coloring OFF on input line 121.
  (./out/m326a1.out) (./out/m326a1.out)
 \@outlinefile=\write4
 
@@ -1612,34 +1639,44 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into your preamble.
- on input line 120.
+ on input line 121.
 
 
-Underfull \hbox (badness 10000) detected at line 121
+Underfull \hbox (badness 10000) detected at line 122
  [] 
  []
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] (./out/m326a1.aux)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+./m326a1.tex:312: Undefined control sequence.
+l.312 		5n=	5\abs{V} \leq	\sum_{v\in V}\mathoperator
+                                                  {deg}(v) = 2\abs{E} = 2m
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[3] [4] (./out/m326a1.aux)
 Package rerunfilecheck Info: File `m326a1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 )
 
 Here is how much of LuaTeX's memory you used:
- 46264 strings out of 478285
- 195328,1977958 words of node,token memory allocated
- 769 words of node memory still in use:
-   8 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 12 attribute, 100 glue_spec, 12 attribute_list, 2 write nodes
-   avail lists: 1:13,2:8488,3:5185,4:222,5:393,6:71,7:16200,8:33,9:3212,10:14,11:325
- 64984 multiletter control sequences out of 65536+600000
- 94 fonts using 17570467 bytes
- 108i,17n,115p,760b,1615s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/truetype/ascender/opensans/OpenSans-Bold.ttf></usr/share/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf></usr/share/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf></usr/share/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf></usr/share/texmf-dist/fonts/truetype/ascender/opensans/OpenSans-Regular.ttf></usr/share/texmf-dist/fonts/opentype/public/montserrat/Montserrat-SemiBold.otf></usr/share/texmf-dist/fonts/opentype/public/montserrat/Montserrat-Bold.otf></usr/share/texmf-dist/fonts/opentype/public/montserrat/Montserrat-Light.otf>
-Output written on m326a1.pdf (3 pages, 37681 bytes).
+ 46309 strings out of 478285
+ 195337,1977958 words of node,token memory allocated
+ 777 words of node memory still in use:
+   8 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 14 attribute, 100 glue_spec, 14 attribute_list, 2 write nodes
+   avail lists: 1:12,2:8482,3:5185,4:310,5:400,6:71,7:16197,8:34,9:3212,10:12,11:305
+ 65027 multiletter control sequences out of 65536+600000
+ 131 fonts using 31104591 bytes
+ 108i,17n,115p,760b,2781s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/share/texmf-dist/fonts/truetype/ascender/opensans/OpenSans-Italic.ttf></usr/share/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf></usr/share/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf></usr/share/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf></usr/share/texmf-dist/fonts/truetype/ascender/opensans/OpenSans-Regular.ttf></usr/share/texmf-dist/fonts/opentype/public/montserrat/Montserrat-SemiBold.otf></usr/share/texmf-dist/fonts/opentype/public/montserrat/Montserrat-Bold.otf></usr/share/texmf-dist/fonts/opentype/public/montserrat/Montserrat-Light.otf>
+Output written on m326a1.pdf (4 pages, 50515 bytes).
 
-PDF statistics: 89 PDF objects out of 1000 (max. 8388607)
- 59 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 131072)
+PDF statistics: 101 PDF objects out of 1000 (max. 8388607)
+ 67 compressed objects within 1 object stream
+ 15 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 100000000)
 

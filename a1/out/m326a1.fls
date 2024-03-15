@@ -196,6 +196,7 @@ INPUT /home/kiwi/.texlive/texmf-var/luatex-cache/generic/fonts/otl/montserrat-se
 INPUT /home/kiwi/.texlive/texmf-var/luatex-cache/generic/fonts/otl/montserrat-bold.luc
 INPUT /home/kiwi/.texlive/texmf-var/luatex-cache/generic/fonts/otl/montserrat-regular.luc
 INPUT /home/kiwi/.texlive/texmf-var/luatex-cache/generic/fonts/otl/montserrat-light.luc
+INPUT /home/kiwi/.texlive/texmf-var/luatex-cache/generic/fonts/otl/latinmodern-math.luc
 INPUT /usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT /usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT /usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
@@ -633,5 +634,17 @@ INPUT /usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 INPUT /usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmmi5.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmmi5.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmmi5.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmmi5.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 INPUT ./out/m326a1.aux
 INPUT ./out/m326a1.out

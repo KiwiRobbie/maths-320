@@ -17,6 +17,7 @@
 \newfontfamily{\montserrat}{Montserrat Regular}
 \newfontfamily{\montserratl}{Montserrat Light}
 \DeclareMathAlphabet{\mathcal}{OMS}{cmbrs}{m}{n}
+\setmathfont{Latin Modern Math}[range={\vdots}]
 
 % \autoref
 \usepackage{hyperref}
@@ -118,7 +119,7 @@
 \usegdlibrary {circular}
 
 \begin{document}
-\thetop{Robert Christie}{MATHS 326}{S2 2023}{Assignment 4\\Due: 20-03-2024}{accentcolor}
+\thetop{Robert Christie}{MATHS 326}{S1 2024}{Assignment 1\\Due: 20-03-2024}{accentcolor}
 
 \begin{multicols*}{2}
 	\section*{Q1}
@@ -205,32 +206,81 @@
 
 	\begin{enumerate}[label=(\alph*)]
 		\item
+		      First we show that if $G$ is connected, then $P_G(x)$ contains a non-zero $x$ term:
 
-		      First we show that $G$ is connected implies $P_G(x)$ contains a non-zero $x$ term. Apply induction on the number of vertices $n$ of a connected graph $G$.
+		      Apply strong induction on $m=\abs{E}$ for connected graphs $G=(V,E)$.
 		      \begin{itemize}
-			      \item Base case: $n=1$, so $P_G(x)=x$.
-			      \item Induction step: Apply induction on the number of edges $m$:
-			            \begin{itemize}
-				            \item
-				                  Base case: Spanning tree of $G$, so $P_G(x)=x(x-1)^{n-1}$.
+			      \item Base case:
 
-				            \item
-				                  Induction step: Consider some $G$ with $n+1$ vertices and $m+1$ edges, apply deletion contraction to some edge $e$. As $G-e$ has $m$ vertices it contains a non-zero $x$ term by the induction hypothesis for the edge induction. The graph $G_e$ will have $n$ vertices and has a non-zero $x$ term by the induction hypothesis for induction on the vertices.
+			            For $\abs{E}=0$, the only connected graph is a single vertex with $P_G(x)=x$.
 
-				                  Since $P_{G-e}(x), P_{G_e}(x)$ have degree $n+1,n$ and signs alternate as they are chromatic polynomials, the $x$ terms must have different signs. Therefore:
-				                  $$P_G(x)=P_{G-e}(x) - P_{G_e}(x)$$
-				                  Will also have a non-zero $x$ term as the $x$ term in $P_{G-e}(x)$ and  $-P_{G_e}(x)$ now have the same sign.
-			            \end{itemize}
+			      \item Induction Step (``$m\implies m+1$''):
+
+			            Consider a graph with $\abs{E}=m+1$, apply deletion contraction, thus:
+			            $$P_G(x)= P_{G-e}(x) - P_{G_e}(x)$$
+			            Note that both $G-e$ and $G_e$ have $m$ or fewer edges and therefore contain an $x$ term in their chromatic polynomials by the induction hypothesis.
+
+			            Note that if $G$ has $n$ vertices, so does $G-e$ while $G_e$ has $n-1$ vertices. Hence, $P_{G-e}(x)$ is of degree $n$ and $P_{G_e}(x)$ degree $n-1$. Since the $x^n$ term has positive coefficient and the signs alternate, the two polynomials have opposite signs on the $x$ term. Applying this observation to the deletion contraction equation:
+			            \begin{align*}
+				            P_G(x) & = P_{G-e}(x) - P_{G_e}(x)      \\
+				                   & = (x^n + \dots \pm c_a x )     \\
+				                   & -  (x^{n-1} + \dots \mp c_b x)
+				            \quad\text{For $c_a,c_b\in\RR^+$}       \\
+				                   & = x^n + \dots \pm (c_a + c_b)x
+			            \end{align*}
+			            Note that $c_a+c_b > 0$ therefore $P_G(x)$ contains a non-zero $x$ term.
+
 		      \end{itemize}
 
-
-		      Now we prove the other direction, that is, if $P_G(x)$ contains a non-zero $x$ term, then $G$ is connected:
-
-		      A disconnected $G$ consists of multiple connected subgraphs $C_1,\dots,C_k$, each subgraph can be colored independently, thus:
-		      $$P_G(x)=\prod_{i=1}^{k}P_{C_i}(x)$$
-		      Since each $C_i$ is connected, by the first implication, $P_{C_i}(x)$ has a non-zero $x$. As $P_{C_i}(x)$ is a chromatic polynomial, the constant term must be zero. Thus, when we take the product of $P_{C_i}(x)$ the lowest degree term is $x^k$ and so $P_G(x)$ has a coefficient of zero for the $x$ term.
-
 		\item
+		      Now we show that if $P_G(x)$ contains an $x$ term, then $G$ is connected. We prove the contrapositive $G$ is disconnected implies that $P_G(x)$ does not contain a nonzero $x$ term.
+
+		      Consider any disconnected graph $G$ which can be expressed as the disjoint union of $k\geq2$ subgraphs $H_1,\dots,H_k$.
+
+		      By \textit{Lemma 1.7}:
+		      $$P_G(x)= \prod_{i=1}^k P_{H_i}(x)$$
+		      Since $P_{H_i}(x)$ are chromatic polynomials, they do not contain a constant term. Thus, the product is of terms:
+
+		      \begin{align*}
+			       & \begin{matrix}
+				          & \hphantom{=} P_G(x) \\
+			         \end{matrix}                         \\
+			       & \begin{matrix}
+				         = & (x^{n_1} + \dots + c_{2,1}x^2 + c_{1,1}x ) \\
+				           & \times                                     \\
+				           & \vdots                                     \\
+				           & \times                                     \\
+				           & (x^{n_k} + \dots + c_{2,k}x^2 + c_{1,k}x )
+			         \end{matrix} \\
+			       & \begin{matrix}
+				         = & \text{H.O.T.} + (c_{1,1}\dots c_{1,k})x^k \\
+			         \end{matrix}  \\
+		      \end{align*}
+		      Thus, there is no $x$ term in $P_G(x)$.
+
+		\item Consider the two cases:
+
+		      \begin{itemize}
+			      \item
+			            $G$ is connected:
+
+			            As $G$ is connected, \textit{Corollary 1.15} still applies and so $G$ is a tree if and only if $P_G(x)=x(x-1)^{n-1}$. Thus, the new statement holds in this case.
+			      \item
+			            $G$ is disconnected and \textit{Corollary 1.15} cannot be applied:
+
+			            LHS of the equivalence is false as $G$ does not satisfy the definition of a tree.
+
+			            Since $G$ is disconnected, it does not contain an non-zero $x$ term in its chromatic polynomial. However:
+			            $$x(x-1)^{n-1}=\dots\pm x$$
+			            Does contain a non-zero $x$ term meaning it is not the chromatic polynomial of $G$. Hence the RHS of the equivalence is also false.
+
+			            Since $F\iff F$, the equivalence also holds in this case.
+
+		      \end{itemize}
+		      These cases cover all possibilities and so ``connected'' can be omitted from the Corollary.
+
+
+
 	\end{enumerate}
 
 	\subsection*{Q3}
@@ -254,8 +304,28 @@
 
 	\end{enumerate}
 
+	\section*{Q4}
+	Consider $n=11$. Thus, $m\leq27$ by theorem 1.19.
+
+	Consider a graph of $n\leq 11$ vertices and $m$ edges. By \textit{Theorem 1.19}, we know that $m\leq3n-6$. Assume the statement does not hold, then all vertices have degree at least $5$. By the handshaking lemma:
+	\[
+		5n=	5\abs{V} \leq	\sum_{v\in V}\mathoperator{deg}(v) = 2\abs{E} = 2m
+	\]
+	Thus, $2.5n \leq m \leq 3n -6 $. This is only possible for:
+	\begin{align*}
+		     & 2.5n \leq 3n- 6 \\
+		\iff & 6 \leq 0.5n     \\
+		\iff & 12 \leq n
+	\end{align*}
+	Thus, we have a contraction when $n<12$, thus the assumption was false and the original statement was true.
+
+	To show that this bound is sharp, consider
+
+
+
+
 	\subsection*{Q5}
-	\begin{enumerate}
+	\begin{enumerate}[label=(\alph*)]
 		\item We can create a $3$-coloring of the Petersen graph:
 		      \begin{center}
 			      \begin{tikzpicture}[every node/.style={draw,circle}]
@@ -277,7 +347,8 @@
 		      \end{center}
 		      Therefore, $\chi(P)\leq 3$, however, since $P$ contains an odd cycle of length $5$, we also have $\chi(P)\geq3$, hence $\chi(P)=3$.
 
-		\item A $4$-edge-coloring of the Petersen graph,
+
+		      We can construct the following proper edge coloring of $P$:
 		      \begin{center}
 			      \begin{tikzpicture}[every node/.style={draw,circle}]
 				      \begin{scope}[shift={(0,-1cm)}]
@@ -296,6 +367,95 @@
 				      \draw[blue]  (5) -- (E);
 			      \end{tikzpicture}
 		      \end{center}
+		      Thus $\chi_e(P)\leq 4$. Now consider a three coloring of $P$. We make the following observations:
+		      \begin{itemize}
+			      \item The cycle $C_5$ has chromatic index $3$.
+			      \item If we take a subgraph of three edges where no pair is adjacent, then there a $6$ vertices in the subgraph by definition of edge adjacency.
+			      \item Since $C_5$ has only $5$ vertices, we cannot find $3$ adjacent edges such that no pair is adjacent. Thus, a coloring of $C_5$ can use each color at most twice. A $3$ edge-coloring of $C_5$ must use each color at least once as no $2$ edge-coloring exists.
+			      \item We must use two colors twice and one color once in order to color all $5$ edges if each color is used either once or twice.
+			      \item WLOG, let \textcolor{red}{$r$} be the color used once. The remaining colors $\textcolor{green}{g},\textcolor{blue}{b}$ must alternate on the remaining vertices.
+
+			            \begin{center}
+				            \begin{tikzpicture}[every node/.style={draw,circle}]
+					            \graph[empty nodes, simple necklace layout, clockwise, radius=1cm] {
+					            A --[red] B --[green] C --[blue] D --[green] E --[blue] A;
+					            };
+				            \end{tikzpicture}
+			            \end{center}
+
+			      \item As only three colors are available, when edges are added to produce the following graph, their coloring is determined by the existing edges in the cycle.
+			            \begin{center}
+				            \begin{tikzpicture}[every node/.style={draw,circle}]
+					            \begin{scope}[shift={(0,-1cm)}]
+						            \graph[empty nodes, simple necklace layout, clockwise, radius=1cm] {
+							            A, B, C, D, E;
+						            };
+					            \end{scope}
+					            \graph[empty nodes, simple necklace layout, clockwise, radius=2cm] {
+					            1--[red]2--[blue]3--[green]4--[blue]5--[green]1;
+					            };
+					            \draw[blue] (1) -- (A);
+					            \draw[green]  (2) -- (B);
+					            \draw[red]  (3) -- (C);
+					            \draw[red]  (4) -- (D);
+					            \draw[red]  (5) -- (E);
+				            \end{tikzpicture}
+			            \end{center}
+
+			      \item Consider the subgraph of $P$ created by adding the two dashed edges from the Petersen graph to the previous subgraph: 			            \begin{center}
+				            \begin{tikzpicture}[every node/.style={draw,circle}]
+					            \begin{scope}[shift={(0,-1cm)}]
+						            \graph[empty nodes, simple necklace layout, clockwise, radius=1cm] {
+						            A, B, C, D, E;
+
+						            D --[dashed] A --[dashed] C;
+						            };
+					            \end{scope}
+					            \graph[empty nodes, simple necklace layout, clockwise, radius=2cm] {
+					            1--[red]2--[blue]3--[green]4--[blue]5--[green]1;
+					            };
+					            \draw[blue] (1) -- (A);
+					            \draw[green]  (2) -- (B);
+					            \draw[red]  (3) -- (C);
+					            \draw[red]  (4) -- (D);
+					            \draw[red]  (5) -- (E);
+				            \end{tikzpicture}
+			            \end{center}
+			            Both edges are adjacent to $\textcolor{red}{r}$ and $\textcolor{blue}{b}$ edges already, so they must both be $\textcolor{green}{g}$. However, since they are adjacent they cannot receive the same colors resulting in a contraction. Thus $P$ is not $3$ edge-colorable and $\chi_e(P)>3$.
+		      \end{itemize}
+		      Since $3<\chi_e(P)\leq 4$, the chromatic index of the Petersen graph $\chi_e(P)=4$.
+
+		\item Contract the edges of $P$ show in red below:
+		      \begin{center}
+			      \begin{tikzpicture}[every node/.style={draw,circle}]
+				      \begin{scope}[shift={(0,-1cm)}]
+					      \graph[empty nodes, simple necklace layout, clockwise, radius=1cm] {
+						      A, B, C, D, E;
+						      A -- C -- E -- B -- D -- A;
+					      };
+				      \end{scope}
+				      \graph[empty nodes, simple necklace layout, clockwise, radius=2cm] {
+					      1--2--3--4--5--1
+				      };
+				      \draw[red] (1) -- (A);
+				      \draw[red]  (2) -- (B);
+				      \draw[red]  (3) -- (C);
+				      \draw[red]  (4) -- (D);
+				      \draw[red]  (5) -- (E);
+			      \end{tikzpicture}
+		      \end{center}
+		      This produces $K_5$ so by Wagner's theorem, $P$ must be non-planar.
 	\end{enumerate}
+
+	\section*{Q6}
+
+
+	\textcolor{red}{Claim: A subgraph of a bipartite graph is bipartite.}
+
+	Claim: If $H$ is bipartite, then $\alpha(G)\geq \frac 12 m_H$.
+
+	% Proof: Proof by contraction, if $\alpha(H) < m_H$ then the largest independent set in $H$ has less than half the vertices. If we take any bipartite graph $G$ , 
+
+
 \end{multicols*}
 \end{document}
