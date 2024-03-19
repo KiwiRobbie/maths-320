@@ -118,6 +118,8 @@
 \usetikzlibrary{graphs.standard}
 \usegdlibrary {circular}
 
+\usepackage{pst-platon}
+
 \begin{document}
 \thetop{Robert Christie}{MATHS 326}{S1 2024}{Assignment 1\\Due: 20-03-2024}{accentcolor}
 
@@ -309,7 +311,7 @@
 
 	Consider a graph of $n\leq 11$ vertices and $m$ edges. By \textit{Theorem 1.19}, we know that $m\leq3n-6$. Assume the statement does not hold, then all vertices have degree at least $5$. By the handshaking lemma:
 	\[
-		5n=	5\abs{V} \leq	\sum_{v\in V}\mathoperator{deg}(v) = 2\abs{E} = 2m
+		5n=	5\abs{V} \leq	\sum_{v\in V}\operatorname{deg}(v) = 2\abs{E} = 2m
 	\]
 	Thus, $2.5n \leq m \leq 3n -6 $. This is only possible for:
 	\begin{align*}
@@ -319,10 +321,50 @@
 	\end{align*}
 	Thus, we have a contraction when $n<12$, thus the assumption was false and the original statement was true.
 
-	To show that this bound is sharp, consider
+	To show the bound is sharp we look for a graph on $12$ vertices such that $\forall_{v\in V} \deg{v} \geq 5$. Since $2.5n = 18 \leq m \leq 3n-6=18$, we have exactly the number of edges of the lower bound which corresponds to all vertices having degree $5$. Thus, we are looking for a planar $5$ regular graph.
 
+	The regular icosahedron is a Platonic solid where each vertex is adjacent to exactly $5$ edges, this is similar to our graph requirements.
+	\begin{center}
+		\psIcosahedron[Frame=false,faceName=\hphantom]
+	\end{center}
+	In the 2D projection above, $3$ vertices corresponding to the back most face, by scaling this face to surround the rest of the projection, we remove all line-line intersections. If we consider the graph of vertices and edges of the icosahedron, this new projection produces a planar embedding:
 
+	\begin{center}
+		\begin{tikzpicture}[every node/.style={draw,circle}]
+			\begin{scope}[shift={(0,-1cm)}]
+				\graph[empty nodes, simple necklace layout, clockwise, radius=3cm] {
+					O1 -- O2 -- O3 -- O1;
+				};
+				\begin{scope}[shift={(0,-1.5cm)}]
+					\graph[empty nodes, simple necklace layout, clockwise, radius=1cm] {
+						1 -- 2 -- 3 -- 4 -- 5 -- 6 -- 1;
+					};
+				\end{scope}
+				\begin{scope}[shift={(0,-2.5)}, rotate=60]
+					\begin{scope}[shift={(0,0.5)}]
+						\graph[empty nodes, simple necklace layout, clockwise, radius=0.5cm] {
+							I1 -- I2 -- I3 -- I1;
 
+						};
+					\end{scope}
+				\end{scope}
+			\end{scope}
+			\draw (O1) -- (6) -- (I3);
+			\draw (O1) -- (2) -- (I1);
+			\draw (O1) -- (1) -- (I1);
+			\draw 				(1) -- (I3);
+
+			\draw (O2) -- (2) -- (I1);
+			\draw (O2) -- (4) -- (I2);
+			\draw (O2) -- (3) -- (I2);
+			\draw 				(3) -- (I1);
+
+			\draw (O3) -- (4) -- (I2);
+			\draw (O3) -- (6) -- (I3);
+			\draw (O3) -- (5) -- (I3);
+			\draw 				(5) -- (I2);
+		\end{tikzpicture}
+	\end{center}
 
 	\subsection*{Q5}
 	\begin{enumerate}[label=(\alph*)]

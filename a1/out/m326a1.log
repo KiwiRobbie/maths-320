@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023/Arch Linux)  (format=lualatex 2024.2.24)  15 MAR 2024 23:24
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023/Arch Linux)  (format=lualatex 2024.1.26)  17 MAR 2024 11:23
  restricted system commands enabled.
  file:line:error style messages enabled.
 **m326a1.tex
@@ -575,10 +575,6 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/opensans(1)/b/n on input line 13.
 
-Package fontspec Info: Could not resolve font "FiraMath/B" (it probably
-(fontspec)             doesn't exist).
-
-
 Package fontspec Info: Font family 'FiraMath(0)' created for font 'Fira Math'
 (fontspec)             with options
 (fontspec)             [Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,FontAdjustment={\__um_luatex_copy_fontdimens:
@@ -592,10 +588,11 @@ Package fontspec Info: Font family 'FiraMath(0)' created for font 'Fira Math'
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 (fontspec)             and font adjustment code:
 (fontspec)             \__um_luatex_copy_fontdimens: 
-
-
-Package fontspec Info: Could not resolve font "FiraMath/B" (it probably
-(fontspec)             doesn't exist).
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"FiraMath/B:mode=base;script=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \__um_luatex_copy_fontdimens: 
 
 
 Package fontspec Info: Font family 'FiraMath(1)' created for font 'Fira Math'
@@ -613,6 +610,11 @@ Package fontspec Info: Font family 'FiraMath(1)' created for font 'Fira Math'
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 (fontspec)             and font adjustment code:
 (fontspec)             \__um_luatex_copy_fontdimens: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"FiraMath/B:mode=base;script=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \__um_luatex_copy_fontdimens: 
 
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
 (Font)              `operators' in the math version `normal' on input line 14.
@@ -626,10 +628,6 @@ LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 Package fontspec Info: FiraMath scale = 1.0001.
 
 
-Package fontspec Info: Could not resolve font "FiraMath/B" (it probably
-(fontspec)             doesn't exist).
-
-
 Package fontspec Info: FiraMath scale = 1.0001.
 
 
@@ -637,6 +635,9 @@ Package fontspec Info: FiraMath scale = 1.0001.
 
 
 Package fontspec Info: FiraMath scale = 1.0001.
+
+
+Package fontspec Info: FiraMath/B scale = 1.0001.
 
 
 Package fontspec Info: Font family 'FiraMath(2)' created for font 'Fira Math'
@@ -674,6 +675,21 @@ Package fontspec Info: Font family 'FiraMath(2)' created for font 'Fira Math'
 (fontspec)             \fontdimen 19\font =2.73749pt\relax \fontdimen 22\font
 (fontspec)             =3.066pt\relax \fontdimen 20\font =0pt\relax \fontdimen
 (fontspec)             21\font =0pt\relax 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1.0001]"FiraMath/B:mode=base;script=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \__um_luatex_copy_fontdimens: \fontdimen 8\font
+(fontspec)             =6.351pt\relax \fontdimen 9\font =4.92749pt\relax
+(fontspec)             \fontdimen 10\font =4.92749pt\relax \fontdimen 11\font
+(fontspec)             =7.665pt\relax \fontdimen 12\font =5.256pt\relax
+(fontspec)             \fontdimen 13\font =4.37999pt\relax \fontdimen 14\font
+(fontspec)             =4.37999pt\relax \fontdimen 15\font =2.9565pt\relax
+(fontspec)             \fontdimen 16\font =3.83249pt\relax \fontdimen 17\font
+(fontspec)             =3.83249pt\relax \fontdimen 18\font =3.94199pt\relax
+(fontspec)             \fontdimen 19\font =2.73749pt\relax \fontdimen 22\font
+(fontspec)             =3.066pt\relax \fontdimen 20\font =0pt\relax \fontdimen
+(fontspec)             21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
 (Font)              `symbols' in the math version `normal' on input line 14.
@@ -687,10 +703,6 @@ LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 Package fontspec Info: FiraMath scale = 0.9999.
 
 
-Package fontspec Info: Could not resolve font "FiraMath/B" (it probably
-(fontspec)             doesn't exist).
-
-
 Package fontspec Info: FiraMath scale = 0.9999.
 
 
@@ -698,6 +710,9 @@ Package fontspec Info: FiraMath scale = 0.9999.
 
 
 Package fontspec Info: FiraMath scale = 0.9999.
+
+
+Package fontspec Info: FiraMath/B scale = 0.9999.
 
 
 Package fontspec Info: Font family 'FiraMath(3)' created for font 'Fira Math'
@@ -717,6 +732,15 @@ Package fontspec Info: Font family 'FiraMath(3)' created for font 'Fira Math'
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
 (fontspec)             <9.417->s*[0.9999]"FiraMath:mode=base;script=math;language=dflt;"<7.1175-9.417>s*[0.9999]"FiraMath:mode=base;script=math;language=dflt;+ssty=0;"<-7.1175>s*[0.9999]"FiraMath:mode=base;script=math;language=dflt;+ssty=1;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \__um_luatex_copy_fontdimens: \fontdimen 8\font
+(fontspec)             =0.8322pt\relax \fontdimen 9\font =1.64249pt\relax
+(fontspec)             \fontdimen 10\font =1.64249pt\relax \fontdimen 11\font
+(fontspec)             =1.64249pt\relax \fontdimen 12\font =6.56999pt\relax
+(fontspec)             \fontdimen 13\font =0pt\relax 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999]"FiraMath/B:mode=base;script=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 (fontspec)             and font adjustment code:
 (fontspec)             \__um_luatex_copy_fontdimens: \fontdimen 8\font
 (fontspec)             =0.8322pt\relax \fontdimen 9\font =1.64249pt\relax
@@ -1566,46 +1590,131 @@ File: pgflibrarygraphdrawing.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@gd@postkind@box=\box127
 )) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/graphs/tikzlibrarygraphs.standard.code.tex
 File: tikzlibrarygraphs.standard.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/share/texmf-dist/tex/latex/pst-platon/pst-platon.sty (/usr/share/texmf-dist/tex/latex/pstricks/pstricks.sty
+Package: pstricks 2022/19/23 v0.72 LaTeX wrapper for `PSTricks' (RN,HV)
+ (/usr/share/texmf-dist/tex/generic/xkeyval/pst-xkey.tex
+File: pst-xkey.tex 2005/11/25 v1.6 PSTricks specialization of xkeyval (HA)
+) (/usr/share/texmf-dist/tex/generic/pstricks/pstricks.tex (/usr/share/texmf-dist/tex/generic/pstricks/pst-fp.tex `pst-fp' v0.06, 2020/11/20 (hv)
+\pstFP@xs=\count368
+\pstFP@xia=\count369
+\pstFP@xib=\count370
+\pstFP@xfa=\count371
+\pstFP@xfb=\count372
+\pstFP@rega=\count373
+\pstFP@regb=\count374
+\pstFP@regs=\count375
+\pstFP@times=\count376
+)
+\psLoopIndex=\count377
+
+`PSTricks' v3.18  <2022/11/28> (tvz,hv)
+\pst@dima=\dimen320
+\pst@dimb=\dimen321
+\pst@dimc=\dimen322
+\pst@dimd=\dimen323
+\pst@dimg=\dimen324
+\pst@dimh=\dimen325
+\pst@dimm=\dimen326
+\pst@dimn=\dimen327
+\pst@dimo=\dimen328
+\pst@dimp=\dimen329
+\pst@hbox=\box128
+\pst@ibox=\box129
+\pst@boxg=\box130
+\pst@cnta=\count378
+\pst@cntb=\count379
+\pst@cntc=\count380
+\pst@cntd=\count381
+\pst@cntg=\count382
+\pst@cnth=\count383
+\pst@cntm=\count384
+\pst@cntn=\count385
+\pst@cnto=\count386
+\pst@cntp=\count387
+\@zero=\count388
+\pst@toks=\toks53
+--- We are running lualatex with luapstricks ---
+Lua module: luapstricks 2023-02-17 v0.8 PSTricks backend for LuaLaTeX
+Lua function luaPST = 26
+Lua function luaPSTcolor = 27
+Lua function luaPSTbox = 28 (/usr/share/texmf-dist/tex/generic/pstricks/pstricks-color.tex)
+\psunit=\dimen330
+\psxunit=\dimen331
+\psyunit=\dimen332
+\pst@C@@rType=\count389
+\pslinewidth=\dimen333
+\psk@startLW=\dimen334
+\psk@endLW=\dimen335
+ (/usr/share/texmf-dist/tex/generic/pstricks/pstricks-arrows.tex
+\pshooklength=\dimen336
+\pshookwidth=\dimen337
+)
+\pst@customdefs=\toks54
+ (/usr/share/texmf-dist/tex/generic/pstricks/pstricks-dots.tex)
+\pslinearc=\dimen338
+\pst@symbolStep=\dimen339
+\pst@symbolWidth=\dimen340
+\pst@symbolLinewidth=\dimen341
+\everypsbox=\toks55
+\psframesep=\dimen342
+\pslabelsep=\dimen343
+\sh@wgridXunit=\dimen344
+\sh@wgridYunit=\dimen345
+\pst@shift=\dimen346
+\ps@imagectr=\count390
+)
+File: pstricks.tex 2022/11/28 v3.18 `PSTricks' (tvz,hv)
+ (/usr/share/texmf-dist/tex/generic/pstricks/pst-fp.tex `pst-fp' v0.06, 2020/11/20 (hv))
+File: pst-fp.tex 2020/11/20 v0.06 `PST-fp' (hv)
+) (/usr/share/texmf-dist/tex/latex/pst-3d/pst-3d.sty
+Package: pst-3d 2009/07/28 package wrapper for pst-3d.tex (hv)
+ (/usr/share/texmf-dist/tex/generic/pst-3d/pst-3d.tex `PST-3d' v1.11, 2010/02/14 (tvz))
+File: pst-3d.tex 2010/02/14 v1.11 `PST-3d' (hv)
+) (/usr/share/texmf-dist/tex/latex/xkeyval/pst-xkey.sty
+Package: pst-xkey 2005/11/25 v1.6 package wrapper for pst-xkey.tex (HA)
+)
+Package: pst-platon 2009/12/25\ v0.01\ platonic solids (ml,hv)
+\c@face@counter=\count391
 ) (./out/m326a1.aux)
 \openout1 = m326a1.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 121.
-LaTeX Font Info:    Trying to load font information for LY1+ptm on input line 121.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 123.
+LaTeX Font Info:    Trying to load font information for LY1+ptm on input line 123.
  (/usr/share/texmf-dist/tex/latex/ly1/ly1ptm.fd
 File: ly1ptm.fd 2001/02/01 font definitions for LY1/ptm using Berry names.
 )
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-\c@mv@tabular=\count368
-\c@mv@boldtabular=\count369
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+\c@mv@tabular=\count392
+\c@mv@boldtabular=\count393
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/Montserrat-LF/m/n on input line 121.
+(Font)                  OT1/cmss/m/n --> TU/Montserrat-LF/m/n on input line 123.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/Montserrat-LF/b/n on input line 121.
+(Font)                  OT1/cmss/bx/n --> TU/Montserrat-LF/b/n on input line 123.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 121.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 123.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 121.
-Package hyperref Info: Link coloring OFF on input line 121.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 123.
+Package hyperref Info: Link coloring OFF on input line 123.
  (./out/m326a1.out) (./out/m326a1.out)
 \@outlinefile=\write4
 
@@ -1613,67 +1722,92 @@ Package hyperref Info: Link coloring OFF on input line 121.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: scrextend package is loaded.
-\caption@addmargin@hsize=\dimen320
-\caption@addmargin@linewidth=\dimen321
+\caption@addmargin@hsize=\dimen347
+\caption@addmargin@linewidth=\dimen348
 Package caption Info: End \AtBeginDocument code.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count370
-\scratchdimen=\dimen322
-\scratchbox=\box128
-\nofMPsegments=\count371
-\nofMParguments=\count372
-\everyMPshowfont=\toks53
-\MPscratchCnt=\count373
-\MPscratchDim=\dimen323
-\MPnumerator=\count374
-\makeMPintoPDFobject=\count375
-\everyMPtoPDFconversion=\toks54
+\scratchcounter=\count394
+\scratchdimen=\dimen349
+\scratchbox=\box131
+\nofMPsegments=\count395
+\nofMParguments=\count396
+\everyMPshowfont=\toks56
+\MPscratchCnt=\count397
+\MPscratchDim=\dimen350
+\MPnumerator=\count398
+\makeMPintoPDFobject=\count399
+\everyMPtoPDFconversion=\toks57
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-\c@lstlisting=\count376
+\c@lstlisting=\count400
 
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into your preamble.
- on input line 121.
+ on input line 123.
 
 
-Underfull \hbox (badness 10000) detected at line 122
+Underfull \hbox (badness 10000) detected at line 124
  [] 
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-./m326a1.tex:312: Undefined control sequence.
-l.312 		5n=	5\abs{V} \leq	\sum_{v\in V}\mathoperator
-                                                  {deg}(v) = 2\abs{E} = 2m
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+LaTeX Font Info:    Trying to load font information for TU+Montserrat-LF on input line 329.
+LaTeX Font Info:    No file TUMontserrat-LF.fd. on input line 329.
 
-[3] [4] (./out/m326a1.aux)
+
+LaTeX Font Warning: Font shape `TU/Montserrat-LF/regular/n' undefined
+(Font)              using `TU/lmr/m/n' instead on input line 329.
+
+
+LaTeX Font Warning: Font shape `TU/Montserrat-LF/bold/n' undefined
+(Font)              using `TU/lmr/m/n' instead on input line 329.
+
+[3
+Extended graphic state modifications dropped since `pdfmanagement-testphase' is not loaded.
+Extended graphic state modifications dropped since `pdfmanagement-testphase' is not loaded.
+Extended graphic state modifications dropped since `pdfmanagement-testphase' is not loaded.
+Extended graphic state modifications dropped since `pdfmanagement-testphase' is not loaded.
+Extended graphic state modifications dropped since `pdfmanagement-testphase' is not loaded.
+Extended graphic state modifications dropped since `pdfmanagement-testphase' is not loaded.
+Extended graphic state modifications dropped since `pdfmanagement-testphase' is not loaded.
+Extended graphic state modifications dropped since `pdfmanagement-testphase' is not loaded.
+Extended graphic state modifications dropped since `pdfmanagement-testphase' is not loaded.
+Extended graphic state modifications dropped since `pdfmanagement-testphase' is not loaded.
+Extended graphic state modifications dropped since `pdfmanagement-testphase' is not loaded.
+Extended graphic state modifications dropped since `pdfmanagement-testphase' is not loaded.
+Extended graphic state modifications dropped since `pdfmanagement-testphase' is not loaded.
+Extended graphic state modifications dropped since `pdfmanagement-testphase' is not loaded.
+Extended graphic state modifications dropped since `pdfmanagement-testphase' is not loaded.
+Extended graphic state modifications dropped since `pdfmanagement-testphase' is not loaded.
+Extended graphic state modifications dropped since `pdfmanagement-testphase' is not loaded.
+Extended graphic state modifications dropped since `pdfmanagement-testphase' is not loaded.
+Extended graphic state modifications dropped since `pdfmanagement-testphase' is not loaded.
+Extended graphic state modifications dropped since `pdfmanagement-testphase' is not loaded.] [4] (./out/m326a1.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
 Package rerunfilecheck Info: File `m326a1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 )
 
 Here is how much of LuaTeX's memory you used:
- 46309 strings out of 478285
- 195337,1977958 words of node,token memory allocated
+ 48315 strings out of 478285
+ 195340,1977958 words of node,token memory allocated
  777 words of node memory still in use:
    8 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 14 attribute, 100 glue_spec, 14 attribute_list, 2 write nodes
-   avail lists: 1:12,2:8482,3:5185,4:310,5:400,6:71,7:16197,8:34,9:3212,10:12,11:305
- 65027 multiletter control sequences out of 65536+600000
- 131 fonts using 31104591 bytes
+   avail lists: 1:10,2:8490,3:5185,4:308,5:400,6:71,7:16202,8:33,9:3217,10:16,11:305
+ 66941 multiletter control sequences out of 65536+600000
+ 135 fonts using 31589823 bytes
  108i,17n,115p,760b,2781s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/share/texmf-dist/fonts/truetype/ascender/opensans/OpenSans-Italic.ttf></usr/share/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf></usr/share/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf></usr/share/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf></usr/share/texmf-dist/fonts/truetype/ascender/opensans/OpenSans-Regular.ttf></usr/share/texmf-dist/fonts/opentype/public/montserrat/Montserrat-SemiBold.otf></usr/share/texmf-dist/fonts/opentype/public/montserrat/Montserrat-Bold.otf></usr/share/texmf-dist/fonts/opentype/public/montserrat/Montserrat-Light.otf>
-Output written on m326a1.pdf (4 pages, 50515 bytes).
+Output written on m326a1.pdf (4 pages, 53360 bytes).
 
 PDF statistics: 101 PDF objects out of 1000 (max. 8388607)
  67 compressed objects within 1 object stream
