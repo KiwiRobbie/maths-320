@@ -7,17 +7,27 @@
 \usepackage{montserrat}
 \usepackage{amsmath}
 
-\usepackage[mathrm=sym]{unicode-math}
-
 \setmainfont{opensans}
-\setmathfont{Fira Math}
+\usepackage[mathrm=sym]{unicode-math}
+% \setmathfont[Path=font/,mathrm=sym]{FiraMath-Regular}
+\setmathfont[Path=font/,mathrm=sym]{LatoMath}
 
 \newfontfamily{\montserrateb}{Montserrat SemiBold}
 \newfontfamily{\montserratb}{Montserrat Bold}
 \newfontfamily{\montserrat}{Montserrat Regular}
 \newfontfamily{\montserratl}{Montserrat Light}
-\DeclareMathAlphabet{\mathcal}{OMS}{cmbrs}{m}{n}
-\setmathfont{Latin Modern Math}[range={\vdots}]
+% \DeclareMathAlphabet{\mathcal}{OMS}{cmbrs}{m}{n}
+
+% \usepackage[mathrm=sym]{unicode-math}
+% \setmainfont{opensans}
+% \setmathfont{Fira Math}
+
+% \newfontfamily{\montserrateb}{Montserrat SemiBold}
+% \newfontfamily{\montserratb}{Montserrat Bold}
+% \newfontfamily{\montserrat}{Montserrat Regular}
+% \newfontfamily{\montserratl}{Montserrat Light}
+% \DeclareMathAlphabet{\mathcal}{OMS}{cmbrs}{m}{n}
+% \setmathfont{Latin Modern Math}[range={\vdots}]
 
 % \autoref
 \usepackage{hyperref}
@@ -204,149 +214,158 @@
 		      \end{align*}
 	\end{enumerate}
 
-	\subsection*{Q2}
+	\section*{Q2}
 
 	\begin{enumerate}[label=(\alph*)]
 		\item
-		      First we show that if $G$ is connected, then $P_G(x)$ contains a non-zero $x$ term:
 
-		      Apply strong induction on $m=\abs{E}$ for connected graphs $G=(V,E)$.
-		      \begin{itemize}
-			      \item Base case:
+		      First we show that: $P_G(x)$ contains an $x$ term, implies $G$ is connected.
 
-			            For $\abs{E}=0$, the only connected graph is a single vertex with $P_G(x)=x$.
+		      \begin{mdframed}
+			      We prove the contrapositive: $G$ is disconnected implies that $P_G(x)$ does not contain a nonzero $x$ term.
 
-			      \item Induction Step (``$m\implies m+1$''):
+			      Consider any disconnected graph $G$ which can be expressed as the disjoint union of $k\geq2$ subgraphs $H_1,\dots,H_k$.
 
-			            Consider a graph with $\abs{E}=m+1$, apply deletion contraction, thus:
-			            $$P_G(x)= P_{G-e}(x) - P_{G_e}(x)$$
-			            Note that both $G-e$ and $G_e$ have $m$ or fewer edges and therefore contain an $x$ term in their chromatic polynomials by the induction hypothesis.
+			      By \textit{Lemma 1.7}:
+			      $$P_G(x)= \prod_{i=1}^k P_{H_i}(x)$$
+			      Since $P_{H_i}(x)$ are chromatic polynomials, they do not contain a constant term. Thus, the product is of terms:
 
-			            Note that if $G$ has $n$ vertices, so does $G-e$ while $G_e$ has $n-1$ vertices. Hence, $P_{G-e}(x)$ is of degree $n$ and $P_{G_e}(x)$ degree $n-1$. Since the $x^n$ term has positive coefficient and the signs alternate, the two polynomials have opposite signs on the $x$ term. Applying this observation to the deletion contraction equation:
-			            \begin{align*}
-				            P_G(x) & = P_{G-e}(x) - P_{G_e}(x)      \\
-				                   & = (x^n + \dots \pm c_a x )     \\
-				                   & -  (x^{n-1} + \dots \mp c_b x)
-				            \quad\text{For $c_a,c_b\in\RR^+$}       \\
-				                   & = x^n + \dots \pm (c_a + c_b)x
-			            \end{align*}
-			            Note that $c_a+c_b > 0$ therefore $P_G(x)$ contains a non-zero $x$ term.
+			      \begin{align*}
+				       & \begin{matrix}
+					          & \hphantom{=} P_G(x) \\
+				         \end{matrix}                         \\
+				       & \begin{matrix}
+					         = & (x^{n_1} + \dots + c_{2,1}x^2 + c_{1,1}x ) \\
+					           & \times                                     \\
+					           & \vdots                                     \\
+					           & \times                                     \\
+					           & (x^{n_k} + \dots + c_{2,k}x^2 + c_{1,k}x )
+				         \end{matrix} \\
+				       & \begin{matrix}
+					         = & \text{H.O.T.} + (c_{1,1}\dots c_{1,k})x^k \\
+				         \end{matrix}  \\
+			      \end{align*}
+			      Thus, there is no non-zero $x$ term in $P_G(x)$.
+		      \end{mdframed}
 
-		      \end{itemize}
+
+		      Now we show that: $G$ is connected, implies $P_G(x)$ contains a non-zero $x$ term.
+
+		      \begin{mdframed}
+			      Apply strong induction on $m=\abs{E}$ for connected graphs $G=(V,E)$.
+
+			      \textbf{Base case:}
+
+			      For $\abs{E}=0$, the only connected graph is a single vertex with $P_G(x)=x$.
+
+			      \vspace{1em}
+
+			      \textbf{Induction Step ``$1,...,m\implies m+1$'':}
+
+			      Consider a graph with $\abs{E}=m+1$, apply deletion contraction, thus:
+			      $$P_G(x)= P_{G-e}(x) - P_{G_e}(x)$$
+
+			      Where $G_e$ has $m$ or fewer edges. Clearly $G_e$ is connected, as any path from $u,v$ in $G_e$ can be constructed from an existing path in $G$.
+
+			      Since $G_e$ is connected with $\leq m$ edges, the induction hypothesis applies and $P_{G_e}$ contains a non-zero $x$ term.
+
+			      Since $G$ has $n$ vertices, so does $G-e$ so $P_{G-e}(x)$ is of degree $n$ while $G_e$ has $n-1$ vertices so $P_{G_e}(x)$ has degree $n-1$.
+
+			      Fo a chromatic polynomial, the $x^n$ has coefficient $1$ and the signs alternate, since $P_{G-e}$ and $P_{G_e}$ differ in degree by $1$ they have opposite signs for the $x$ term.
+
+			      So by deletion contraction for some $c_a\geq0,c_b>0$:
+			      \begin{align*}
+				      P_G(x) & = P_{G-e}(x) - P_{G_e}(x)      \\
+				             & = (x^n + \dots \pm c_a x )     \\
+				             & -  (x^{n-1} + \dots \mp c_b x) \\
+				             & = x^n + \dots \pm (c_a + c_b)x
+			      \end{align*}
+			      As $c_a+c_b > 0$, $P_G(x)$ must also contain a non-zero $x$ term.
+		      \end{mdframed}
+
+		      Thus, we have shown that $G$ is connected if and only if $P_G(x)$ contains a non-zero $x$ term.
 
 		\item
-		      Now we show that if $P_G(x)$ contains an $x$ term, then $G$ is connected. We prove the contrapositive $G$ is disconnected implies that $P_G(x)$ does not contain a nonzero $x$ term.
+		      When $G$ is connected, \textit{Corollary 1.15} still applies and so $G$ is a tree if and only if $P_G(x)=x(x-1)^{n-1}$. So the new statement holds in this case.
 
-		      Consider any disconnected graph $G$ which can be expressed as the disjoint union of $k\geq2$ subgraphs $H_1,\dots,H_k$.
+		      When $G$ is disconnected, $G$ is not a graph as graphs are connected by definition. However, $P_G(x)$ cannot contain a non-zero $x$ term by (a). Again the statement holds.
 
-		      By \textit{Lemma 1.7}:
-		      $$P_G(x)= \prod_{i=1}^k P_{H_i}(x)$$
-		      Since $P_{H_i}(x)$ are chromatic polynomials, they do not contain a constant term. Thus, the product is of terms:
-
-		      \begin{align*}
-			       & \begin{matrix}
-				          & \hphantom{=} P_G(x) \\
-			         \end{matrix}                         \\
-			       & \begin{matrix}
-				         = & (x^{n_1} + \dots + c_{2,1}x^2 + c_{1,1}x ) \\
-				           & \times                                     \\
-				           & \vdots                                     \\
-				           & \times                                     \\
-				           & (x^{n_k} + \dots + c_{2,k}x^2 + c_{1,k}x )
-			         \end{matrix} \\
-			       & \begin{matrix}
-				         = & \text{H.O.T.} + (c_{1,1}\dots c_{1,k})x^k \\
-			         \end{matrix}  \\
-		      \end{align*}
-		      Thus, there is no $x$ term in $P_G(x)$.
-
-		\item Consider the two cases:
-
-		      \begin{itemize}
-			      \item
-			            $G$ is connected:
-
-			            As $G$ is connected, \textit{Corollary 1.15} still applies and so $G$ is a tree if and only if $P_G(x)=x(x-1)^{n-1}$. Thus, the new statement holds in this case.
-			      \item
-			            $G$ is disconnected and \textit{Corollary 1.15} cannot be applied:
-
-			            LHS of the equivalence is false as $G$ does not satisfy the definition of a tree.
-
-			            Since $G$ is disconnected, it does not contain an non-zero $x$ term in its chromatic polynomial. However:
-			            $$x(x-1)^{n-1}=\dots\pm x$$
-			            Does contain a non-zero $x$ term meaning it is not the chromatic polynomial of $G$. Hence the RHS of the equivalence is also false.
-
-			            Since $F\iff F$, the equivalence also holds in this case.
-
-		      \end{itemize}
-		      These cases cover all possibilities and so ``connected'' can be omitted from the Corollary.
-
-
-
+		      Since all simple graphs are either connected or disconnected, the new statement holds in all cases.
 	\end{enumerate}
 
 	\subsection*{Q3}
 	\begin{enumerate}[label=(\alph*)]
-		\item Expanding $(x-1)^4$ would result in a polynomial with constant term of $(-1)^4=1$, thus the polynomial is not the chromatic polynomial for any graph as it has a non-zero constant term.
+		\item Expanding $P(x)=(x-1)^4$ results in a polynomial with constant term $(-1)^4=1$, so by \textit{Theorem 1.14}, $P(x)$ is not the chromatic polynomial of any graph as it has a non-zero constant term.
 
-		\item Notice that the $x^3$ term is positive but the $x$ term is negative, thus the signs do not alternate otherwise the terms would have the same sign.
+		\item Let $P(x)=x^6+6x^5+7x^3-2x$. As $x^3$ and $-2x$ have different signs but are $2$ terms apart the signs of coefficients do not alternate. Thus, by \textit{Theorem 1.14}, $P(x)$ is not the chromatic polynomial of any graph.
 
-		\item Assume the polynomial is a chromatic polynomial $P_G(x)$. We can deduce the following:
+		\item Assume $P(x)=x^4-3x^3+4x^2-2x$ is a chromatic polynomial for some $G$. We can deduce the following using \textit{Theorem 1.14}:
 		      \begin{itemize}
 			      \item Since it has degree $4$, it corresponds to a graph of $4$ vertices.
 			      \item The $x^{n-1}=x^3$ term has a coefficient of $-3$, so $G$ must have $3$ edges.
-			      \item The $x$ term has a non coefficient, thus $G$ is connected.
+			      \item The $x$ term has a non-zero coefficient, thus $G$ is connected.
 		      \end{itemize}
-		      The only connected graph with $3$ edges and $4$ vertices is $P_4$, which has chromatic polynomial:
-		      \[
-			      P_{P_4}(x)=x(x-1)^3= x^4 - 3x^3 + 3x^2 - x \neq P_G(x)
-		      \]
-		      Thus $P_G(x)$ is not a chromatic polynomial of any graph.
+		      We can't have a cycle in $G$ as this requires all $3$ edges and doesn't connect all vertices. As $G$ is connected and acyclic it is a tree.
 
+		      By (2), $G$ is a tree if and only if it has chromatic polynomial $P_G(x)=x(x-1)^{n-1}$. Now see that:
+		      $$P_G(2)=2 \neq P(2)= 2^4 - 3\cdot 2^3 + 4 \cdot 2^2 - 2\cdot 2 = 4$$
 
+		      As this resulted in a contraction, $P$ is not the chromatic polynomial for any graph $G$.
 	\end{enumerate}
 
 	\section*{Q4}
-	Consider $n=11$. Thus, $m\leq27$ by theorem 1.19.
 
-	Consider a graph of $n\leq 11$ vertices and $m$ edges. By \textit{Theorem 1.19}, we know that $m\leq3n-6$. Assume the statement does not hold, then all vertices have degree at least $5$. By the handshaking lemma:
-	\[
-		5n=	5\abs{V} \leq	\sum_{v\in V}\operatorname{deg}(v) = 2\abs{E} = 2m
-	\]
-	Thus, $2.5n \leq m \leq 3n -6 $. This is only possible for:
-	\begin{align*}
-		     & 2.5n \leq 3n- 6 \\
-		\iff & 6 \leq 0.5n     \\
-		\iff & 12 \leq n
-	\end{align*}
-	Thus, we have a contraction when $n<12$, thus the assumption was false and the original statement was true.
+	Let $G=(V,E)$ be any planar simple graph.
 
-	To show the bound is sharp we look for a graph on $12$ vertices such that $\forall_{v\in V} \deg{v} \geq 5$. Since $2.5n = 18 \leq m \leq 3n-6=18$, we have exactly the number of edges of the lower bound which corresponds to all vertices having degree $5$. Thus, we are looking for a planar $5$ regular graph.
+	When $|V|\leq 2$, $G$ has at most $1$ edge so the statement holds.
 
-	The regular icosahedron is a Platonic solid where each vertex is adjacent to exactly $5$ edges, this is similar to our graph requirements.
+	For the case with $3\neq n\leq 11$ vertices and $m$ edges. We use proof by contraction:
+	\begin{mdframed}
+		By \textit{Theorem 1.19}, we know that $m\leq3n-6$.
+
+		Assume all vertices of $G$ have degree at least $5$. By the handshaking lemma:
+		\[
+			5n\leq	\sum_{v\in V}\operatorname{deg}(v) = 2\abs{E} = 2m
+		\]
+		Thus, $2.5n \leq m \leq 3n -6 $. We can only find such $m$ when:
+		\begin{align*}
+			     & 2.5n \leq 3n- 6 \\
+			\iff & 6 \leq 0.5n     \\
+			\iff & 12 \leq n
+		\end{align*}
+		This is a contraction for $n<12$, so the assumption must be false and for graphs with $n<12$, there exists a vertex with degree at most $4$.
+	\end{mdframed}
+
+	To show the bound is sharp we look for a graph on $12$ vertices such that $\forall_{v\in V} \deg{v} \geq 5$. We derived the bound:
+	$$2.5n = 30 \leq m \leq 3n-6=30$$
+	So we have exactly $m=30$ edges. Since $5\cdot 12 = 2 \cdot 30$ each vertex has degree exactly $5$.
+
+	The regular icosahedron is a Platonic solid with $12$ vertices and $30$ edges where each vertex is adjacent to $5$ edges. This is similar to our graph requirements.
 	\begin{center}
 		\psIcosahedron[Frame=false,faceName=\hphantom]
 	\end{center}
-	In the 2D projection above, $3$ vertices corresponding to the back most face, by scaling this face to surround the rest of the projection, we remove all line-line intersections. If we consider the graph of vertices and edges of the icosahedron, this new projection produces a planar embedding:
+	In the 2D projection above, the $3$ vertices of the back most face can be scaled up to remove all edge-edge intersections in the protection. We can consider the edges and vertices in the projection as the edges and vertices of a planar embedding of a graph. This produces the graph below:
 
 	\begin{center}
 		\begin{tikzpicture}[every node/.style={draw,circle}]
-			\begin{scope}[shift={(0,-1cm)}]
+			\begin{scope}[shift={(0,3cm)}]
 				\graph[empty nodes, simple necklace layout, clockwise, radius=3cm] {
 					O1 -- O2 -- O3 -- O1;
 				};
-				\begin{scope}[shift={(0,-1.5cm)}]
-					\graph[empty nodes, simple necklace layout, clockwise, radius=1cm] {
-						1 -- 2 -- 3 -- 4 -- 5 -- 6 -- 1;
-					};
-				\end{scope}
-				\begin{scope}[shift={(0,-2.5)}, rotate=60]
-					\begin{scope}[shift={(0,0.5)}]
-						\graph[empty nodes, simple necklace layout, clockwise, radius=0.5cm] {
-							I1 -- I2 -- I3 -- I1;
+			\end{scope}
 
-						};
-					\end{scope}
+			\begin{scope}[shift={(0,1cm)}]
+				\graph[empty nodes, simple necklace layout, clockwise, radius=1cm] {
+					1 -- 2 -- 3 -- 4 -- 5 -- 6 -- 1;
+				};
+			\end{scope}
+
+			\begin{scope}[shift={(0,0.0cm)}, rotate=60]
+				\begin{scope}[shift={(0,0.5cm)}]
+					\graph[empty nodes, simple necklace layout, clockwise, radius=0.5cm] {
+						I1 -- I2 -- I3 -- I1;
+
+					};
 				\end{scope}
 			\end{scope}
 			\draw (O1) -- (6) -- (I3);
@@ -365,8 +384,9 @@
 			\draw 				(5) -- (I2);
 		\end{tikzpicture}
 	\end{center}
+	This is a planar simple $5$-regular graph on $12$ vertices demonstrating the bound is sharp.
 
-	\subsection*{Q5}
+	\section*{Q5}
 	\begin{enumerate}[label=(\alph*)]
 		\item We can create a $3$-coloring of the Petersen graph:
 		      \begin{center}
