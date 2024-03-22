@@ -142,7 +142,7 @@
 			      \tikz \graph [empty nodes, nodes={circle, draw}, spring layout] { a --[red] b -- c -- a -- d -- c -- e -- f -- d };
 		      \end{center}
 
-		      Thus, $P_G(x) = P_{G-e}(x) - P_{G_e}(x)$  This produces two graphs, $G-e$ and $_e$:
+		      Thus, $P_G(x) = P_{G-e}(x) - P_{G_e}(x)$  This produces two graphs, $G-e$ and $G_e$:
 		      \begin{center}
 			      \begin{tabular}{cc}
 				      \tikz \graph [empty nodes, nodes={circle, draw}, spring layout] {  b -- c -- a -- d -- c -- e -- f -- d };
@@ -410,7 +410,7 @@
 		      Therefore, $\chi(P)\leq 3$, however, since $P$ contains an odd cycle of length $5$, we also have $\chi(P)\geq3$, hence $\chi(P)=3$.
 
 
-		      We can construct the following proper edge coloring of $P$:
+		      We can construct the following proper edge $4$-coloring of $P$:
 		      \begin{center}
 			      \begin{tikzpicture}[every node/.style={draw,circle}]
 				      \begin{scope}[shift={(0,-1cm)}]
@@ -429,13 +429,25 @@
 				      \draw[blue]  (5) -- (E);
 			      \end{tikzpicture}
 		      \end{center}
-		      Thus $\chi_e(P)\leq 4$. Now consider a three coloring of $P$. We make the following observations:
+		      Thus $\chi_e(P)\leq 4$.
+
+		      Next we show that no edge $3$-coloring exists:
 		      \begin{itemize}
-			      \item The cycle $C_5$ has chromatic index $3$.
-			      \item If we take a subgraph of three edges where no pair is adjacent, then there a $6$ vertices in the subgraph by definition of edge adjacency.
-			      \item Since $C_5$ has only $5$ vertices, we cannot find $3$ adjacent edges such that no pair is adjacent. Thus, a coloring of $C_5$ can use each color at most twice. A $3$ edge-coloring of $C_5$ must use each color at least once as no $2$ edge-coloring exists.
-			      \item We must use two colors twice and one color once in order to color all $5$ edges if each color is used either once or twice.
-			      \item WLOG, let \textcolor{red}{$r$} be the color used once. The remaining colors $\textcolor{green}{g},\textcolor{blue}{b}$ must alternate on the remaining vertices.
+			      \item
+			            The cycle $C_5$ has chromatic index $3$. So no edge $2$-coloring exists.
+
+			      \item
+			            If we take any subgraph of $3$ edges where no pair is adjacent, then there a $6$ vertices in the subgraph by definition of edge adjacency.
+
+			            Since $C_5$ has only $5$ vertices, we cannot find a subgraph with $3$ edges such that no pair is adjacent.
+
+			            Since we can't find $3$ non-adjacent edges to give the same color, each color is used at most twice.
+
+			      \item
+			            We must use $2$ colors twice and $1$ color once in order to color all $5$ edges if each color is used either once or twice.
+
+			      \item
+			            WLOG, let \textcolor{red}{$r$} be the color used once. The remaining colors $\textcolor{green}{g},\textcolor{blue}{b}$ must alternate on the remaining edges.
 
 			            \begin{center}
 				            \begin{tikzpicture}[every node/.style={draw,circle}]
@@ -445,7 +457,8 @@
 				            \end{tikzpicture}
 			            \end{center}
 
-			      \item As only three colors are available, when edges are added to produce the following graph, their coloring is determined by the existing edges in the cycle.
+			      \item
+			            When edges are added to produce the following sub graph, their coloring is fully determined by the existing edges in the cycle.
 			            \begin{center}
 				            \begin{tikzpicture}[every node/.style={draw,circle}]
 					            \begin{scope}[shift={(0,-1cm)}]
@@ -510,13 +523,34 @@
 	\end{enumerate}
 
 	\section*{Q6}
+	First we prove that for a simple graph $G$, $G$ is bipartite implies every subgraph $H$ of $G$ satisfies $\alpha(H)\geq m_H/2$:
+	\begin{mdframed}
+		Let $G$ be a bipartite graph. By \textit{Theorem 1.6}, $G$ contains no odd cycle. So any subgraph $H$ of $G$ also contains no odd cycle, so by \textit{Theorem 1.6}, $H=(V,E)$ is bipartite and so its vertices can be written as the disjoint union $V=V_1\uplus V_2$ and every edge in $H$ has one endpoint in each of $V_1,V_2$.
 
+		Let $V_i,V_j$ be the largest and smallest of the two vertex sets respectively (or $V_1,V_2$ if the sets have the same size). Clearly $V_i$ must contain at least $m_H/2$ vertices, otherwise:
+		$$|V_j|\leq|V_i|<m_H/2\implies |V_1|+|V_2|<m_H=|V|$$
+		By the definition of a bipartite graph, no two vertices in $V_i$ are adjacent, thus $V_i$ is a set of independent vertices and so $\alpha(H)\geq V_i\geq m_H/2$.
+	\end{mdframed}
 
-	\textcolor{red}{Claim: A subgraph of a bipartite graph is bipartite.}
+	Now we prove the inverse to show equivalence:
+	\begin{mdframed}
+		Consider any odd cycle graph $C_{2k+1}$ with vertex set $V$. Assume that $\alpha(C_{2k+1})\geq |V|/2$. There must be an independent set $U$ containing at least $|V|/2$ vertices since $|V|$ is odd $|U|>|V|/2$.
 
-	Claim: If $H$ is bipartite, then $\alpha(G)\geq \frac 12 m_H$.
+		Every $v\in V$ is adjacent to exactly two other vertices. Therefore, every $u\in U$ is adjacent to two vertices $w_1,w_2\in V\setminus U$. Let $W$ be the count of how many distinct $\set{u,w_i}$ edges exist, $W=2|U|$. Since each $w_i$ vertex appears in at most $2$ edges, there at least $W/2$ such vertices and so:
+		$$|V\setminus U|\geq \frac W2 = |U|$$
+		Therefore:
+		$$|U|+|V\setminus U|=2|U|>|V|$$
+		Which is a contraction as $U$ and $V\setminus U$ are disjoint subsets of $V$, so we should have:
+		$$|U|+|V\setminus U|=|V|$$
+		Our assumption is false, so:
+		$$\alpha(C_{2k+1})<|V|/2$$
+		For any odd cycle graph $C_{2k+1}$.
 
-	% Proof: Proof by contraction, if $\alpha(H) < m_H$ then the largest independent set in $H$ has less than half the vertices. If we take any bipartite graph $G$ , 
+		Now see that if $G$ contains no subgraph $H$ with $\alpha(H)\geq m_H/2$, then $G$ contains no odd cycles by the previous working and so by \textit{Theorem 1.6}, $G$ is bipartite.
+	\end{mdframed}
+
+	Thus, we have shown that $G$ is bipartite if and only if every subgraph $H$ of $G$ satisfies $\alpha(H)\geq m_H/2$.
+
 
 
 \end{multicols*}
