@@ -131,7 +131,7 @@
 \usepackage{pst-platon}
 
 \begin{document}
-\thetop{Robert Christie}{MATHS 326}{S1 2024}{Assignment 1\\Due: 20-03-2024}{accentcolor}
+\thetop{Robert Christie}{MATHS 326}{S1 2024}{Assignment 1\\Due: 22-03-2024}{accentcolor}
 
 \begin{multicols*}{2}
 	\section*{Q1}
@@ -161,7 +161,7 @@
 				      $H-e$ & $H_e$
 			      \end{tabular}
 		      \end{center}
-		      We see that $H_e = C_4$, and $H-e$ is $C_4$ with an additional vertex $v$ added, which can take any color except that of its neighbor. Thus:
+		      We see that $H_e = C_4$, and $H-e$ is $C_4$ with an additional vertex $v$ added, which can take any colour except that of its neighbour. Thus:
 		      \begin{align*}
 			      P_{H-e}(x) & = (x-1)C_4(x) \\
 			      P_{H_e}(x) & = C_4(x)
@@ -178,14 +178,15 @@
 			      P_{G-e}(x)=(x-1)H
 		      \end{align*}
 
-		      From deletion contraction we can use our results to determine :
+		      From these results, we finish the deletion contraction of $G$:
 		      \begin{align*}
 			      P_G(x) & = P_{G-e}(x) - P_{G_e}(x) \\
 			             & = (x-1)H - H              \\
 			             & = (x-2)H                  \\
 			             & = (x-2)^2((x-1)^4+x-1)
 		      \end{align*}
-		\item We apply deletion contraction theorem to $G$ on the edge in red:
+		\item
+		      Let $G$ be the given graph, apply deletion contraction theorem on the edge in red:
 		      \begin{center}
 			      \tikz \graph [empty nodes, nodes={circle, draw}, spring layout] { a -- z -- b -- c -- a -- d -- c -- e --[red] f -- d };
 		      \end{center}
@@ -198,7 +199,7 @@
 				      $G - e$ & $G_e$
 			      \end{tabular}
 		      \end{center}
-		      Notice that $G_e$ is the graph from part a, while $G-e$ can be constructed by adding two vertices to the graph $H$ from part a. Notice that the added vertices have only one neighbor each meaning they can take on $(x-1)$ colors for each existing coloring of $H$. Thus, the chromatic polynomials are:
+		      Notice that $G_e$ is the graph from part (a), while $G-e$ can be constructed by adding two vertices to the graph $H$ from the working for part (a). Notice that both the added vertices have only one neighbour each, so they can have any of $(x-1)$ colours for each existing colouring of $H$. Thus, the chromatic polynomials are:
 		      \begin{align*}
 			      P_{G-e}    & = (x-1)^2 P_H(x)            \\
 			                 & = (x-1)^2(x-2)((x-1)^4+x-1) \\
@@ -219,16 +220,16 @@
 	\begin{enumerate}[label=(\alph*)]
 		\item
 
-		      First we show that: $P_G(x)$ contains an $x$ term, implies $G$ is connected.
+		      First we prove that: $P_G(x)$ contains an $x$ term, implies $G$ is connected.
 
 		      \begin{mdframed}
-			      We prove the contrapositive: $G$ is disconnected implies that $P_G(x)$ does not contain a nonzero $x$ term.
+			      We prove the contrapositive: $G$ is disconnected implies that $P_G(x)$ does not contain a non-zero $x$ term.
 
 			      Consider any disconnected graph $G$ which can be expressed as the disjoint union of $k\geq2$ subgraphs $H_1,\dots,H_k$.
 
 			      By \textit{Lemma 1.7}:
 			      $$P_G(x)= \prod_{i=1}^k P_{H_i}(x)$$
-			      Since $P_{H_i}(x)$ are chromatic polynomials, they do not contain a constant term. Thus, the product is of terms:
+			      Since $P_{H_i}(x)$ are chromatic polynomials, they do not contain a constant term. Thus:
 
 			      \begin{align*}
 				       & \begin{matrix}
@@ -245,11 +246,11 @@
 					         = & \text{H.O.T.} + (c_{1,1}\dots c_{1,k})x^k \\
 				         \end{matrix}  \\
 			      \end{align*}
-			      Thus, there is no non-zero $x$ term in $P_G(x)$.
+			      Which does not contain a non-zero $x$.
 		      \end{mdframed}
 
 
-		      Now we show that: $G$ is connected, implies $P_G(x)$ contains a non-zero $x$ term.
+		      Now we prove the inverse: $G$ is connected, implies $P_G(x)$ contains a non-zero $x$ term.
 
 		      \begin{mdframed}
 			      Apply strong induction on $m=\abs{E}$ for connected graphs $G=(V,E)$.
@@ -265,13 +266,13 @@
 			      Consider a graph with $\abs{E}=m+1$, apply deletion contraction, thus:
 			      $$P_G(x)= P_{G-e}(x) - P_{G_e}(x)$$
 
-			      Where $G_e$ has $m$ or fewer edges. Clearly $G_e$ is connected, as any path from $u,v$ in $G_e$ can be constructed from an existing path in $G$.
+			      Where $G_e$ has $m$ or fewer edges. Clearly $G_e$ is connected, as any path from $u$ to $v$ in $G_e$ can be constructed from an existing path in $G$.
 
 			      Since $G_e$ is connected with $\leq m$ edges, the induction hypothesis applies and $P_{G_e}$ contains a non-zero $x$ term.
 
 			      Since $G$ has $n$ vertices, so does $G-e$ so $P_{G-e}(x)$ is of degree $n$ while $G_e$ has $n-1$ vertices so $P_{G_e}(x)$ has degree $n-1$.
 
-			      Fo a chromatic polynomial, the $x^n$ has coefficient $1$ and the signs alternate, since $P_{G-e}$ and $P_{G_e}$ differ in degree by $1$ they have opposite signs for the $x$ term.
+			      For a chromatic polynomial, the $x^n$ has coefficient $1$ and the signs alternate, since $P_{G-e}$ and $P_{G_e}$ differ in degree by $1$ they have opposite signs for the $x$ term.
 
 			      So by deletion contraction for some $c_a\geq0,c_b>0$:
 			      \begin{align*}
@@ -288,12 +289,12 @@
 		\item
 		      When $G$ is connected, \textit{Corollary 1.15} still applies and so $G$ is a tree if and only if $P_G(x)=x(x-1)^{n-1}$. So the new statement holds in this case.
 
-		      When $G$ is disconnected, $G$ is not a graph as graphs are connected by definition. However, $P_G(x)$ cannot contain a non-zero $x$ term by (a). Again the statement holds.
+		      When $G$ is disconnected, $G$ is not a tree as trees are connected by definition. However, $P_G(x)$ also cannot contain a non-zero $x$ term by (a). So the statement holds.
 
-		      Since all simple graphs are either connected or disconnected, the new statement holds in all cases.
+		      Since all simple graphs are either connected or disconnected, the new statement is true.
 	\end{enumerate}
 
-	\subsection*{Q3}
+	\section*{Q3}
 	\begin{enumerate}[label=(\alph*)]
 		\item Expanding $P(x)=(x-1)^4$ results in a polynomial with constant term $(-1)^4=1$, so by \textit{Theorem 1.14}, $P(x)$ is not the chromatic polynomial of any graph as it has a non-zero constant term.
 
@@ -301,14 +302,17 @@
 
 		\item Assume $P(x)=x^4-3x^3+4x^2-2x$ is a chromatic polynomial for some $G$. We can deduce the following using \textit{Theorem 1.14}:
 		      \begin{itemize}
-			      \item Since it has degree $4$, it corresponds to a graph of $4$ vertices.
+			      \item Since $P$ has degree $4$, $G$ has $4$ vertices.
 			      \item The $x^{n-1}=x^3$ term has a coefficient of $-3$, so $G$ must have $3$ edges.
 			      \item The $x$ term has a non-zero coefficient, thus $G$ is connected.
 		      \end{itemize}
-		      We can't have a cycle in $G$ as this requires all $3$ edges and doesn't connect all vertices. As $G$ is connected and acyclic it is a tree.
+		      We can't have a cycle in $G$ as the smallest cycle requires all $3$ edges, and so we can't connect all vertices. As $G$ is connected and acyclic, it is a tree.
 
-		      By (2), $G$ is a tree if and only if it has chromatic polynomial $P_G(x)=x(x-1)^{n-1}$. Now see that:
+		      By part (2b), $G$ is a tree if and only if it has chromatic polynomial:
+		      $$P_G(x)=x(x-1)^{n-1}=x(x-1)^3$$.
+		      Now see that:
 		      $$P_G(2)=2 \neq P(2)= 2^4 - 3\cdot 2^3 + 4 \cdot 2^2 - 2\cdot 2 = 4$$
+		      Thus, $P(x)$ is not $P_G(x)$.
 
 		      As this resulted in a contraction, $P$ is not the chromatic polynomial for any graph $G$.
 	\end{enumerate}
@@ -319,7 +323,7 @@
 
 	When $|V|\leq 2$, $G$ has at most $1$ edge so the statement holds.
 
-	For the case with $3\neq n\leq 11$ vertices and $m$ edges. We use proof by contraction:
+	For the case with $3\leq n\leq 11$ vertices and $m$ edges. We use proof by contraction:
 	\begin{mdframed}
 		By \textit{Theorem 1.19}, we know that $m\leq3n-6$.
 
@@ -344,8 +348,7 @@
 	\begin{center}
 		\psIcosahedron[Frame=false,faceName=\hphantom]
 	\end{center}
-	In the 2D projection above, the $3$ vertices of the back most face can be scaled up to remove all edge-edge intersections in the protection. We can consider the edges and vertices in the projection as the edges and vertices of a planar embedding of a graph. This produces the graph below:
-
+	In the 2D projection above, the $3$ vertices of the back most hidden face can be scaled up to remove all edge-edge intersections in the protection. We can define a graph from the edges and vertices of the icosahedron and consider the modified projection a planar embedding of this graph:
 	\begin{center}
 		\begin{tikzpicture}[every node/.style={draw,circle}]
 			\begin{scope}[shift={(0,3cm)}]
@@ -384,11 +387,11 @@
 			\draw 				(5) -- (I2);
 		\end{tikzpicture}
 	\end{center}
-	This is a planar simple $5$-regular graph on $12$ vertices demonstrating the bound is sharp.
+	This is a planar simple $5$-regular graph on $12$ vertices demonstrating the bound is sharp as each vertex has degree $5>4$.
 
 	\section*{Q5}
 	\begin{enumerate}[label=(\alph*)]
-		\item We can create a $3$-coloring of the Petersen graph:
+		\item We can create a $3$-colouring of the Petersen graph:
 		      \begin{center}
 			      \begin{tikzpicture}[every node/.style={draw,circle}]
 				      \begin{scope}[shift={(0,-1cm)}]
@@ -410,7 +413,7 @@
 		      Therefore, $\chi(P)\leq 3$, however, since $P$ contains an odd cycle of length $5$, we also have $\chi(P)\geq3$, hence $\chi(P)=3$.
 
 
-		      We can construct the following proper edge $4$-coloring of $P$:
+		      The following proper edge $4$-colouring of $P$ exists:
 		      \begin{center}
 			      \begin{tikzpicture}[every node/.style={draw,circle}]
 				      \begin{scope}[shift={(0,-1cm)}]
@@ -431,23 +434,23 @@
 		      \end{center}
 		      Thus $\chi_e(P)\leq 4$.
 
-		      Next we show that no edge $3$-coloring exists:
+		      Next we show that no edge $3$-colouring exists:
 		      \begin{itemize}
 			      \item
-			            The cycle $C_5$ has chromatic index $3$. So no edge $2$-coloring exists.
+			            The cycle $C_5$ (a subgraph of $P$) has chromatic index $3$. So no edge $2$-colouring exists.
 
 			      \item
-			            If we take any subgraph of $3$ edges where no pair is adjacent, then there a $6$ vertices in the subgraph by definition of edge adjacency.
+			            If we take any graph with $3$ edges where no pair is adjacent, then there a $6$ vertices in the graph.
 
 			            Since $C_5$ has only $5$ vertices, we cannot find a subgraph with $3$ edges such that no pair is adjacent.
 
-			            Since we can't find $3$ non-adjacent edges to give the same color, each color is used at most twice.
+			            Since we can't find $3$ non-adjacent edges to give the same colour, each colour is used at most twice in an edge-colouring of $C_5$.
 
 			      \item
-			            We must use $2$ colors twice and $1$ color once in order to color all $5$ edges if each color is used either once or twice.
+			            We must use $2$ colours twice and $1$ colour once in order to colour all $5$ edges of $C_5$ as each colour is used either once or twice.
 
 			      \item
-			            WLOG, let \textcolor{red}{$r$} be the color used once. The remaining colors $\textcolor{green}{g},\textcolor{blue}{b}$ must alternate on the remaining edges.
+			            WLOG, let \textcolor{red}{$r$} be the colour used once. The remaining colours $\textcolor{green}{g},\textcolor{blue}{b}$ must alternate on the remaining edges.
 
 			            \begin{center}
 				            \begin{tikzpicture}[every node/.style={draw,circle}]
@@ -458,7 +461,7 @@
 			            \end{center}
 
 			      \item
-			            When edges are added to produce the following sub graph, their coloring is fully determined by the existing edges in the cycle.
+			            When edges are added to $C_5$ to produce the following subgraph of $P$, their colouring is fully determined by the existing edges in the cycle.
 			            \begin{center}
 				            \begin{tikzpicture}[every node/.style={draw,circle}]
 					            \begin{scope}[shift={(0,-1cm)}]
@@ -477,7 +480,8 @@
 				            \end{tikzpicture}
 			            \end{center}
 
-			      \item Consider the subgraph of $P$ created by adding the two dashed edges from the Petersen graph to the previous subgraph: 			            \begin{center}
+			      \item Consider the subgraph of $P$ created by adding the two dashed edges to the previous subgraph:
+			            \begin{center}
 				            \begin{tikzpicture}[every node/.style={draw,circle}]
 					            \begin{scope}[shift={(0,-1cm)}]
 						            \graph[empty nodes, simple necklace layout, clockwise, radius=1cm] {
@@ -496,7 +500,7 @@
 					            \draw[red]  (5) -- (E);
 				            \end{tikzpicture}
 			            \end{center}
-			            Both edges are adjacent to $\textcolor{red}{r}$ and $\textcolor{blue}{b}$ edges already, so they must both be $\textcolor{green}{g}$. However, since they are adjacent they cannot receive the same colors resulting in a contraction. Thus $P$ is not $3$ edge-colorable and $\chi_e(P)>3$.
+			            Both edges are adjacent to $\textcolor{red}{r}$ and $\textcolor{blue}{b}$ edges already, so they must both be $\textcolor{green}{g}$. However, since they are adjacent they cannot receive the same colours.  Thus, we have a contraction, so $P$ is not $3$ edge-colourable and $\chi_e(P)>3$.
 		      \end{itemize}
 		      Since $3<\chi_e(P)\leq 4$, the chromatic index of the Petersen graph $\chi_e(P)=4$.
 
@@ -523,18 +527,21 @@
 	\end{enumerate}
 
 	\section*{Q6}
-	First we prove that for a simple graph $G$, $G$ is bipartite implies every subgraph $H$ of $G$ satisfies $\alpha(H)\geq m_H/2$:
+	First we prove that for a simple graph $G$: $G$ is bipartite implies every subgraph $H$ of $G$ satisfies $\alpha(H)\geq m_H/2$:
 	\begin{mdframed}
-		Let $G$ be a bipartite graph. By \textit{Theorem 1.6}, $G$ contains no odd cycle. So any subgraph $H$ of $G$ also contains no odd cycle, so by \textit{Theorem 1.6}, $H=(V,E)$ is bipartite and so its vertices can be written as the disjoint union $V=V_1\uplus V_2$ and every edge in $H$ has one endpoint in each of $V_1,V_2$.
+		Let $G$ be a bipartite graph. By \textit{Theorem 1.6}, $G$ contains no odd cycle. So any subgraph $H$ of $G$ also contains no odd cycle, so by \textit{Theorem 1.6}, $H=(V,E)$ is bipartite. Therefore, its vertices can be written as the disjoint union $V=V_1\uplus V_2$ so that every edge in $H$ has one endpoint in each of $V_1,V_2$.
 
 		Let $V_i,V_j$ be the largest and smallest of the two vertex sets respectively (or $V_1,V_2$ if the sets have the same size). Clearly $V_i$ must contain at least $m_H/2$ vertices, otherwise:
 		$$|V_j|\leq|V_i|<m_H/2\implies |V_1|+|V_2|<m_H=|V|$$
 		By the definition of a bipartite graph, no two vertices in $V_i$ are adjacent, thus $V_i$ is a set of independent vertices and so $\alpha(H)\geq V_i\geq m_H/2$.
 	\end{mdframed}
 
+	\vfill\null
+	\columnbreak
 	Now we prove the inverse to show equivalence:
+
 	\begin{mdframed}
-		Consider any odd cycle graph $C_{2k+1}$ with vertex set $V$. Assume that $\alpha(C_{2k+1})\geq |V|/2$. There must be an independent set $U$ containing at least $|V|/2$ vertices since $|V|$ is odd $|U|>|V|/2$.
+		Consider any odd cycle graph $C_{2k+1}$ with vertex set $V$. Assume that $\alpha(C_{2k+1})\geq |V|/2$. There must be an independent set $U$ containing at least $|V|/2$ vertices. Since $|V|$ is odd $|U|>|V|/2$.
 
 		Every $v\in V$ is adjacent to exactly two other vertices. Therefore, every $u\in U$ is adjacent to two vertices $w_1,w_2\in V\setminus U$. Let $W$ be the count of how many distinct $\set{u,w_i}$ edges exist, $W=2|U|$. Since each $w_i$ vertex appears in at most $2$ edges, there at least $W/2$ such vertices and so:
 		$$|V\setminus U|\geq \frac W2 = |U|$$
@@ -542,16 +549,16 @@
 		$$|U|+|V\setminus U|=2|U|>|V|$$
 		Which is a contraction as $U$ and $V\setminus U$ are disjoint subsets of $V$, so we should have:
 		$$|U|+|V\setminus U|=|V|$$
-		Our assumption is false, so:
+		As our assumption was false:
 		$$\alpha(C_{2k+1})<|V|/2$$
 		For any odd cycle graph $C_{2k+1}$.
 
-		Now see that if $G$ contains no subgraph $H$ with $\alpha(H)\geq m_H/2$, then $G$ contains no odd cycles by the previous working and so by \textit{Theorem 1.6}, $G$ is bipartite.
+		Now let $G$ be a graph where every subgraph $H$ of $G$ satisfies $\alpha(H)\geq m_H/2$. Thus, $G$ contains no subgraph $H$ with $\alpha(H)< m_H/2$. By the previous working, $G$ contains no odd cycles and so by \textit{Theorem 1.6}, $G$ is bipartite.
 	\end{mdframed}
 
 	Thus, we have shown that $G$ is bipartite if and only if every subgraph $H$ of $G$ satisfies $\alpha(H)\geq m_H/2$.
 
-
-
+	\vfill
+	\pagebreak
 \end{multicols*}
 \end{document}
