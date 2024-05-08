@@ -149,36 +149,273 @@
 \begin{document}
 \thetop{Robert Christie}{MATHS 326}{S1 2024}{Assignment 3\\Due: 10-05-2024}{accentcolor}
 
-\begin{multicols*}{2}
-	\section*{Q1}
-	\begin{enumerate}[label=(\alph*)]
-		\item Outline:
+% \begin{multicols*}{2}
+\section*{Q1}
+\begin{enumerate}[label=(\alph*)]
+	\item For any $x\in V\setminus\set{a,z}$, then we have:
 
-		      We have that $f$ is Harmonic on $V\setminus\set{a,z}$, while $f(a),f(z)\in\RR$ are free, this is an instance of the discrete Dirchlet problem, and so there is a unique solution $f$.
+	      \[
+		      p_x = \sum_{y\in N(x)}\frac{c(\set{x,y})p_y}{\pi(x)}
+	      \]
+
+	      As the probability of reaching $a$ before $z$, is the sum of probabilities from each neighbour, weighted by the chance of reaching that neighbour.
+
+	      This also means that as a function $x\mapsto p_x$, on $V\setminus\set{a,z}$, $p_x$ is harmonic. We also know that $p_a=1$ and $p_z=0$. Meaning that this is an instance of the discrete Dirchlet problem, hence $x\mapsto p_x$ must be the unique solution.
+
+	      Now consider any $f:V\to\RR$ harmonic on $V\setminus\set{a,z}$. Consider a function $g:V\to\RR$ given by $g(x)=f(a)p_x+f(z)$. We know $g(x)$ is harmonic as it is a linear combination of harmonic functions (on $V\setminus\set{a,z}$).
+
+	      As $p_a=1$ and $p_z=0$, $\alpha=g(a)=f(a)$ and $\beta=g(z)=f(z)$, we have that $f,g$ are solutions to the same discrete Dirchlet problem. Thus, $f=g$ as the solution is unique. Hence, we can write:
+	      \[f(x)=f(a)p_x+f(b)=\alpha p_x +\beta\]
+
+	\item We can rewrite:
+	      \[f(x)=f(a)p_x+f(b)=\alpha p(x) + \beta q(x)\]
+	      Where $p(x)=p_x$ and $q(x)=1$ are both harmonic functions on $V\setminus{a,z}$. By (a), $\set{p,q}$ spans the vector space of function harmonic on $V\setminus\set{a,z}$. We also see that:
+	      \[
+		      \alpha p +\beta q =0 \implies \begin{matrix}
+			      \alpha p(a) + \beta q(a)=\alpha+\beta=0 \\
+			      \alpha p(z) + \beta q(z)=\beta=0        \\
+		      \end{matrix}
+		      \implies \alpha=\beta=0
+	      \]
+	      Thus, the set $\set{p,q}$ is linearly independent and spanning, thus it is a basis with cardinality $2$ hence, the dimension of the vector space is also $2$.
+\end{enumerate}
+
+\section*{Q2}
+Restating the Star-Triangle law for resistance:
+\begin{mdframed}
+	Consider a start with centre $x$ with edges to $y_0,y_1,y_2$. Then:
+	\begin{align*}
+		\gamma
+		 & = \frac{c(x,y_0)c(x,y_1)c(x,y_2)}{c(x,y_0)+c(x,y_1)+c(x,y_2)}                       \\
+		 & = \frac{1}{r(x,y_0)r(x,y_1)r(x,y_2)\left[ 1/r(x,y_0)+1/r(x,y_1)+1/r(x,y_2) \right]} \\
+		 & = \frac1{r(x,y_0)r(x,y_1) + r(x,y_1)r(x,y_2) + r(x,y_2)r(x,y_0)}
+	\end{align*}
+	So $\set{y_i,y_{i+1}}$ where indices are taken mod $3$, has resistance:
+	\begin{align*}
+		r(y_i,y_{i+1}) & = \frac1{\gamma c(x,y_{i+2})}                                                                                                        \\
+		               & = \frac{1}{r(x,y_{i+2})r(x,y_0)r(x,y_1)r(x,y_2)\left[ 1/r(x,y_0)+1/r(x,y_1)+1/r(x,y_2) \right]}                                      \\
+		               & = r(x,y_{i+2}) \left[ \frac1{r(x,y_{i+0})r(x,y_{i+1})} + \frac1{r(x,y_{i+1})r(x,y_{i+2})} + \frac1{r(x,y_{i+2})r(x,y_{i+0})} \right] \\
+		               & =  \frac{r(x,y_{i+2})}{r(x,y_{i+0})r(x,y_{i+1})} + \frac1{r(x,y_{i+1})} + \frac1{r(x,y_{i+0})}
+	\end{align*}
 
 
-		\item
-	\end{enumerate}
+\end{mdframed}
 
-	\section*{Q2}
+\begin{tabular}{ccccccc}
+	 &
+	\begin{tikzpicture}
+		\node[circle,fill,scale=0.5] (a) at (0,1) {};
+		\node[circle,fill,scale=0.5] (b) at (1,1) {};
+		\node[circle,fill,scale=0.5] (c) at (2,1) {};
+		\node[circle,fill,scale=0.5] (d) at (3,1) {};
+		\node[circle,fill,scale=0.5] (e) at (0,0) {};
+		\node[circle,fill,scale=0.5] (f) at (1,0) {};
+		\node[circle,fill,scale=0.5] (g) at (2,0) {};
+		\node[circle,fill,scale=0.5] (z) at (3,0) {};
+
+		\draw (a) -- (b) -- (c) -- (d);
+		\draw (e) -- (f) -- (g) -- (z);
+		\draw (a) -- (e) ;
+		\draw (b) -- (f);
+		\draw (c) -- (g);
+		\draw (d) -- (z);
+	\end{tikzpicture}
+	 &
+	$
+		\begin{array}{c}
+			\longrightarrow         \\[-0.5em]
+			\text{\tiny Series Law} \\[1em]
+		\end{array}
+	$
+	 &
+	\begin{tikzpicture}[
+			every edge quotes/.style = {auto, font=\footnotesize, sloped}
+		]
+		\node[circle,fill,scale=0.5] (a) at (0,1) {};
+		\node[circle,fill,scale=0.5] (b) at (1,1) {};
+		\node[circle,fill,scale=0.5] (c) at (2,1) {};
 
 
-	\section*{Q3}
+		\node[circle,fill,scale=0.5] (f) at (1,0) {};
+		\node[circle,fill,scale=0.5] (g) at (2,0) {};
+		\node[circle,fill,scale=0.5] (z) at (3,0) {};
+
+		\draw (a) -- (b);
+		\draw (g) -- (z);
+		\draw (b) -- (c) -- (g) -- (f) -- (b);
+
+		\draw (a) edge["$2$"] (f) ;
+		\draw (c) edge["$2$"] (z) ;
+	\end{tikzpicture}
+	 &
+	$
+		\begin{array}{c}
+			\longrightarrow                \\[-0.5em]
+			\text{\tiny Star Triangle Law} \\[1em]
+		\end{array}
+	$
+	 &
+	\begin{tikzpicture}[
+			every edge quotes/.style = {auto, font=\footnotesize, sloped}
+		]
+		\node[circle,fill,scale=0.5] (a) at (0,1) {};
+		% \node[circle,fill,scale=0.5] (b) at (1,1) {};
+		\node[circle,fill,scale=0.5] (c) at (2,1) {};
+
+		\node[circle,fill,scale=0.5] (f) at (1,0) {};
+		\node[circle,fill,scale=0.5] (g) at (2,0) {};
+		\node[circle,fill,scale=0.5] (z) at (3,0) {};
 
 
-	\section*{Q4}
+		\draw (a) -- (f) -- (g) -- (z);
+		\draw (c) -- (g);
+
+		\path (f) edge [bend left] (a);
+
+		\draw (a) -- (c) -- (f);
 
 
-	\section*{Q5}
-	\begin{enumerate}[label=(\alph*)]
-		\item
-	\end{enumerate}
-
-	\section*{Q6}
+		\draw (c) edge["$2$"] (z) ;
 
 
+	\end{tikzpicture}    \\
+	$
+		\begin{array}{c}
+			\longrightarrow                \\[-0.5em]
+			\text{\tiny Star Triangle Law} \\[1em]
+		\end{array}
+	$
+	 &
+	\begin{tikzpicture}
+		\node[circle,fill,scale=0.5] (a) at (0,1) {};
+		\node[circle,fill,scale=0.5] (c) at (2,1) {};
 
-	\vfill
-	\pagebreak
-\end{multicols*}
+		\node[circle,fill,scale=0.5] (f) at (1,0) {};
+		\node[circle,fill,scale=0.5] (z) at (3,0) {};
+
+
+		\draw (a) -- (c) -- (z);
+		\draw (a) -- (f)  -- (z);
+
+		\path (f) edge [bend left] (a);
+		\path (c) edge [bend left] (z);
+
+		\path (f) edge [bend left] (c);
+		\path (c) edge [bend left] (f);
+	\end{tikzpicture}
+	 &
+	$
+		\begin{array}{c}
+			\longrightarrow           \\[-0.5em]
+			\text{\tiny Parallel Law} \\[1em]
+		\end{array}
+	$
+	 & \begin{tikzpicture}
+		   \node[circle,fill,scale=0.5] (a) at (0,1) {};
+		   \node[circle,fill,scale=0.5] (c) at (2,1) {};
+
+		   \node[circle,fill,scale=0.5] (f) at (1,0) {};
+		   \node[circle,fill,scale=0.5] (z) at (3,0) {};
+
+
+		   \draw (a) -- (c) -- (z) -- (f)--(a);
+		   \draw (c) -- (f);
+	   \end{tikzpicture}
+	 &
+	$
+		\begin{array}{c}
+			\longrightarrow                \\[-0.5em]
+			\text{\tiny Star Triangle Law} \\[1em]
+		\end{array}
+	$
+	 &
+	\begin{tikzpicture}
+		\node[circle,fill,scale=0.5] (a) at (0,1) {};
+		\node[circle,fill,scale=0.5] (b) at (1,1) {};
+		\node[circle,fill,scale=0.5] (c) at (2,1) {};
+
+		\node[circle,fill,scale=0.5] (f) at (1,0) {};
+		\node[circle,fill,scale=0.5] (z) at (3,0) {};
+
+
+		\draw (a) -- (b) --(c) -- (z) -- (f);
+		\draw (b) -- (f);
+	\end{tikzpicture}
+	\\
+	$
+		\begin{array}{c}
+			\longrightarrow         \\[-0.5em]
+			\text{\tiny Series Law} \\[1em]
+		\end{array}
+	$
+	 &
+	\begin{tikzpicture}
+		\node[circle,fill,scale=0.5] (a) at (0,1) {};
+		\node[circle,fill,scale=0.5] (b) at (1,1) {};
+		\node[circle,fill,scale=0.5] (z) at (3,0) {};
+		\draw (a) -- (b);
+		\path (b) edge [bend left] (z);
+		\path (z) edge [bend left] (b);
+
+
+	\end{tikzpicture}
+	 &
+	$
+		\begin{array}{c}
+			\longrightarrow           \\[-0.5em]
+			\text{\tiny Parallel Law} \\[1em]
+		\end{array}
+	$
+	 &
+	\begin{tikzpicture}
+		\node[circle,fill,scale=0.5] (a) at (0,1) {};
+		\node[circle,fill,scale=0.5] (b) at (1,1) {};
+		\node[circle,fill,scale=0.5] (z) at (3,0) {};
+		\draw (a) -- (b)  -- (z);
+	\end{tikzpicture}
+	 &
+	$
+		\begin{array}{c}
+			\longrightarrow         \\[-0.5em]
+			\text{\tiny Series Law} \\[1em]
+		\end{array}
+	$
+	 &
+	\begin{tikzpicture}
+		\node[circle,fill,scale=0.5] (a) at (0,1) {};
+		\node[circle,fill,scale=0.5] (z) at (3,0) {};
+		\draw (a) -- (z);
+	\end{tikzpicture}
+\end{tabular}
+
+
+
+
+
+
+
+
+
+\section*{Q3}
+
+Assume that there is a shortest path from $a$ to $z$ where the voltage increases between some pair of vertices. Let $v_1,\dots,v_k,\dots,v_n$ with $v_1=a$ and $v_n=z$ be vertices of the path such that $v_k$ is the first vertex such that $v(v_k)>v(v_{k-1})$.
+
+
+
+
+\section*{Q4}
+
+
+\section*{Q5}
+\begin{enumerate}[label=(\alph*)]
+	\item
+\end{enumerate}
+
+\section*{Q6}
+
+
+
+% \vfill
+% \pagebreak
+% \end{multicols*}
 \end{document}
