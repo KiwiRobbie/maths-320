@@ -8,9 +8,10 @@
 \usepackage{amsmath}
 
 \setmainfont{opensans}
-\usepackage[mathrm=sym]{unicode-math}
+% \usepackage[mathrm=sym]{unicode-math}
+\usepackage{lato-math}
 % \setmathfont[Path=font/,mathrm=sym]{FiraMath-Regular}
-\setmathfont[Path=font/,mathrm=sym]{LatoMath}
+% \setmathfont[Path=font/,mathrm=sym]{LatoMath}
 
 \newfontfamily{\montserrateb}{Montserrat SemiBold}
 \newfontfamily{\montserratb}{Montserrat Bold}
@@ -409,9 +410,25 @@ Assume that there is a shortest path from $a$ to $z$ where the voltage increases
 \section*{Q5}
 \begin{enumerate}[label=(\alph*)]
 	\item
+	      Let $i$ be a current flow from $a$ to $z$ of unit strength on $G=(V,E)$, and $i'$ a current flow from $a$ to $z$ of unit strength on $G-e=(V,E')$. Extend $i'$ to a flow on $G$ by letting $i'(x,y)=i'(y,x)=0$ where $\set{x,y}=e$. The energy of the flow $i'$ is the same on both $G$ and $G-e$:
+
+	      \[
+		      \varepsilon(i')
+		      =\frac12\sum_{\substack{u\in V\\ v\in N_G(x)}}\theta(u,v)^2r(\set{u,v})
+		      =\frac12\sum_{\substack{u\in V\\ v\in N_{G-e}(x)}}\theta(u,v)^2r(\set{u,v}) + \theta(x,y)^2r(\set{x,y})
+		      =\frac12\sum_{\substack{u\in V\\ v\in N_{G-e}(x)}}\theta(u,v)^2r(\set{u,v})
+	      \]
+
+	      Since on $G-e$, $i'$ is a current flow $a$ to $z$ of unit strength $\mathcal{R}_{G-e}(a\leftrightarrow b)=\varepsilon(i')$. So on $G$, $\mathcal{R}_G(a\leftrightarrow b)=\varepsilon(i)\leq\varepsilon(i')$ as $i,i'$ are flows $a$ to $z$ of the same strength and $i$ is a current flow while $i'$ may not be. Thus:
+	      $$\mathcal{R}_G(a\leftrightarrow b)=\varepsilon(i)\leq\varepsilon(i')\leq \mathcal{R}_{G-e}(a\leftrightarrow b)$$
+
+
+	\item
 \end{enumerate}
 
 \section*{Q6}
+
+Consider current flows $i$ and $i'$ of unit strength on the weights $r$ and $r'$. Then, $\mathcal{R}_r=\varepsilon(i)$ and $\mathcal{R}_{r'}=\varepsilon(i')$.
 
 
 
