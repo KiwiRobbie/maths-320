@@ -541,7 +541,20 @@ Thus, we have shown:
 		\end{mdframed}
 		\pagebreak
 	   
-		\item
+		\item For any unweighed $G=(V,E)$, the conductance function $c:E\to\RR$ is given by $c(e)=1$. So by Theorem 3.18 of the course book: 
+		\[
+			\operatorname{Comm}(a\leftrightarrow z) = 2 \left( \sum_{e\in} c(e)\right)	\mathcal{R}(a\leftrightarrow z) = 2\abs{E}\mathcal{R}(a\leftrightarrow z)
+		\]
+		Now consider some fixed shortest path $P$ between $a$ and $z$ with length $d(a,z)$. Apply (a) to remove every edge of $G$ not in $P$, by (a) this does not decrease the effective resistance between $a$ and $z$. IE, if $G'$ is the graph obtained, then:
+		\[
+			\mathcal{R}_{G}(a\leftrightarrow z)	
+			\leq \mathcal{R}_{G'}(a\leftrightarrow z)
+		\]
+		Since each non-endpoint vertex of $P$ is of degree $2$ in $G'$, applying the series law $\mathcal{R}_{G'}(a\leftrightarrow z)$ is the sum of the resistances in $G$. Thus, $\mathcal{R}_{G'}(a\leftrightarrow z)=d(a,z)$ as the edges are of unit resistance. Thus: 
+	\[
+		\operatorname{Comm}(a\leftrightarrow z) = 2 \left( \sum_{e\in} c(e)\right)	\mathcal{R}(a\leftrightarrow z) = 2\abs{E}\mathcal{R}(a\leftrightarrow z) \leq 2\abs{E}d(a,z)	
+	\]
+
 
 \end{enumerate}
 
