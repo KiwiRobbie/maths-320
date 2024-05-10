@@ -150,7 +150,7 @@
 % \begin{multicols*}{2}
 \section*{Q1}
 \begin{enumerate}[label=(\alph*)]
-	\item For any $x\in V\setminus\set{a,z}$, then we have:
+	\item For any $x\in V\setminus\set{a,z}$, we have:
 
 	      \[
 		      p_x = \sum_{y\in N(x)}\frac{c(\set{x,y})p_y}{\pi(x)}
@@ -158,254 +158,282 @@
 
 	      As the probability of reaching $a$ before $z$, is the sum of probabilities from each neighbour, weighted by the chance of reaching that neighbour.
 
-	      This also means that as a function $x\mapsto p_x$, on $V\setminus\set{a,z}$, $p_x$ is harmonic. We also know that $p_a=1$ and $p_z=0$. Meaning that this is an instance of the discrete Dirchlet problem, hence $x\mapsto p_x$ must be the unique solution.
+	      This also means that as a function $x\mapsto p_x$, on $V\setminus\set{a,z}$ is harmonic. We also know that $p_a=1$ and $p_z=0$. Meaning that this is an instance of the discrete Dirchlet problem, hence $x\mapsto p_x$ must be the unique solution.
 
-	      Now consider any $f:V\to\RR$ harmonic on $V\setminus\set{a,z}$. Consider a function $g:V\to\RR$ given by $g(x)=f(a)p_x+f(z)$. We know $g(x)$ is harmonic as it is a linear combination of harmonic functions (on $V\setminus\set{a,z}$).
+	      Now consider any $f:V\to\RR$ harmonic on $V\setminus\set{a,z}$. Let the function $g:V\to\RR$ be given by $g(x)=f(a)p_x+f(z)$. We know $g(x)$ is harmonic as it is a linear combination of harmonic functions (on $V\setminus\set{a,z}$).
 
-	      As $p_a=1$ and $p_z=0$, $\alpha=g(a)=f(a)$ and $\beta=g(z)=f(z)$, we have that $f,g$ are solutions to the same discrete Dirchlet problem. Thus, $f=g$ as the solution is unique. Hence, we can write:
+	      As $p_a=1$ and $p_z=0$, we have $g(a)=f(a)=\alpha\in\RR$ and $g(z)=f(z)\in\RR$, so $f,g$ are solutions to the same discrete Dirchlet problem. As the solution must be unique $f=g$, meaning:
 	      \[f(x)=f(a)p_x+f(b)=\alpha p_x +\beta\]
 
 	\item We can rewrite:
 	      \[f(x)=f(a)p_x+f(b)=\alpha p(x) + \beta q(x)\]
-	      Where $p(x)=p_x$ and $q(x)=1$ are both harmonic functions on $V\setminus{a,z}$. By (a), $\set{p,q}$ spans the vector space of function harmonic on $V\setminus\set{a,z}$. We also see that:
+	      Where $p(x)=p_x$ and $q(x)=1$ are both harmonic functions on $V\setminus\set{a,z}$. By (a), $\set{p,q}$ spans the vector space of function harmonic on $V\setminus\set{a,z}$. We also see that:
 	      \[
 		      \alpha p +\beta q =0 \implies \begin{matrix}
 			      \alpha p(a) + \beta q(a)=\alpha+\beta=0 \\
-			      \alpha p(z) + \beta q(z)=\beta=0        \\
+			      \land\;\;\alpha p(z) + \beta q(z)=\beta=0        \\
 		      \end{matrix}
 		      \implies \alpha=\beta=0
 	      \]
-	      Since the set $\set{p,q}$ is linearly independent and spanning it is a basis with cardinality $2$. Hence, the dimension of the vector space is also $2$.
+	      Since the set $\set{p,q}$ is linearly independent and spanning, it is a basis with cardinality $2$. Hence, the dimension of the vector space is also $2$.
 \end{enumerate}
 
 \pagebreak
 \section*{Q2}
-% Restating the Star-Triangle law for resistance:
-% \begin{mdframed}
-% 	Consider a start with centre $x$ with edges to $y_0,y_1,y_2$. Then:
-% 	\begin{align*}
-% 		\gamma
-% 		 & = \frac{c(x,y_0)c(x,y_1)c(x,y_2)}{c(x,y_0)+c(x,y_1)+c(x,y_2)}                       \\
-% 		 & = \frac{1}{r(x,y_0)r(x,y_1)r(x,y_2)\left[ 1/r(x,y_0)+1/r(x,y_1)+1/r(x,y_2) \right]} \\
-% 		 & = \frac1{r(x,y_0)r(x,y_1) + r(x,y_1)r(x,y_2) + r(x,y_2)r(x,y_0)}
-% 	\end{align*}
-% 	So $\set{y_i,y_{i+1}}$ where indices are taken mod $3$, has resistance:
-% 	\begin{align*}
-% 		r(y_i,y_{i+1}) & = \frac1{\gamma c(x,y_{i+2})}                                                                                                        \\
-% 		               & = \frac{1}{r(x,y_{i+2})r(x,y_0)r(x,y_1)r(x,y_2)\left[ 1/r(x,y_0)+1/r(x,y_1)+1/r(x,y_2) \right]}                                      \\
-% 		               & = r(x,y_{i+2}) \left[ \frac1{r(x,y_{i+0})r(x,y_{i+1})} + \frac1{r(x,y_{i+1})r(x,y_{i+2})} + \frac1{r(x,y_{i+2})r(x,y_{i+0})} \right] \\
-% 		               & =  \frac{r(x,y_{i+2})}{r(x,y_{i+0})r(x,y_{i+1})} + \frac1{r(x,y_{i+1})} + \frac1{r(x,y_{i+0})}
-% 	\end{align*}
-% \end{mdframed}
+
 Applying the series, parallel, and star triangle laws to calculate $\mathcal{C}(a\leftrightarrow z)$ for the given graph $G$, non-unit conductances are labelled:
 
-\begin{tabular}{ccccccc}
-	 &
-	\begin{tikzpicture}
-		\node[circle,fill,scale=0.5] (a) at (0,1) {};
-		\node[circle,fill,scale=0.5] (b) at (1,1) {};
-		\node[circle,fill,scale=0.5] (c) at (2,1) {};
-		\node[circle,fill,scale=0.5] (d) at (3,1) {};
-		\node[circle,fill,scale=0.5] (e) at (0,0) {};
-		\node[circle,fill,scale=0.5] (f) at (1,0) {};
-		\node[circle,fill,scale=0.5] (g) at (2,0) {};
-		\node[circle,fill,scale=0.5] (z) at (3,0) {};
-
-		\draw (a) -- (b) -- (c) -- (d);
-		\draw (e) -- (f) -- (g) -- (z);
-		\draw (a) -- (e) ;
-		\draw (b) -- (f);
-		\draw (c) -- (g);
-		\draw (d) -- (z);
-	\end{tikzpicture}
-	 &
-	$
-		\begin{array}{c}
-			\longrightarrow         \\[-0.5em]
-			\text{\tiny Series Law} \\[2em]
-		\end{array}
-	$
-	 &
-	\begin{tikzpicture}[
-			every edge quotes/.style = {auto, font=\tiny, sloped}
-		]
-		\node[circle,fill,scale=0.5] (a) at (0,1) {};
-		\node[circle,fill,scale=0.5] (b) at (1,1) {};
-		\node[circle,fill,scale=0.5] (c) at (2,1) {};
-
-
-		\node[circle,fill,scale=0.5] (f) at (1,0) {};
-		\node[circle,fill,scale=0.5] (g) at (2,0) {};
-		\node[circle,fill,scale=0.5] (z) at (3,0) {};
-
-		\draw (a) -- (b);
-		\draw (g) -- (z);
-		\draw (b) -- (c) -- (g) -- (f) -- (b);
-
-		\draw (a) edge["$1/2$"] (f) ;
-		\draw (c) edge["$1/2$"] (z) ;
-	\end{tikzpicture}
-	 &
-	$
-		\begin{array}{c}
-			\longrightarrow                \\[-0.5em]
-			\text{\tiny Star Triangle Law} \\[-0.5em]
-			\text{\tiny$\gamma$ = 1/3  }   \\[1em]
-		\end{array}
-	$
-	 &
-	\begin{tikzpicture}[
-			every edge quotes/.style = {auto, font=\tiny, sloped}
-		]
-		\node[circle,fill,scale=0.5] (a) at (0,1) {};
-		\node[circle,fill,scale=0.5] (c) at (2,1) {};
-
-		\node[circle,fill,scale=0.5] (f) at (1,0) {};
-		\node[circle,fill,scale=0.5] (g) at (2,0) {};
-		\node[circle,fill,scale=0.5] (z) at (3,0) {};
-
-
-		\draw (f) -- (g) -- (z);
-		\draw (c) -- (g);
-
-		\path (a) edge[bend right] node[below,rotate=-45]  {\tiny$1/2$}    (f);
-
-		\path (a) edge node[above]{\tiny${1/3}$} (c)
-		      (c) edge node[above,rotate=45]{\tiny${1/3}$} (f)
-		      (f) edge node[above,rotate=-45]{\tiny${1/3}$} (a);
-
-
-		\draw (c) edge["$1/2$"] (z) ;
-
-
-	\end{tikzpicture}    \\
-	$
-		\begin{array}{c}
-			\longrightarrow                \\[-0.5em]
-			\text{\tiny Star Triangle Law} \\[-0.5em]
-			\text{\tiny$\gamma$ = 1/3  }   \\[1em]
-		\end{array}
-	$
-	 &
-	\begin{tikzpicture}
-		\node[circle,fill,scale=0.5] (a) at (0,1) {};
-		\node[circle,fill,scale=0.5] (c) at (2,1) {};
-
-		\node[circle,fill,scale=0.5] (f) at (1,0) {};
-		\node[circle,fill,scale=0.5] (z) at (3,0) {};
-
-
-		\path (a) edge node[above]{\tiny${1/3}$} (c) 
-		      (c) edge node[below,rotate=-45]{\tiny${1/3}$} (z)
-		      (z) edge node[below]{\tiny${1/3}$} (f)
-			  (f) edge node[above,rotate=-45]{\tiny${1/3}$} (a);
-
-
-		\path (a) edge[bend right]
-		          node[below,rotate=-45]{\tiny$1/2$} (f);
-		
-		\path (z) edge[bend right]
-		          node[above,rotate=-45]{\tiny$1/2$} (c);
-
-		\path (f) edge[bend left] node[above,rotate=45,yshift=-0.2em]{\tiny${1/3}$} (c)
-		      (c) edge[bend left] node[above,rotate=45,yshift=-0.2em]{\tiny${1/3}$} (f);
-	\end{tikzpicture}
-	 &
-	$
-		\begin{array}{c}
-			\longrightarrow           \\[-0.5em]
-			\text{\tiny Parallel Law} \\[2em]
-		\end{array}
-	$
-	 & \begin{tikzpicture}
+\begin{center}
+	\begin{tabular}{ccccccc}
+		&
+	   \hspace{-3em} 
+	   \begin{tikzpicture}
+		   \node (X) at (-0.3,1){\small$a$};
+		   \node (X) at ( 3.3,0){\small$z$};
+		   \node[circle,fill,scale=0.5] (a) at (0,1) {};
+		   \node[circle,fill,scale=0.5] (b) at (1,1) {};
+		   \node[circle,fill,scale=0.5] (c) at (2,1) {};
+		   \node[circle,fill,scale=0.5] (d) at (3,1) {};
+		   \node[circle,fill,scale=0.5] (e) at (0,0) {};
+		   \node[circle,fill,scale=0.5] (f) at (1,0) {};
+		   \node[circle,fill,scale=0.5] (g) at (2,0) {};
+		   \node[circle,fill,scale=0.5] (z) at (3,0) {};
+   
+		   \draw (a) -- (b) -- (c) -- (d);
+		   \draw (e) -- (f) -- (g) -- (z);
+		   \draw (a) -- (e) ;
+		   \draw (b) -- (f);
+		   \draw (c) -- (g);
+		   \draw (d) -- (z);
+	   \end{tikzpicture}
+	   \hspace{-1em}
+		&
+	   $
+		   \begin{array}{c}
+			   \longrightarrow         \\[-0.5em]
+			   \text{\tiny Series Law} \\[2em]
+		   \end{array}
+	   $
+	   &
+	   \hspace{-3em} 
+	   \begin{tikzpicture}[
+			   every edge quotes/.style = {auto, font=\tiny, sloped}
+		   ]
+		   \node (X) at (-0.3,1){\small$a$};
+		   \node (X) at ( 3.3,0){\small$z$};
+		   \node[circle,fill,scale=0.5] (a) at (0,1) {};
+		   \node[circle,fill,scale=0.5] (b) at (1,1) {};
+		   \node[circle,fill,scale=0.5] (c) at (2,1) {};
+   
+   
+		   \node[circle,fill,scale=0.5] (f) at (1,0) {};
+		   \node[circle,fill,scale=0.5] (g) at (2,0) {};
+		   \node[circle,fill,scale=0.5] (z) at (3,0) {};
+   
+		   \draw (a) -- (b);
+		   \draw (g) -- (z);
+		   \draw (b) -- (c) -- (g) -- (f) -- (b);
+   
+		   \draw (a) edge["$1/2$"] (f) ;
+		   \draw (c) edge["$1/2$"] (z) ;
+	   \end{tikzpicture}
+	   \hspace{-1em} 
+		&
+	   $
+		   \begin{array}{c}
+			   \longrightarrow                \\[-0.5em]
+			   \text{\tiny Star Triangle Law} \\[-0.5em]
+			   \text{\tiny$\gamma$ = 1/3  }   \\[1em]
+		   \end{array}
+	   $
+		&
+		\hspace{-3em} 
+	   \begin{tikzpicture}[
+			   every edge quotes/.style = {auto, font=\tiny, sloped}
+		   ]
+		   \node (X) at (-0.3,1){\small$a$};
+		   \node (X) at ( 3.3,0){\small$z$};
 		   \node[circle,fill,scale=0.5] (a) at (0,1) {};
 		   \node[circle,fill,scale=0.5] (c) at (2,1) {};
-
+   
+		   \node[circle,fill,scale=0.5] (f) at (1,0) {};
+		   \node[circle,fill,scale=0.5] (g) at (2,0) {};
+		   \node[circle,fill,scale=0.5] (z) at (3,0) {};
+   
+   
+		   \draw (f) -- (g) -- (z);
+		   \draw (c) -- (g);
+   
+		   \path (a) edge[bend right] node[below,rotate=-45]  {\tiny$1/2$}    (f);
+   
+		   \path (a) edge node[above]{\tiny${1/3}$} (c)
+				 (c) edge node[above,rotate=45]{\tiny${1/3}$} (f)
+				 (f) edge node[above,rotate=-45]{\tiny${1/3}$} (a);
+   
+   
+		   \draw (c) edge["$1/2$"] (z) ;
+   
+   
+	   \end{tikzpicture}    \\
+	   $
+		   \begin{array}{c}
+			   \longrightarrow                \\[-0.5em]
+			   \text{\tiny Star Triangle Law} \\[-0.5em]
+			   \text{\tiny$\gamma$ = 1/3  }   \\[1em]
+		   \end{array}
+	   $
+		&
+		\hspace{-3em} 
+	   \begin{tikzpicture}
+		   \node (X) at (-0.3,1){\small$a$};
+		   \node (X) at ( 3.3,0){\small$z$};
+   
+		   \node[circle,fill,scale=0.5] (a) at (0,1) {};
+		   \node[circle,fill,scale=0.5] (c) at (2,1) {};
+   
 		   \node[circle,fill,scale=0.5] (f) at (1,0) {};
 		   \node[circle,fill,scale=0.5] (z) at (3,0) {};
-
-
-		   \path (a) edge node[above]{\tiny$1/3$} (c)
-		         (c) edge node[above,rotate=-45]{\tiny$5/6$} (z)
-				 (z) edge node[below]{\tiny$1/3$} (f)
-				 (f) edge node[below,rotate=-45]{\tiny$5/6$} (a);
-
-		   \path (f) edge node[above,rotate=45]{\tiny{$2/3$}} (c);
-
-		%    \draw (a) -- (c) -- (z) -- (f)--(a);
-		%    \draw (c) -- (f);
+   
+   
+		   \path (a) edge node[above]{\tiny${1/3}$} (c) 
+				 (c) edge node[below,rotate=-45]{\tiny${1/3}$} (z)
+				 (z) edge node[below]{\tiny${1/3}$} (f)
+				 (f) edge node[above,rotate=-45]{\tiny${1/3}$} (a);
+   
+   
+		   \path (a) edge[bend right]
+					 node[below,rotate=-45]{\tiny$1/2$} (f);
+		   
+		   \path (z) edge[bend right]
+					 node[above,rotate=-45]{\tiny$1/2$} (c);
+   
+		   \path (f) edge[bend left] node[above,rotate=45,yshift=-0.2em]{\tiny${1/3}$} (c)
+				 (c) edge[bend left] node[above,rotate=45,yshift=-0.2em]{\tiny${1/3}$} (f);
 	   \end{tikzpicture}
-	 &
-	$
-		\begin{array}{c}
-			\longrightarrow                \\[-0.5em]
-			\text{\tiny Star Triangle Law} \\[-0.5em]
-			\text{\tiny $\gamma=19/18$}    \\[1em]
-		\end{array}
-	$
-	 &
-	\begin{tikzpicture}
-		\node[circle,fill,scale=0.5] (a) at (0,1) {};
-		\node[circle,fill,scale=0.5] (b) at (1,1) {};
-		\node[circle,fill,scale=0.5] (c) at (2,1) {};
-
-		\node[circle,fill,scale=0.5] (f) at (1,0) {};
-		\node[circle,fill,scale=0.5] (z) at (3,0) {};
-
-
-		\path (a) edge node[above]{\tiny{$19/12$}} (b)
-		      (b) edge node[above]{\tiny{$19/15$}} (c)
-		      (c) edge node[above,rotate=-45]{\tiny{$5/6$}}  (z)
-		      (z) edge node[below]{\tiny{$1/3$}}  (f);
-		\path (b) edge node[left]{\tiny{$19/6$}} (f);
-	\end{tikzpicture}
-	\\
-	$
-		\begin{array}{c}
-			\longrightarrow         \\[-0.5em]
-			\text{\tiny Series Law} \\[2em]
-		\end{array}
-	$
-	 &
-	\begin{tikzpicture}
-		\node[circle,fill,scale=0.5] (a) at (0,1) {};
-		\node[circle,fill,scale=0.5] (b) at (1,1) {};
-		\node[circle,fill,scale=0.5] (z) at (3,0) {};
-		\path (a) edge             node[above]{\tiny{$19/12$}}                 (b)
-		      (b) edge [bend left] node[above,rotate=-26.565]{\tiny{$95/189$}} (z)
-		      (z) edge [bend left] node[below,rotate=-26.565]{\tiny{$19/63$}}  (b);
-
-
-	\end{tikzpicture}
-	 &
-	$
-		\begin{array}{c}
-			\longrightarrow           \\[-0.5em]
-			\text{\tiny Parallel Law} \\[2em]
-		\end{array}
-	$
-	 &
-	\begin{tikzpicture}
-		\node[circle,fill,scale=0.5] (a) at (0,1) {};
-		\node[circle,fill,scale=0.5] (b) at (1,1) {};
-		\node[circle,fill,scale=0.5] (z) at (3,0) {};
-		\path (a) edge node[above]{\tiny{19/12}}     (b)  
-		      (b) edge node[above,rotate=-26.565]{\tiny{$152/189$}} (z);
-	\end{tikzpicture}
-	 &
-	$
-		\begin{array}{c}
-			\longrightarrow         \\[-0.5em]
-			\text{\tiny Series Law} \\[2em]
-		\end{array}
-	$
-	 &
-	\begin{tikzpicture}
-		\node[circle,fill,scale=0.5] (a) at (0,1) {};
-		\node[circle,fill,scale=0.5] (z) at (3,0) {};
-		\path (a) edge node[above,rotate=-18.43]{\tiny{$8/15$}} (z);
-	\end{tikzpicture}
-\end{tabular}
+	   \hspace{-1em} 
+		&
+	   $
+		   \begin{array}{c}
+			   \longrightarrow           \\[-0.5em]
+			   \text{\tiny Parallel Law} \\[2em]
+		   \end{array}
+	   $
+		& 
+		\hspace{-3em} 
+		\begin{tikzpicture}
+		   \node (X) at (-0.3,1){\small$a$};
+		   \node (X) at ( 3.3,0){\small$z$};
+   
+			  \node[circle,fill,scale=0.5] (a) at (0,1) {};
+			  \node[circle,fill,scale=0.5] (c) at (2,1) {};
+   
+			  \node[circle,fill,scale=0.5] (f) at (1,0) {};
+			  \node[circle,fill,scale=0.5] (z) at (3,0) {};
+   
+   
+			  \path (a) edge node[above]{\tiny$1/3$} (c)
+					(c) edge node[above,rotate=-45]{\tiny$5/6$} (z)
+					(z) edge node[below]{\tiny$1/3$} (f)
+					(f) edge node[below,rotate=-45]{\tiny$5/6$} (a);
+   
+			  \path (f) edge node[above,rotate=45]{\tiny{$2/3$}} (c);
+   
+		   %    \draw (a) -- (c) -- (z) -- (f)--(a);
+		   %    \draw (c) -- (f);
+		  \end{tikzpicture}
+		  \hspace{-1em} 
+		&
+	   $
+		   \begin{array}{c}
+			   \longrightarrow                \\[-0.5em]
+			   \text{\tiny Star Triangle Law} \\[-0.5em]
+			   \text{\tiny $\gamma=19/18$}    \\[1em]
+		   \end{array}
+	   $
+		&
+		\hspace{-3em} 
+		\begin{tikzpicture}
+		   \node (X) at (-0.3,1){\small$a$};
+		   \node (X) at ( 3.3,0){\small$z$};
+   
+		   \node[circle,fill,scale=0.5] (a) at (0,1) {};
+		   \node[circle,fill,scale=0.5] (b) at (1,1) {};
+		   \node[circle,fill,scale=0.5] (c) at (2,1) {};
+   
+		   \node[circle,fill,scale=0.5] (f) at (1,0) {};
+		   \node[circle,fill,scale=0.5] (z) at (3,0) {};
+   
+   
+		   \path (a) edge node[above]{\tiny{$19/12$}} (b)
+				 (b) edge node[above]{\tiny{$19/15$}} (c)
+				 (c) edge node[above,rotate=-45]{\tiny{$5/6$}}  (z)
+				 (z) edge node[below]{\tiny{$1/3$}}  (f);
+		   \path (b) edge node[left]{\tiny{$19/6$}} (f);
+	   \end{tikzpicture}
+	   \hspace{-1em} 
+	   \\
+	   $
+		   \begin{array}{c}
+			   \longrightarrow         \\[-0.5em]
+			   \text{\tiny Series Law} \\[2em]
+		   \end{array}
+	   $
+		&
+		\hspace{-3em} 
+		 \begin{tikzpicture}
+		   \node (X) at (-0.3,1){\small$a$};
+		   \node (X) at ( 3.3,0){\small$z$};
+   
+		   \node[circle,fill,scale=0.5] (a) at (0,1) {};
+		   \node[circle,fill,scale=0.5] (b) at (1,1) {};
+		   \node[circle,fill,scale=0.5] (z) at (3,0) {};
+		   \path (a) edge             node[above]{\tiny{$19/12$}}                 (b)
+				 (b) edge [bend left] node[above,rotate=-26.565]{\tiny{$95/189$}} (z)
+				 (z) edge [bend left] node[below,rotate=-26.565]{\tiny{$19/63$}}  (b);
+   
+   
+	   \end{tikzpicture}
+	   \hspace{-1em} 
+		&
+	   $
+		   \begin{array}{c}
+			   \longrightarrow           \\[-0.5em]
+			   \text{\tiny Parallel Law} \\[2em]
+		   \end{array}
+	   $
+		&
+		\hspace{-3em} 
+		\begin{tikzpicture}
+		   \node (X) at (-0.3,1){\small$a$};
+		   \node (X) at ( 3.3,0){\small$z$};
+   
+		   \node[circle,fill,scale=0.5] (a) at (0,1) {};
+		   \node[circle,fill,scale=0.5] (b) at (1,1) {};
+		   \node[circle,fill,scale=0.5] (z) at (3,0) {};
+		   \path (a) edge node[above]{\tiny{19/12}}     (b)  
+				 (b) edge node[above,rotate=-26.565]{\tiny{$152/189$}} (z);
+	   \end{tikzpicture}
+	   \hspace{-1em} 
+		&
+	   $
+		   \begin{array}{c}
+			   \longrightarrow         \\[-0.5em]
+			   \text{\tiny Series Law} \\[2em]
+		   \end{array}
+	   $
+		&
+		\hspace{-3em} 
+	   \begin{tikzpicture}
+		   \node (X) at (-0.3,1){\small$a$};
+		   \node (X) at ( 3.3,0){\small$z$};
+		   
+		   \node[circle,fill,scale=0.5] (a) at (0,1) {};
+		   \node[circle,fill,scale=0.5] (z) at (3,0) {};
+		   \path (a) edge node[above,rotate=-18.43]{\tiny{$8/15$}} (z);
+	   \end{tikzpicture}
+	   \hspace{-1em} 
+   \end{tabular}
+\end{center}
 
 Thus, $\mathcal{C}(a\leftrightarrow z)=8/15$ and $\mathcal{R}(a\leftrightarrow z)=15/8=1.875$.
 
@@ -413,7 +441,7 @@ Thus, $\mathcal{C}(a\leftrightarrow z)=8/15$ and $\mathcal{R}(a\leftrightarrow z
 
 \section*{Q3}
 
-Counter Example: Consider the following graph and shortest path shown in red. Let $v$ be a voltage function with $v(a)=0$ and $v(z)=1$. This graph can be reduced to a weighted graph using the Series/Parallel Laws: 
+Counter Example: Consider the following graph and shortest path shown in red. Let $v$ be a voltage function with $v(a)=0$ and $v(z)=1$. This graph can be reduced to the weighted graph with labelled conductance using the Series/Parallel Laws: 
 
 \begin{center}
 	\begin{tikzpicture}
@@ -477,9 +505,7 @@ Counter Example: Consider the following graph and shortest path shown in red. Le
 	\end{tikzpicture}
 \end{center}
 
-Where the weights correspond to conductance, this preserves the effective conductance between the any pair of $a,x,y,z$ are preserved, thus, $v(x),v(y)$ are also preserved. 
-
-From Ohm's Law: 
+This preserves the effective conductance between the any pair of $a,x,y,z$ are preserved, thus, $v(x),v(y)$ are also preserved. Applying Ohm's Law: 
 \begin{alignat*}{3}
 	i(a,x) &= c(\set{a,x})\left[v(a)-v(x)\right] &\;\;=\;\;& -\frac 12v(x)        \\
 	i(x,z) &= c(\set{x,z})\left[v(x)-v(z)\right] &\;\;=\;\;& 4v(x)-4              \\
@@ -504,7 +530,7 @@ Solving this system of two linear equations gives:
 \[
 	\frac{74}{95}=v(x) > v(y)=\frac{27}{95}
 \]
-
+Hence, the voltage function $v$ decreases from $x$ to $y$ along the red shortest path.
 
 \pagebreak
 \section*{Q4}
@@ -512,7 +538,7 @@ Let $H=(V_H,E_H)$ be a connected subgraph of $G=(V_G,E_G)$. Let $T_H,T_G$ be ran
 
 \begin{align*}
 	\mathbb{P}[e\in T_H] & = \mathcal{R}(x \leftrightarrow y) & \text{By Theorem 3.20} \\
-	                     & = \epsilon(i)
+	                     & = \epsilon(i) &\text{By Lemma 3.29}
 \end{align*}
 For some unit strength current flow $i$ from $x$ to $y$ on $H$. Extend $i$ to $i_G$ on $G$ by defining:
 \[
@@ -525,9 +551,9 @@ Clearly $i_G$ is a flow (not necessarily a current flow) as it still satisfies K
 $$\epsilon(i)=\sum_{e=\set{x,y}\in E_H}i(x,y)^2r(e)
 =\sum_{e=\set{x,y}\in E_G}i_G(x,y)^2r(e)
 =\epsilon(i_G)\geq \epsilon(i')=\mathcal{R}_G(x\leftrightarrow y)$$
-Thus, we have shown:
+Thus, applying Theorem 3.20 again, we have shown:
 \[
-	\mathbb{P}[e\in T_H]  = \mathcal{R}(x \leftrightarrow y) = \epsilon(i)=\epsilon(i_G)\geq \epsilon(i')=\mathcal{R}_G(x\leftrightarrow y) = \mathbb{P}[e\in T_G]
+	\mathbb{P}[e\in T_H]  = \mathcal{R}_H(x \leftrightarrow y) = \epsilon(i)=\epsilon(i_G)\geq \epsilon(i')=\mathcal{R}_G(x\leftrightarrow y) = \mathbb{P}[e\in T_G]
 \]
 
 \section*{Q5}
@@ -541,32 +567,40 @@ Thus, we have shown:
 		      =\frac12\hspace{-0.5em}\sum_{\substack{u\in V\\ v\in N_{G-e}(x)}}i'(u,v)^2r(\set{u,v})
 			  =\varepsilon(i')
 	      \]
-		So for a unit strength current flow $i$ from $a$ to $z$ on $G$, $\varepsilon(i)\leq\varepsilon(i')$ by Thompson's Principle. Thus:
+		So for a unit strength current flow $i$ from $a$ to $z$ on $G$, $\varepsilon(i)\leq\varepsilon(\theta)=\epsilon(i')$ by Thompson's Principle. Thus, by Lemma 3.29:
 		$$\mathcal{R}_G(a\leftrightarrow b)=\varepsilon(i)\leq\varepsilon(i')= \mathcal{R}_{G-e}(a\leftrightarrow b)$$
 
 	\item 
-		Consider any current flow $i$ from $a$ to $z$ on $G=(V,E)$. We claim that $i(x,y)\neq0$ implies that we can construct a path from $a$ to $z$ that contains both of $x,y$. Proof:
+		Consider any current flow $i$ from $a$ to $z$ on $G=(V,E)$. We claim if $i(x,y)\neq0$ for some $\set{x,y}\in E$ then we can construct a path from $a$ to $z$ containing both $x$ and $y$. Proof:
 		\begin{mdframed}
-			Let $P$ be a path with vertices $x_1=x,x_2=y$. Consider the algorithm where we repeatedly apply the following step until both endpoints of $P$ are in $\set{a,z}$:
+			Let $P$ be a path with vertices $x_1=x,x_2=y$. Consider the algorithm where we repeatedly apply the following step until both endpoints of $P$ are in $\set{a,z}$ (or the step fails):
 			
-			Let $x_1,\dots,x_{k+1}$ be the vertices of $P$. If $x_{k+1}\notin\set{a,z}$, by Kirchhoff's node law, there is some $w\in N(x_{k+1})$ with $i(x_{k+1},w)>0$, attempt to append $w$ to $P$. Otherwise, if $x_{k+1}\in\set{a,z}$ and $x_1\notin\set{a,z}$, by Kirchhoff's node law there is some $w'\in N(x_1)$ such that $i(w',x_1)>0$. Attempt to extend $P$ by prepending $w'$.
+			Let $x_1,\dots,x_{k+1}$ be the vertices of $P$. If $x_{k+1}\notin\set{a,z}$, by Kirchhoff's node law, there is some $w\in N(x_{k+1})$ with $i(x_{k+1},w)>0$, \textbf{attempt} to append $w$ to $P$. If $x_{k+1}\in\set{a,z}$ and $x_1\notin\set{a,z}$, by Kirchhoff's node law there is some $w'\in N(x_1)$ such that $i(w',x_1)>0$. \textbf{Attempt} to extend $P$ by prepending $w'$.
 
-			On a finite $G$, the algorithm always succeeds or fails. To fail, adding $w$ or $w'$ to $P$ did not produce a path. Meaning $P$ already contained $w$ or $w'$. Hence, we have a cycle consisting entirely of edges with $i(x_{i},x_{i+1})>0$ and Kirchhoff's cycle law is not satisfied. Since $i$ is a current flow, this is a contradiction and the algorithm must always construct a path between $a$ and $z$ containing the original edge. ($a$ to $a$ or $z$ to $z$ aren't paths). 
+			On a finite $G$, the algorithm always succeeds or fails in finite time since  $P$ must be smaller than $\abs{V}$. If it failed, then adding $w$ or $w'$ to $P$ did not produce a valid path. Meaning $P$ already contained $w$ or $w'$. Hence, we have a cycle consisting entirely of edges with $i(x_{i},x_{i+1})>0$ so Kirchhoff's cycle law is not satisfied. Since $i$ is a current flow, this is a contradiction and the algorithm must always construct a path between $a$ and $z$ containing the original edge. ($a$ to $a$ or $z$ to $z$ aren't paths). 
 		\end{mdframed}
+		
+		Now consider a unit current flow $i$ from $a$ to $z$ on $G$. Any edge $e$ that does not lie on a path from $a$ to $z$ must have $i(x,y)=0$ where $\set{x,y}=e$. Observe that restricting $i$ to $i'$ on $G-e$ will also satisfy Kirchhoff's node law/cycle laws on $V\setminus\set{a,z}$ and have the same energy as this only removes a zero term (if any) from the relevant sums. Thus, $i$ restricted to $G-e$ is a current flow so by Lemma 3.29: 
+		$$\mathcal{R}_G(a\leftrightarrow z)=\epsilon(i)=\epsilon(i')=\mathcal{R}_{G-e}(a\leftrightarrow z)$$
+		
 		\pagebreak
 	   
 		\item For any unweighed $G=(V,E)$, the conductance function $c:E\to\RR$ is given by $c(e)=1$. So by Theorem 3.18 of the course book: 
 		\[
-			\operatorname{Comm}(a\leftrightarrow z) = 2 \left( \sum_{e\in} c(e)\right)	\mathcal{R}(a\leftrightarrow z) = 2\abs{E}\mathcal{R}(a\leftrightarrow z)
+			\operatorname{Comm}(a\leftrightarrow z) = 2 \left( \sum_{e\in E} c(e)\right)	\mathcal{R}_G(a\leftrightarrow z) = 2\abs{E}\mathcal{R}_G(a\leftrightarrow z)
 		\]
-		Now consider some fixed shortest path $P$ between $a$ and $z$ with length $d(a,z)$. Apply (a) to remove every edge of $G$ not in $P$, by (a) this does not decrease the effective resistance between $a$ and $z$. IE, if $G'$ is the graph obtained, then:
+		Now consider some fixed shortest path $P$ between $a$ and $z$ with length $d(a,z)$. Apply (a) to remove every edge of $G$ not in $P$ in some arbitrary order, by (a) each removal does not decrease the effective resistance between $a$ and $z$. So that the $G'$ obtained by removing these edges has:
 		\[
 			\mathcal{R}_{G}(a\leftrightarrow z)	
 			\leq \mathcal{R}_{G'}(a\leftrightarrow z)
 		\]
-		Since each non-endpoint vertex of $P$ is of degree $2$ in $G'$, applying the series law $\mathcal{R}_{G'}(a\leftrightarrow z)$ is the sum of the resistances in $G$. Thus, $\mathcal{R}_{G'}(a\leftrightarrow z)=d(a,z)$ as the edges are of unit resistance. Thus: 
+		Notice that in $G'$ the only edges left are a path of $d(a,z)$ unit resistance edges between $a$ and $z$. By applying the series law to the non-endpoint vertices of this path $\mathcal{R}_{G'}(a\leftrightarrow z)=d(a,z)$. Thus:
 	\[
-		\operatorname{Comm}(a\leftrightarrow z) = 2 \left( \sum_{e\in} c(e)\right)	\mathcal{R}(a\leftrightarrow z) = 2\abs{E}\mathcal{R}(a\leftrightarrow z) \leq 2\abs{E}d(a,z)	
+		\operatorname{Comm}(a\leftrightarrow z) 
+		= 2 \left( \sum_{e\in E} c(e)\right)\mathcal{R}_{G}(a\leftrightarrow z) 
+		= 2\abs{E}\mathcal{R}_{G}(a\leftrightarrow z) 	
+		\leq 2\abs{E}\mathcal{R}_{G'}(a\leftrightarrow z) 
+		=2\abs{E}d(a,z)	
 	\]
 
 
@@ -576,7 +610,7 @@ Thus, we have shown:
 
 % Consider current flows $i,i'$ of unit strength on the weights $r$, $r'$ respectively. Hence:
 
-Consider a unit current flow $i''$ on the resistances $\frac{r+r'}2$ from $a$ to $z$. Then:
+Consider a unit current flow $i''$ from $a$ to $z$ on $G$ with the resistance function $\frac{r+r'}2$. Then:
 \begin{align*}
 	\mathcal{R}_{\frac{r+r'}2}(a\leftrightarrow z)
 	 & = \varepsilon_{\frac{r+r'}2}(i'') &\text{By Lemma 3.29} \\
@@ -590,5 +624,5 @@ Consider a unit current flow $i''$ on the resistances $\frac{r+r'}2$ from $a$ to
 	 + \mathcal{R}_{r'}(a\leftrightarrow z) 
 	 \right]&\text{By Lemma 3.29}
 \end{align*}
-Where $i$ and $i'$ are unit strength current flows on $r$ and $r'$ respectively and Thompson's Principle is applicable as $i''$ also is a unit strength flow (but not necessarily a current flow) as the strength of a flow is independent of resistance. 
+Where $i$ and $i'$ are unit strength current flows on $r$ and $r'$ respectively and Thompson's Principle is applicable as $i''$ also is a unit strength flow (but not necessarily a current flow) as the strength of a flow is independent of resistance function. 
 \end{document}
