@@ -180,25 +180,24 @@
 
 \pagebreak
 \section*{Q2}
-Restating the Star-Triangle law for resistance:
-\begin{mdframed}
-	Consider a start with centre $x$ with edges to $y_0,y_1,y_2$. Then:
-	\begin{align*}
-		\gamma
-		 & = \frac{c(x,y_0)c(x,y_1)c(x,y_2)}{c(x,y_0)+c(x,y_1)+c(x,y_2)}                       \\
-		 & = \frac{1}{r(x,y_0)r(x,y_1)r(x,y_2)\left[ 1/r(x,y_0)+1/r(x,y_1)+1/r(x,y_2) \right]} \\
-		 & = \frac1{r(x,y_0)r(x,y_1) + r(x,y_1)r(x,y_2) + r(x,y_2)r(x,y_0)}
-	\end{align*}
-	So $\set{y_i,y_{i+1}}$ where indices are taken mod $3$, has resistance:
-	\begin{align*}
-		r(y_i,y_{i+1}) & = \frac1{\gamma c(x,y_{i+2})}                                                                                                        \\
-		               & = \frac{1}{r(x,y_{i+2})r(x,y_0)r(x,y_1)r(x,y_2)\left[ 1/r(x,y_0)+1/r(x,y_1)+1/r(x,y_2) \right]}                                      \\
-		               & = r(x,y_{i+2}) \left[ \frac1{r(x,y_{i+0})r(x,y_{i+1})} + \frac1{r(x,y_{i+1})r(x,y_{i+2})} + \frac1{r(x,y_{i+2})r(x,y_{i+0})} \right] \\
-		               & =  \frac{r(x,y_{i+2})}{r(x,y_{i+0})r(x,y_{i+1})} + \frac1{r(x,y_{i+1})} + \frac1{r(x,y_{i+0})}
-	\end{align*}
-
-
-\end{mdframed}
+% Restating the Star-Triangle law for resistance:
+% \begin{mdframed}
+% 	Consider a start with centre $x$ with edges to $y_0,y_1,y_2$. Then:
+% 	\begin{align*}
+% 		\gamma
+% 		 & = \frac{c(x,y_0)c(x,y_1)c(x,y_2)}{c(x,y_0)+c(x,y_1)+c(x,y_2)}                       \\
+% 		 & = \frac{1}{r(x,y_0)r(x,y_1)r(x,y_2)\left[ 1/r(x,y_0)+1/r(x,y_1)+1/r(x,y_2) \right]} \\
+% 		 & = \frac1{r(x,y_0)r(x,y_1) + r(x,y_1)r(x,y_2) + r(x,y_2)r(x,y_0)}
+% 	\end{align*}
+% 	So $\set{y_i,y_{i+1}}$ where indices are taken mod $3$, has resistance:
+% 	\begin{align*}
+% 		r(y_i,y_{i+1}) & = \frac1{\gamma c(x,y_{i+2})}                                                                                                        \\
+% 		               & = \frac{1}{r(x,y_{i+2})r(x,y_0)r(x,y_1)r(x,y_2)\left[ 1/r(x,y_0)+1/r(x,y_1)+1/r(x,y_2) \right]}                                      \\
+% 		               & = r(x,y_{i+2}) \left[ \frac1{r(x,y_{i+0})r(x,y_{i+1})} + \frac1{r(x,y_{i+1})r(x,y_{i+2})} + \frac1{r(x,y_{i+2})r(x,y_{i+0})} \right] \\
+% 		               & =  \frac{r(x,y_{i+2})}{r(x,y_{i+0})r(x,y_{i+1})} + \frac1{r(x,y_{i+1})} + \frac1{r(x,y_{i+0})}
+% 	\end{align*}
+% \end{mdframed}
+Applying the series, parallel, and star triangle laws to calculate $\mathcal{C}(a\leftrightarrow z)$ for the given graph $G$, non-unit conductances are labelled:
 
 \begin{tabular}{ccccccc}
 	 &
@@ -223,12 +222,12 @@ Restating the Star-Triangle law for resistance:
 	$
 		\begin{array}{c}
 			\longrightarrow         \\[-0.5em]
-			\text{\tiny Series Law} \\[1em]
+			\text{\tiny Series Law} \\[2em]
 		\end{array}
 	$
 	 &
 	\begin{tikzpicture}[
-			every edge quotes/.style = {auto, font=\footnotesize, sloped}
+			every edge quotes/.style = {auto, font=\tiny, sloped}
 		]
 		\node[circle,fill,scale=0.5] (a) at (0,1) {};
 		\node[circle,fill,scale=0.5] (b) at (1,1) {};
@@ -243,22 +242,22 @@ Restating the Star-Triangle law for resistance:
 		\draw (g) -- (z);
 		\draw (b) -- (c) -- (g) -- (f) -- (b);
 
-		\draw (a) edge["$2$"] (f) ;
-		\draw (c) edge["$2$"] (z) ;
+		\draw (a) edge["$1/2$"] (f) ;
+		\draw (c) edge["$1/2$"] (z) ;
 	\end{tikzpicture}
 	 &
 	$
 		\begin{array}{c}
 			\longrightarrow                \\[-0.5em]
-			\text{\tiny Star Triangle Law} \\[1em]
+			\text{\tiny Star Triangle Law} \\[-0.5em]
+			\text{\tiny$\gamma$ = 1/3  }   \\[1em]
 		\end{array}
 	$
 	 &
 	\begin{tikzpicture}[
-			every edge quotes/.style = {auto, font=\footnotesize, sloped}
+			every edge quotes/.style = {auto, font=\tiny, sloped}
 		]
 		\node[circle,fill,scale=0.5] (a) at (0,1) {};
-		% \node[circle,fill,scale=0.5] (b) at (1,1) {};
 		\node[circle,fill,scale=0.5] (c) at (2,1) {};
 
 		\node[circle,fill,scale=0.5] (f) at (1,0) {};
@@ -266,22 +265,25 @@ Restating the Star-Triangle law for resistance:
 		\node[circle,fill,scale=0.5] (z) at (3,0) {};
 
 
-		\draw (a) -- (f) -- (g) -- (z);
+		\draw (f) -- (g) -- (z);
 		\draw (c) -- (g);
 
-		\path (f) edge [bend left] (a);
+		\path (a) edge[bend right] node[below,rotate=-45]  {\tiny$1/2$}    (f);
 
-		\draw (a) -- (c) -- (f);
+		\path (a) edge node[above]{\tiny${1/3}$} (c)
+		      (c) edge node[above,rotate=45]{\tiny${1/3}$} (f)
+		      (f) edge node[above,rotate=-45]{\tiny${1/3}$} (a);
 
 
-		\draw (c) edge["$2$"] (z) ;
+		\draw (c) edge["$1/2$"] (z) ;
 
 
 	\end{tikzpicture}    \\
 	$
 		\begin{array}{c}
 			\longrightarrow                \\[-0.5em]
-			\text{\tiny Star Triangle Law} \\[1em]
+			\text{\tiny Star Triangle Law} \\[-0.5em]
+			\text{\tiny$\gamma$ = 1/3  }   \\[1em]
 		\end{array}
 	$
 	 &
@@ -293,20 +295,26 @@ Restating the Star-Triangle law for resistance:
 		\node[circle,fill,scale=0.5] (z) at (3,0) {};
 
 
-		\draw (a) -- (c) -- (z);
-		\draw (a) -- (f)  -- (z);
+		\path (a) edge node[above]{\tiny${1/3}$} (c) 
+		      (c) edge node[below,rotate=-45]{\tiny${1/3}$} (z)
+		      (z) edge node[below]{\tiny${1/3}$} (f)
+			  (f) edge node[above,rotate=-45]{\tiny${1/3}$} (a);
 
-		\path (f) edge [bend left] (a);
-		\path (c) edge [bend left] (z);
 
-		\path (f) edge [bend left] (c);
-		\path (c) edge [bend left] (f);
+		\path (a) edge[bend right]
+		          node[below,rotate=-45]{\tiny$1/2$} (f);
+		
+		\path (z) edge[bend right]
+		          node[above,rotate=-45]{\tiny$1/2$} (c);
+
+		\path (f) edge[bend left] node[above,rotate=45,yshift=-0.2em]{\tiny${1/3}$} (c)
+		      (c) edge[bend left] node[above,rotate=45,yshift=-0.2em]{\tiny${1/3}$} (f);
 	\end{tikzpicture}
 	 &
 	$
 		\begin{array}{c}
 			\longrightarrow           \\[-0.5em]
-			\text{\tiny Parallel Law} \\[1em]
+			\text{\tiny Parallel Law} \\[2em]
 		\end{array}
 	$
 	 & \begin{tikzpicture}
@@ -317,14 +325,22 @@ Restating the Star-Triangle law for resistance:
 		   \node[circle,fill,scale=0.5] (z) at (3,0) {};
 
 
-		   \draw (a) -- (c) -- (z) -- (f)--(a);
-		   \draw (c) -- (f);
+		   \path (a) edge node[above]{\tiny$1/3$} (c)
+		         (c) edge node[above,rotate=-45]{\tiny$5/6$} (z)
+				 (z) edge node[below]{\tiny$1/3$} (f)
+				 (f) edge node[below,rotate=-45]{\tiny$5/6$} (a);
+
+		   \path (f) edge node[above,rotate=45]{\tiny{$2/3$}} (c);
+
+		%    \draw (a) -- (c) -- (z) -- (f)--(a);
+		%    \draw (c) -- (f);
 	   \end{tikzpicture}
 	 &
 	$
 		\begin{array}{c}
 			\longrightarrow                \\[-0.5em]
-			\text{\tiny Star Triangle Law} \\[1em]
+			\text{\tiny Star Triangle Law} \\[-0.5em]
+			\text{\tiny $\gamma=19/18$}    \\[1em]
 		\end{array}
 	$
 	 &
@@ -337,14 +353,17 @@ Restating the Star-Triangle law for resistance:
 		\node[circle,fill,scale=0.5] (z) at (3,0) {};
 
 
-		\draw (a) -- (b) --(c) -- (z) -- (f);
-		\draw (b) -- (f);
+		\path (a) edge node[above]{\tiny{$19/12$}} (b)
+		      (b) edge node[above]{\tiny{$19/15$}} (c)
+		      (c) edge node[above,rotate=-45]{\tiny{$5/6$}}  (z)
+		      (z) edge node[below]{\tiny{$1/3$}}  (f);
+		\path (b) edge node[left]{\tiny{$19/6$}} (f);
 	\end{tikzpicture}
 	\\
 	$
 		\begin{array}{c}
 			\longrightarrow         \\[-0.5em]
-			\text{\tiny Series Law} \\[1em]
+			\text{\tiny Series Law} \\[2em]
 		\end{array}
 	$
 	 &
@@ -352,9 +371,9 @@ Restating the Star-Triangle law for resistance:
 		\node[circle,fill,scale=0.5] (a) at (0,1) {};
 		\node[circle,fill,scale=0.5] (b) at (1,1) {};
 		\node[circle,fill,scale=0.5] (z) at (3,0) {};
-		\draw (a) -- (b);
-		\path (b) edge [bend left] (z);
-		\path (z) edge [bend left] (b);
+		\path (a) edge             node[above]{\tiny{$19/12$}}                 (b)
+		      (b) edge [bend left] node[above,rotate=-26.565]{\tiny{$95/189$}} (z)
+		      (z) edge [bend left] node[below,rotate=-26.565]{\tiny{$19/63$}}  (b);
 
 
 	\end{tikzpicture}
@@ -362,7 +381,7 @@ Restating the Star-Triangle law for resistance:
 	$
 		\begin{array}{c}
 			\longrightarrow           \\[-0.5em]
-			\text{\tiny Parallel Law} \\[1em]
+			\text{\tiny Parallel Law} \\[2em]
 		\end{array}
 	$
 	 &
@@ -370,34 +389,29 @@ Restating the Star-Triangle law for resistance:
 		\node[circle,fill,scale=0.5] (a) at (0,1) {};
 		\node[circle,fill,scale=0.5] (b) at (1,1) {};
 		\node[circle,fill,scale=0.5] (z) at (3,0) {};
-		\draw (a) -- (b)  -- (z);
+		\path (a) edge node[above]{\tiny{19/12}}     (b)  
+		      (b) edge node[above,rotate=-26.565]{\tiny{$152/189$}} (z);
 	\end{tikzpicture}
 	 &
 	$
 		\begin{array}{c}
 			\longrightarrow         \\[-0.5em]
-			\text{\tiny Series Law} \\[1em]
+			\text{\tiny Series Law} \\[2em]
 		\end{array}
 	$
 	 &
 	\begin{tikzpicture}
 		\node[circle,fill,scale=0.5] (a) at (0,1) {};
 		\node[circle,fill,scale=0.5] (z) at (3,0) {};
-		\draw (a) -- (z);
+		\path (a) edge node[above,rotate=-18.43]{\tiny{$8/15$}} (z);
 	\end{tikzpicture}
 \end{tabular}
 
-
-
-
-
-
+Thus, $\mathcal{C}(a\leftrightarrow z)=8/15$ and $\mathcal{R}(a\leftrightarrow z)=15/8=1.875$.
 
 \pagebreak
 
 \section*{Q3}
-
-% Assume that there is a shortest path from $a$ to $z$ where the voltage increases between some pair of vertices. Let $v_1,\dots,v_k,\dots,v_n$ with $v_1=a$ and $v_n=z$ be vertices of the path such that $v_k$ is the first vertex such that $v(v_k)>v(v_{k-1})$.
 
 Counter Example: Consider the following graph and shortest path shown in red. Let $v$ be a voltage function with $v(a)=0$ and $v(z)=1$. This graph can be reduced to a weighted graph using the Series/Parallel Laws: 
 
