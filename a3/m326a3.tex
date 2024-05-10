@@ -136,15 +136,12 @@
 \usepackage{comment}
 
 \begin{comment}
-	Q1:  sol
-	Q2:  sol 
-	Q3a: sol
-	Q3b:  
-	Q4:  sol
-	Q5a: sol
-	Q5b: sol
-	Q6:  sol
-	Q7:  sol
+	Q1: Good
+	Q2  needs time
+	Q3: 
+	Q4: Good 
+	Q5
+	Q6: Good 
 \end{comment}
 
 \begin{document}
@@ -178,9 +175,10 @@
 		      \end{matrix}
 		      \implies \alpha=\beta=0
 	      \]
-	      Thus, the set $\set{p,q}$ is linearly independent and spanning, thus it is a basis with cardinality $2$ hence, the dimension of the vector space is also $2$.
+	      Since the set $\set{p,q}$ is linearly independent and spanning it is a basis with cardinality $2$. Hence, the dimension of the vector space is also $2$.
 \end{enumerate}
 
+\pagebreak
 \section*{Q2}
 Restating the Star-Triangle law for resistance:
 \begin{mdframed}
@@ -395,44 +393,175 @@ Restating the Star-Triangle law for resistance:
 
 
 
-
+\pagebreak
 
 \section*{Q3}
 
-Assume that there is a shortest path from $a$ to $z$ where the voltage increases between some pair of vertices. Let $v_1,\dots,v_k,\dots,v_n$ with $v_1=a$ and $v_n=z$ be vertices of the path such that $v_k$ is the first vertex such that $v(v_k)>v(v_{k-1})$.
+% Assume that there is a shortest path from $a$ to $z$ where the voltage increases between some pair of vertices. Let $v_1,\dots,v_k,\dots,v_n$ with $v_1=a$ and $v_n=z$ be vertices of the path such that $v_k$ is the first vertex such that $v(v_k)>v(v_{k-1})$.
+
+Counter Example: Consider the following graph and shortest path shown in red. Let $v$ be a voltage function with $v(a)=0$ and $v(z)=1$. This graph can be reduced to a weighted graph using the Series/Parallel Laws: 
+
+\begin{center}
+	\begin{tikzpicture}
+		\node[label={$a$}] (x) at (0,0) {};
+		\node[label={$z$}] (z) at (5,0) {};
+	
+		\node[label={$\vdots$}] (z) at (1,0.5) {};
+		\node[label={$\vdots$}] (z) at (2,0.5) {};
+		\node[label={$\times 12$}] (z) at (1.5,0.5) {};
+	
+		\node[label={$\vdots$}] (z) at (3,-1.25) {};
+		\node[label={$\vdots$}] (z) at (4,-1.25) {};
+		\node[label={$\times 12$}] (z) at (3.5,-1.25) {};
+	
+		\node[circle,fill,scale=0.5] (a) at (0,0) {};
+		\node[circle,fill,scale=0.5] (b) at (1,0) {};
+		\node[circle,fill,scale=0.5] (c) at (2,0) {};
+		\node[circle,fill,scale=0.5] (d) at (3,0) {};
+		\node[circle,fill,scale=0.5] (e) at (4,0) {};
+		\node[circle,fill,scale=0.5] (f) at (5,0) {};
+		\draw[red] (a) -- (b) -- (c) -- (d) -- (e) -- (f);
+	
+		\node[circle,fill,scale=0.5] (b1) at (1,0.5) {};
+		\node[circle,fill,scale=0.5] (c1) at (2,0.5) {};
+		\node[circle,fill,scale=0.5] (b2) at (1,1.25) {};
+		\node[circle,fill,scale=0.5] (c2) at (2,1.25) {};
+		\draw (a) -- (b1) -- (c1) -- (d);
+		\draw (a) -- (b2) -- (c2) -- (d);
+	
+		\node[circle,fill,scale=0.5] (d1) at (3,-0.5) {};
+		\node[circle,fill,scale=0.5] (e1) at (4,-0.5) {};
+		\node[circle,fill,scale=0.5] (d2) at (3,-1.25) {};
+		\node[circle,fill,scale=0.5] (e2) at (4,-1.25) {};
+		\draw (c) -- (d1) -- (e1) -- (f);
+		\draw (c) -- (d2) -- (e2) -- (f);
+
+		\node[label={[xshift=-0.5em, yshift=-2em] $x$}] (x) at (2,0) {};
+		\node[label={[xshift=0.5em, yshift=0em] $y$}] (y) at (3,0) {};
+	\end{tikzpicture}
+	\qquad
+	\begin{tikzpicture}
+		\node[label={$a$}] (x) at (0,0) {};
+		\node[label={$z$}] (z) at (5,0) {};
+	
+		\node[label={[xshift=-0.5em, yshift=-2em] $x$}] (x) at (2,0) {};
+		\node[label={[xshift=0.5em, yshift=-2em] $y$}] (y) at (3,0) {};
+
+		\node[circle,fill,scale=0.5] (a) at (0,0) {};
+		\node[circle,fill,scale=0.5] (c) at (2,0) {};
+		\node[circle,fill,scale=0.5] (d) at (3,0) {};
+		\node[circle,fill,scale=0.5] (f) at (5,0) {};
+	
+		\draw[red] (a) edge["$0.5$"] (c) ;
+		\draw[red] (d) edge["$0.5$"] (f) ;
+		
+		\draw[red] (c) edge["$1$"] (d) ;
+		
+		\path (a) edge [bend left, in=120, out=60, "$4$"] (d);
+		\path (f) edge [bend left, in=120, out=60, "$4$"] (c);
+		
+	\end{tikzpicture}
+\end{center}
+
+Where the weights correspond to conductance, this preserves the effective conductance between the any pair of $a,x,y,z$ are preserved, thus, $v(x),v(y)$ are also preserved. 
+
+From Ohm's Law: 
+\begin{alignat*}{3}
+	i(a,x) &= c(\set{a,x})\left[v(a)-v(x)\right] &\;\;=\;\;& -\frac 12v(x)        \\
+	i(x,z) &= c(\set{x,z})\left[v(x)-v(z)\right] &\;\;=\;\;& 4v(x)-4              \\
+	i(a,y) &= c(\set{a,y})\left[v(a)-v(y)\right] &\;\;=\;\;& -4v(y)               \\
+	i(y,z) &= c(\set{y,z})\left[v(y)-v(z)\right] &\;\;=\;\;& \frac 12v(y)-\frac12 \\
+	i(x,y) &= c(\set{x,y})\left[v(x)-v(y)\right] &\;\;=\;\;& v(x)-v(y)            
+\end{alignat*}
+
+Applying Kirchhoff's Node Law at $x,y$: 
+\begin{alignat*}{3}
+	     0 &= \sum_{z\in N(x)}i(z,x) = i(a,x)+i(y,x)+i(z,x) \\
+	       &= -\frac 12v(x) - [v(x)-v(y)]- [4v(x)-4]        \\
+	  v(y) &= \frac 12v(x) + v(x) + 4v(x)-4                 \\
+	       &= \frac {11}2v(x)-4                             \\
+	     0 &= \sum_{z\in N(y)}i(z,y) = i(a,y)+i(x,y)+i(z,y) \\
+		   &=  \left[ -4v(y) \right]
+		      +\left[ v(x)-v(y) \right]
+		      -\left[ \frac 12 v(y) - \frac 12 \right]      \\
+	  v(x) &= 4.5v(y) - \frac 12 
+\end{alignat*}
+Solving this system of two linear equations gives: 
+\[
+	\frac{74}{95}=v(x) > v(y)=\frac{27}{95}
+\]
 
 
-
-
+\pagebreak
 \section*{Q4}
+Let $H=(V_H,E_H)$ be a connected subgraph of $G=(V_G,E_G)$. Let $T_H,T_G$ be random spanning trees of $H,G$ respectively. For $e\in E_H$:
 
+\begin{align*}
+	\mathbb{P}[e\in T_H] & = \mathcal{R}(x \leftrightarrow y) & \text{By Theorem 3.20} \\
+	                     & = \epsilon(i)
+\end{align*}
+For some unit strength current flow $i$ from $x$ to $y$ on $H$. Extend $i$ to $i_G$ on $G$ by defining:
+\[
+	i_G(x,y) = \begin{cases}
+		i(x,y) & \text{When $\set{x,y}\in E_H$} \\
+		0      & \text{Otherwise}
+	\end{cases}
+\]
+Clearly $i_G$ is a flow (not necessarily a current flow) as it still satisfies Kirchhoff's node law, moreover it also has unit strength. So by Thompson's principle, a unit current flow $i'$ from $x$ to $y$ has:
+$$\epsilon(i)=\sum_{e=\set{x,y}\in E_H}i(x,y)^2r(e)
+=\sum_{e=\set{x,y}\in E_G}i_G(x,y)^2r(e)
+=\epsilon(i_G)\geq \epsilon(i')=\mathcal{R}_G(x\leftrightarrow y)$$
+Thus, we have shown:
+\[
+	\mathbb{P}[e\in T_H]  = \mathcal{R}(x \leftrightarrow y) = \epsilon(i)=\epsilon(i_G)\geq \epsilon(i')=\mathcal{R}_G(x\leftrightarrow y) = \mathbb{P}[e\in T_G]
+\]
 
 \section*{Q5}
 \begin{enumerate}[label=(\alph*)]
 	\item
-	      Let $i$ be a current flow from $a$ to $z$ of unit strength on $G=(V,E)$, and $i'$ a current flow from $a$ to $z$ of unit strength on $G-e=(V,E')$. Extend $i'$ to a flow on $G$ by letting $i'(x,y)=i'(y,x)=0$ where $\set{x,y}=e$. The energy of the flow $i'$ is the same on both $G$ and $G-e$:
-
+		Let $G=(V,E)$ be a connected graph, and $i'$ a current flow from $a$ to $z$ of unit strength on $G-e=(V,E')$. Extend $i'$ to a flow $\theta$ on $G$ with $\theta(x,y)=\theta(y,x)=0$ for $\set{x,y}=e$ and $\theta(u,v)=i(u,v)$ for $\set{u,v}\in E'$. So:
 	      \[
-		      \varepsilon(i')
-		      =\frac12\sum_{\substack{u\in V\\ v\in N_G(x)}}\theta(u,v)^2r(\set{u,v})
-		      =\frac12\sum_{\substack{u\in V\\ v\in N_{G-e}(x)}}\theta(u,v)^2r(\set{u,v}) + \theta(x,y)^2r(\set{x,y})
-		      =\frac12\sum_{\substack{u\in V\\ v\in N_{G-e}(x)}}\theta(u,v)^2r(\set{u,v})
+		      \varepsilon(\theta)
+		      =\frac12\hspace{-0.5em}\sum_{\substack{u\in V\\ v\in N_G(x)}}\theta(u,v)^2r(\set{u,v})
+		      =\frac12\hspace{-0.5em}\sum_{\substack{u\in V\\ v\in N_{G-e}(x)}}i'(u,v)^2r(\set{u,v}) + \theta(x,y)^2r(\set{x,y})
+		      =\frac12\hspace{-0.5em}\sum_{\substack{u\in V\\ v\in N_{G-e}(x)}}i'(u,v)^2r(\set{u,v})
+			  =\varepsilon(i')
 	      \]
+		So for a unit strength current flow $i$ from $a$ to $z$ on $G$, $\varepsilon(i)\leq\varepsilon(i')$ by Thompson's Principle. Thus:
+		$$\mathcal{R}_G(a\leftrightarrow b)=\varepsilon(i)\leq\varepsilon(i')= \mathcal{R}_{G-e}(a\leftrightarrow b)$$
 
-	      Since on $G-e$, $i'$ is a current flow $a$ to $z$ of unit strength $\mathcal{R}_{G-e}(a\leftrightarrow b)=\varepsilon(i')$. So on $G$, $\mathcal{R}_G(a\leftrightarrow b)=\varepsilon(i)\leq\varepsilon(i')$ as $i,i'$ are flows $a$ to $z$ of the same strength and $i$ is a current flow while $i'$ may not be. Thus:
-	      $$\mathcal{R}_G(a\leftrightarrow b)=\varepsilon(i)\leq\varepsilon(i')\leq \mathcal{R}_{G-e}(a\leftrightarrow b)$$
+	\item 
+		Consider any current flow $i$ from $a$ to $z$ on $G=(V,E)$. We claim that $i(x,y)\neq0$ implies that we can construct a path from $a$ to $z$ that contains both of $x,y$. Proof:
+		\begin{mdframed}
+			Let $P$ be a path with vertices $x_1=x,x_2=y$. Consider the algorithm where we repeatedly apply the following step until both endpoints of $P$ are in $\set{a,z}$:
+			
+			Let $x_1,\dots,x_{k+1}$ be the vertices of $P$. If $x_{k+1}\notin\set{a,z}$, by Kirchhoff's node law, there is some $w\in N(x_{k+1})$ with $i(x_{k+1},w)>0$, attempt to append $w$ to $P$. Otherwise, if $x_{k+1}\in\set{a,z}$ and $x_1\notin\set{a,z}$, by Kirchhoff's node law there is some $w'\in N(x_1)$ such that $i(w',x_1)>0$. Attempt to extend $P$ by prepending $w'$.
 
+			On a finite $G$, the algorithm always succeeds or fails. To fail, adding $w$ or $w'$ to $P$ did not produce a path. Meaning $P$ already contained $w$ or $w'$. Hence, we have a cycle consisting entirely of edges with $i(x_{i},x_{i+1})>0$ and Kirchhoff's cycle law is not satisfied. Since $i$ is a current flow, this is a contradiction and the algorithm must always construct a path between $a$ and $z$ containing the original edge. ($a$ to $a$ or $z$ to $z$ aren't paths). 
+		\end{mdframed}
+		\pagebreak
+	   
+		\item
 
-	\item
 \end{enumerate}
 
 \section*{Q6}
 
-Consider current flows $i$ and $i'$ of unit strength on the weights $r$ and $r'$. Then, $\mathcal{R}_r=\varepsilon(i)$ and $\mathcal{R}_{r'}=\varepsilon(i')$.
+% Consider current flows $i,i'$ of unit strength on the weights $r$, $r'$ respectively. Hence:
 
-
-
-% \vfill
-% \pagebreak
-% \end{multicols*}
+Consider a unit current flow $i''$ on the resistances $\frac{r+r'}2$ from $a$ to $z$. Then:
+\begin{align*}
+	\mathcal{R}_{\frac{r+r'}2}(a\leftrightarrow z)
+	 & = \varepsilon_{\frac{r+r'}2}(i'') &\text{By Lemma 3.29} \\
+	 & = \frac 12 \sum_{\substack{x\in V\\ y\in N(x)}} i''(x,y)^2 \frac{r(\set{x,y})+r'(\set{x,y})}{2} \\
+	 & = \frac 14 \sum_{\substack{x\in V\\ y\in N(x)}} i''(x,y)^2 r(\set{x,y})
+	   + \frac 14 \sum_{\substack{x\in V\\ y\in N(x)}} i''(x,y)^2 r'(\set{x,y})\\
+	 & = \frac12 \left[ \varepsilon_{r}(i'') + \varepsilon_{r'}(i'') \right]\\
+	 & \geq \frac12 \left[ \varepsilon_{r}(i) + \varepsilon_{r'}(i') \right] &\text{By Thompson's Principle}\\
+	 & = \frac12 \left[ 
+	   \mathcal{R}_{r}(a\leftrightarrow z) 
+	 + \mathcal{R}_{r'}(a\leftrightarrow z) 
+	 \right]&\text{By Lemma 3.29}
+\end{align*}
+Where $i$ and $i'$ are unit strength current flows on $r$ and $r'$ respectively and Thompson's Principle is applicable as $i''$ also is a unit strength flow (but not necessarily a current flow) as the strength of a flow is independent of resistance. 
 \end{document}
