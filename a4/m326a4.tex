@@ -1,0 +1,382 @@
+
+\documentclass[a4paper, 11pt]{article}
+
+% Fonts 
+\usepackage{opensans}
+\usepackage{amsfonts}
+\usepackage{montserrat}
+\usepackage{amsmath}
+
+\setmainfont{opensans}
+% \usepackage[mathrm=sym]{unicode-math}
+\usepackage{lato-math}
+% \setmathfont[Path=font/,mathrm=sym]{FiraMath-Regular}
+% \setmathfont[Path=font/,mathrm=sym]{LatoMath}
+
+\newfontfamily{\montserrateb}{Montserrat SemiBold}
+\newfontfamily{\montserratb}{Montserrat Bold}
+\newfontfamily{\montserrat}{Montserrat Regular}
+\newfontfamily{\montserratl}{Montserrat Light}
+% \DeclareMathAlphabet{\mathcal}{OMS}{cmbrs}{m}{n}
+
+% \usepackage[mathrm=sym]{unicode-math}
+% \setmainfont{opensans}
+% \setmathfont{Fira Math}
+
+% \newfontfamily{\montserrateb}{Montserrat SemiBold}
+% \newfontfamily{\montserratb}{Montserrat Bold}
+% \newfontfamily{\montserrat}{Montserrat Regular}
+% \newfontfamily{\montserratl}{Montserrat Light}
+% \DeclareMathAlphabet{\mathcal}{OMS}{cmbrs}{m}{n}
+% \setmathfont{Latin Modern Math}[range={\vdots}]
+
+% \autoref
+\usepackage{hyperref}
+
+% Use for [H] option for figures to force in text placement
+\usepackage{float}
+
+% Captioning figures
+\usepackage{caption}
+
+% Subfigures
+\usepackage{subcaption}
+
+% For extending contents beyond margins
+\usepackage{scrextend}
+
+% For tables \midrule ect
+\usepackage{booktabs}
+
+% Colours
+\usepackage[table,xcdraw]{xcolor}
+\definecolor{accentcolor}{HTML}{a13640}
+
+% Change label in enumerate 
+\usepackage{enumitem}
+
+% Section settings
+\usepackage{titlesec}
+\titleformat{\section}
+{\LARGE\montserrateb}
+{\thesection.}{0.5em}{}
+
+\titleformat{\subsection}
+{\large\montserratb}
+{\thesubsection.}{0.5em}{}
+
+% Adjust document dimensions
+\ExecuteOptions{a4paper}
+\addtolength{\oddsidemargin}{-3cm}
+\addtolength{\evensidemargin}{-3cm}
+\addtolength{\topmargin}{-3cm}
+\addtolength{\textwidth}{6cm}
+\addtolength{\textheight}{4.5cm}
+\addtolength{\textheight}{1.5cm}
+\addtolength{\headsep}{-0.5cm}
+% \addtolength{\footskip}{-1cm}
+\parindent0pt
+\parskip=4pt
+
+
+
+\usepackage{matlab-prettifier}
+\usepackage{graphicx}
+\usepackage{mdframed}
+
+% Creates coloured title box
+\newcommand{\thetop}[5]{
+	\begin{addmargin}[\oddsidemargin]{\oddsidemargin}
+		\colorbox{#5}{\color{white}
+			\hbox to \paperwidth{
+				\vbox {
+					\begin{center}
+						{\large\montserratl #1}\\
+						\vspace{4pt}
+						{\huge\montserratb #2}\\
+						{\montserratb #3}\\
+						\vspace{-0.5em}
+						\rule{20em}{1pt}
+
+						{\large\montserratl
+							#4
+						}
+					\end{center}
+				}
+			}
+		}
+	\end{addmargin}
+}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\dydt}{\frac{dy}{dt}}
+\newcommand{\dxdt}{\frac{dx}{dt}}
+\def\set#1{\left\{ #1 \right\}}
+\def\eval#1#2{\left\ #1\right|_{#2}}
+
+\def\pp#1#2{\frac{\partial #1}{\partial #2}}
+\def\dd#1#2{\frac{\,d#1}{\,d#2}}
+\def\abs#1{\left|#1\right|}
+\def\conj#1{\overline{#1}}
+
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary {graphs,graphdrawing} \usegdlibrary {force} 
+\usetikzlibrary{graphs.standard}
+\usetikzlibrary{positioning, 
+                quotes}
+\usegdlibrary {circular}
+
+\usepackage{pst-platon}
+
+\usepackage{comment}
+\usepackage{cancel}
+
+\begin{comment}
+	Q1: Good
+	Q2  needs time
+	Q3: 
+	Q4: Good 
+	Q5
+	Q6: Good 
+\end{comment}
+
+\begin{document}
+\thetop{Robert Christie}{MATHS 326}{S1 2024}{Assignment 4\\Due: 24-05-2024}{accentcolor}
+
+% \begin{multicols*}{2}
+\section*{Q1}
+\begin{enumerate}[label=(\alph*)]
+	\item 
+		We are given $r = 4, k = 11, \lambda = 2$, assume that these are parameters for a balanced design, by \textit{Theorem 4.10}:
+		\[
+			bk=vr \implies 11 b = 4 v
+		\]
+		\[
+			\lambda (v-1) = r (k-1) \implies 2 (v- 1) = 4(11-1) \implies 2v - 2 = 40 \implies v = 21 
+		\]
+		Contradiction as this implies $b=\frac{4\cdot 21}{11}$ which is not an integer as neither $4$ nor $21$ have a prime factor of $11$. Thus, no balanced block design has these parameters.
+
+	\item We are given $b=30,r=6,k=5$, assume that these are parameters for a balanced design, by \textit{Theorem 4.10}:
+	\[
+		bk=vr \implies  30\cdot 5 = 6v \implies v =25
+	\]
+	\[
+		\lambda (v-1) = r (k-1) \implies  2(46-1) = r(k-1)\implies 0 = 4.6r^2 - r - 90
+	\]
+	\item 
+		We are given $v=46, b=10, \lambda = 2$, assume that these are parameters for a balanced design, by \textit{Theorem 4.10}:
+		\[
+			bk=vr \implies  10k = 46r \implies k=4.6r
+		\]
+		\[
+			\lambda (v-1) = r (k-1) \implies  2(46-1) = r(k-1)\implies 0 = 4.6r^2 - r - 90
+		\]
+		Solving for possible values of $r$ using the quadratic equation: 
+		\[
+			r = \frac{1\pm\sqrt{1657}}{4.6}
+		\]
+		Which has no integer solutions as $40^2<1657<41^2$, hence $\sqrt{1657}$ is irrational.
+
+		This is a contradiction so no balanced block design has these parameters.
+\end{enumerate}
+
+\pagebreak
+\section*{Q2}
+ Assume that there is a BIBD for $v=b=40$ with parameters $(v,b,r,k,\lambda)$. Then since $vb=rk$ we have $k=r$. Thus: 
+\[
+	\lambda(v-1) = r(k-1) \implies 39\lambda = r(r-1) = k(k-1)
+\]
+
+Since the design is incomplete, $r,k,\lambda\leq39$: 
+% \[
+	% \lambda(v-1)=r(k-1)\implies r(r-1)\leq39^2 \implies k,r\leq 39
+% \]
+
+Since we have $\lambda = k(k-1)/39$:
+$$k-\lambda\in\set{1,2,4,9,16,25,36}$$
+$$(39k- k(k-1))/39\in\set{1,2,4,9,16,25,36}$$
+
+
+
+
+We can factorise $39=3\cdot 13$ and $\lambda=\lambda_1\lambda_2$. This gives the following cases: 
+
+
+
+
+\begin{tabular}{c|cc|c}
+Case& $r$           & $r-1$         &                              \\\midrule
+A	& $39\lambda_1$ & $\lambda_2  $ & $39\lambda_1=\lambda_2  +1$  \\
+B	& $13\lambda_1$ & $3\lambda_2 $ & $13\lambda_1=3\lambda_2 +1$  \\
+C	& $3\lambda_1 $ & $13\lambda_2$ & $3\lambda_1 =13\lambda_2+1$  \\
+D	& $\lambda_1  $ & $39\lambda_2$ & $\lambda_1  =39\lambda_2+1$  \\
+\end{tabular}
+
+Case A
+\begin{align*}
+	\lambda_1=1    &\implies \lambda_2=38\\
+	\lambda_1\geq 2&\implies \lambda>39
+\end{align*}
+\[\implies \lambda\in\set{38}\]
+
+Case B
+\begin{align*}
+	\lambda_1=1    &\implies \lambda_2=4\\
+	\lambda_1=2    &\implies \lambda_2=25/3\notin\ZZ\\
+	\lambda_1\geq3 &\implies \lambda>39
+\end{align*}
+\[\implies \lambda\in\set{4}\]
+
+Case C
+\begin{align*}
+	\lambda_2=1    &\implies \lambda_1=14/3\notin\ZZ\\
+	\lambda_2=2    &\implies \lambda_1=9\\
+	\lambda_2=3    &\implies \lambda_1=40/3\notin\ZZ\\
+	\lambda_2\geq 3&\implies \lambda>39
+\end{align*}
+\[\implies \lambda\in\set{18}\]
+
+Case D
+\begin{align*}
+	\lambda_2\geq1 &\implies \lambda>39
+\end{align*}
+\[\implies \lambda\in\emptyset\]
+
+
+
+% \begin{tabular}{cc|cc}
+% 	$r$         & $r-1$       & $r=$    & $\lambda=$   \\\midrule
+% 	$39$        & $\lambda$   & $r=39$  & $\lambda=38$ \\ 
+% 	$\lambda$   & $39$        & $r=40$  & $\lambda=40$ \\ 
+% 	$13$        & $3\lambda$  & $r=13$  & $\lambda=4$  \\ 
+% 	$3\lambda$  & $13$        & $r=14$  & $\lambda\notin\ZZ$\\ 
+% 	$3$         & $13\lambda$ & $r=3$   & $\lambda\notin\ZZ$\\ 
+% 	$13\lambda$ & $3$         & $r=4$   & $\lambda\notin\ZZ$\\ 
+% \end{tabular}
+
+\section*{Q3}
+\begin{enumerate}[label=(\alph*)]
+	\item 
+\end{enumerate}
+
+\section*{Q4}
+We check that the axioms hold: 
+
+\begin{itemize}
+	\item Trivial. 
+
+	\item 
+		CL: Given a point $p$ and a line $l$ not through $p$, there is exactly one line $l'$ through $p$ with $l\cap l'\neq \emptyset$.
+		
+	\item 
+\end{itemize}
+
+
+\section*{Q5}
+Consider $L_{ij}=i+kj$ for $k\in\set{0,\dots,6}$
+
+\pagebreak
+\section*{Q6}
+\begin{enumerate}[label=(\alph*)]
+	\item 
+	\item Assume that there exist $5$ disjoint traversals of some completion. 
+	
+	Consider the top left $2\times 2$ region, each cell must be in a different traversal: 
+	\begin{mdframed}
+		The region contains the following cells: 
+		\begin{center}
+		\begin{tikzpicture}
+			\node at (0, 0) {$1$};
+			\node at (1, 0) {$2$};
+			\node at (0,-1) {$2$};
+			\node at (1,-1) {$1$};
+	
+			\coordinate (Q) at (-0.5, 0.5);
+			
+			\draw (Q)+(0, 0) -- +(2, 0);
+			\draw (Q)+(0,-1) -- +(2,-1);
+			\draw (Q)+(0,-2) -- +(2,-2);
+
+			\draw (Q)+(0,0) -- +(0,-2);
+			\draw (Q)+(1,0) -- +(1,-2);
+			\draw (Q)+(2,0) -- +(2,-2);
+		\end{tikzpicture}
+		\end{center}
+
+		If two cells are in the same traversal, they cannot be in the same row/column, thus they must be diagonal (in the $2\times 2$ region). All diagonal entries are the same, so they cannot be part of the same traversal. 
+
+		Thus, each cell in the $2\times 2$ region is part of a distinct traversal. 
+	\end{mdframed}
+
+	Label the traversals $A,B,C,D,E$, WLOG we can fix the traversal that each of the cells in the $2\times 2$ region are part of. Since each traversal appears once in each row/column, we can deduce which traversals the cells in each region must be assigned to: 
+
+	\begin{center}
+	\begin{tikzpicture}
+		\node at (0,0) {$A$};
+		\node at (1,0) {$B$};
+		\node at (0,-1) {$C$};
+		\node at (1,-1) {$D$};
+
+		\node at (3,0) {$C,D,E$};
+		\node at (3,-1) {$A,B,E$};
+
+		\node[rotate=-90] at (0,-3) {$B,D,E$};
+		\node[rotate=-90] at (1,-3) {$A,C,E$};
+
+		\node[label={[align=center]$A,A,B,B$\\$C,C,D,D,E$}] at (3,-3.5) {};
+
+
+		\coordinate (Q) at (-0.5, 0.5);
+		
+		\draw (Q)+(0, 0) -- +(5,0);
+		\draw (Q)+(0,-1) -- +(5,-1);
+		\draw (Q)+(0,-2) -- +(5,-2);
+		\draw (Q)+(0,-5) -- +(5,-5);
+
+		\draw (Q)+(0, 0) -- +(0,-5);
+		\draw (Q)+(1, 0) -- +(1,-5);
+		\draw (Q)+(2, 0) -- +(2,-5);
+		\draw (Q)+(5, 0) -- +(5,-5);
+	\end{tikzpicture}
+	\end{center}
+
+
+	Now consider the relative positions of the $E$ traversals in top right $2\times 3$ region: 
+
+	\begin{center}
+		\begin{tikzpicture}
+			\node at (0, 0) {$3$};
+			\node at (1, 0) {$4$};
+			\node at (2, 0) {$5$};
+			\node at (0,-1) {$5$};
+			\node at (1,-1) {$3$};
+			\node at (2,-1) {$4$};
+	
+			\coordinate (Q) at (-0.5, 0.5);
+			
+			\draw (Q)+(0, 0) -- +(3, 0);
+			\draw (Q)+(0,-1) -- +(3,-1);
+			\draw (Q)+(0,-2) -- +(3,-2);
+
+			\draw (Q)+(0,0) -- +(0,-2);
+			\draw (Q)+(1,0) -- +(1,-2);
+			\draw (Q)+(2,0) -- +(2,-2);
+			\draw (Q)+(3,0) -- +(3,-2);
+		\end{tikzpicture}
+		\end{center}
+	
+
+
+	% Each traversal must also contain one cell from each row. Consider traversals $A,B,C,D,E$, label labeling the cells: 
+
+
+	
+
+\end{enumerate}
+
+\end{document}
