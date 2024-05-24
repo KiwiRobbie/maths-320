@@ -394,7 +394,7 @@ This is a contradiction. Thus, $\set{L_1,\dots,L_6}$ are a set of $6$ MOLS of or
 	\begin{itemize}
 		\item The \textcolor{gray}{gray} cells were given. 
 		\item The \textcolor{blue}{blue} must be some permutation of $3,4,5$ and can be re-ordered by interchanging rows, order chosen WLOG. 
-		\item The \textcolor{violet}{violet}{cells} must also be some permutation of $3,4,5$ distinct from the ordering of the blue cells. There are two options, the other failed to complete the square. 
+		\item The \textcolor{violet}{violet} cells must also be some permutation of $3,4,5$ distinct from the ordering of the blue cells. There are two options, the other failed to complete the square. 
 		\item The \textcolor{cyan}{cyan} cell, had to be either $1$ or $2$, since no remaining cells are constrained by a $1$ or $2$, the choice is made WLOG.
 		\item Each cell with a single remaining possibility was filled until the square was complete. 
 	\end{itemize}
@@ -474,11 +474,11 @@ This is a contradiction. Thus, $\set{L_1,\dots,L_6}$ are a set of $6$ MOLS of or
 			\draw (Q)+(4, 0) -- +(4,-5);
 			\draw (Q)+(5, 0) -- +(5,-5);
 		\end{tikzpicture}
-		\end{center}
+	\end{center}
 
 		
 	
-	\item Assume that there exist $5$ disjoint traversals of some completion. 
+	\item A Latin square of order $5$ has an orthogonal mate if and only if it contains $5$ disjoint traversals. Assume that there exist $5$ disjoint traversals of some completion. 
 	
 	Consider the top left $2\times 2$ region, each cell must be in a different traversal: 
 	\begin{mdframed}
@@ -509,8 +509,9 @@ This is a contradiction. Thus, $\set{L_1,\dots,L_6}$ are a set of $6$ MOLS of or
 
 	Label the traversals $A,B,C,D,E$, WLOG we can fix the traversal that each of the cells in the $2\times 2$ region are part of. Since each traversal appears once in each row/column, we can deduce which traversals the cells in each region must be assigned to: 
 
-	\begin{center}
-	\begin{tikzpicture}
+	\vspace{1em}
+
+	\hfill\begin{tikzpicture}
 		\node at (0,0) {$A$};
 		\node at (1,0) {$B$};
 		\node at (0,-1) {$C$};
@@ -536,41 +537,196 @@ This is a contradiction. Thus, $\set{L_1,\dots,L_6}$ are a set of $6$ MOLS of or
 		\draw (Q)+(1, 0) -- +(1,-5);
 		\draw (Q)+(2, 0) -- +(2,-5);
 		\draw (Q)+(5, 0) -- +(5,-5);
-	\end{tikzpicture}
-	\end{center}
+	\end{tikzpicture}\hfill\vspace{0pt}\begin{minipage}[b]{0.5\textwidth}
+		Notice that to be a traversal $E$ should contain both cells with values $1$ and $2$, however none of the $E$'s in first two rows/columns could contain a $1$ or $2$. This only leaves a single $E$ in the bottom right $3\times3$ region. So it is impossible for the $E$ traversal to contain both a $1$ and $2$. 
 
+		\vspace{1em}
+		
+		Therefore, it is impossible for any completion to contain $5$ distinct traversals and thus no completion has an orthogonal mate. 
 
-	Now consider the relative positions of the $E$ traversals in top right $2\times 3$ region: 
-
-	\begin{center}
-		\begin{tikzpicture}
-			\node at (0, 0) {$3$};
-			\node at (1, 0) {$4$};
-			\node at (2, 0) {$5$};
-			\node at (0,-1) {$5$};
-			\node at (1,-1) {$3$};
-			\node at (2,-1) {$4$};
+		\vspace{1em}
+	\end{minipage}
 	
-			\coordinate (Q) at (-0.5, 0.5);
+	
+
+% \pagebreak
+
+
+% 	% By swapping rows and columns, we can fix an ordering of the top row and left column, this also forces the placement of the $E$, since traversals contains a cell of each value once and cannot be in the same column. 
+
+
+% 	Now consider the relative positions of the $E$ traversals in top right $2\times 3$ region: 
+
+% 	\begin{center}
+% 		\begin{tikzpicture}
+% 			\node at (0, 0) {$3$};
+% 			\node at (1, 0) {$4$};
+% 			\node at (2, 0) {$5$};
+% 			\node at (0,-1) {$5$};
+% 			\node at (1,-1) {$3$};
+% 			\node at (2,-1) {$4$};
+	
+% 			\coordinate (Q) at (-0.5, 0.5);
 			
-			\draw (Q)+(0, 0) -- +(3, 0);
-			\draw (Q)+(0,-1) -- +(3,-1);
-			\draw (Q)+(0,-2) -- +(3,-2);
+% 			\draw (Q)+(0, 0) -- +(3, 0);
+% 			\draw (Q)+(0,-1) -- +(3,-1);
+% 			\draw (Q)+(0,-2) -- +(3,-2);
 
-			\draw (Q)+(0,0) -- +(0,-2);
-			\draw (Q)+(1,0) -- +(1,-2);
-			\draw (Q)+(2,0) -- +(2,-2);
-			\draw (Q)+(3,0) -- +(3,-2);
-		\end{tikzpicture}
-		\end{center}
+% 			\draw (Q)+(0,0) -- +(0,-2);
+% 			\draw (Q)+(1,0) -- +(1,-2);
+% 			\draw (Q)+(2,0) -- +(2,-2);
+% 			\draw (Q)+(3,0) -- +(3,-2);
+% 		\end{tikzpicture}
+% 	\end{center}
+% 	We can let the $5$ in the top row be a part of the $E$ traversal WLOG, if instead $3$ or $4$ was chosen to be a part of $E$, we could re-order the columns by rotating to the right, then re-labeling the cells, preserving the relationship between cells. 
+
+% 	This also determines the middle bottom cell to be in the $E$ traversal, since this is the only cell with a different value and column to the first $E$ chosen. We can also re-order the rows so that the first column has increasing cell values: 
+
+
+% \hfill\begin{tikzpicture}
+% 			\node at (0, 0) {$1$};
+% 			\node at (1, 0) {$2$};
+% 			\node at (0,-1) {$2$};
+% 			\node at (1,-1) {$1$};
+
+% 			\node at (2, 0) {$3$};
+% 			\node at (3, 0) {$4$};
+% 			\node at (4, 0) {$5$};
+% 			\node at (2,-1) {$5$};
+% 			\node at (3,-1) {$3$};
+% 			\node at (4,-1) {$4$};
+
+% 			% Could re-order rows to reach same result
+% 			\node at (0,-2) {$3$};
+% 			\node at (0,-3) {$4$};
+% 			\node at (0,-4) {$5$};
+	
+
+% 			\coordinate (Q) at (-0.5, 0.5);
+			
+% 			\draw (Q)+(0, 0) -- +(5,0);
+% 			\draw (Q)+(0,-1) -- +(5,-1);
+% 			\draw (Q)+(0,-2) -- +(5,-2);
+% 			\draw (Q)+(0,-3) -- +(5,-3);
+% 			\draw (Q)+(0,-4) -- +(5,-4);
+% 			\draw (Q)+(0,-5) -- +(5,-5);
+	
+% 			\draw (Q)+(0, 0) -- +(0,-5);
+% 			\draw (Q)+(1, 0) -- +(1,-5);
+% 			\draw (Q)+(2, 0) -- +(2,-5);
+% 			\draw (Q)+(3, 0) -- +(3,-5);
+% 			\draw (Q)+(4, 0) -- +(4,-5);
+% 			\draw (Q)+(5, 0) -- +(5,-5);
+% 		\end{tikzpicture}\hfill
+% 		\begin{tikzpicture}
+% 			\node at (0,0) {$A$};
+% 			\node at (1,0) {$B$};
+% 			\node at (0,-1) {$C$};
+% 			\node at (1,-1) {$D$};
+	
+% 			% \node at (2,0) {$C$};
+% 			\node at (2.5,0) {$C,D$};
+% 			% \node at (3,0) {$D$};
+% 			\node at (4,0) {$E$};
+	
+	
+% 			% \node at (3,0) {$C,D,E$};
+% 			% \node at (3,-1) {$A,B,E$};
+% 			\node at (3,-1) {$E$};
+% 			\node at (2,-1) {$A/B$};
+% 			\node at (4,-1) {$B/A$};
+	
+% 			\node[rotate=-90] at (0,-3) {$B,D,E$};
+% 			\node[rotate=-90] at (1,-3) {$A,C,E$};
+	
+% 			\node[label={[align=center]$A,A,B,B$\\$C,C,D,D,E$}] at (3,-3.5) {};
+	
+	
+% 			\coordinate (Q) at (-0.5, 0.5);
+			
+% 			\draw (Q)+(0, 0) -- +(5,0);
+% 			\draw (Q)+(0,-1) -- +(5,-1);
+% 			\draw (Q)+(0,-2) -- +(5,-2);
+	
+% 			% \draw (Q)+(0,-3) -- +(1,-3);
+% 			% \draw (Q)+(0,-4) -- +(1,-4);
+	
+% 			\draw (Q)+(0,-5) -- +(5,-5);
+	
+% 			\draw (Q)+(0, 0) -- +(0,-5);
+% 			\draw (Q)+(1, 0) -- +(1,-5);
+% 			\draw (Q)+(2, 0) -- +(2,-5);
+	
+% 			\draw (Q)+(3, -1) -- +(3,-2);
+% 			\draw (Q)+(4, 0) -- +(4,-2);
+			
+% 			\draw (Q)+(5, 0) -- +(5,-5);
+% 		\end{tikzpicture}\hfill\phantom{.}
+
+% 		Notice there is one possible cell for the $E$ traversal in the first column as $E$ already contains $3$ and $5$. We now consider the two cases for the first row:
+
+% 	\begin{mdframed}
+% 		If the $D$ traversal contains the $3$ from the first row, then this forces the $5$ of the first column to be part of $D$, this fixes the first column and second row by forcing $B$ to contain $3$. 
+
+% 		\begin{tikzpicture}
+% 			\node at (0,0) {$A$};
+% 			\node at (1,0) {$B$};
+% 			\node at (0,-1) {$C$};
+% 			\node at (1,-1) {$D$};
+	
+% 			% \node at (2,0) {$C$};
+% 			% \node at (3,0) {$D$};
+% 			\node at (2,0) {$D$};
+% 			\node at (3,0) {$C$};
+% 			\node at (4,0) {$E$};
+	
+	
+% 			% \node at (3,0) {$C,D,E$};
+% 			% \node at (3,-1) {$A,B,E$};
+% 			\node at (3,-1) {$E$};
+% 			\node at (2,-1) {$A$};
+% 			\node at (4,-1) {$B$};
+
+% 			\node at (0,-2) {$B$};
+% 			\node at (0,-3) {$E$};
+% 			\node at (0,-4) {$D$};
 	
 
 
-	% Each traversal must also contain one cell from each row. Consider traversals $A,B,C,D,E$, label labeling the cells: 
-
-
+% 			% \node[rotate=-90] at (0,-3) {$B,D,E$};
+% 			\node[rotate=-90] at (1,-3) {$A,C,E$};
 	
+% 			\node[label={[align=center]$A,A,B,B$\\$C,C,D,D,E$}] at (3,-3.5) {};
+	
+	
+% 			\coordinate (Q) at (-0.5, 0.5);
+			
+% 			\draw (Q)+(0, 0) -- +(5,0);
+% 			\draw (Q)+(0,-1) -- +(5,-1);
+% 			\draw (Q)+(0,-2) -- +(5,-2);
+	
+% 			\draw (Q)+(0,-3) -- +(1,-3);
+% 			\draw (Q)+(0,-4) -- +(1,-4);
+	
+% 			\draw (Q)+(0,-5) -- +(5,-5);
+	
+% 			\draw (Q)+(0, 0) -- +(0,-5);
+% 			\draw (Q)+(1, 0) -- +(1,-5);
+% 			\draw (Q)+(2, 0) -- +(2,-5);
+	
+% 			\draw (Q)+(3, 0) -- +(3,-2);
+% 			\draw (Q)+(4, 0) -- +(4,-2);
+			
+% 			\draw (Q)+(5, 0) -- +(5,-5);
+% 		\end{tikzpicture}
 
+% 		We have the following traversals so far: 
+% 		\[
+% 			\set{1,5}\subset A,	\quad\set{2,3,4}\subset B, \quad\set{2,4}\subset C,\quad\set{1,3,5}\subset D,\quad\set{3,4,5}\subset E
+% 		\]
+% 		Notice that $E$ is missing a $1$ and $2$, however
+
+% 	\end{mdframed}
 \end{enumerate}
 
 \end{document}
