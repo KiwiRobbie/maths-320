@@ -137,12 +137,14 @@
 \usepackage{cancel}
 
 \begin{comment}
-	Q1: Good
-	Q2  needs time
-	Q3: 
-	Q4: Good 
-	Q5
-	Q6: Good 
+	Q1a: Good
+	Q1b:  
+	Q1c: Good
+	Q2   Good
+	Q3:  BADDDD
+	Q4:  MEHH
+	Q5   Good
+	Q6:  Good 
 \end{comment}
 
 \begin{document}
@@ -161,16 +163,20 @@
 		\]
 		Contradiction as this implies $b=\frac{4\cdot 21}{11}$ which is not an integer as neither $4$ nor $21$ have a prime factor of $11$. Thus, no balanced block design has these parameters.
 
-	\item We are given $b=30,r=6,k=5$, assume that these are parameters for a balanced design, by \textit{Theorem 4.10}:
-	\[
-		bk=vr \implies  30\cdot 5 = 6v \implies v =25
-	\]
-	\[
-		\lambda (v-1) = r (k-1) \implies  \lambda(24) = 6(4)\implies \lambda = 1
-	\]
+	\item 
+		We are given $b=30,r=6,k=5$, assume that these are parameters for a balanced design, by \textit{Theorem 4.10}:
+		\[
+			bk=vr \implies  30\cdot 5 = 6v \implies v =25
+		\]
+		\[
+			\lambda (v-1) = r (k-1) \implies  \lambda(24) = 6(4)\implies \lambda = 1
+		\]
 
-	Let $X=\ZZ_5^2$ 
-
+		Using \textit{Construction 4.24} with the field $\mathbb{F}=\ZZ_5$, we can construct an affine plane of order $5$.  From the proof of \textit{Theorem 4.38} an affine plane of order $n=5$ with is a balanced block design with parameters:
+		\[
+			(v,b,r,k,\lambda)=(n^2,n^2+n,n+1,n,1)=(25,30,6,5,1)	
+		\]
+		Thus we can construct affine plane which is a BIBD satisfying the given parameters.
 
 
 	\item 
@@ -284,30 +290,49 @@ So we must have $\lambda\in\set{4,18,38}$.
 \section*{Q3}
 \begin{enumerate}[label=(\alph*)]
 	\item CLAIM: Every pair of blocks has at most 1 common vertex. (FALSE!!!)
+	
 
 
 
-	\item 
+	\item By (a), since $\lambda=2$:
+	\[
+		v\leq \begin{pmatrix}
+		7\\2
+	\end{pmatrix}+1=22
+	\]
+	By \textit{Theorem 4.10}:
+	\[
+		\lambda(v-1)=r(k-1) \implies v=\frac{7(k-1)}{2}+1
+	\]
+	To have $v\in\ZZ$, $k$ must be odd, also $k>1$, searching for possible values of $v$: 
+	\begin{alignat*}{2}
+		k=3 & \implies v=8  & \implies b=\frac{8\cdot 7}{3} \notin\ZZ	\\
+		k=5 & \implies v=15 & \implies b=21	\\
+		k=7 & \implies v=22 & \implies b=22\\
+		k=9 & \implies v>22  	\\
+	\end{alignat*}
+	So we either have $v=15$ or $v=22$. 
+	
+	For $v=22$, notice that since $r=k$, we have $b=v$ and $v$ is even. So by even case of the Bruck-Ryser-Chowla Theorem, $k-\lambda=5$ should be a perfect square. Since $5$ is not a perfect square, there is no BIBD with these parameters.
+
+
+	So if a BIBD does have $\lambda=2$, $r=7$, $k>1$, it must have $v=15$. 
 \end{enumerate}
 
+\pagebreak
 \section*{Q4}
 First we verify that the construction can be performed. By P3, there are at least $4$ points, and by $P1$, any distinct pair of these points is on a unique line. Thus, there is a line $\ell$ to remove. 
 
-We check that the axioms for an affine plane hold: 
+We check the axioms for an affine plane hold for the plane constructed by removing $\ell$: 
 
 \begin{itemize}
 	\item
-		 A1: Any two points in the construction already existed on some unique line $m$ in the projective plane, we have $m\neq\ell$ otherwise we would have removed the points. Hence, the line $m$ is present in the construction, lastly, no other lines have become incident with the points so $m$ is the unique line incident with both points.  
-
-
+		 A1: Any two points in the construction already existed on some unique line $m$ in the projective plane, we have $m\neq\ell$ otherwise we would have removed the points. Hence, the line $m$ is present in the construction. As no other lines have become incident with the points so $m$ is the unique line incident with both points.  
 
 	\item 
 		Consider any point $p$ and line $m'$ in the constructed plane such that $m'$ is not incident on $p$. 
 
-		Clearly $m'$ is distinct from $\ell$, by P2, $m$ and $\ell$ have a unique common point $q$. Now by P1, $q$ and $p$ lie on a unique line $m$. Since $q$ is the only common point of $m$ and $m'$, and is removed in the constructed plane, $m\cap m'=\emptyset$. 
-
-
-		\textcolor{red}{Show $m$ is unique.}
+		Clearly $m'$ is distinct from $\ell$, so by P2, $m$ and $\ell$ have a unique common point $q$. Now by P1, $q$ and $p$ lie on a unique line $m$. Since $p\in m$ but $p\notin\ell$ $m\neq\ell$ and so $m$ is present in the constructed plane. Since $q$ is the only common point of $m$ and $m'$, and is not present in the constructed plane, $m\cap m'=\emptyset$. 
 
 		\begin{center}
 		\begin{tikzpicture}
@@ -316,13 +341,9 @@ We check that the axioms for an affine plane hold:
 			\draw (1.5,-3) -- (-0.5,1);
 
 			\node[label={[above,right,red]$q$}] (q) at (0,0) {};
-			
 			\node[label={[above,right]$p$}] (p) at (0,-2) {};
-			\node[label={[above,right]$p'$}] (P) at (1,-2) {};
-
 			\fill[red] (q) circle (2pt);
 			\fill (p) circle (2pt);
-			\fill (P) circle (2pt);
 
 			\node[label={[below,right]$m$}] at (0,-3) {};
 			\node[label={[below,right]$m'$}] at (1.5,-3) {};
@@ -330,18 +351,51 @@ We check that the axioms for an affine plane hold:
 		\end{tikzpicture}
 		\end{center}
 
+		It remains to show that $m$ is unique. Assume that there is another line $k$ such that $m\neq k$ while $k$ is also incident on $p$ and has $k\cap m'=\emptyset$.
 
-	% CL: Given a point $p$ and a line $l$ not through $p$, there is exactly one line $l'$ through $p$ with $l\cap l'\neq \emptyset$.
+		Since $k\neq m$, $k$ cannot be incident on $q$, by P2 $k$ and $m'$ have a unique common point $q'$, since this point cannot be $q$, and $q$ is the only point on both $m'$ and $\ell$, $q'$ is not on $\ell$. 
 
+		Therefore, $q'$ is in the constructed plane, meaning that $k\cap m'\neq \emptyset$. This is a contradiction, therefore $m$ is unique. 
 
-		
 	\item 
-		A3: Direct proof, 
-		% A3: Assume A3 does not old, then either: 
-		% \begin{itemize}
-		% 	\item There are less than $4$ points. 
-		% 	\item $3$ points are collinear in any set of $4$ points. 
-		% \end{itemize}
+		A3: By P3, the projective plane contains $4$ points no $3$ of which are collinear. If $\ell$ is not incident on any of these points, they are in the constructed plane and A3 is satisfied. Otherwise: 
+	
+		Assume that we have $4$ points no $3$ of which are collinear, then $\ell$ is incident on at most $2$ points. First address the case where $\ell$ is incident on $2$ points. 
+		
+		WLOG, let $\ell$ be incident on $q_1,q_2$ but no $p_1,p_2$, since each pair of points is on a unique line, and no three points are collinear, we can make the following construction:  
+		\begin{center}
+			\begin{tikzpicture}
+				\draw[red] (-1,0) -- (2,0);
+				\draw (0,-2) -- (0,1);
+				\draw (1,-2) -- (1,1);
+				\draw (-1,-1) -- (2,-1);
+
+				\draw (-1,1) -- (2,-2);
+				\draw (-1,-2) -- (2,1);
+
+
+	
+				\node[label={[above,right,red]$q_1$}] (q1) at (0,0) {};
+				\node[label={[above,right,red]$q_2$}] (q2) at (1,0) {};
+				\node[label={[above,right]$p_1$}] (p1) at (0,-1) {};
+				\node[label={[above,right]$p_2$}] (p2) at (1,-1) {};
+				\node[label={[above,right]$p_3$}] (p3) at (0.5,-0.5) {};
+				\fill[red] (q1) circle (2pt);
+				\fill[red] (q2) circle (2pt);
+				\fill (p1) circle (2pt);
+				\fill (p2) circle (2pt);
+				\fill (p3) circle (2pt);
+			\end{tikzpicture}
+		\end{center}
+		Where $p_3$ is the unique common point of the unique lines $a_1,a_2$ through $q_1,p_2$ and $q_2,p_1$ respectively. The lines $b_1,b_2$ containing $q_1,p_1$ and $q_2,p_2$ must also have a unique common point $p_4\notin\set{q_1,q_2,p_1,p_2}$ (otherwise there would be $3$ collinear points). Note that $a_1,a_2,b_1,b_2$ must be distinct, if any were the same line, then three of $q_1,q_2,p_1,p_2$ must be collinear.
+		
+		We claim that no three points of $p_1,p_2,p_3,p_4$ are collinear. 
+		
+		Assume for contradiction that $3$ points are collinear, the $3$ points must lie on the same line. If any two points were on the same line $m$, then $m$ would share two common points with one of $a_1,a_2,b_1,b_2$, hence $m\in\set{a_1,a_2,b_1,b_2}$. However, this means that $m$ would share two common points with a second line $m'\in\set{a_1,a_2,b_1,b_2}\setminus m$ meaning $m=m'$ and the $4$ lines aren't distinct. 
+
+		\textcolor{red}{The points $p_1,p_2,p_3,p_4$ aren't on $\ell$}, and so the set of $4$ points no $3$ of which are collinear exists in the constructed plane. 
+
+		\textcolor{red}{Case where only a single point $q$ of the $4$ is on $\ell$.}
 \end{itemize}
 
 \pagebreak
