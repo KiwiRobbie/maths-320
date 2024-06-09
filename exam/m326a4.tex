@@ -1,0 +1,154 @@
+
+\documentclass[a4paper, 11pt]{article}
+
+% Fonts 
+\usepackage{opensans}
+\usepackage{amsfonts}
+\usepackage{montserrat}
+\usepackage{amsmath}
+
+\setmainfont{opensans}
+% \usepackage[mathrm=sym]{unicode-math}
+\usepackage{lato-math}
+% \setmathfont[Path=font/,mathrm=sym]{FiraMath-Regular}
+% \setmathfont[Path=font/,mathrm=sym]{LatoMath}
+
+\newfontfamily{\montserrateb}{Montserrat SemiBold}
+\newfontfamily{\montserratb}{Montserrat Bold}
+\newfontfamily{\montserrat}{Montserrat Regular}
+\newfontfamily{\montserratl}{Montserrat Light}
+% \DeclareMathAlphabet{\mathcal}{OMS}{cmbrs}{m}{n}
+
+% \usepackage[mathrm=sym]{unicode-math}
+% \setmainfont{opensans}
+% \setmathfont{Fira Math}
+
+% \newfontfamily{\montserrateb}{Montserrat SemiBold}
+% \newfontfamily{\montserratb}{Montserrat Bold}
+% \newfontfamily{\montserrat}{Montserrat Regular}
+% \newfontfamily{\montserratl}{Montserrat Light}
+% \DeclareMathAlphabet{\mathcal}{OMS}{cmbrs}{m}{n}
+% \setmathfont{Latin Modern Math}[range={\vdots}]
+
+% \autoref
+\usepackage{hyperref}
+
+% Use for [H] option for figures to force in text placement
+\usepackage{float}
+
+% Captioning figures
+\usepackage{caption}
+
+% Subfigures
+\usepackage{subcaption}
+
+% For extending contents beyond margins
+\usepackage{scrextend}
+
+% For tables \midrule ect
+\usepackage{booktabs}
+
+% Colours
+\usepackage[table,xcdraw]{xcolor}
+\definecolor{accentcolor}{HTML}{a13640}
+
+% Change label in enumerate 
+\usepackage{enumitem}
+
+% Section settings
+\usepackage{titlesec}
+\titleformat{\section}
+{\LARGE\montserrateb}
+{\thesection.}{0.5em}{}
+
+\titleformat{\subsection}
+{\large\montserratb}
+{\thesubsection.}{0.5em}{}
+
+% Adjust document dimensions
+\ExecuteOptions{a4paper}
+\addtolength{\oddsidemargin}{-3cm}
+\addtolength{\evensidemargin}{-3cm}
+\addtolength{\topmargin}{-3cm}
+\addtolength{\textwidth}{6cm}
+\addtolength{\textheight}{4.5cm}
+\addtolength{\textheight}{1.5cm}
+\addtolength{\headsep}{-0.5cm}
+% \addtolength{\footskip}{-1cm}
+\parindent0pt
+\parskip=4pt
+
+
+
+\usepackage{matlab-prettifier}
+\usepackage{graphicx}
+\usepackage{mdframed}
+
+% Creates coloured title box
+\newcommand{\thetop}[5]{
+	\begin{addmargin}[\oddsidemargin]{\oddsidemargin}
+		\colorbox{#5}{\color{white}
+			\hbox to \paperwidth{
+				\vbox {
+					\begin{center}
+						{\large\montserratl #1}\\
+						\vspace{4pt}
+						{\huge\montserratb #2}\\
+						{\montserratb #3}\\
+						\vspace{-0.5em}
+						\rule{20em}{1pt}
+
+						{\large\montserratl
+							#4
+						}
+					\end{center}
+				}
+			}
+		}
+	\end{addmargin}
+}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\dydt}{\frac{dy}{dt}}
+\newcommand{\dxdt}{\frac{dx}{dt}}
+\def\set#1{\left\{ #1 \right\}}
+\def\eval#1#2{\left\ #1\right|_{#2}}
+
+\def\pp#1#2{\frac{\partial #1}{\partial #2}}
+\def\dd#1#2{\frac{\,d#1}{\,d#2}}
+\def\abs#1{\left|#1\right|}
+\def\conj#1{\overline{#1}}
+
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary {graphs,graphdrawing} \usegdlibrary {force} 
+\usetikzlibrary{graphs.standard}
+\usetikzlibrary{positioning, 
+                quotes}
+\usegdlibrary {circular}
+
+\usepackage{pst-platon}
+
+\usepackage{comment}
+\usepackage{cancel}
+
+\begin{comment}
+	Q1a: Good
+	Q1b:  
+	Q1c: Good
+	Q2   Good
+	Q3:  BADDDD
+	Q4:  MEHH
+	Q5   Good
+	Q6:  Good 
+\end{comment}
+
+\begin{document}
+
+\section*{Incident Structures}
+
+\end{document}
