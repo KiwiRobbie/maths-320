@@ -172,11 +172,15 @@
 			\lambda (v-1) = r (k-1) \implies  \lambda(24) = 6(4)\implies \lambda = 1
 		\]
 
-		Using \textit{Construction 4.24} with the field $\mathbb{F}=\ZZ_5$, we can construct an affine plane of order $5$.  From the proof of \textit{Theorem 4.38} an affine plane of order $n=5$ with is a balanced block design with parameters:
+		Using \textit{Construction 4.24} with the field $\mathbb{F}=\ZZ_5$, we can construct an affine plane of order $5$. 
+		
+		From the proof of \textit{Theorem 4.38}, an affine plane of order $n=5$ with is a balanced block design with parameters:
 		\[
 			(v,b,r,k,\lambda)=(n^2,n^2+n,n+1,n,1)=(25,30,6,5,1)	
 		\]
 		Thus we can construct affine plane which is a BIBD satisfying the given parameters.
+
+
 
 
 	\item 
@@ -189,33 +193,21 @@
 		\]
 		Solving for possible values of $r$ using the quadratic equation: 
 		\[
-			r = \frac{1\pm\sqrt{1657}}{4.6}
+			r =\frac{1\pm\sqrt{1+4\cdot 4.6\cdot 90}}{2\cdot 4.6}= \frac{1\pm\sqrt{1657}}{2\cdot 4.6}
 		\]
-		Which has no integer solutions as $40^2<1657<41^2$, hence $\sqrt{1657}$ is irrational.
+		Which has no integer solutions as $40^2<1657<41^2$, hence $1657$ is not a perfect square and therefore $\sqrt{1657} $ must be irrational.
 
-		This is a contradiction so no balanced block design has these parameters.
+		Since $r$ must be an integer, this is a contradiction so no balanced block design has these parameters.
 \end{enumerate}
 
 \pagebreak
 \section*{Q2}
- Assume that there is a BIBD for $v=b=40$ with parameters $(v,b,r,k,\lambda)$. Then since $vb=rk$ we have $k=r$. Thus: 
+ Assume that there is a BIBD for $v=b=40$ with parameters $(v,b,r,k,\lambda)$. Then since $vr=bk$ we have $k=r$. Thus: 
 \[
 	\lambda(v-1) = r(k-1) \implies 39\lambda = r(r-1) = k(k-1)
 \]
 
-Since the design is incomplete, $r,k,\lambda\leq39$: 
-% \[
-	% \lambda(v-1)=r(k-1)\implies r(r-1)\leq39^2 \implies k,r\leq 39
-% \]
-
-Since we have $\lambda = k(k-1)/39$:
-$$k-\lambda\in\set{1,2,4,9,16,25,36}$$
-$$(39k- k(k-1))/39\in\set{1,2,4,9,16,25,36}$$
-
-
-
-
-We can factorise $39=3\cdot 13$ and $\lambda=\lambda_1\lambda_2$. This gives the following cases: 
+Since the design is incomplete, $r,k,\lambda\leq39$. We can factorise $39=3\cdot 13$ and $\lambda=\lambda_1\lambda_2$. This gives the following cases: 
 
 \begin{center}
 	\begin{tabular}{c|cc|c}
@@ -289,8 +281,43 @@ So we must have $\lambda\in\set{4,18,38}$.
 \pagebreak
 \section*{Q3}
 \begin{enumerate}[label=(\alph*)]
-	\item CLAIM: Every pair of blocks has at most 1 common vertex. (FALSE!!!)
+	\item Since $\lambda=2$, by \textit{Theorem 4.10}: 
+	\[
+		\lambda(v-1)=r(k-1) \implies v-1=\frac{r(k-1)}2	
+	\]
+	Therefore:
+	\[
+		v\leq \begin{pmatrix}
+			r \\ 2
+		\end{pmatrix} + 1 = \frac{r(r-1)}2 + 1 \iff v-1 \leq \frac{r(r-1)}2  \iff \frac{r(k-1)}2	\leq \frac{r(r-1)}2   \iff r\leq k
+	\]
+	Thus, it suffices to show that $r\leq k$. Assume for contradiction that $r>k$. Then by: 
+	\[vr=bk \implies v<b\]
+	However, since the design is incomplete, $v>k$ so by \textit{Theorem 4.10}, we expect $b\geq v$. Thus, we have a contradiction.
+
+
+
+	% \item CLAIM: Every pair of blocks has at most 1 common vertex. (FALSE!!!)
 	
+	% \item Claim: Every pair of blocks contains at most two common elements: 
+	% \begin{mdframed}
+		
+	% \end{mdframed}
+	
+	% Fix some $x\in X$, now pick from $r$ options for block $B_1$ with $x\in B_1$. Then pick from $r-1$ options for a distinct block $B_2$ with $x\in B_2$. Since $\abs{B_1\cap B_2}\leq 2$ there is at most $1$ other distinct element $y\in B_1\cap B_2$.
+
+	% Thus, there are $r(r-1)/2=\begin{pmatrix}
+	% 	r\\2
+	% \end{pmatrix}$ possible choices for block pairs (dividing by two to remove permutations).  Since each pair produced at most $1$ extra element, including $x$, the number of elements we have found is at most:
+	% \[\begin{pmatrix}
+	% 	r\\2
+	% \end{pmatrix}+1\geq v\]
+
+	% Now fix some $x\in X$, then since $\lambda=2$, every $y\in X$ has exactly two $B$ such that $\set{x,y}\subset B$.
+
+
+
+	% Consider any pair $x,y\in X$, then for $x\neq y$, there are exactly 
 
 
 
@@ -313,26 +340,25 @@ So we must have $\lambda\in\set{4,18,38}$.
 	\end{alignat*}
 	So we either have $v=15$ or $v=22$. 
 	
-	For $v=22$, notice that since $r=k$, we have $b=v$ and $v$ is even. So by even case of the Bruck-Ryser-Chowla Theorem, $k-\lambda=5$ should be a perfect square. Since $5$ is not a perfect square, there is no BIBD with these parameters.
-
+	For $(v,k)=(22,7)$, notice that since $r=k$, we have $b=v$ and $v$ is even. So by even case of the Bruck-Ryser-Chowla Theorem, $k-\lambda=5$ should be a perfect square. Since $5$ is not a perfect square, there is no BIBD with these parameters.
 
 	So if a BIBD does have $\lambda=2$, $r=7$, $k>1$, it must have $v=15$. 
 \end{enumerate}
 
 \pagebreak
 \section*{Q4}
-First we verify that the construction can be performed. By P3, there are at least $4$ points, and by $P1$, any distinct pair of these points is on a unique line. Thus, there is a line $\ell$ to remove. 
+First we verify that the construction can be performed. Assume that we have a projective plane. By axiom P3, there are at least $4$ points, and by P1, any distinct pair of these points is on a unique line. Thus, there is a line $\ell$ to remove. 
 
-We check the axioms for an affine plane hold for the plane constructed by removing $\ell$: 
+We check the axioms for an affine plane hold for the plane constructed by removing a line $\ell$: 
 
 \begin{itemize}
 	\item
-		 A1: Any two points in the construction already existed on some unique line $m$ in the projective plane, we have $m\neq\ell$ otherwise we would have removed the points. Hence, the line $m$ is present in the construction. As no other lines have become incident with the points so $m$ is the unique line incident with both points.  
+		 A1: Any two distinct points in the constructed plane already existed on some unique line $m$ in the projective plane, we have $m\neq\ell$ otherwise we would have removed the points. Hence, $m$ is present in the constructed plane. As no other lines have become incident with the points, $m$ is the unique line incident with both points.  
 
 	\item 
 		Consider any point $p$ and line $m'$ in the constructed plane such that $m'$ is not incident on $p$. 
 
-		Clearly $m'$ is distinct from $\ell$, so by P2, $m$ and $\ell$ have a unique common point $q$. Now by P1, $q$ and $p$ lie on a unique line $m$. Since $p\in m$ but $p\notin\ell$ $m\neq\ell$ and so $m$ is present in the constructed plane. Since $q$ is the only common point of $m$ and $m'$, and is not present in the constructed plane, $m\cap m'=\emptyset$. 
+		Clearly $m'$ is distinct from $\ell$, so by P2, $m$ and $\ell$ have a unique common point $q$. Now by P1, $q$ and $p$ lie on a unique line $m$. Since $p\in m$ but $p\notin\ell$ we must have $m\neq\ell$ and so $m$ is present in the constructed plane. Since $q$ is the only common point of $m$ and $m'$, and is not present in the constructed plane, $m\cap m'=\emptyset$. 
 
 		\begin{center}
 		\begin{tikzpicture}
@@ -353,50 +379,53 @@ We check the axioms for an affine plane hold for the plane constructed by removi
 
 		It remains to show that $m$ is unique. Assume that there is another line $k$ such that $m\neq k$ while $k$ is also incident on $p$ and has $k\cap m'=\emptyset$.
 
-		Since $k\neq m$, $k$ cannot be incident on $q$, by P2 $k$ and $m'$ have a unique common point $q'$, since this point cannot be $q$, and $q$ is the only point on both $m'$ and $\ell$, $q'$ is not on $\ell$. 
+		Since $k\neq m$, $k$ cannot be incident on $q$ as any two points are on a unique common line. By P2 $k$ and $m'$ have a unique common point $q'$, since this point cannot be $q$, and $q$ is the only point on both $m'$ and $\ell$, $q'$ is not on $\ell$. 
 
 		Therefore, $q'$ is in the constructed plane, meaning that $k\cap m'\neq \emptyset$. This is a contradiction, therefore $m$ is unique. 
-
+\pagebreak
 	\item 
 		A3: By P3, the projective plane contains $4$ points no $3$ of which are collinear. If $\ell$ is not incident on any of these points, they are in the constructed plane and A3 is satisfied. Otherwise: 
 	
-		Assume that we have $4$ points no $3$ of which are collinear, then $\ell$ is incident on at most $2$ points. First address the case where $\ell$ is incident on $2$ points. 
+		Assume that we have $4$ points no $3$ of which are collinear, then $\ell$ is incident on at most $2$ points. 
 		
-		WLOG, let $\ell$ be incident on $q_1,q_2$ but no $p_1,p_2$, since each pair of points is on a unique line, and no three points are collinear, we can make the following construction:  
-		\begin{center}
-			\begin{tikzpicture}
-				\draw[red] (-1,0) -- (2,0);
-				\draw (0,-2) -- (0,1);
-				\draw (1,-2) -- (1,1);
-				\draw (-1,-1) -- (2,-1);
+		WLOG, let $\ell$ be incident on $q_1$ and possibly $q_2$ but not $p_1,p_2$, since each pair of points is on a unique line, and no three points are collinear.
 
-				\draw (-1,1) -- (2,-2);
-				\draw (-1,-2) -- (2,1);
-
-
-	
-				\node[label={[above,right,red]$q_1$}] (q1) at (0,0) {};
-				\node[label={[above,right,red]$q_2$}] (q2) at (1,0) {};
-				\node[label={[above,right]$p_1$}] (p1) at (0,-1) {};
-				\node[label={[above,right]$p_2$}] (p2) at (1,-1) {};
-				\node[label={[above,right]$p_3$}] (p3) at (0.5,-0.5) {};
-				\fill[red] (q1) circle (2pt);
-				\fill[red] (q2) circle (2pt);
-				\fill (p1) circle (2pt);
-				\fill (p2) circle (2pt);
-				\fill (p3) circle (2pt);
-			\end{tikzpicture}
-		\end{center}
-		Where $p_3$ is the unique common point of the unique lines $a_1,a_2$ through $q_1,p_2$ and $q_2,p_1$ respectively. The lines $b_1,b_2$ containing $q_1,p_1$ and $q_2,p_2$ must also have a unique common point $p_4\notin\set{q_1,q_2,p_1,p_2}$ (otherwise there would be $3$ collinear points). Note that $a_1,a_2,b_1,b_2$ must be distinct, if any were the same line, then three of $q_1,q_2,p_1,p_2$ must be collinear.
+		Let $p_3$ be the unique common point of the unique lines $a_1,a_2$ through $q_1,p_1$ and $q_2,p_2$ respectively. The lines $b_1,b_2$ respectively containing $q_1,p_2$ and $q_2,p_1$ must also have a unique common point $p_4$.
 		
-		We claim that no three points of $p_1,p_2,p_3,p_4$ are collinear. 
+		Let $Q=\set{q_1,q_2,p_1,p_2}$ and $P=\set{p_1,p_2,p_3,p_4}$.
+
+		Claim: The points $p_3,p_4$ are distinct and $p_3,p_4\notin Q$.
 		
-		Assume for contradiction that $3$ points are collinear, the $3$ points must lie on the same line. If any two points were on the same line $m$, then $m$ would share two common points with one of $a_1,a_2,b_1,b_2$, hence $m\in\set{a_1,a_2,b_1,b_2}$. However, this means that $m$ would share two common points with a second line $m'\in\set{a_1,a_2,b_1,b_2}\setminus m$ meaning $m=m'$ and the $4$ lines aren't distinct. 
+		\begin{mdframed}
+			First assume $p_3=p_4$, then $a_1,b_1$ both contain $q_1$ and $p_3=p_4$, since the line containing two points is unique, $a_1=b_1$. Hence, $q_1,p_1,p_2$ are all on the line $a_1=b_1$ and thus collinear. This is a contradiction so  $p_3\neq p_4$. 
 
-		\textcolor{red}{The points $p_1,p_2,p_3,p_4$ aren't on $\ell$}, and so the set of $4$ points no $3$ of which are collinear exists in the constructed plane. 
+			Next assume that at least one of $p_3,p_4\in Q$, WLOG (by interchanging $p_1,p_2$), let $p_3\in Q$.
 
-		\textcolor{red}{Case where only a single point $q$ of the $4$ is on $\ell$.}
+			We have that $q_1,p_1$ on $a_1$ and $q_2,p_2$ on $a_2$. By definition $p_3$ is on both $a_1$ and $a_2$. Thus, some $a_i$ now contains $3$ distinct points in $Q$, thus there are $3$ collinear points in $Q4$. Contradiction so $p_3,p_4\notin Q$.
+		\end{mdframed}
+
+		Claim: No three distinct points in $P$ are collinear. 
+
+		\begin{mdframed}
+			Assume that $3$ points in $P$ are collinear. Then the collinear points lie on some line $m$. 
+
+			However, there two lines $x,y$ from $\set{a_1,a_2,b_1,b_2}$ that each contain at least distinct pairs of the points. Since a unique line contains any two points, both $x=m=y$. Since $x,y$ contain distinct pairs of points from $Q$, at least three points must now be on the same line $m=x=y$ and therefore be collinear which is a contradiction.
+		\end{mdframed}
+
+		Claim: Neither of $\set{p_3,p_4}$ are on $\ell$. 
+
+		\begin{mdframed}
+			Next assume that at least one of $p_3,p_4\in\ell$, WLOG (by interchanging $p_1,p_2$), let $p_3\in \ell$.
+
+			Since $\ell$ contains $q_1,q_2,p_3$ it is the unique line containing any pair those points. Thus, $a_1=\ell=a_2$. 
+
+			However, if $\ell=a_1=a_2$ then $q_1,q_2,p_1$ are all on $\ell$ and therefore collinear. This is a contradiction so $p_3\notin\ell$ and $p_4\notin\ell$. 
+		\end{mdframed}
+
+		Thus, there are $4$ points $\set{p_1,p_2,p_3,p_4}$ such that no $3$ are collinear, and these points will be present in the constructed plane as no point is incident with $\ell$. Therefore, A3 will be satisfied for the constructed plane. 
 \end{itemize}
+
+Hence, we have shown that the construction is an affine plane by definition.
 
 \pagebreak
 \section*{Q5}
@@ -419,27 +448,27 @@ Consider the set $\set{L_1,\dots,L_6}$ of order $7$ Latin squares with entries $
 		\end{alignat*}
 	\end{minipage}
 	
-	Note that we can divide by $k$ in mod $7$ as $1,\dots,6$ are not zero divisors.
+	Note that we can divide by $k$ in mod $7$ as $1,\dots,6$ are not zero divisors. So we have shown that in the same row/column, only a single cell holds each value.
 \end{mdframed}
 
-Assume that $k\neq k'$, and $(i,j)\neq (i',j')$, now for the sake of contradiction assume that: 
+Assume that $L_k\neq L_{k'}$ aren't orthogonal, and therefore for $(i,j)\neq (i',j')$:
 
-\begin{align*}
-	\Big((L_k)_{ij}, (L_{k'})_{ij}\Big) &= \Big((L_k)_{i'j'}, (L_{k'})_{i'j'}\Big)\\
-	\Big(i+kj, i+k'j\Big) &= \Big(i'+kj', i'+k'j'\Big)\\
-	        \Big(0,0\Big) &= \Big((i-i')+k(j-j'), (i-i')+k'(j-j')\Big) \\
-	     (i-i') + k(j-j') &=(i-i') + k'(j-j') \\
-	              k(j-j') &= k'(j-j') \\
-	                    0 &=(k-k')(j-j') \\
-\end{align*}
+\begin{alignat*}{2}
+	         &&\Big((L_k)_{ij}, (L_{k'})_{ij}\Big) &= \Big((L_k)_{i'j'}, (L_{k'})_{i'j'}\Big)\\
+	\implies &&\Big(i+kj, i+k'j\Big) &= \Big(i'+kj', i'+k'j'\Big)\\
+	\implies &&        \Big(0,0\Big) &= \Big((i-i')+k(j-j'), (i-i')+k'(j-j')\Big) \\
+	\implies &&     (i-i') + k(j-j') &=(i-i') + k'(j-j') \\
+	\implies &&              k(j-j') &= k'(j-j') \\
+	\implies &&                    0 &=(k-k')(j-j') 
+\end{alignat*}
 
-However, the only zero divisor in mod $7$ is $0$, thus either $k-k'=0$, or $j-j'=0$. Since we assumed $k-k'=0$, we must have $j=j'$. However, we have that: 
+However, the only zero divisor in mod $7$ is $0$, thus either $k-k'=0$, or $j-j'=0$. Since we assumed $L_k\neq L_{k'}\implies k-k'\neq0$, we must have $j=j'$. Therefore: 
 \[
 	\Big(0,0\Big) = \Big((i-i')+k(j-j'), (i-i')+k'(j-j')\Big) \implies 0 =i-i'\implies i=i'
 \]
-This is a contradiction. Thus, $\set{L_1,\dots,L_6}$ are a set of $6$ MOLS of order $7$. 
+This is a contradiction, so each distinct pair $L_k,L_{k'}$ must be orthogonal by definition. This also verifies that there are $6$ distinct Latin squares since a Latin square is not orthogonal with itself. 
 
-% To verify the set is mutually orthogonal,
+Thus, $\set{L_1,\dots,L_6}$ are a set of $6$ MOLS of order $7$. 
 
 \pagebreak
 \section*{Q6}
@@ -532,9 +561,9 @@ This is a contradiction. Thus, $\set{L_1,\dots,L_6}$ are a set of $6$ MOLS of or
 
 		
 	
-	\item A Latin square of order $5$ has an orthogonal mate if and only if it contains $5$ disjoint traversals. Assume that there exist $5$ disjoint traversals of some completion. 
+	\item By \textit{Theorem 4.63}, a Latin square of order $5$ has an orthogonal mate if and only if it contains $5$ disjoint traversals. Assume that there exist $5$ disjoint traversals of some completion. 
 	
-	Consider the top left $2\times 2$ region, each cell must be in a different traversal: 
+	Consider the top left $2\times 2$ region:
 	\begin{mdframed}
 		The region contains the following cells: 
 		\begin{center}
