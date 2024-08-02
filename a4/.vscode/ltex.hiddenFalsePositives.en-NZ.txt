@@ -1,1 +1,0 @@
-{"rule":"PRP_VB","sentence":"^\\QConsider the potential \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q defined on \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, which is continuous and differentiable over it domain thus: \\E(?:Dummy|Ina|Jimmy-)[0-9]+$"}

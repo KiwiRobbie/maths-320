@@ -1,0 +1,837 @@
+
+\documentclass[a4paper, 11pt]{article}
+
+% Fonts 
+\usepackage{opensans}
+\usepackage{amsfonts}
+\usepackage{montserrat}
+\usepackage{amsmath}
+
+\setmainfont{opensans}
+% \usepackage[mathrm=sym]{unicode-math}
+\usepackage{lato-math}
+% \setmathfont[Path=font/,mathrm=sym]{FiraMath-Regular}
+% \setmathfont[Path=font/,mathrm=sym]{LatoMath}
+
+\newfontfamily{\montserrateb}{Montserrat SemiBold}
+\newfontfamily{\montserratb}{Montserrat Bold}
+\newfontfamily{\montserrat}{Montserrat Regular}
+\newfontfamily{\montserratl}{Montserrat Light}
+% \DeclareMathAlphabet{\mathcal}{OMS}{cmbrs}{m}{n}
+
+% \usepackage[mathrm=sym]{unicode-math}
+% \setmainfont{opensans}
+% \setmathfont{Fira Math}
+
+% \newfontfamily{\montserrateb}{Montserrat SemiBold}
+% \newfontfamily{\montserratb}{Montserrat Bold}
+% \newfontfamily{\montserrat}{Montserrat Regular}
+% \newfontfamily{\montserratl}{Montserrat Light}
+% \DeclareMathAlphabet{\mathcal}{OMS}{cmbrs}{m}{n}
+% \setmathfont{Latin Modern Math}[range={\vdots}]
+
+% \autoref
+\usepackage{hyperref}
+
+% Use for [H] option for figures to force in text placement
+\usepackage{float}
+
+% Captioning figures
+\usepackage{caption}
+
+% Subfigures
+\usepackage{subcaption}
+
+% For extending contents beyond margins
+\usepackage{scrextend}
+
+% For tables \midrule ect
+\usepackage{booktabs}
+
+% Colours
+\usepackage[table,xcdraw]{xcolor}
+\definecolor{accentcolor}{HTML}{a13640}
+
+% Change label in enumerate 
+\usepackage{enumitem}
+
+% Section settings
+\usepackage{titlesec}
+\titleformat{\section}
+{\LARGE\montserrateb}
+{\thesection.}{0.5em}{}
+
+\titleformat{\subsection}
+{\large\montserratb}
+{\thesubsection.}{0.5em}{}
+
+% Adjust document dimensions
+\ExecuteOptions{a4paper}
+\addtolength{\oddsidemargin}{-3cm}
+\addtolength{\evensidemargin}{-3cm}
+\addtolength{\topmargin}{-3cm}
+\addtolength{\textwidth}{6cm}
+\addtolength{\textheight}{4.5cm}
+\addtolength{\textheight}{1.5cm}
+\addtolength{\headsep}{-0.5cm}
+% \addtolength{\footskip}{-1cm}
+\parindent0pt
+\parskip=4pt
+
+
+
+\usepackage{matlab-prettifier}
+\usepackage{graphicx}
+\usepackage{mdframed}
+
+% Creates coloured title box
+\newcommand{\thetop}[5]{
+	\begin{addmargin}[\oddsidemargin]{\oddsidemargin}
+		\colorbox{#5}{\color{white}
+			\hbox to \paperwidth{
+				\vbox {
+					\begin{center}
+						{\large\montserratl #1}\\
+						\vspace{4pt}
+						{\huge\montserratb #2}\\
+						{\montserratb #3}\\
+						\vspace{-0.5em}
+						\rule{20em}{1pt}
+
+						{\large\montserratl
+							#4
+						}
+					\end{center}
+				}
+			}
+		}
+	\end{addmargin}
+}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+
+\newcommand{\dydt}{\frac{dy}{dt}}
+\newcommand{\dxdt}{\frac{dx}{dt}}
+\def\set#1{\left\{ #1 \right\}}
+\def\gen#1{\left\langle#1 \right\rangle}
+\def\eval#1#2{\left\ #1\right|_{#2}}
+
+\def\pp#1#2{\frac{\partial #1}{\partial #2}}
+\def\dd#1#2{\frac{\,d#1}{\,d#2}}
+\def\abs#1{\left|#1\right|}
+\def\conj#1{\overline{#1}}
+
+
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary {graphs,graphdrawing} \usegdlibrary {force} 
+\usetikzlibrary{graphs.standard}
+\usetikzlibrary{positioning, 
+                quotes}
+\usegdlibrary {circular}
+
+\usepackage{pst-platon}
+
+\usepackage{comment}
+\usepackage{cancel}
+
+\begin{comment}
+	Q1a: 
+	Q1b: 
+	Q1c: 
+	Q1d: 
+	Q1e: 
+	Q1f: 
+	Q1g: Answered (recheck)
+	Q1h: 
+
+	Q2a: Answered
+	Q2b: Answered
+	Q2c: Answered (recheck)
+	
+	Q3a: Answered
+	Q3b: Answered
+	Q3c: Answered
+
+	Q4a: Answered
+	Q4b: 
+	Q4c: Answered
+	Q4d: Answered
+
+	Q5a: Answered
+	Q5b: Answered (recheck)
+
+	Q6a: Answered
+	Q6b: Answered
+	Q6c: Answered
+	Q6d: Answered
+\end{comment}
+
+\begin{document}
+\thetop{Robert Christie}{MATHS 320}{S2 2024}{Assignment 1\\Due: 2-08-2024}{accentcolor}
+
+% \begin{multicols*}{2}
+\section*{Q1}
+Let $G:=\RR^*$, and define the binary operation $*:G\times G\to G$ by: 
+\[
+	a*b = \begin{cases}
+		ab  & a > 0 \\
+		a/b & a < 0
+	\end{cases}	
+\]
+Which is well-defined as $a,b\neq0$ so $ab,a/b\in G$ and all cases are covered. 
+
+\begin{enumerate}[label=(\alph*)]
+	\item Checking the group axioms: 
+		\begin{itemize}
+			\item \textit{Associativity:} For all $a,b,c\in G$: 
+			\begin{center}
+				\begin{tabular}{cc|ccccccc}
+					$a$ & $b$ \\
+					\midrule
+					$+$ & $+$ & $(a*b)*c$ &$=$& $(a\cdot b)\cdot c$ &$=$& $a\cdot (b\cdot c$) &$=$& $a*(b*c)$ \\ 
+					$-$ & $+$ & $(a*b)*c$ &$=$& $(a/b)     /c     $ &$=$& $a/     (b\cdot c$) &$=$& $a*(b*c)$ \\ 
+					$+$ & $-$ & $(a*b)*c$ &$=$& $(a\cdot b)/c     $ &$=$& $a\cdot (b/c)    $  &$=$& $a*(b*c)$ \\
+					$-$ & $-$ & $(a*b)*c$ &$=$& $(a/b)     \cdot c$ &$=$& $a/     (b/c)    $  &$=$& $a*(b*c)$  
+				\end{tabular}
+			\end{center}
+			Thus, all cases are covered and $(G,*)$ satisfies the associative property.
+			
+			\item \textit{Identity:} Claim $e=1$ is an identity element. For any $a\in G$: 
+			Since $1>0$, we have $1*a=1a=a$. Now consider: 
+			\[
+				a*e 
+				= \begin{cases}
+					a\cdot 1  & a > 0 \\
+					a/1       & a < 0 
+				\end{cases}	\quad \implies a*e = a
+			\]  
+			Thus $a*e = a = e*a$ so $e=1$ is an identity.
+
+			\item \textit{Inverse:} Claim: For any $a\in G$, the inverse is given by: 
+			\[
+				b = \begin{cases}
+					1/a & a>0 \\
+					a   & a<0
+				\end{cases}	
+			\]
+			Note that $a>0\iff b>0$ therefore: 
+			\begin{itemize}
+				\item 
+				Case: $a,b>0$, then:
+				\begin{alignat*}{2}
+					a*b &= a\cdot (1/a) & = 1 = e\\
+					b*a &= (1/a)\cdot a & = 1 = e
+				\end{alignat*}
+				
+				\item
+				Case: $a,b<0$, then $a=b$ so:
+				$$
+					b*a = a*b = a*a = a/a = 1 = e 
+				$$
+			\end{itemize}
+
+			Thus, we have show $b$ is an inverse of $a$ in $(G,*)$.
+		\end{itemize}
+	\item 
+	Checking the \textit{Two-step Test}: First note $\QQ^*\neq \emptyset$ and $\QQ\subset\RR^*$. Thus, $H=(\QQ^*,*)$ is a subgroup of $G$ if and only if for all $a,b\in H$ have $ab\in H$ and $b^{-1}\in H$.  
+	
+	For any $x\in \QQ^+$, we can write $x=\frac pq$ where $p,q\in\ZZ^+$. Thus, for any $a,b\in\QQ^*$ for some $\alpha,\beta,\gamma,\delta \in \ZZ^+$: 
+
+	\begin{align*}
+		a > 0 \implies & a*b 
+		= \frac \alpha\beta * \frac \gamma\delta 
+		= \frac \alpha\beta \cdot \frac \gamma\delta
+		= \frac {\alpha\gamma}{\beta\delta}\in\QQ^* \\
+		a < 0 \implies & a*b 
+		= \frac \alpha\beta * \frac \gamma\delta 
+		= \frac \alpha\beta / \frac \gamma\delta  
+		= \frac {\alpha\delta}{\beta\gamma} \in\QQ^*  
+	\end{align*}		
+	
+	Thus, $a*b\in H$. Take any $a\in H$, for some $\alpha,\beta\in\ZZ^*$ we have $a=\alpha/\beta$ so:
+	\[
+		 a^{-1}\in\set{
+			\frac\alpha\beta,
+			\frac\beta\alpha
+		}\subset H 
+	\]
+
+	Thus, the \textit{Two-Step Test} is satisfied so $H=(\QQ^*,*)$ is a subgroup of $G$. 
+
+	\item 
+	Consider the element $2\in\ZZ^*$, if $(\ZZ^*, *)$ were a subgroup (and thus a group), then $2$ should have an inverse $b\in\ZZ^*$ such that $1=2*b=2b$, no such element exists in $\ZZ^*$, therefore $\ZZ^*$ is not a subgroup.  
+
+	\item 
+	Consider the elements $-1,2 \in G$, then: 
+	\[
+		(-1) * 2 = -1/2  \quad \land \quad 2 * (-1) = 2 \cdot (-1) = -2 	
+	\]
+	Yet $-1/2 \neq -2$ so $*$ is not commutative, hence $(G,*)$ is not an abelian group. 
+
+	\item 
+	Let $a=5\in G$. Consider $a^k>0$ and apply induction on $k$. 
+	\begin{itemize}
+		\item Base case: $k=1$, it satisfied as $a^1=a=5>0$. 
+		\item Inductive Step: Assume $a^k>0$, then by definition of $*$ we have that $a^k * a = a^k \cdot a > 0$ as $a>0$. Thus, $a^{k+1}>0$. 
+	\end{itemize}
+	Therefore, $a^k>0$ for all $k\in\ZZ^+$. 		
+
+	\textcolor{red}{Find elements for $k<0$.}
+	
+	\item 
+	By \textit{part (a)}, for $a=-5$, we have that the inverse $a^{-1}=-5$. 
+	
+	\item 
+	We want elements where $x^1\neq 1$ but $x^2=1$, for any $x>0$ where $x\neq 1$ we have $x\star x = xx \neq 1$.
+
+	For $x<0$, we have $x^2=x/x=1$ so all $x\in\RR^*$ where $x<0$ are of order $2$. 
+	
+	\item 
+	Take any $g\in\RR^*$, we check for potential elements of $Z(G)$. 
+
+	\begin{itemize}
+		\item For $g>0$ let $z<0$, then:
+		\begin{alignat*}{2}
+			&          & z*g &= g*z   \\
+			& \iff     & z/g &= gz    \\ 
+			& \iff     & 1   &= g^2  \\ 
+		\end{alignat*}
+		Which holds only for $g=1$, since the only $g>0$ with $|g|\leq 2$ is $g=1$. 
+
+		\item For $g<0$ let $z>0$, then:
+		\begin{alignat*}{2}
+			&          & z*g &= g*z \\
+			& \iff     & zg  &= g/z \\ 
+			& \iff     & z^2 &= 1   \\ 
+		\end{alignat*}
+		Which does not hold for all $z$, therefore, this does not hold for any $g<0$. 
+	\end{itemize}
+	Verifying the $g=1$ case, take any $z\in\RR^*$, then $zg = z = gz$, so $g=1\in Z(G)$. 
+
+\end{enumerate}
+
+\pagebreak
+\section*{Q2}
+\begin{enumerate}[label=(\alph*)]
+	\item 
+	We check the conditions for the \textit{Two-step Test}:
+
+	First $1_G=x^0y^0\in H$, so $H$ is non-empty.
+
+	To show $\forall_{\alpha,\beta\in H}\alpha\beta\in H$:
+	\begin{mdframed}
+		For any $\alpha,\beta\in H$ there are $n,m\in\NN$ with $a,b\in\ZZ^n$ and $a',b'\in\ZZ^m$ such that for some $x,y\in G$ we have: 
+		\[
+			\alpha = x^{a_1}y^{b_1}\dots x^{a_n}y^{b_n},\quad
+			\beta  = x^{a'_1}y^{b'_1}\dots x^{a'_m}y^{b'_m}	
+		\]
+		Therefore: 
+		\[
+			\alpha\beta = x^{a_1}y^{b_1}\dots x^{a_n}y^{b_n}x^{a'_1}y^{b'_1}\dots x^{a'_m}y^{b'_m}\in H	
+		\]
+		Since $n+m\in\NN$ and $(a_1,\dots,a_n,a'_1,\dots,a'_m),(b_1,\dots,b_n,b'_1,\dots,b'_m)\in\ZZ^{n+m}$.
+	\end{mdframed}
+
+	To show $\forall_{\alpha\in H}\alpha^{-1}\in H$:
+	\begin{mdframed}
+		For any $\alpha\in H$ there are $n\in\NN$ and $a,b\in\ZZ^n$ such that for some $x,y\in G$ we have: 
+		\[
+			\alpha = x^{a_1}y^{b_1}\dots x^{a_n}y^{b_n}
+		\]
+		Now define $a',b'\in\ZZ^{n+1}$ where: 
+		\[
+			a'_i = \begin{cases}
+				0          & i=1  \\ 
+				-a_{n+2-i} & i > 1
+			\end{cases}
+			\qquad b'_i = \begin{cases}
+				-b_{n+1-i} & i < n + 1 \\
+				0          & i = n + 1   
+			\end{cases}
+		\]
+		So there is a $\beta\in H$ where: 
+		\[
+			\beta = x^{a'_1}y^{b'_1}\dots x^{a'_{n+1}}y^{b'_{n+1}}	
+		\]
+		And so we have:
+
+
+		\begin{minipage}{0.5\linewidth}
+			\begin{align*}
+				\alpha \beta 
+				&= x^{a_1}y^{b_1}\dots x^{a_n}y^{b_n}
+				x^{a'_1}y^{b'_1}\dots x^{a'_{n+1}}y^{b'_{n+1}}	\\
+				&= x^{a_1}y^{b_1}\dots x^{a_n}y^{b_n}
+				ey^{-b_n}x^{-a_n}\dots y^{-b_1}x^{-a_1}e	\\
+				&= x^{a_1}y^{b_1}\dots x^{a_n}y^{b_n}
+				y^{-b_n}x^{-a_n}\dots y^{-b_1}x^{-a_1}	\\
+				&= e 
+			\end{align*}
+		\end{minipage}
+		\begin{minipage}{0.5\linewidth}
+			\begin{align*}
+				\beta\alpha 
+				&= x^{a'_1}y^{b'_1}\dots x^{a'_{n+1}}y^{b'_{n+1}}	
+				x^{a_1}y^{b_1}\dots x^{a_n}y^{b_n} \\
+				&= ey^{-b_n}x^{-a_n}\dots y^{-b_1}x^{-a_1}e	
+				x^{a_1}y^{b_1}\dots x^{a_n}y^{b_n} \\
+				&= y^{-b_n}x^{-a_n}\dots y^{-b_1}x^{-a_1}	
+				x^{a_1}y^{b_1}\dots x^{a_n}y^{b_n} \\
+				&= e 
+			\end{align*}
+		\end{minipage}
+		As consecutive terms cancel from the middle, hence $a^{_1}=\beta \in H$.
+	\end{mdframed}		
+	So by the \textit{Two-step Test}, we have show $H$ is a subgroup of $G$. 
+
+	\item Using the same construction from \textit{Part a}, construct $H'$ using group $(L,\cdot)$ as $x,y\in L$:
+	\[
+		H' = \set{x^{a_1}y^{b_1} \dots x^{a_n}y^{a_n},a_i,b_j\in\ZZ, n\in\NN}	\leq L 
+	\]
+	
+	But $H'=H$ so $H\leq L$. Now by definition notice that: 
+	\[
+		\gen{x,y} = \bigcap_{\set{x,y}\subset L \leq G}L	
+	\]
+	Since $\gen{x,y}\leq G$, we have that $H\leq \gen{x,y}$, however, $\gen{x,y}$ is the smallest subgroup of $G$ containing $\set{x,y}$ so we must have $H=\gen{x,y}$. 
+
+	\item 
+	First let $n\in\ZZ$ with $n\geq 0$ for $a,b\in{-1,1}$, $a/b=ab$ so $x^n$ in $G$ is $(-1)^k$ in $\ZZ$. IE: 
+	\[
+		x^n = \begin{cases}
+			\hphantom{-}
+			 1 & n \equiv_2 0  \\
+			-1 & n \equiv_2 1 
+		\end{cases}	
+	\]
+	Now consider:
+	\[
+		y^{2n} = (y^2)^n = (-2/-2)^n = 1	
+	\]  
+	Therefore 
+	\[
+		y^{2n+1}=y^{2n}y = 1y = -2
+	\]
+	\[
+		y^n = \begin{cases}
+			\hphantom{-}
+			 1 & n \equiv_2 0  \\
+			-2 & n \equiv_2 1 
+		\end{cases}	
+	\]
+	Clearly for any $a\in\RR^*$ we have $a^{-n}=(a^n)^{-1}$ since $a^{-n}a^{n}=1$. Using the inverse found in \textit{Part 1}: 
+	\[
+		x^{-n}=x^n	
+		,\qquad
+		y^{-n}=y^n 	
+	\]
+	Therefore we have:
+	\[
+		\set{x^n: n\in\ZZ}=\set{1,-1},\qquad
+		\set{y^n: n\in\ZZ}=\set{1,-2}
+	\]
+	Hence: 
+	\begin{align*}
+		\gen{x,y} &= \set{x^{a_1}y^{b_1} \dots x^{a_n}y^{a_n},a_i,b_j\in\ZZ, n\in\NN} \\
+				  &= \set{g_1\dots g_n :n\in\NN, g_i\in \set{1,-1,-2}} \\
+		          &= \set{2^n : n\in\NN}
+		\cup\set{-2^n:n\in\NN}\cup\set{1,-1}
+	\end{align*}
+
+
+\end{enumerate}
+
+\pagebreak 
+\section*{Q3}
+\begin{enumerate}[label=(\alph*)]
+	\item We can compute $U(20)=\set{1, 3, 7, 9 11, 13, 17, 19}$. The Caley Table can be constructed by computed for the upper right entries and mirrored as $(U(20),\times_{20})$ is an abelian group. 
+	
+	\begin{center}
+		\begin{tabular}{c|cccccccc}
+			$\times_{20}$ 
+			& $ 1$ & $ 3$ & $ 7$ & $ 9$ & $11$ & $13$ & $17$ & $19$ \\
+			\midrule
+			$1 $ & $ 1$ & $ 3$ & $ 7$ & $ 9$ & $11$ & $13$ & $17$ & $19$ \\
+			$3 $ & $ 3$ & $ 9$ & $ 1$ & $ 7$ & $13$ & $19$ & $11$ & $17$ \\
+			$7 $ & $ 7$ & $ 1$ & $ 9$ & $ 3$ & $17$ & $11$ & $19$ & $13$ \\
+			$9 $ & $ 9$ & $ 7$ & $ 3$ & $ 1$ & $19$ & $17$ & $13$ & $11$ \\
+			$11$ & $11$ & $13$ & $17$ & $19$ & $ 1$ & $ 3$ & $ 7$ & $ 9$ \\
+			$13$ & $13$ & $19$ & $11$ & $17$ & $ 3$ & $ 9$ & $ 1$ & $ 7$ \\
+			$17$ & $17$ & $11$ & $19$ & $13$ & $ 7$ & $ 1$ & $ 9$ & $ 3$ \\
+			$19$ & $19$ & $17$ & $13$ & $11$ & $ 9$ & $ 7$ & $ 3$ & $ 1$ \\
+		\end{tabular}
+	\end{center}
+	
+	\item Let $g$ correspond to the label of a row in the Caley table, then the inverse of $g$ is given by the column $h$ where the cell corresponding to $g\times_{20}h$ contains a $1$. Thus, we can read off the inverses from the Caley table: 
+	\begin{center}
+		\begin{tabular}{c|cccccccc}
+			$g\in U(20)$ & 
+			$ 1$ & $ 3$ & $ 7$ & $ 9$ & $11$ & $13$ & $17$ & $19$ \\
+			\midrule
+			$g^{-1}$ & 
+			$ 1$ & $ 7$ & $ 3$ & $ 9$ & $11$ & $17$ & $13$ & $19$ \\
+		\end{tabular}
+	\end{center}
+
+	\item Since all elements have finite order, we use the Caley table to compute repeated multiplication for each element, and find the lowest exponent where $g^i=1$, thus determining the order of each element:
+	\begin{center}
+		\begin{tabular}{c|cccccccc}
+			$g\in U(20)$ & 
+			$ 1$ & $ 3$ & $ 7$ & $ 9$ & $11$ & $13$ & $17$ & $19$ \\
+			\midrule
+			$|g|$ & 
+			$ 1$ & $4$ & $4$ & $2$ & $2$ & $4$ & $4$ & $2$ \\
+		\end{tabular}
+	\end{center}
+
+	For any $g\in U(20)$, we have seen that $|g|\leq 4$ so $\abs{\gen{g}}\leq 4$, since $\abs{U(20)}=8$, there is no $g\in U(20)$ where $\set{g}$ generates $U(20)$. Therefore $U(20)$ is not a cyclic group. 
+\end{enumerate}
+
+\pagebreak
+\section*{Q4}
+\begin{enumerate}[label=(\alph*)]
+	\item Computing the powers $g^n$ for each $g\in\set{a,b,ba}$:
+	\begin{alignat*}{7}
+	a^1&=\begin{pmatrix}
+		1 & 1 \\
+		1 & 2 \\
+	\end{pmatrix},\quad
+	&a^2&=\begin{pmatrix}
+		2 & 0 \\
+		0 & 2 \\
+	\end{pmatrix},\quad
+	&a^3&=\begin{pmatrix}
+		2 & 2 \\
+		2 & 1 \\
+	\end{pmatrix},\quad
+	&a^4&=\begin{pmatrix}
+		1 & 0 \\
+		0 & 1 \\
+	\end{pmatrix}
+	\\
+	b^1&=\begin{pmatrix}
+		0 & 2 \\
+		1 & 0 \\
+	\end{pmatrix},\quad
+	&b^2&=\begin{pmatrix}
+		2 & 0 \\
+		0 & 2 \\
+	\end{pmatrix},\quad
+	&b^3&=\begin{pmatrix}
+		0 & 1 \\
+		2 & 0 \\
+	\end{pmatrix},\quad
+	&b^4&=\begin{pmatrix}
+		1 & 0 \\
+		0 & 1 \\
+	\end{pmatrix}
+	\\
+	(ba)^1&=\begin{pmatrix}
+		2 & 1 \\
+		1 & 1 \\
+	\end{pmatrix},\quad
+	&(ba)^2&=\begin{pmatrix}
+		2 & 0 \\
+		0 & 2 \\
+	\end{pmatrix},\quad
+	&(ba)^3&=\begin{pmatrix}
+		1 & 2 \\
+		2 & 2 \\
+	\end{pmatrix},\quad
+	&(ba)^4&=\begin{pmatrix}
+		1 & 0 \\
+		0 & 1 \\
+	\end{pmatrix}
+	\end{alignat*}
+	For each $g$, we find that the smallest $n$ with $g^n=1_G$ is $n=4$ so $a,b,ba$ are all order $4$.
+
+	\item From part (a), we have already found $8$ distinct $g$ which must be present in any group containing both $a$ and $b$.
+	
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+			\toprule
+			$1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ \\
+			\midrule 
+			$a$ & 
+			$b$ & 
+			$(ba)$ & 
+			$a^2=b^2=(ba)^2$ & 
+			$a^3$ &
+			$b^3$ &
+			$(ba)^3$ &
+			$e=a^4=b^4=(ba)^4$ \\
+			\bottomrule
+		\end{tabular}`'
+	\end{center}
+
+	Thus, $8\leq|Q|$. 
+	
+	\textcolor{red}{NOW SHOW THAT $|Q|\leq8$}
+
+	% aa = bb = baba 
+	% a = bab 
+	% b = aba 
+
+	% a^4 = b^4 
+
+	% a 
+	% b 
+	% ba 
+	% baa 
+
+
+
+	\item From \textit{Example 3 of Week 2's Notes}, we see that for a field $F$: 
+	\[
+		Z(\operatorname{GL}_2(F)) = 
+		\set{
+			\alpha I : \alpha \in F^*
+		}
+	\] 
+	Since we have $F=\ZZ_3$, we have $F^*=\set{1,2}$ and so: 
+	\[
+		Z(\operatorname{GL}_2(F))=\set{
+			\begin{bmatrix}
+				1 & 0 \\ 
+				0 & 1
+			\end{bmatrix},
+			\begin{bmatrix}
+				2 & 0 \\
+				0 & 2 
+			\end{bmatrix}
+		}
+	\]
+
+	\item 
+	Consider any $g=\begin{bmatrix}
+		a & b\\
+		c & d
+	\end{bmatrix}\in Q$, then: 
+	
+	\begin{alignat*}{3}
+		&& g\in C_Q(ba) \\
+		&\iff&\begin{bmatrix}
+			2 & 1 \\
+			1 & 1 
+		\end{bmatrix}\cdot g 
+		&= g\cdot\begin{bmatrix}
+			2 & 1 \\
+			1 & 1 
+		\end{bmatrix}\\
+		&\iff & 
+		\begin{bmatrix}
+			2a + 1c & 2b + 1d \\
+			1a + 1c & 1b + 1d 
+		\end{bmatrix} &= 
+		\begin{bmatrix}
+			2a + 1b & 1a+1b \\ 
+			2c + 1d & 1c+1d 
+		\end{bmatrix} & \quad & \text{Multiplying Matrices}\\
+		&\iff & 
+		\begin{bmatrix}
+			c & b + d \\
+			a & b 
+		\end{bmatrix} &= 
+		\begin{bmatrix}
+			b & a \\ 
+			c + d & c
+		\end{bmatrix} &\quad & \text{Cancelling}\\
+		&\iff & 
+		\begin{bmatrix}
+			0 & b + d \\
+			a & 0 
+		\end{bmatrix} &= 
+		\begin{bmatrix}
+			0 & a \\ 
+			b + d & 0
+		\end{bmatrix} & \quad & \text{As $b=c$}
+	\end{alignat*}
+	Thus, the elements in $C_Q(ba)$ are exactly those where $a=b+d$ and $c=b$. Since we already know the elements of $Q$, by checking these conditions we find: 
+
+	\[
+		C_Q(ba) = \set{
+			\begin{bmatrix}
+				2 & 1 \\
+				1 & 1
+			\end{bmatrix}			
+			\begin{bmatrix}
+				2 & 0 \\
+				0 & 2
+			\end{bmatrix}
+			\begin{bmatrix}
+				1 & 2 \\
+				2 & 2
+			\end{bmatrix}
+			\begin{bmatrix}
+				1 & 0 \\
+				0 & 1
+			\end{bmatrix}
+		}
+	\]
+
+\end{enumerate}
+
+\pagebreak
+\section*{Q5}
+Let $H=\gen{h}$ be cyclic group of infinite order, $a=h^n\in H$ and $b=h^m\in H$ where $n,m\in\ZZ$. 
+\begin{enumerate}[label=(\alph*)]
+	\item 
+	Consider $\gen{a,b}$, from \textit{Question 2}, we know that:
+	\begin{align*}
+		\gen{a,b} &= \set{
+			a^{\alpha_1}b^{\beta_1}\dots 
+			a^{\alpha_k}b^{\beta_k} : \alpha_i,\beta_i\in\ZZ, k\in\NN
+		}\\
+		&= \set{
+			(h^n)^{\alpha_1}(h^m)^{\beta_1}\dots 
+			(h^n)^{\alpha_k}(h^m)^{\beta_k} : \alpha_i,\beta_i\in\ZZ, k\in\NN
+		}\\
+		&= \set{
+			(h^{\alpha_1n})(h^{\beta_1m})\dots 
+			(h^{\alpha_kn})(h^{\beta_km})
+			: \alpha_i,\beta_i\in\ZZ, k\in\NN
+		}\\
+		&= \set{
+			(h^{
+				\alpha_1n + \beta_1m 
+				+ \dots + 
+				\alpha_kn+\beta_km
+			})
+			: \alpha_i,\beta_i\in\ZZ, k\in\NN
+		}\\
+		&= \set{
+			(h^{
+				\alpha n + \beta m 
+			})
+			: \alpha,\beta\in\ZZ
+		}
+	\end{align*}
+	To show $\alpha n+\beta m$ is equivalent to $k\cdot\gcd(n,m)$ for some $k\in\ZZ$. 
+	\begin{mdframed}
+		For any $\alpha,\beta\in\ZZ$, let $p=\frac{n}{\gcd(n,m)}\in\ZZ$ and $q=\frac{m}{\gcd(n,m)}\in\ZZ$, then: 
+		\[
+			\alpha n + \beta m = k\cdot\gcd(n,m) \iff \alpha p + \beta q = k 
+		\]
+		Hence $(\alpha p + \beta q)\in\ZZ$ so there must exist $k\in\ZZ$ satisfying the equation. 
+
+		Now to show that for any $k\in\ZZ$ we can write $k\cdot\gcd(n,m)$ in the form $\alpha n + \beta m$, for some $\alpha,\beta\in\ZZ$. 
+
+		For any $k\in\ZZ$, let $p=\frac{n}{\gcd(n,m)}$ and $q=\frac{m}{\gcd(n,m)}$, then $p,q$ must be coprime, so there are $a,b\in\ZZ$ such that: 
+		\begin{align*}
+					& ap+bq=1 \\ 
+		\implies 	& k\gcd(n,m)ap + k\gcd(n,m) bq = k\gcd(n,m)\\  
+		\implies 	& akn + bkm = k\gcd(n,m)  
+		\end{align*}
+		So let $\alpha = ak$ and $\beta = bk$ to obtain a solution. 
+	\end{mdframed}
+	Thus, we have:  
+	\[
+		\gen{a,b}=
+		\set{
+			(h^{
+				\alpha n + \beta m 
+			})
+			: \alpha,\beta\in\ZZ
+		} = \set { 
+			h^{k\cdot\gcd(n,m)} : k \in\ZZ 
+		} = \gen{h^{\gcd(n,m)}}
+	\]
+
+	\item First see that: 
+	\begin{align*}
+		\gen{a}\cap\gen{b} 
+		&= \set{a^i:i\in\ZZ}\cap\set{b^i:i\in\ZZ}                       & 
+		\text{By \textit{Theorem 6 of Week 2's Notes}}   \\ 
+		&= \set{h^{in}:i\in\ZZ}\cap\set{h^{im}:i\in\ZZ}                 &   \\ 
+		&= \set{h^k:k\in\ZZ, \exists_{i,j\in\ZZ}\left[ in=k=jm \right]} & 
+	\end{align*}
+	We want to show that all such $k$ are of the form $t\cdot\operatorname{lcm}(n,m)$ for some $t\in\ZZ$. Consider Euclidean Division: 
+	
+	% First note that by definition $\operatorname{lcm}(n,m)\leq k$ as all $k$ are common multiples of $n,m$. Clearly this holds for $k=\operatorname{lcm}(n,m)$ with $t=1$. 
+
+	% Now consider $\operatorname{lcm}(n,m)<k$, 
+	\[
+		k = t\cdot\operatorname{lcm}(n,m) + r 	
+	\]
+	Where $0\leq r< \operatorname{lcm}(n,m)$. Now note that both $n,m$ divide $k$ and $t\cdot\operatorname{lcm}(n,m)$, so they must also divide $r$, since $0\leq r<\operatorname{lcm}(n,m)$, we must have $r=0$.  Hence, for some $t\in\ZZ$:
+	\[
+		k=t\cdot\operatorname{lcm}(n,m)
+	\] 
+	Now notice that $\operatorname{lcm}(n,m)$ is divisible by $n,m$ so $t\cdot \operatorname{lcm}(n,m)=in=jm$ for some $i,j\in\ZZ$. Thus: 
+
+	\[
+		\gen{a}\cap\gen{b} 
+		= \set{h^k:k\in\ZZ, \exists_{i,j\in\ZZ}\left[ in=k=jm \right] }
+		= \set{h^{t\cdot\operatorname{lcm}(n,m)}:t\in\ZZ}
+		= \gen{h^{\operatorname{lcm}(n,m)}}
+	\]
+
+\end{enumerate}
+
+\pagebreak
+\section*{Q6}
+Note that by \textit{Theorem 2} of the \textit{Week 2 Lecture Notes}, if $G=\gen{a}$ is finite then $|a|=|G|$. 
+
+\begin{enumerate}[label=(\alph*)]
+	\item Since $|G|=28$, we have that $|a|=28$. Thus, by \textit{Theorem 4 of Week 3's Notes}: 
+	$$|a^{10}|=\frac{28}{\gcd(10,28)}=\frac{28}{2}=14$$
+	Hence $H=\gen{a^{10}}$ has $|H|=|a^{10}|=14$. 
+
+	\item Since $G=\gen{a}$ is a finite cyclic group of order $n=28$ generated by $a$, by \textit{Theorem 8 of Week 2's Notes}, the set of all generators of $G$ is:
+	\[
+		\set{a^k:k\in U(28)}=\set{
+			a^{1},
+			a^{3},
+			a^{5},
+			a^{9},
+			a^{11},
+			a^{13},
+			a^{15},
+			a^{17},
+			a^{19},
+			a^{23},
+			a^{25},
+			a^{27}
+		}
+	\]
+
+	\item By the \textit{Fundamental Theorem of Cyclic Groups}, since $G=\gen{a}$ and $|G|=28$, there is a unique subgroup of order $k=14$, $K=\gen{a^{\frac{28}{14}}}=\gen{a^2}$. The generators of this subgroup are the elements of order $14$. Applying \textit{Theorem 8 of Week 2's Notes}, these are: 
+	\[
+		\set{\big(a^2\big)^i : i \in U(14)}
+		=\set{
+			a^{2}, a^{6}, a^{10}, a^{18}, a^{22}, a^{26}
+		}
+	\]
+	
+	\item By \textit{Fundamental Theorem of Cyclic Groups}, each $H$ subgroup of $G=\gen{a}$ must have order $k=|H|$ where $k$ divides $n$, and there is a unique subgroup for each $k\in\NN$ where $k$ divides $n$. Thus, there are subgroups of orders: 
+	\[
+		k\in\set{1,2,4,7,14}	
+	\]
+	The fundamental theorem also gives us the generators $a^{\frac nk}$ for a subgroup of order $k$: 
+
+	\begin{center}
+		\begin{tabular}{r|ccccc}
+			Subgroup& 
+			$\gen{a^{28}}$&
+			$\gen{a^{14}}$&
+			$\gen{a^{7}}$&
+			$\gen{a^{4}}$&
+			$\gen{a^{2}}$ \\ 
+			\midrule
+			Order&
+			$1$&
+			$2$&
+			$4$&
+			$7$&
+			$14$
+		\end{tabular}
+	\end{center}
+\end{enumerate}
+\end{document}
+
