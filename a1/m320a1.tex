@@ -275,20 +275,52 @@ Which is well-defined as $a,b\neq0$ so $ab,a/b\in G$ and all cases are covered.
 	Yet $-1/2 \neq -2$ so $*$ is not commutative, hence $(G,*)$ is not an abelian group. 
 
 	\item 
-	Let $a=5\in G$. Consider $a^k>0$ and apply induction on $k$. 
-	\begin{itemize}
-		\item Base case: $k=1$, it satisfied as $a^1=a=5>0$. 
-		\item Inductive Step: Assume $a^k>0$, then by definition of $*$ we have that $a^k * a = a^k \cdot a > 0$ as $a>0$. Thus, $a^{k+1}>0$. 
-	\end{itemize}
-	Therefore, $a^k>0$ for all $k\in\ZZ^+$. 		
-
-	\textcolor{red}{Find elements for $k<0$.}
+	Let $x=5\in G$ \textit{Theorem 6 of Week 2's Notes}, $\gen x=\set{x^i: i\in\ZZ}$. For clarity, let $g\uparrow n$ denote the product of $n\in\NN$ copies of $g\in G$, let $g\uparrow -n$ denote $n$ copies of $g^{-1}$ and let $g\uparrow 0=1$. This is done to avoid confusion with the operation $g^n$ exponentiation in $\RR$. 
 	
-	\textcolor{red}{TODO!!!}
-	\item 
-	\textcolor{red}{TODO!!!}
+	
+	We claim that $5\uparrow n = 5^{n}$. 
+	Base case $n=0$, $5\uparrow 0 = 1 = 5^0$. Now: 
+	
+	Positive induction case: Assume that $5\uparrow k=5^k$, then: 
+	\[
+		5\uparrow (k+1)=(5\uparrow k)*5 = (5\uparrow k)\cdot 5 = 5^{k+1}	
+	\]
+	
+	Negative induction case: Assume that $5\uparrow -k=5^{-k}$, then: 
+	\[
+		5\uparrow (-k-1)=(5\uparrow -k)*5^{-1} = (5\uparrow -k)\cdot \frac 15 = 5^{-k-1}	
+	\]
+	
+	Thus, for all $k\in\ZZ$: 
+	\[
+		5\uparrow k = 5^k 	
+	\]
+	Hence: 
+	\[
+		\gen 5 = \set{5^k : k\in\ZZ}	
+	\]
 
-	% By \textit{part (a)}, for $a=-5$, we have that the inverse $a^{-1}=-5$. 
+	\item 
+	Since $-5<0$, $(-5)^2=-5/-5=1$ so for any $k\in\ZZ$:  
+	\[
+		-5\uparrow 2k = (-5\uparrow2)\uparrow k = 1\uparrow k = 1 
+	\]
+	For the odd case: 
+	\[
+		-5\uparrow (2k+1) = (-5\uparrow 2k)*-5 = -5
+	\]
+	Hence: 
+	\[
+		-5\uparrow k = \begin{cases}
+			 1 & k \equiv_2 0 \\ 
+			-5 & k \equiv_2 1
+		\end{cases}	
+	\]
+	Therefore: 
+	\[
+		\gen{-5}=\set{1,-5}	
+	\]
+	
 	
 	\item 
 	We want elements where $x^1\neq 1$ but $x^2=1$, for any $x>0$ where $x\neq 1$ we have $x\star x = xx \neq 1$.
@@ -501,56 +533,56 @@ Which is well-defined as $a,b\neq0$ so $ab,a/b\in G$ and all cases are covered.
 \begin{enumerate}[label=(\alph*)]
 	\item Computing the powers $g^n$ for each $g\in\set{a,b,ba}$:
 	\begin{alignat*}{7}
-	a^1&=\begin{pmatrix}
+	a^1&=\begin{bmatrix}
 		1 & 1 \\
 		1 & 2 \\
-	\end{pmatrix},\quad
-	&a^2&=\begin{pmatrix}
+	\end{bmatrix},\quad
+	&a^2&=\begin{bmatrix}
 		2 & 0 \\
 		0 & 2 \\
-	\end{pmatrix},\quad
-	&a^3&=\begin{pmatrix}
+	\end{bmatrix},\quad
+	&a^3&=\begin{bmatrix}
 		2 & 2 \\
 		2 & 1 \\
-	\end{pmatrix},\quad
-	&a^4&=\begin{pmatrix}
+	\end{bmatrix},\quad
+	&a^4&=\begin{bmatrix}
 		1 & 0 \\
 		0 & 1 \\
-	\end{pmatrix}
+	\end{bmatrix}
 	\\
-	b^1&=\begin{pmatrix}
+	b^1&=\begin{bmatrix}
 		0 & 2 \\
 		1 & 0 \\
-	\end{pmatrix},\quad
-	&b^2&=\begin{pmatrix}
+	\end{bmatrix},\quad
+	&b^2&=\begin{bmatrix}
 		2 & 0 \\
 		0 & 2 \\
-	\end{pmatrix},\quad
-	&b^3&=\begin{pmatrix}
+	\end{bmatrix},\quad
+	&b^3&=\begin{bmatrix}
 		0 & 1 \\
 		2 & 0 \\
-	\end{pmatrix},\quad
-	&b^4&=\begin{pmatrix}
+	\end{bmatrix},\quad
+	&b^4&=\begin{bmatrix}
 		1 & 0 \\
 		0 & 1 \\
-	\end{pmatrix}
+	\end{bmatrix}
 	\\
-	(ba)^1&=\begin{pmatrix}
+	(ba)^1&=\begin{bmatrix}
 		2 & 1 \\
 		1 & 1 \\
-	\end{pmatrix},\quad
-	&(ba)^2&=\begin{pmatrix}
+	\end{bmatrix},\quad
+	&(ba)^2&=\begin{bmatrix}
 		2 & 0 \\
 		0 & 2 \\
-	\end{pmatrix},\quad
-	&(ba)^3&=\begin{pmatrix}
+	\end{bmatrix},\quad
+	&(ba)^3&=\begin{bmatrix}
 		1 & 2 \\
 		2 & 2 \\
-	\end{pmatrix},\quad
-	&(ba)^4&=\begin{pmatrix}
+	\end{bmatrix},\quad
+	&(ba)^4&=\begin{bmatrix}
 		1 & 0 \\
 		0 & 1 \\
-	\end{pmatrix}
+	\end{bmatrix}
 	\end{alignat*}
 	For each $g$, we find that the smallest $n$ with $g^n=1_G$ is $n=4$ so $a,b,ba$ are all order $4$.
 
@@ -569,15 +601,88 @@ Which is well-defined as $a,b\neq0$ so $ab,a/b\in G$ and all cases are covered.
 			$b^3$ &
 			$(ba)^3$ &
 			$e=a^4=b^4=(ba)^4$ \\
+			\midrule 
+			$\begin{bmatrix}
+				1 & 1 \\ 
+				1 & 2 
+			\end{bmatrix}$&
+			$\begin{bmatrix}
+				0 & 2 \\ 
+				1 & 0 
+			\end{bmatrix}$&
+			$\begin{bmatrix}
+				2 & 1 \\ 
+				1 & 1 
+			\end{bmatrix}$&
+			$\begin{bmatrix}
+				2 & 0 \\ 
+				0 & 2 
+			\end{bmatrix}$&
+			$\begin{bmatrix}
+				2 & 2 \\ 
+				2 & 1 
+			\end{bmatrix}$&
+			$\begin{bmatrix}
+				0 & 1 \\ 
+				2 & 0 
+			\end{bmatrix}$&
+			$\begin{bmatrix}
+				1 & 2 \\ 
+				2 & 2 
+			\end{bmatrix}$&
+			$\begin{bmatrix}
+				1 & 0 \\ 
+				0 & 1 
+			\end{bmatrix}$
+			\\
 			\bottomrule
-		\end{tabular}`'
+		\end{tabular}
 	\end{center}
 
-	Thus, $8\leq|Q|$. 
-	
-	\textcolor{red}{NOW SHOW THAT $|Q|\leq8$}
+	Thus, $8\leq|Q|$. First notice that $a^2=(ba)^2=baba$ so $a=bab$. Now observe that: 
+	\[
+	 	ab = \begin{bmatrix}
+			1 & 2 \\ 
+			2 & 2
+		\end{bmatrix} =(ba)^3	
+	\]
+	Hence $ab=bababa=ba(bab)a=ba^3$. From \textit{Question 2}, we can write: 
+	\[
+		\gen{a,b} = \set{
+			a^{\alpha_1}b^{\beta_1}\dots 
+			a^{\alpha_k}b^{\beta_k} : \alpha_i,\beta_i\in\ZZ, k\in\NN
+		}	
+	\]
+	So using our observation we can replace all $ab$ to $ba^3$ until all $b$ terms come before $a$ terms. Thus, we can transform the generated subgroup: 
+	\[
+		\gen{a,b} =\set{b^ia^j: i,j\in\ZZ} 	
+	\]
+	Since $a^{k+4}=a^k$ and $b^{k+4}=b^k$:
+	\[
+		\gen{a,b}=\set{b^ia^j: i,j\in\ZZ_4} 	
+	\]
+	Notice that if we have $i,j\in\ZZ_4$ and $j\geq 2$, then since $a^2=b^2$
+	\[
+		b^ia^j = b^i a^2a^{j-2}	=b^{i+_42}=a^{j-2}
+	\]
+	\[
+		\gen{a,b}=\set{b^ia^j: i\in\ZZ_4,j\in\ZZ_2} 	
+	\]
+	Which means $|\set{b^ia^j: i\in\ZZ_4,j\in\ZZ_2}|\leq 4\cdot 2 = 8$. Thus, $|Q|=8$. 
+
+
+
+
+
+	% aa = bb = bba 
+
+	% ab = bababa 
+	% ab = aaba 
+	% b = aba 
+	% 
 
 	% aa = bb = baba 
+
 	% a = bab 
 	% b = aba 
 
